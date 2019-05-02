@@ -1,7 +1,7 @@
 {
   "name": "@modulz/radix-icons",
   "private": false,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "license": "MIT",
   "description": "Radix Icon Set",
   "author": "Lochlan Bunn <lochlan@modulz.app>",
@@ -17,8 +17,7 @@
   ],
   "scripts": {
     "generate-src": "generate-icon-lib --file=LLggMY9IV61CYkCSI7LFFUOY",
-    "build": "tsdx build",
-    "prepublishOnly": "npm run generate-src && npm run build"
+    "build": "tsdx build"
   },
   "peerDependencies": {
     "react": "^16.x",
