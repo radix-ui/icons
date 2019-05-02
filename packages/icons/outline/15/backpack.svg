@@ -1,0 +1,18 @@
+<svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path
+    d="M3.5 9v2.5a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V9"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M3 4.5h9a.5.5 0 0 1 .5.5v2A2.5 2.5 0 0 1 10 9.5H5A2.5 2.5 0 0 1 2.5 7V5a.5.5 0 0 1 .5-.5zM6 2.5h3a.5.5 0 0 1 .5.5v1.5h-4V3a.5.5 0 0 1 .5-.5z"
+    stroke="currentColor"
+  />
+  <path
+    d="M7.5 8.5v2"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

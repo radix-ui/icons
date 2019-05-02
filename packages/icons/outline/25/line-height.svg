@@ -1,0 +1,19 @@
+<svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path
+    d="M8 7.5l.472-.165a.5.5 0 0 0-.944 0L8 7.5zm-3.972 9.835a.5.5 0 1 0 .944.33l-.944-.33zm7 .33a.5.5 0 1 0 .944-.33l-.944.33zm-3.5-10.33l-3.5 10 .944.33 3.5-10-.944-.33zm0 .33l3.5 10 .944-.33-3.5-10-.944.33z"
+    fill="currentColor"
+  />
+  <path d="M5.5 14.5h5" stroke="currentColor" />
+  <path
+    d="M20.5 20.5h-16M20.5 4.5h-16"
+    stroke="currentColor"
+    stroke-linecap="round"
+  />
+  <path
+    d="M19.5 15.5l-2 2-2-2M19.5 9.5l-2-2-2 2"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path d="M17.5 7.5v10" stroke="currentColor" stroke-linecap="round" />
+</svg>

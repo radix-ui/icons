@@ -1,0 +1,31 @@
+# @modulz/generate-icon-lib
+
+See [top-level readme](https://github.com/modulz/radix-icons) for more details.
+
+## Usage
+
+```shell
+generate-icon-lib --file=<figma-file-key>
+```
+
+_The `figma-file-key` can be sourced from the link to a Figma document:_
+
+- `https://www.figma.com/file/<figma-file-key>`
+
+### Authentication with Figma
+
+Go to your Account Settings in Figma to create a Personal Access Token.
+
+This can be provided to `generate-icon-lib` via the `FIGMA_ACCESS_TOKEN` environment variable.
+
+Create an `.env` file an intended directory for easy reuse:
+
+```shell
+echo "FIGMA_ACCESS_TOKEN=<token>" >> packages/icons/.env
+```
+
+## Legal
+
+MIT License
+
+Copyright (c) 2019 Modulz, Inc

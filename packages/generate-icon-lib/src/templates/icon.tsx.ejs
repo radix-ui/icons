@@ -1,0 +1,68 @@
+import * as React from 'react';
+
+interface SVGIconProps extends React.SVGAttributes<SVGElement> {
+  children?: never;
+  color?: string;
+}
+
+<%
+for (const type in iconManifest) {
+  for (const size in iconManifest[type]) {
+    for (const name in iconManifest[type][size]) {
+%>
+interface <%- propsInterfaceName(type, size, name); %> extends SVGIconProps {
+  name: "<%- name %>";
+  size: "<%- size %>";
+}
+
+export const <%- componentName(type, size, name) %>: React.FunctionComponent<<%- propsInterfaceName(type, size, name) %>> =
+  ({
+    color = 'currentColor',
+    ...props,
+  }) => (
+    <%- await filePathToSVGinJSX(iconManifest[type][size][name]) %>
+  );
+<% }}} %>
+
+<% for (const type in iconManifest) { %>
+type <%- _.upperFirst(_.camelCase(type)) %>TypeIcons = <%-
+  _.flatten(
+    _.map(iconManifest[type], (names, size) =>
+      _.map(names, (filePath, name) => propsInterfaceName(type, size, name))
+    )
+  ).join(' | ') + ';'
+%>
+
+type <%- _.upperFirst(_.camelCase(type)) %>TypeIconProps = <%- _.upperFirst(_.camelCase(type)) %>TypeIcons & { type: "<%- type %>" };
+<% } %>
+
+type IconProps = <%-
+Object.keys(iconManifest).map(
+  type => `${_.upperFirst(_.camelCase(type))}TypeIconProps`
+).join(' | ') + ';'
+%>
+
+const iconManifest = {
+<% _.forEach(iconManifest, (sizes, type) => { %>
+  '<%- type %>': {
+  <% _.forEach(sizes, (names, size) => { -%>
+    '<%- size %>': {
+    <% _.forEach(names, (filePath, name) => { -%>
+      '<%- name %>': <%- componentName(type, size, name) %>,
+    <% }) %>
+    },
+  <% }) %>
+  },
+<% }) %>
+};
+
+const Icon = ({ name, size, type = '<%- Object.keys(iconManifest)[0] %>', ...props }: IconProps) => {
+  if (!name) throw new Error('Icon component requires a \'name\' prop.');
+  if (!type) throw new Error('Icon component requires a \'type\' prop.');
+  if (!size) throw new Error('Icon component requires a \'size\' prop.');
+
+  const MappedIcon = iconManifest[type][size][name];
+  return <MappedIcon {...props} />;
+}
+
+export default Icon;
