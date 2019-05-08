@@ -241,7 +241,8 @@ export async function downloadSvgsToFs(
   icons: IIcons,
   onProgress: () => void
 ) {
-  const processedFiles = [];
+  const iconIds = Object.keys(urls);
+  const processedFiles = [...iconIds];
   await Promise.all(
     Object.keys(urls).map(async iconId => {
       const svg = await (await fetch(urls[iconId]))
@@ -257,12 +258,13 @@ export async function downloadSvgsToFs(
         encoding: 'utf8',
       });
       onProgress();
-      processedFiles.push(svgPath);
+
+      // We retain the ordering of the array by icon id's because the positioning
+      // of the icons in the Figma file can influence defaults in generated code.
+      processedFiles[processedFiles.indexOf(iconId)] = svgPath;
     })
   );
-  // We want to make sure the files are ordered, to make it easier to create
-  // ordered objects later.
-  return _.sortBy(processedFiles, _.identity);
+  return processedFiles;
 }
 
 const iconPathTo = {
@@ -278,7 +280,9 @@ const iconPathTo = {
   },
 };
 
-export function createIconManifest(processedFiles: string[]): IIconManifest {
+export function filepathsToIconManifest(
+  processedFiles: string[]
+): IIconManifest {
   return processedFiles.reduce((iconManifest: IIconManifest, filePath) => {
     _.setWith(
       iconManifest,
@@ -310,7 +314,7 @@ export async function generateReactComponents(filePaths: string[]) {
     process.cwd(),
     ICON_TSX_RELATIVE_PATH
   );
-  const iconManifest = createIconManifest(filePaths);
+  const iconManifest = filepathsToIconManifest(filePaths);
   const iconFileTemplate = await fs.readFile(ICON_TEMPLATE_FILE_PATH, {
     encoding: 'utf8',
   });
@@ -342,7 +346,7 @@ export async function generateIconManifest(filePaths: string[]) {
     process.cwd(),
     ICON_MANIFEST_RELATIVE_PATH
   );
-  let iconManifestRaw = JSON.stringify(createIconManifest(filePaths));
+  let iconManifestRaw = JSON.stringify(filepathsToIconManifest(filePaths));
   iconManifestRaw = prettier.format(iconManifestRaw, {
     parser: 'json',
   });
