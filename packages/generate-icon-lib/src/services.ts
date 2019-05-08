@@ -6,9 +6,10 @@ import * as fs from 'fs-extra';
 import cheerio from 'cheerio';
 import * as path from 'path';
 import * as _ from 'lodash';
+import * as ejs from 'ejs';
 import execa from 'execa';
 import SVGO from 'svgo';
-import * as ejs from 'ejs';
+import { FILE_PATH_MANIFEST, FILE_PATH_REACT_COMPONENT } from './consts';
 import {
   CodedError,
   ERRORS,
@@ -54,7 +55,8 @@ const transformers = {
   },
 
   prettify(svgRaw: string) {
-    return prettier.format(svgRaw, { parser: 'html' });
+    const prettierOptions = prettier.resolveConfig.sync(process.cwd());
+    return prettier.format(svgRaw, { ...prettierOptions, parser: 'html' });
   },
 
   readyForJSX(svgRaw: string) {
@@ -309,10 +311,9 @@ export async function generateReactComponents(filePaths: string[]) {
     __dirname,
     './templates/icon.tsx.ejs'
   );
-  const ICON_TSX_RELATIVE_PATH = 'src/index.tsx';
   const ICON_TSX_ABSOLUTE_PATH = path.resolve(
     process.cwd(),
-    ICON_TSX_RELATIVE_PATH
+    FILE_PATH_REACT_COMPONENT
   );
   const iconManifest = filepathsToIconManifest(filePaths);
   const iconFileTemplate = await fs.readFile(ICON_TEMPLATE_FILE_PATH, {
@@ -333,27 +334,77 @@ export async function generateReactComponents(filePaths: string[]) {
   let reactComponentRaw = await ejs.render(iconFileTemplate, templateData, {
     async: true,
   });
+  const prettierOptions = prettier.resolveConfig.sync(process.cwd());
   reactComponentRaw = prettier.format(reactComponentRaw, {
+    ...prettierOptions,
     parser: 'typescript',
   });
   await fs.outputFile(ICON_TSX_ABSOLUTE_PATH, reactComponentRaw);
-  return ICON_TSX_RELATIVE_PATH;
+}
+
+export async function getCurrentIconManifest() {
+  const ICON_MANIFEST_ABSOLUTE_PATH = path.resolve(
+    process.cwd(),
+    FILE_PATH_MANIFEST
+  );
+  return (await fs.readJSON(ICON_MANIFEST_ABSOLUTE_PATH, {
+    encoding: 'utf8',
+  })) as {};
 }
 
 export async function generateIconManifest(filePaths: string[]) {
-  const ICON_MANIFEST_RELATIVE_PATH = 'manifest.json';
   const ICON_MANIFEST_ABSOLUTE_PATH = path.resolve(
     process.cwd(),
-    ICON_MANIFEST_RELATIVE_PATH
+    FILE_PATH_MANIFEST
   );
-  let iconManifestRaw = JSON.stringify(filepathsToIconManifest(filePaths));
+  const iconManifest = filepathsToIconManifest(filePaths);
+  let iconManifestRaw = JSON.stringify(iconManifest);
+  const prettierOptions = prettier.resolveConfig.sync(process.cwd());
   iconManifestRaw = prettier.format(iconManifestRaw, {
+    ...prettierOptions,
     parser: 'json',
   });
+  const previousIconManifest = await getCurrentIconManifest();
   await fs.writeFile(ICON_MANIFEST_ABSOLUTE_PATH, iconManifestRaw, {
     encoding: 'utf8',
   });
-  return ICON_MANIFEST_RELATIVE_PATH;
+  return [previousIconManifest, iconManifest];
+}
+
+export async function attemptToRemoveDeletedIconSVGs(
+  previousIconManifest: IIconManifest,
+  nextIconManifest: IIconManifest
+) {
+  let deletedIconsAsSVGPaths = [];
+  const assignRemovedPropAccessorsRecursive = (
+    a: IIconManifest,
+    b: IIconManifest,
+    accessor: any[] = []
+  ) => {
+    _.forEach(accessor.length ? _.get(a, accessor) : a, (v, k) => {
+      if (v == null) return;
+      const currentAccessor = accessor.concat(k);
+      if (typeof v === 'object') {
+        assignRemovedPropAccessorsRecursive(a, b, currentAccessor);
+      }
+      if (typeof v === 'string') {
+        const leafNodeB = _.get(b, currentAccessor);
+        if (leafNodeB == null) {
+          const leafNodeA = _.get(a, currentAccessor);
+          deletedIconsAsSVGPaths.push(leafNodeA);
+        }
+      }
+    });
+  };
+
+  assignRemovedPropAccessorsRecursive(previousIconManifest, nextIconManifest);
+
+  for (const i in deletedIconsAsSVGPaths) {
+    const filePath = deletedIconsAsSVGPaths[i];
+    await fs.unlink(path.resolve(process.cwd(), filePath));
+  }
+
+  return deletedIconsAsSVGPaths;
 }
 
 export async function getGitNumStat(files: string[]) {
@@ -361,14 +412,25 @@ export async function getGitNumStat(files: string[]) {
     'rev-parse',
     '--show-toplevel',
   ]);
-  await execa('git', ['add', '-f', '--intent-to-add', ...files]);
-  const { stdout } = await execa('git', ['diff', '--numstat']);
+  await execa('git', [
+    'add',
+    '-f',
+    '--ignore-removal',
+    '--intent-to-add',
+    ...files,
+  ]);
+  const [{ stdout: numstatRaw }, { stdout: nameStatRaw }] = await Promise.all([
+    execa('git', ['diff', '--numstat', '--no-renames']),
+    execa('git', ['diff', '--name-status', '--no-renames']),
+  ]);
 
-  const numstat = stdout
+  const nameStat = nameStatRaw.split('\n').map(line => line[0]);
+  const numstat = numstatRaw
     .split('\n')
     .map(line => line.split('\t'))
-    .map(([additions, deletions, filePath]) => {
+    .map(([additions, deletions, filePath], i) => {
       return {
+        status: nameStat[i] || 'M',
         additions: parseInt(additions, 10),
         deletions: parseInt(deletions, 10),
         filePath: filePath
@@ -379,11 +441,7 @@ export async function getGitNumStat(files: string[]) {
     })
     .filter(fileSummary => files.includes(fileSummary.filePath));
 
-  await execa(
-    'git',
-    ['reset', 'HEAD', '--', ...numstat.map(s => s.fullFilePath)],
-    { cwd: gitRootDir }
-  );
+  await execa('git', ['reset', 'HEAD', ...files], { cwd: gitRootDir });
 
   return numstat;
 }

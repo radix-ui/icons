@@ -3,6 +3,7 @@ import meow from 'meow';
 import chalk from 'chalk';
 import isOnline from 'is-online';
 import { CodedError, ERRORS } from './types';
+import { FILE_PATH_MANIFEST, FILE_PATH_REACT_COMPONENT } from './consts';
 import {
   createFigmaConfig,
   getFigmaDocument,
@@ -13,6 +14,8 @@ import {
   getGitNumStat,
   generateReactComponents,
   generateIconManifest,
+  getCurrentIconManifest,
+  attemptToRemoveDeletedIconSVGs,
 } from './services';
 import { render, unmount } from './view';
 import { Box, Color } from 'ink';
@@ -145,7 +148,9 @@ async function main() {
 
   /* 6. Generate React Components from the SVGs */
 
-  const manifestFilePath = await generateIconManifest(processedSvgFiles);
+  const [previousIconManifest, nextIconManifest] = await generateIconManifest(
+    processedSvgFiles
+  );
 
   render({
     spinners: [
@@ -156,12 +161,33 @@ async function main() {
     ],
   });
 
+  /* 7. Detect and attempt to remove deleted icons */
+
+  const deletedSvgFiles = await attemptToRemoveDeletedIconSVGs(
+    previousIconManifest,
+    nextIconManifest
+  );
+
+  if (deletedSvgFiles.length > 0) {
+    render({
+      spinners: [
+        {
+          success: true,
+          text: 'Cleaned deleted Icons 💇‍',
+        },
+      ],
+    });
+  }
+
+  /* 8. Finish. Print stats. */
+
   try {
     render({
-      numStat: await getGitNumStat([
+      diff: await getGitNumStat([
         ...processedSvgFiles,
-        reactComponentFilePath,
-        manifestFilePath,
+        ...deletedSvgFiles,
+        FILE_PATH_REACT_COMPONENT,
+        FILE_PATH_MANIFEST,
       ]),
     });
   } catch (err) {

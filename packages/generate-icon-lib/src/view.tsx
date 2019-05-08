@@ -13,7 +13,12 @@ interface ICliState {
   fileKey?: string;
   spinners?: Array<{ success?: true; text: string }>;
   progress?: { text: string; percent: number };
-  numStat?: Array<{ additions: number; deletions: number; filePath: string }>;
+  diff?: Array<{
+    status: string;
+    additions: number;
+    deletions: number;
+    filePath: string;
+  }>;
 }
 
 interface ICliViewProps {
@@ -82,13 +87,13 @@ const CliView = ({ state }: ICliViewProps) => {
         </Box>
       )}
 
-      {state.numStat && <NumStatView state={state} />}
+      {state.diff && <DiffView state={state} />}
     </Box>
   );
 };
 
-const NumStatView = ({ state }: ICliViewProps) => {
-  const statsWithChanges = state.numStat.filter(
+const DiffView = ({ state }: ICliViewProps) => {
+  const statsWithChanges = state.diff.filter(
     stat => stat.additions > 0 || stat.deletions > 0
   );
   const totals = {
@@ -137,13 +142,21 @@ const NumStatView = ({ state }: ICliViewProps) => {
           <Box flexDirection="column" paddingLeft={1}>
             {statsWithChanges.map(stat => (
               <Box key={stat.filePath}>
-                {stat.additions > 0 && stat.deletions === 0 ? (
+                {stat.status === 'D' && <Color red>Removed</Color>}
+                {stat.status === 'A' && <Color green>New</Color>}
+                {stat.status === 'M' &&
+                stat.additions > 0 &&
+                stat.deletions === 0 ? (
                   <Color green>++</Color>
                 ) : null}
-                {stat.additions === 0 && stat.deletions > 0 ? (
+                {stat.status === 'M' &&
+                stat.additions === 0 &&
+                stat.deletions > 0 ? (
                   <Color red>--</Color>
                 ) : null}
-                {stat.additions > 0 && stat.deletions > 0 ? (
+                {stat.status === 'M' &&
+                stat.additions > 0 &&
+                stat.deletions > 0 ? (
                   <>
                     <Color green>+</Color>
                     <Color red>-</Color>
