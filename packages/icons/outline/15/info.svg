@@ -1,10 +1,10 @@
 <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M7.5 13.5a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" stroke="currentColor" />
+  <circle cx="7.5" cy="7.5" r="6" stroke="currentColor" />
   <path
     d="M7.5 10.5v-4"
     stroke="currentColor"
     stroke-linecap="round"
     stroke-linejoin="round"
   />
-  <path d="M7.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" fill="currentColor" />
+  <circle cx="7.5" cy="4.5" r=".5" fill="currentColor" />
 </svg>

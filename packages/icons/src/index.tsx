@@ -120,10 +120,8 @@ export const AspectRatioOutline15Icon: React.FunctionComponent<
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path
-      d="M12 2.5H3a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5zM3 8.5h2M6 8.5h3M10 8.5h2"
-      stroke={color}
-    />
+    <rect x="2.5" y="2.5" width="10" height="10" rx=".5" stroke={color} />
+    <path d="M3 8.5h2M6 8.5h3M10 8.5h2" stroke={color} />
   </svg>
 );
 
@@ -142,7 +140,7 @@ export const AvatarOutline15Icon: React.FunctionComponent<
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path d="M7.5 12.5a5 5 0 1 0 0-10 5 5 0 0 0 0 10z" stroke={color} />
+    <path d="M7.5 13a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11z" stroke={color} />
     <path d="M7.5 8.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" stroke={color} />
     <path
       d="M4 11s1.234-1.5 3.5-1.5S11 11 11 11"
@@ -174,7 +172,7 @@ export const BackpackOutline15Icon: React.FunctionComponent<
       strokeLinejoin="round"
     />
     <path
-      d="M3 4.5h9a.5.5 0 0 1 .5.5v2A2.5 2.5 0 0 1 10 9.5H5A2.5 2.5 0 0 1 2.5 7V5a.5.5 0 0 1 .5-.5zM6 2.5h3a.5.5 0 0 1 .5.5v1.5h-4V3a.5.5 0 0 1 .5-.5z"
+      d="M2.5 5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v2A2.5 2.5 0 0 1 10 9.5H5A2.5 2.5 0 0 1 2.5 7V5zM5.5 3a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v1.5h-4V3z"
       stroke={color}
     />
     <path
@@ -201,7 +199,7 @@ export const BadgeOutline15Icon: React.FunctionComponent<
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path d="M10.5 5.5h-6a2 2 0 1 0 0 4h6a2 2 0 1 0 0-4z" stroke={color} />
+    <rect x="2.5" y="5.5" width="10" height="4" rx="2" stroke={color} />
     <path d="M5.5 7.5h4" stroke={color} strokeLinecap="round" />
   </svg>
 );
@@ -267,10 +265,7 @@ export const ButtonOutline15Icon: React.FunctionComponent<
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path
-      d="M12 4.5H3A1.5 1.5 0 0 0 1.5 6v3A1.5 1.5 0 0 0 3 10.5h9A1.5 1.5 0 0 0 13.5 9V6A1.5 1.5 0 0 0 12 4.5z"
-      stroke={color}
-    />
+    <rect x="1.5" y="4.5" width="12" height="6" rx="1.5" stroke={color} />
     <path d="M4.5 7.5h6" stroke={color} strokeLinecap="round" />
   </svg>
 );
@@ -290,7 +285,7 @@ export const CheckCircledOutline15Icon: React.FunctionComponent<
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path d="M7.5 13.5a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" stroke={color} />
+    <circle cx="7.5" cy="7.5" r="6" stroke={color} />
     <path
       d="M9.5 5.5l-2.667 4L5.5 8.137"
       stroke={color}
@@ -435,7 +430,7 @@ export const CircleOutline15Icon: React.FunctionComponent<
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path d="M7.5 13.5a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" stroke={color} />
+    <circle cx="7.5" cy="7.5" r="6" stroke={color} />
   </svg>
 );
 
@@ -454,7 +449,7 @@ export const ClockOutline15Icon: React.FunctionComponent<
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path d="M7.5 13.5a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" stroke={color} />
+    <circle cx="7.5" cy="7.5" r="6" stroke={color} />
     <path
       d="M8 4.5a.5.5 0 0 0-1 0h1zm-.5 3H7a.5.5 0 0 0 .146.354L7.5 7.5zm1.646 2.354a.5.5 0 0 0 .708-.708l-.708.708zM7 4.5v3h1v-3H7zm.146 3.354l2 2 .708-.708-2-2-.708.708z"
       stroke={color}
@@ -484,7 +479,7 @@ export const CodeOutline15Icon: React.FunctionComponent<
       strokeLinejoin="round"
     />
     <path
-      d="M5.036 12.314a.5.5 0 1 0 .928.372l-.928-.372zm4.928-9.628a.5.5 0 0 0-.928-.372l.928.372zm-4 10l4-10-.928-.372-4 10 .928.372z"
+      d="M5.036 12.314a.5.5 0 1 0 .928.372l-.928-.372zm4.928-9.628a.5.5 0 1 0-.928-.372l.928.372zm-4 10l4-10-.928-.372-4 10 .928.372z"
       stroke={color}
     />
   </svg>
@@ -505,7 +500,7 @@ export const ContainerOutline15Icon: React.FunctionComponent<
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path d="M9.5 2.5h-4v10h4v-10z" stroke={color} />
+    <path stroke={color} d="M5.5 2.5h4v10h-4z" />
     <path
       d="M14.5 5.5l-2 2 2 2M.5 9.5l2-2-2-2"
       stroke={color}
@@ -554,7 +549,7 @@ export const CrosshairClosedOutline15Icon: React.FunctionComponent<
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path d="M7.5 11.5a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" stroke={color} />
+    <circle cx="7.5" cy="7.5" r="4" stroke={color} />
     <path d="M.5 7.5h14M7.5.5v14" stroke={color} strokeLinecap="round" />
   </svg>
 );
@@ -574,10 +569,8 @@ export const CrosshairOutline15Icon: React.FunctionComponent<
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path
-      d="M7.5 13.5a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM7.5 2v3M2 7.5h3M10 7.5h3M7.5 10v3"
-      stroke={color}
-    />
+    <circle cx="7.5" cy="7.5" r="6" stroke={color} />
+    <path d="M7.5 2v3M2 7.5h3M10 7.5h3M7.5 10v3" stroke={color} />
   </svg>
 );
 
@@ -596,8 +589,8 @@ export const DiscOutline15Icon: React.FunctionComponent<
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path d="M7.5 9.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" stroke={color} />
-    <path d="M7.5 13.5a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" stroke={color} />
+    <circle cx="7.5" cy="7.5" r="2" stroke={color} />
+    <circle cx="7.5" cy="7.5" r="6" stroke={color} />
   </svg>
 );
 
@@ -635,10 +628,9 @@ export const DotsHorizontalOutline15Icon: React.FunctionComponent<
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path
-      d="M2.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM7.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM12.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"
-      stroke={color}
-    />
+    <circle cx="2.5" cy="7.5" r="1.5" stroke={color} />
+    <circle cx="7.5" cy="7.5" r="1.5" stroke={color} />
+    <circle cx="12.5" cy="7.5" r="1.5" stroke={color} />
   </svg>
 );
 
@@ -657,10 +649,9 @@ export const DotsVerticalOutline15Icon: React.FunctionComponent<
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path
-      d="M7.5 4a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM7.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM7.5 14a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"
-      stroke={color}
-    />
+    <circle cx="7.5" cy="2.5" r="1.5" stroke={color} />
+    <circle cx="7.5" cy="7.5" r="1.5" stroke={color} />
+    <circle cx="7.5" cy="12.5" r="1.5" stroke={color} />
   </svg>
 );
 
@@ -850,11 +841,8 @@ export const ImageOutline15Icon: React.FunctionComponent<
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path
-      d="M12 2.5H3a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5z"
-      stroke={color}
-    />
-    <path d="M5.5 6.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" stroke={color} />
+    <rect x="2.5" y="2.5" width="10" height="10" rx=".5" stroke={color} />
+    <circle cx="5.5" cy="5.5" r="1" stroke={color} />
     <path
       d="M3 12.5l6.5-6 3 2"
       stroke={color}
@@ -879,14 +867,14 @@ export const InfoOutline15Icon: React.FunctionComponent<
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path d="M7.5 13.5a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" stroke={color} />
+    <circle cx="7.5" cy="7.5" r="6" stroke={color} />
     <path
       d="M7.5 10.5v-4"
       stroke={color}
       strokeLinecap="round"
       strokeLinejoin="round"
     />
-    <path d="M7.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" stroke={color} />
+    <circle cx="7.5" cy="4.5" r=".5" stroke={color} />
   </svg>
 );
 
@@ -905,7 +893,7 @@ export const InputOutline15Icon: React.FunctionComponent<
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path d="M14.5 5.5H.5v4h14v-4z" stroke={color} />
+    <path stroke={color} d="M.5 5.5h14v4H.5z" />
   </svg>
 );
 
@@ -924,10 +912,8 @@ export const LayoutOutline15Icon: React.FunctionComponent<
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path
-      d="M13 4.5H2a.5.5 0 0 0-.5.5v5a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5V5a.5.5 0 0 0-.5-.5zM5.5 4.5v6M9.5 4.5v6"
-      stroke={color}
-    />
+    <rect x="1.5" y="4.5" width="12" height="6" rx=".5" stroke={color} />
+    <path d="M5.5 4.5v6M9.5 4.5v6" stroke={color} />
   </svg>
 );
 
@@ -970,10 +956,8 @@ export const LockOutline15Icon: React.FunctionComponent<
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path
-      d="M12 6.5H3a.5.5 0 0 0-.5.5v5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7a.5.5 0 0 0-.5-.5zM10.5 5.5v1h-6v-1a3 3 0 0 1 6 0z"
-      stroke={color}
-    />
+    <rect x="2.5" y="6.5" width="10" height="6" rx=".5" stroke={color} />
+    <path d="M4.5 5.5a3 3 0 0 1 6 0v1h-6v-1z" stroke={color} />
   </svg>
 );
 
@@ -992,7 +976,7 @@ export const MagnifyingGlassOutline15Icon: React.FunctionComponent<
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path d="M6.5 10.5a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" stroke={color} />
+    <circle cx="6.5" cy="6.5" r="4" stroke={color} />
     <path
       d="M9.854 9.146a.5.5 0 1 0-.708.708l.708-.708zm2.292 3.708a.5.5 0 0 0 .708-.708l-.708.708zm-3-3l3 3 .708-.708-3-3-.708.708z"
       stroke={color}
@@ -1040,10 +1024,8 @@ export const MixerHorizontalOutline15Icon: React.FunctionComponent<
       strokeLinecap="round"
       strokeLinejoin="round"
     />
-    <path
-      d="M5.5 6.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM9.5 12.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"
-      stroke={color}
-    />
+    <circle cx="5.5" cy="4.5" r="2" stroke={color} />
+    <circle cx="9.5" cy="10.5" r="2" stroke={color} />
   </svg>
 );
 
@@ -1068,10 +1050,8 @@ export const MixerVerticalOutline15Icon: React.FunctionComponent<
       strokeLinecap="round"
       strokeLinejoin="round"
     />
-    <path
-      d="M4.5 11.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM10.5 7.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"
-      stroke={color}
-    />
+    <circle cx="4.5" cy="9.5" r="2" stroke={color} />
+    <circle cx="10.5" cy="5.5" r="2" stroke={color} />
   </svg>
 );
 
@@ -1109,8 +1089,8 @@ export const RadioOutline15Icon: React.FunctionComponent<
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path d="M7.5 13.5a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" stroke={color} />
-    <path d="M7.5 10a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" stroke={color} />
+    <circle cx="7.5" cy="7.5" r="6" stroke={color} />
+    <circle cx="7.5" cy="7.5" r="2.5" stroke={color} />
   </svg>
 );
 
@@ -1130,8 +1110,8 @@ export const SectionOutline15Icon: React.FunctionComponent<
     {...props}
   >
     <path
-      d="M12.5 5.5h-10v4h10v-4zM2 2.5h3M6 2.5h3M10 2.5h3M2 12.5h3M6 12.5h3M10 12.5h3"
       stroke={color}
+      d="M2.5 5.5h10v4h-10zM2 2.5h3M6 2.5h3M10 2.5h3M2 12.5h3M6 12.5h3M10 12.5h3"
     />
   </svg>
 );
@@ -1151,10 +1131,8 @@ export const SlashOutline15Icon: React.FunctionComponent<
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path
-      d="M7.5 13.5a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM3 12l9-9"
-      stroke={color}
-    />
+    <circle cx="7.5" cy="7.5" r="6" stroke={color} />
+    <path d="M3 12l9-9" stroke={color} />
   </svg>
 );
 
@@ -1173,7 +1151,7 @@ export const SliderOutline15Icon: React.FunctionComponent<
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path d="M7.5 10.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" stroke={color} />
+    <circle cx="7.5" cy="7.5" r="3" stroke={color} />
     <path d="M.5 7.5h4M10.5 7.5h4" stroke={color} strokeLinecap="round" />
   </svg>
 );
@@ -1193,7 +1171,7 @@ export const SquareOutline15Icon: React.FunctionComponent<
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path d="M12.5 2.5h-10v10h10v-10z" stroke={color} />
+    <path d="M2.5 12.5v-10h10v10h-10z" stroke={color} />
   </svg>
 );
 
@@ -1212,8 +1190,8 @@ export const SwitchOutline15Icon: React.FunctionComponent<
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path d="M10.5 3.5h-6a4 4 0 1 0 0 8h6a4 4 0 0 0 0-8z" stroke={color} />
-    <path d="M10.5 11.5a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" stroke={color} />
+    <rect x=".5" y="3.5" width="14" height="8" rx="4" stroke={color} />
+    <circle cx="10.5" cy="7.5" r="4" stroke={color} />
   </svg>
 );
 
@@ -1232,10 +1210,8 @@ export const TableOutline15Icon: React.FunctionComponent<
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path
-      d="M13 1.5H2a.5.5 0 0 0-.5.5v11a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5V2a.5.5 0 0 0-.5-.5zM7.5 2v11M13 9.5H2M13 5.5H2"
-      stroke={color}
-    />
+    <rect x="1.5" y="1.5" width="12" height="12" rx=".5" stroke={color} />
+    <path d="M7.5 2v11M13 9.5H2M13 5.5H2" stroke={color} />
   </svg>
 );
 
@@ -1326,8 +1302,12 @@ export const TrashOutline15Icon: React.FunctionComponent<
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path
-      d="M10 4.5H5a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 .5-.5V5a.5.5 0 0 0-.5-.5z"
+    <rect
+      x="4.5"
+      y="4.5"
+      width="6"
+      height="8"
+      rx=".5"
       stroke={color}
       strokeLinecap="round"
       strokeLinejoin="bevel"
@@ -1357,7 +1337,7 @@ export const VisibleOutline15Icon: React.FunctionComponent<
       strokeLinecap="round"
       strokeLinejoin="round"
     />
-    <path d="M7.5 9.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" stroke={color} />
+    <circle cx="7.5" cy="7.5" r="2" stroke={color} />
   </svg>
 );
 
@@ -1545,31 +1525,6 @@ export const ArrowDownOutline25Icon: React.FunctionComponent<
   </svg>
 );
 
-interface ArrowLeft1Outline25IconProps extends SVGIconProps {
-  name: 'arrow-left-1';
-  size: '25';
-}
-
-export const ArrowLeft1Outline25Icon: React.FunctionComponent<
-  ArrowLeft1Outline25IconProps
-> = ({ color = 'currentColor', ...props }) => (
-  <svg
-    width="25"
-    height="25"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
-    <path
-      d="M14.5 6.5l6 6-6 6"
-      stroke={color}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path d="M4.5 12.5h16" stroke={color} strokeLinecap="round" />
-  </svg>
-);
-
 interface ArrowLeftCircledOutline25IconProps extends SVGIconProps {
   name: 'arrow-left-circled';
   size: '25';
@@ -1644,6 +1599,31 @@ export const ArrowRightCircledOutline25Icon: React.FunctionComponent<
       strokeLinejoin="round"
     />
     <path d="M8.5 12.5h8" stroke={color} strokeLinecap="round" />
+  </svg>
+);
+
+interface ArrowRightOutline25IconProps extends SVGIconProps {
+  name: 'arrow-right';
+  size: '25';
+}
+
+export const ArrowRightOutline25Icon: React.FunctionComponent<
+  ArrowRightOutline25IconProps
+> = ({ color = 'currentColor', ...props }) => (
+  <svg
+    width="25"
+    height="25"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path
+      d="M14.5 6.5l6 6-6 6"
+      stroke={color}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path d="M4.5 12.5h16" stroke={color} strokeLinecap="round" />
   </svg>
 );
 
@@ -2165,6 +2145,34 @@ export const ClockOutline25Icon: React.FunctionComponent<
     <path d="M12.5 20.5a8 8 0 1 0 0-16 8 8 0 0 0 0 16z" stroke={color} />
     <path
       d="M13 7.5a.5.5 0 0 0-1 0h1zm-.5 5H12a.5.5 0 0 0 .146.354l.354-.354zm1.646 2.354a.5.5 0 0 0 .708-.708l-.708.708zM12 7.5v5h1v-5h-1zm.146 5.354l2 2 .708-.708-2-2-.708.708z"
+      stroke={color}
+    />
+  </svg>
+);
+
+interface CodeOutline25IconProps extends SVGIconProps {
+  name: 'code';
+  size: '25';
+}
+
+export const CodeOutline25Icon: React.FunctionComponent<
+  CodeOutline25IconProps
+> = ({ color = 'currentColor', ...props }) => (
+  <svg
+    width="25"
+    height="25"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path
+      d="M6.5 8.5l-4 4 4 4M18.5 8.5l4 4-4 4"
+      stroke={color}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M9.032 20.324a.5.5 0 0 0 .936.352l-.936-.352zm6.936-15.648a.5.5 0 0 0-.936-.352l.936.352zm-6 16l6-16-.936-.352-6 16 .936.352z"
       stroke={color}
     />
   </svg>
@@ -3081,7 +3089,7 @@ export const GlobeOutline25Icon: React.FunctionComponent<
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path d="M12.5 20.5a8 8 0 1 0 0-16 8 8 0 0 0 0 16z" stroke={color} />
+    <circle cx="12.5" cy="12.5" r="8" stroke={color} />
     <path
       d="M5.5 16c4.375 1.333 9.625 1.333 14 0M5.5 9c4.5-1.333 9.5-1.333 14 0M12.5 20.5c-6-2.5-6-13.5 0-16M12.5 20.5c6-2.5 6-13.5 0-16"
       stroke={color}
@@ -4034,25 +4042,6 @@ export const Ratio11Outline25Icon: React.FunctionComponent<
   </svg>
 );
 
-interface Ratio169Outline25IconProps extends SVGIconProps {
-  name: 'ratio-16-9';
-  size: '25';
-}
-
-export const Ratio169Outline25Icon: React.FunctionComponent<
-  Ratio169Outline25IconProps
-> = ({ color = 'currentColor', ...props }) => (
-  <svg
-    width="25"
-    height="25"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
-    <path d="M20.5 7.5h-16v10h16v-10z" stroke={color} />
-  </svg>
-);
-
 interface Ratio23Outline25IconProps extends SVGIconProps {
   name: 'ratio-2-3';
   size: '25';
@@ -4126,6 +4115,25 @@ export const Ratio43Outline25Icon: React.FunctionComponent<
     {...props}
   >
     <path d="M20.5 6.5h-16v12h16v-12z" stroke={color} />
+  </svg>
+);
+
+interface Ratio169Outline25IconProps extends SVGIconProps {
+  name: 'ratio-16-9';
+  size: '25';
+}
+
+export const Ratio169Outline25Icon: React.FunctionComponent<
+  Ratio169Outline25IconProps
+> = ({ color = 'currentColor', ...props }) => (
+  <svg
+    width="25"
+    height="25"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path d="M20.5 7.5h-16v10h16v-10z" stroke={color} />
   </svg>
 );
 
@@ -4611,10 +4619,10 @@ type OutlineTypeIcons =
   | AlignTopOutline25IconProps
   | ArrowDownCircledOutline25IconProps
   | ArrowDownOutline25IconProps
-  | ArrowLeft1Outline25IconProps
   | ArrowLeftCircledOutline25IconProps
   | ArrowLeftOutline25IconProps
   | ArrowRightCircledOutline25IconProps
+  | ArrowRightOutline25IconProps
   | ArrowUpCircledOutline25IconProps
   | ArrowUpOutline25IconProps
   | BellOutline25IconProps
@@ -4637,6 +4645,7 @@ type OutlineTypeIcons =
   | CircleSplitOutline25IconProps
   | CircleOutline25IconProps
   | ClockOutline25IconProps
+  | CodeOutline25IconProps
   | CreditCardOutline25IconProps
   | CropOutline25IconProps
   | CrossCircledOutline25IconProps
@@ -4712,11 +4721,11 @@ type OutlineTypeIcons =
   | PlusOutline25IconProps
   | QuotationOutline25IconProps
   | Ratio11Outline25IconProps
-  | Ratio169Outline25IconProps
   | Ratio23Outline25IconProps
   | Ratio32Outline25IconProps
   | Ratio34Outline25IconProps
   | Ratio43Outline25IconProps
+  | Ratio169Outline25IconProps
   | RomanOutline25IconProps
   | ShareOutline25IconProps
   | SmileyOutline25IconProps
@@ -4809,10 +4818,10 @@ const iconManifest = {
       'align-top': AlignTopOutline25Icon,
       'arrow-down-circled': ArrowDownCircledOutline25Icon,
       'arrow-down': ArrowDownOutline25Icon,
-      'arrow-left-1': ArrowLeft1Outline25Icon,
       'arrow-left-circled': ArrowLeftCircledOutline25Icon,
       'arrow-left': ArrowLeftOutline25Icon,
       'arrow-right-circled': ArrowRightCircledOutline25Icon,
+      'arrow-right': ArrowRightOutline25Icon,
       'arrow-up-circled': ArrowUpCircledOutline25Icon,
       'arrow-up': ArrowUpOutline25Icon,
       bell: BellOutline25Icon,
@@ -4835,6 +4844,7 @@ const iconManifest = {
       'circle-split': CircleSplitOutline25Icon,
       circle: CircleOutline25Icon,
       clock: ClockOutline25Icon,
+      code: CodeOutline25Icon,
       'credit-card': CreditCardOutline25Icon,
       crop: CropOutline25Icon,
       'cross-circled': CrossCircledOutline25Icon,
@@ -4910,11 +4920,11 @@ const iconManifest = {
       plus: PlusOutline25Icon,
       quotation: QuotationOutline25Icon,
       'ratio-1-1': Ratio11Outline25Icon,
-      'ratio-16-9': Ratio169Outline25Icon,
       'ratio-2-3': Ratio23Outline25Icon,
       'ratio-3-2': Ratio32Outline25Icon,
       'ratio-3-4': Ratio34Outline25Icon,
       'ratio-4-3': Ratio43Outline25Icon,
+      'ratio-16-9': Ratio169Outline25Icon,
       roman: RomanOutline25Icon,
       share: ShareOutline25Icon,
       smiley: SmileyOutline25Icon,
