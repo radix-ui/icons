@@ -452,7 +452,7 @@ export const ClockOutline15Icon: React.FunctionComponent<
     <circle cx="7.5" cy="7.5" r="6" stroke={color} />
     <path
       d="M8 4.5a.5.5 0 0 0-1 0h1zm-.5 3H7a.5.5 0 0 0 .146.354L7.5 7.5zm1.646 2.354a.5.5 0 0 0 .708-.708l-.708.708zM7 4.5v3h1v-3H7zm.146 3.354l2 2 .708-.708-2-2-.708.708z"
-      stroke={color}
+      fill={color}
     />
   </svg>
 );
@@ -480,7 +480,7 @@ export const CodeOutline15Icon: React.FunctionComponent<
     />
     <path
       d="M5.036 12.314a.5.5 0 1 0 .928.372l-.928-.372zm4.928-9.628a.5.5 0 1 0-.928-.372l.928.372zm-4 10l4-10-.928-.372-4 10 .928.372z"
-      stroke={color}
+      fill={color}
     />
   </svg>
 );
@@ -628,9 +628,9 @@ export const DotsHorizontalOutline15Icon: React.FunctionComponent<
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <circle cx="2.5" cy="7.5" r="1.5" stroke={color} />
-    <circle cx="7.5" cy="7.5" r="1.5" stroke={color} />
-    <circle cx="12.5" cy="7.5" r="1.5" stroke={color} />
+    <circle cx="2.5" cy="7.5" r="1.5" fill={color} />
+    <circle cx="7.5" cy="7.5" r="1.5" fill={color} />
+    <circle cx="12.5" cy="7.5" r="1.5" fill={color} />
   </svg>
 );
 
@@ -649,9 +649,9 @@ export const DotsVerticalOutline15Icon: React.FunctionComponent<
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <circle cx="7.5" cy="2.5" r="1.5" stroke={color} />
-    <circle cx="7.5" cy="7.5" r="1.5" stroke={color} />
-    <circle cx="7.5" cy="12.5" r="1.5" stroke={color} />
+    <circle cx="7.5" cy="2.5" r="1.5" fill={color} />
+    <circle cx="7.5" cy="7.5" r="1.5" fill={color} />
+    <circle cx="7.5" cy="12.5" r="1.5" fill={color} />
   </svg>
 );
 
@@ -874,7 +874,7 @@ export const InfoOutline15Icon: React.FunctionComponent<
       strokeLinecap="round"
       strokeLinejoin="round"
     />
-    <circle cx="7.5" cy="4.5" r=".5" stroke={color} />
+    <circle cx="7.5" cy="4.5" r=".5" fill={color} />
   </svg>
 );
 
@@ -979,7 +979,7 @@ export const MagnifyingGlassOutline15Icon: React.FunctionComponent<
     <circle cx="6.5" cy="6.5" r="4" stroke={color} />
     <path
       d="M9.854 9.146a.5.5 0 1 0-.708.708l.708-.708zm2.292 3.708a.5.5 0 0 0 .708-.708l-.708.708zm-3-3l3 3 .708-.708-3-3-.708.708z"
-      stroke={color}
+      fill={color}
     />
   </svg>
 );
@@ -1090,7 +1090,7 @@ export const RadioOutline15Icon: React.FunctionComponent<
     {...props}
   >
     <circle cx="7.5" cy="7.5" r="6" stroke={color} />
-    <circle cx="7.5" cy="7.5" r="2.5" stroke={color} />
+    <circle cx="7.5" cy="7.5" r="2.5" fill={color} />
   </svg>
 );
 
@@ -1746,10 +1746,7 @@ export const BorderDashedOutline25Icon: React.FunctionComponent<
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path
-      d="M7 11H2v3h5v-3zM15 11h-5v3h5v-3zM23 11h-5v3h5v-3z"
-      stroke={color}
-    />
+    <path d="M7 11H2v3h5v-3zM15 11h-5v3h5v-3zM23 11h-5v3h5v-3z" fill={color} />
   </svg>
 );
 
@@ -1770,7 +1767,7 @@ export const BorderDottedOutline25Icon: React.FunctionComponent<
   >
     <path
       d="M3.5 14a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM9.5 14a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM15.5 14a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM21.5 14a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"
-      stroke={color}
+      fill={color}
     />
   </svg>
 );
@@ -1790,7 +1787,7 @@ export const BorderSolidOutline25Icon: React.FunctionComponent<
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path d="M23 11H2v3h21v-3z" stroke={color} />
+    <path d="M23 11H2v3h21v-3z" fill={color} />
   </svg>
 );
 
@@ -2145,7 +2142,7 @@ export const ClockOutline25Icon: React.FunctionComponent<
     <path d="M12.5 20.5a8 8 0 1 0 0-16 8 8 0 0 0 0 16z" stroke={color} />
     <path
       d="M13 7.5a.5.5 0 0 0-1 0h1zm-.5 5H12a.5.5 0 0 0 .146.354l.354-.354zm1.646 2.354a.5.5 0 0 0 .708-.708l-.708.708zM12 7.5v5h1v-5h-1zm.146 5.354l2 2 .708-.708-2-2-.708.708z"
-      stroke={color}
+      fill={color}
     />
   </svg>
 );
@@ -2173,7 +2170,7 @@ export const CodeOutline25Icon: React.FunctionComponent<
     />
     <path
       d="M9.032 20.324a.5.5 0 0 0 .936.352l-.936-.352zm6.936-15.648a.5.5 0 0 0-.936-.352l.936.352zm-6 16l6-16-.936-.352-6 16 .936.352z"
-      stroke={color}
+      fill={color}
     />
   </svg>
 );
@@ -2409,7 +2406,7 @@ export const DeviceMobileLandscapeOutline25Icon: React.FunctionComponent<
       d="M19 7.5H6A1.5 1.5 0 0 0 4.5 9v7A1.5 1.5 0 0 0 6 17.5h13a1.5 1.5 0 0 0 1.5-1.5V9A1.5 1.5 0 0 0 19 7.5z"
       stroke={color}
     />
-    <path d="M17.5 13a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" stroke={color} />
+    <path d="M17.5 13a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" fill={color} />
   </svg>
 );
 
@@ -2432,7 +2429,7 @@ export const DeviceMobilePortraitOutline25Icon: React.FunctionComponent<
       d="M16 4.5H9A1.5 1.5 0 0 0 7.5 6v13A1.5 1.5 0 0 0 9 20.5h7a1.5 1.5 0 0 0 1.5-1.5V6A1.5 1.5 0 0 0 16 4.5z"
       stroke={color}
     />
-    <path d="M12.5 18a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" stroke={color} />
+    <path d="M12.5 18a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" fill={color} />
   </svg>
 );
 
@@ -2456,7 +2453,7 @@ export const DeviceSpeakerOutline25Icon: React.FunctionComponent<
       stroke={color}
     />
     <path d="M12.5 17.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" stroke={color} />
-    <path d="M12.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" stroke={color} />
+    <path d="M12.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" fill={color} />
   </svg>
 );
 
@@ -2479,7 +2476,7 @@ export const DeviceTabletLandscapeOutline25Icon: React.FunctionComponent<
       d="M19 6.5H6A1.5 1.5 0 0 0 4.5 8v9A1.5 1.5 0 0 0 6 18.5h13a1.5 1.5 0 0 0 1.5-1.5V8A1.5 1.5 0 0 0 19 6.5z"
       stroke={color}
     />
-    <path d="M17.5 13a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" stroke={color} />
+    <path d="M17.5 13a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" fill={color} />
   </svg>
 );
 
@@ -2502,7 +2499,7 @@ export const DeviceTabletPortraitOutline25Icon: React.FunctionComponent<
       d="M17 4.5H8A1.5 1.5 0 0 0 6.5 6v13A1.5 1.5 0 0 0 8 20.5h9a1.5 1.5 0 0 0 1.5-1.5V6A1.5 1.5 0 0 0 17 4.5z"
       stroke={color}
     />
-    <path d="M12.5 18a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" stroke={color} />
+    <path d="M12.5 18a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" fill={color} />
   </svg>
 );
 
@@ -2571,7 +2568,7 @@ export const DotsHorizontalOutline25Icon: React.FunctionComponent<
   >
     <path
       d="M5.5 14a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM12.5 14a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM19.5 14a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"
-      stroke={color}
+      fill={color}
     />
   </svg>
 );
@@ -2593,7 +2590,7 @@ export const DotsVerticalOutline25Icon: React.FunctionComponent<
   >
     <path
       d="M12.5 7a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM12.5 14a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM12.5 21a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"
-      stroke={color}
+      fill={color}
     />
   </svg>
 );
@@ -2741,7 +2738,7 @@ export const DragOutline25Icon: React.FunctionComponent<
   >
     <path
       d="M9.5 7a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zM12.5 7a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zM15.5 7a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zM9.5 10a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zM12.5 10a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zM15.5 10a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zM9.5 13a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zM12.5 13a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zM15.5 13a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zM9.5 16a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zM12.5 16a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zM15.5 16a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zM9.5 19a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zM12.5 19a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zM15.5 19a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"
-      stroke={color}
+      fill={color}
     />
   </svg>
 );
@@ -2769,7 +2766,7 @@ export const ElementTagOutline25Icon: React.FunctionComponent<
     />
     <path
       d="M9.032 20.324a.5.5 0 0 0 .936.351l-.936-.35zm6.936-15.649a.5.5 0 0 0-.936-.35l.936.35zm-6 16l6-16-.936-.35-6 16 .936.35z"
-      stroke={color}
+      fill={color}
     />
   </svg>
 );
@@ -3247,7 +3244,7 @@ export const InfoCircledOutline25Icon: React.FunctionComponent<
       strokeLinecap="round"
       strokeLinejoin="round"
     />
-    <path d="M12.5 9a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" stroke={color} />
+    <path d="M12.5 9a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" fill={color} />
   </svg>
 );
 
@@ -3552,7 +3549,7 @@ export const LineAngledOutline25Icon: React.FunctionComponent<
   >
     <path
       d="M4.146 20.146a.5.5 0 0 0 .708.708l-.708-.708zM20.854 4.854a.5.5 0 0 0-.708-.708l.708.708zm-16 16l16-16-.708-.708-16 16 .708.708z"
-      stroke={color}
+      fill={color}
     />
   </svg>
 );
@@ -3574,7 +3571,7 @@ export const LineHeightOutline25Icon: React.FunctionComponent<
   >
     <path
       d="M8 7.5l.472-.165a.5.5 0 0 0-.944 0L8 7.5zm-3.972 9.835a.5.5 0 1 0 .944.33l-.944-.33zm7 .33a.5.5 0 1 0 .944-.33l-.944.33zm-3.5-10.33l-3.5 10 .944.33 3.5-10-.944-.33zm0 .33l3.5 10 .944-.33-3.5-10-.944.33z"
-      stroke={color}
+      fill={color}
     />
     <path d="M5.5 14.5h5" stroke={color} />
     <path
@@ -4207,7 +4204,7 @@ export const SmileyOutline25Icon: React.FunctionComponent<
     <path d="M12.5 20.5a8 8 0 1 0 0-16 8 8 0 0 0 0 16z" stroke={color} />
     <path
       d="M9.5 11a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zM15.5 11a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"
-      stroke={color}
+      fill={color}
     />
     <path
       d="M8.5 15c2 2.5 6 2.5 8 0"
@@ -4478,7 +4475,7 @@ export const WarningOutline25Icon: React.FunctionComponent<
       strokeLinecap="round"
       strokeLinejoin="round"
     />
-    <path d="M12.5 17a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" stroke={color} />
+    <path d="M12.5 17a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" fill={color} />
   </svg>
 );
 
@@ -4500,7 +4497,7 @@ export const ZoomInOutline25Icon: React.FunctionComponent<
     <path d="M10.5 16.5a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" stroke={color} />
     <path
       d="M15.354 14.646a.5.5 0 0 0-.708.708l.708-.708zm4.792 6.208a.5.5 0 0 0 .708-.708l-.708.708zm-5.5-5.5l5.5 5.5.708-.708-5.5-5.5-.708.708z"
-      stroke={color}
+      fill={color}
     />
     <path d="M7.5 10.5h6M10.5 13.5v-6" stroke={color} strokeLinecap="round" />
   </svg>
@@ -4524,7 +4521,7 @@ export const ZoomOutOutline25Icon: React.FunctionComponent<
     <path d="M10.5 16.5a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" stroke={color} />
     <path
       d="M15.354 14.646a.5.5 0 0 0-.708.708l.708-.708zm4.792 6.208a.5.5 0 0 0 .708-.708l-.708.708zm-5.5-5.5l5.5 5.5.708-.708-5.5-5.5-.708.708z"
-      stroke={color}
+      fill={color}
     />
     <path d="M7.5 10.5h6" stroke={color} strokeLinecap="round" />
   </svg>
@@ -4548,7 +4545,7 @@ export const ZoomOutline25Icon: React.FunctionComponent<
     <path d="M10.5 16.5a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" stroke={color} />
     <path
       d="M15.354 14.646a.5.5 0 0 0-.708.708l.708-.708zm4.792 6.208a.5.5 0 0 0 .708-.708l-.708.708zm-5.5-5.5l5.5 5.5.708-.708-5.5-5.5-.708.708z"
-      stroke={color}
+      fill={color}
     />
   </svg>
 );

@@ -80,7 +80,7 @@ const transformers = {
       .attr('props', '...')
       .toString()
       .replace(/stroke=['|"]currentColor['|"]/g, 'stroke={color}')
-      .replace(/fill=['|"]currentColor['|"]/g, 'stroke={color}')
+      .replace(/fill=['|"]currentColor['|"]/g, 'fill={color}')
       .replace('props="..."', '{...props}');
   },
 };
