@@ -11,15 +11,13 @@ import {
   getIcons,
   renderIdsToSvgs,
   downloadSvgsToFs,
-  getGitNumStat,
+  getGitCustomDiff,
   generateReactComponents,
   generateIconManifest,
-  getCurrentIconManifest,
   attemptToRemoveDeletedIconSVGs,
+  iconsToSvgPaths,
 } from './services';
 import { render, unmount } from './view';
-import { Box, Color } from 'ink';
-import React from 'react';
 
 async function main() {
   prechecks();
@@ -106,7 +104,7 @@ async function main() {
   });
 
   let downloadsCompleted = 0;
-  let processedSvgFiles = await downloadSvgsToFs(iconSvgUrls, icons, () => {
+  await downloadSvgsToFs(iconSvgUrls, icons, () => {
     downloadsCompleted += 1;
     render({
       progress: {
@@ -130,9 +128,7 @@ async function main() {
 
   /* 5. Generate React Components from the SVGs */
 
-  const reactComponentFilePath = await generateReactComponents(
-    processedSvgFiles
-  );
+  const reactComponentFilePath = await generateReactComponents(icons);
 
   render({
     spinners: [
@@ -149,7 +145,7 @@ async function main() {
   /* 6. Generate React Components from the SVGs */
 
   const [previousIconManifest, nextIconManifest] = await generateIconManifest(
-    processedSvgFiles
+    icons
   );
 
   render({
@@ -183,8 +179,8 @@ async function main() {
 
   try {
     render({
-      diff: await getGitNumStat([
-        ...processedSvgFiles,
+      diff: await getGitCustomDiff([
+        ...iconsToSvgPaths(icons),
         ...deletedSvgFiles,
         FILE_PATH_REACT_COMPONENT,
         FILE_PATH_MANIFEST,

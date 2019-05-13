@@ -1,4 +1,5 @@
 import { Headers, RequestInit } from 'node-fetch';
+import * as path from 'path';
 
 export class CodedError extends Error {
   public code: ERRORS;
@@ -27,7 +28,8 @@ export interface IFigmaConfig {
 export interface IIcon {
   id: string;
   name: string;
-  path: string;
+  size: string;
+  type: string;
 }
 
 export interface IIcons {
@@ -44,4 +46,16 @@ export interface RequestInitWithRetry extends RequestInit {
 
 export interface IIconManifest {
   [category: string]: { [size: string]: { [name: string]: string } };
+}
+
+export interface IDiffSummary {
+  status: string;
+  additions: number;
+  deletions: number;
+  filePath: string;
+  fullFilePath: string;
+}
+
+export interface IDiffSummaries {
+  [filePath: string]: IDiffSummary;
 }

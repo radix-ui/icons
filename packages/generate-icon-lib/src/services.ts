@@ -18,6 +18,9 @@ import {
   IIconsSvgUrls,
   RequestInitWithRetry,
   IIconManifest,
+  IIcon,
+  IDiffSummaries,
+  IDiffSummary,
 } from './types';
 
 const defaultRetry = {
@@ -82,6 +85,27 @@ const transformers = {
       .replace(/stroke=['|"]currentColor['|"]/g, 'stroke={color}')
       .replace(/fill=['|"]currentColor['|"]/g, 'fill={color}')
       .replace('props="..."', '{...props}');
+  },
+};
+
+const labelling = {
+  typeFromFrameNodeName(nodeName: string): string {
+    return path.dirname(nodeName);
+  },
+  sizeFromFrameNodeName(nodeName: string): string {
+    // Note: We ensure ordering by assignment-time in the object, and avoid numerical
+    // key ordering, by adding a non-numerical to the key.
+    return `:${path.basename(nodeName)}`;
+  },
+  filePathFromIcon(icon: IIcon): string {
+    return path.join(
+      icon.type,
+      labelling.stripSizePrefix(icon.size),
+      `${icon.name}.svg`
+    );
+  },
+  stripSizePrefix(size) {
+    return size.replace(/^:?(.*)/, '$1');
   },
 };
 
@@ -227,11 +251,10 @@ export function getIcons(iconsCanvas: Canvas): IIcons {
           icons[iconNode.id] = {
             id: iconNode.id,
             name: iconNode.name,
-            path: iconSetNode.name,
+            size: labelling.sizeFromFrameNodeName(iconSetNode.name),
+            type: labelling.typeFromFrameNodeName(iconSetNode.name),
           };
         }
-
-        return icons;
       });
     }
     return icons;
@@ -243,61 +266,48 @@ export async function downloadSvgsToFs(
   icons: IIcons,
   onProgress: () => void
 ) {
-  const iconIds = Object.keys(urls);
-  const processedFiles = [...iconIds];
   await Promise.all(
     Object.keys(urls).map(async iconId => {
-      const svg = await (await fetch(urls[iconId]))
+      const processedSvg = await (await fetch(urls[iconId]))
         .text()
         .then(async svgRaw => transformers.passSVGO(svgRaw))
         .then(svgRaw => transformers.injectCurrentColor(svgRaw))
         .then(svgRaw => transformers.prettify(svgRaw));
-      const svgPath = path.join(
-        icons[iconId].path,
-        `${icons[iconId].name}.svg`
-      );
-      await fs.outputFile(path.resolve(process.cwd(), svgPath), svg, {
-        encoding: 'utf8',
-      });
-      onProgress();
 
-      // We retain the ordering of the array by icon id's because the positioning
-      // of the icons in the Figma file can influence defaults in generated code.
-      processedFiles[processedFiles.indexOf(iconId)] = svgPath;
+      await fs.outputFile(
+        path.resolve(process.cwd(), labelling.filePathFromIcon(icons[iconId])),
+        processedSvg,
+        { encoding: 'utf8' }
+      );
+      onProgress();
     })
   );
-  return processedFiles;
 }
 
-const iconPathTo = {
-  name(namePath) {
-    return path.basename(namePath, '.svg');
-  },
-  size(namePath) {
-    return path.basename(path.dirname(namePath));
-  },
-  category(namePath) {
-    const cat = path.dirname(path.dirname(namePath));
-    return cat === '.' ? '' : cat;
-  },
-};
+export function iconsToManifest(icons: IIcons) {
+  return Object.keys(icons).reduce((iconManifest: IIconManifest, iconId) => {
+    const icon = icons[iconId];
 
-export function filepathsToIconManifest(
-  processedFiles: string[]
-): IIconManifest {
-  return processedFiles.reduce((iconManifest: IIconManifest, filePath) => {
-    _.setWith(
-      iconManifest,
-      [
-        iconPathTo.category(filePath),
-        iconPathTo.size(filePath),
-        iconPathTo.name(filePath),
-      ],
-      filePath,
-      Object
-    );
+    if (!iconManifest[icon.type]) {
+      iconManifest[icon.type] = {};
+    }
+    if (!iconManifest[icon.type][icon.size]) {
+      iconManifest[icon.type][icon.size] = {};
+    }
+    if (!iconManifest[icon.type][icon.size][icon.name]) {
+      iconManifest[icon.type][icon.size][
+        icon.name
+      ] = labelling.filePathFromIcon(icon);
+    }
+
     return iconManifest;
   }, {});
+}
+
+export function iconsToSvgPaths(icons: IIcons) {
+  return Object.keys(icons).map(iconId =>
+    labelling.filePathFromIcon(icons[iconId])
+  );
 }
 
 export async function filePathToSVGinJSX(filePath) {
@@ -306,7 +316,7 @@ export async function filePathToSVGinJSX(filePath) {
   return transformers.readyForJSX(svgRaw);
 }
 
-export async function generateReactComponents(filePaths: string[]) {
+export async function generateReactComponents(icons: IIcons) {
   const ICON_TEMPLATE_FILE_PATH = path.resolve(
     __dirname,
     './templates/icon.tsx.ejs'
@@ -315,7 +325,7 @@ export async function generateReactComponents(filePaths: string[]) {
     process.cwd(),
     FILE_PATH_REACT_COMPONENT
   );
-  const iconManifest = filepathsToIconManifest(filePaths);
+  const iconManifest = iconsToManifest(icons);
   const iconFileTemplate = await fs.readFile(ICON_TEMPLATE_FILE_PATH, {
     encoding: 'utf8',
   });
@@ -323,12 +333,19 @@ export async function generateReactComponents(filePaths: string[]) {
     iconManifest,
     _: _,
     filePathToSVGinJSX,
+    stripSizePrefix: labelling.stripSizePrefix,
     componentName(type, size, name) {
       const pascal = str => _.upperFirst(_.camelCase(str));
-      return `${pascal(name)}${pascal(type)}${pascal(size)}Icon`;
+      return `${pascal(name)}${pascal(type)}${pascal(
+        labelling.stripSizePrefix(size)
+      )}Icon`;
     },
     propsInterfaceName(type, size, name) {
-      return `${templateData.componentName(type, size, name)}Props`;
+      return `${templateData.componentName(
+        type,
+        labelling.stripSizePrefix(size),
+        name
+      )}Props`;
     },
   };
   let reactComponentRaw = await ejs.render(iconFileTemplate, templateData, {
@@ -352,12 +369,12 @@ export async function getCurrentIconManifest() {
   })) as {};
 }
 
-export async function generateIconManifest(filePaths: string[]) {
+export async function generateIconManifest(icons: IIcons) {
   const ICON_MANIFEST_ABSOLUTE_PATH = path.resolve(
     process.cwd(),
     FILE_PATH_MANIFEST
   );
-  const iconManifest = filepathsToIconManifest(filePaths);
+  const iconManifest = iconsToManifest(icons);
   let iconManifestRaw = JSON.stringify(iconManifest);
   const prettierOptions = prettier.resolveConfig.sync(process.cwd());
   iconManifestRaw = prettier.format(iconManifestRaw, {
@@ -407,7 +424,10 @@ export async function attemptToRemoveDeletedIconSVGs(
   return deletedIconsAsSVGPaths;
 }
 
-export async function getGitNumStat(files: string[]) {
+export async function getGitCustomDiff(
+  files: string[]
+): Promise<IDiffSummary[]> {
+  const cleanedFiles = _.uniq(files.reverse()).reverse();
   const { stdout: gitRootDir } = await execa('git', [
     'rev-parse',
     '--show-toplevel',
@@ -417,7 +437,7 @@ export async function getGitNumStat(files: string[]) {
     '-f',
     '--ignore-removal',
     '--intent-to-add',
-    ...files,
+    ...cleanedFiles,
   ]);
   const [{ stdout: numstatRaw }, { stdout: nameStatRaw }] = await Promise.all([
     execa('git', ['diff', '--numstat', '--no-renames']),
@@ -425,7 +445,7 @@ export async function getGitNumStat(files: string[]) {
   ]);
 
   const nameStat = nameStatRaw.split('\n').map(line => line[0]);
-  const numstat = numstatRaw
+  const keydNumstat: IDiffSummaries = numstatRaw
     .split('\n')
     .map(line => line.split('\t'))
     .map(([additions, deletions, filePath], i) => {
@@ -439,11 +459,19 @@ export async function getGitNumStat(files: string[]) {
         fullFilePath: filePath,
       };
     })
-    .filter(fileSummary => files.includes(fileSummary.filePath));
+    .filter(fileSummary => cleanedFiles.includes(fileSummary.filePath))
+    .reduce((keyedFileSummary: IDiffSummaries, fileSummary) => {
+      keyedFileSummary[fileSummary.filePath] = fileSummary;
+      return keyedFileSummary;
+    }, {});
 
-  await execa('git', ['reset', 'HEAD', ...files], { cwd: gitRootDir });
+  const orderedNumStat = cleanedFiles
+    .map(filePath => keydNumstat[filePath])
+    .filter(fileSummary => !!fileSummary);
 
-  return numstat;
+  await execa('git', ['reset', 'HEAD', ...cleanedFiles], { cwd: gitRootDir });
+
+  return orderedNumStat;
 }
 
 function asyncDelay(timeout: number) {

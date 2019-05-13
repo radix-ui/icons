@@ -12,7 +12,7 @@ for (const type in iconManifest) {
 %>
 interface <%- propsInterfaceName(type, size, name); %> extends SVGIconProps {
   name: "<%- name %>";
-  size: "<%- size %>";
+  size: "<%- stripSizePrefix(size) %>";
 }
 
 export const <%- componentName(type, size, name) %>: React.FunctionComponent<<%- propsInterfaceName(type, size, name) %>> =
@@ -46,7 +46,7 @@ const iconManifest = {
 <% _.forEach(iconManifest, (sizes, type) => { %>
   '<%- type %>': {
   <% _.forEach(sizes, (names, size) => { -%>
-    '<%- size %>': {
+    '<%- stripSizePrefix(size) %>': {
     <% _.forEach(names, (filePath, name) => { -%>
       '<%- name %>': <%- componentName(type, size, name) %>,
     <% }) %>
@@ -56,7 +56,7 @@ const iconManifest = {
 <% }) %>
 };
 
-const Icon = ({ name, size, type = '<%- Object.keys(iconManifest)[0] %>', ...props }: IconProps) => {
+const Icon = ({ name, size = '<%- stripSizePrefix(Object.keys(iconManifest[Object.keys(iconManifest)[0]])[0]) %>', type = '<%- Object.keys(iconManifest)[0] %>', ...props }: IconProps) => {
   if (!name) throw new Error('Icon component requires a \'name\' prop.');
   if (!type) throw new Error('Icon component requires a \'type\' prop.');
   if (!size) throw new Error('Icon component requires a \'size\' prop.');
