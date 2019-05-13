@@ -68,7 +68,7 @@ Jump into an `.md` file, make edits, and open a PR.
 
 - [ ] Revisit React Component API to accomodate easy [tree-shaking](https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking)
 - [ ] Allow the CLI to re-run on existing SVGs in a package ie. after changing the React component template
-- [ ] Detect deletion of icons in the Figma file
+- [x] Detect deletion of icons in the Figma file
 - [ ] Publish the `@modulz/generate-icon-lib` CLI Tool for general usage
 
 ## Legal
