@@ -1,17 +1,13 @@
 <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path
-    d="M10.5 17.5l-3 3-3-3M10.5 7.5l-3-3-3 3"
+    d="M19.5 16.5l-7 4-7-4M12.5 12.5l7-4-7-4-7 4 7 4z"
     stroke="currentColor"
     stroke-linecap="round"
     stroke-linejoin="round"
   />
+  <path d="M5.5 12.5L8 14" stroke="currentColor" stroke-linecap="round" />
   <path
-    d="M13.5 6.5h7M13.5 10.5h7M13.5 14.5h7M13.5 18.5h4"
-    stroke="currentColor"
-    stroke-linecap="round"
-  />
-  <path
-    d="M7.5 4.5v16"
+    d="M19.5 12.5L17 14M10 15l2.5 1.5L15 15"
     stroke="currentColor"
     stroke-linecap="round"
     stroke-linejoin="round"

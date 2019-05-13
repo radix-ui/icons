@@ -1,0 +1,85 @@
+<svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path
+    d="M19 7.5H6A1.5 1.5 0 0 0 4.5 9v7A1.5 1.5 0 0 0 6 17.5h13a1.5 1.5 0 0 0 1.5-1.5V9A1.5 1.5 0 0 0 19 7.5z"
+    stroke="currentColor"
+  />
+  <mask id="a" fill="currentColor"><path d="M8 10H7v1h1v-1z" /></mask>
+  <path
+    d="M7 10V9H6v1h1zm1 0h1V9H8v1zm0 1v1h1v-1H8zm-1 0H6v1h1v-1zm0 0h1V9H7v2zm0-1v1h2v-1H7zm1 0H7v2h1v-2zm0 1v-1H6v1h2z"
+    fill="currentColor"
+    mask="url(#a)"
+  />
+  <mask id="b" fill="currentColor"><path d="M10 10H9v1h1v-1z" /></mask>
+  <path
+    d="M9 10V9H8v1h1zm1 0h1V9h-1v1zm0 1v1h1v-1h-1zm-1 0H8v1h1v-1zm0 0h1V9H9v2zm0-1v1h2v-1H9zm1 0H9v2h1v-2zm0 1v-1H8v1h2z"
+    fill="currentColor"
+    mask="url(#b)"
+  />
+  <mask id="c" fill="currentColor"><path d="M12 10h-1v1h1v-1z" /></mask>
+  <path
+    d="M11 10V9h-1v1h1zm1 0h1V9h-1v1zm0 1v1h1v-1h-1zm-1 0h-1v1h1v-1zm0 0h1V9h-1v2zm0-1v1h2v-1h-2zm1 0h-1v2h1v-2zm0 1v-1h-2v1h2z"
+    fill="currentColor"
+    mask="url(#c)"
+  />
+  <mask id="d" fill="currentColor"><path d="M14 10h-1v1h1v-1z" /></mask>
+  <path
+    d="M13 10V9h-1v1h1zm1 0h1V9h-1v1zm0 1v1h1v-1h-1zm-1 0h-1v1h1v-1zm0 0h1V9h-1v2zm0-1v1h2v-1h-2zm1 0h-1v2h1v-2zm0 1v-1h-2v1h2z"
+    fill="currentColor"
+    mask="url(#d)"
+  />
+  <mask id="e" fill="currentColor"><path d="M16 10h-1v1h1v-1z" /></mask>
+  <path
+    d="M15 10V9h-1v1h1zm1 0h1V9h-1v1zm0 1v1h1v-1h-1zm-1 0h-1v1h1v-1zm0 0h1V9h-1v2zm0-1v1h2v-1h-2zm1 0h-1v2h1v-2zm0 1v-1h-2v1h2z"
+    fill="currentColor"
+    mask="url(#e)"
+  />
+  <mask id="f" fill="currentColor"><path d="M18 10h-1v1h1v-1z" /></mask>
+  <path
+    d="M17 10V9h-1v1h1zm1 0h1V9h-1v1zm0 1v1h1v-1h-1zm-1 0h-1v1h1v-1zm0 0h1V9h-1v2zm0-1v1h2v-1h-2zm1 0h-1v2h1v-2zm0 1v-1h-2v1h2z"
+    fill="currentColor"
+    mask="url(#f)"
+  />
+  <mask id="g" fill="currentColor"><path d="M9 12H8v1h1v-1z" /></mask>
+  <path
+    d="M8 12v-1H7v1h1zm1 0h1v-1H9v1zm0 1v1h1v-1H9zm-1 0H7v1h1v-1zm0 0h1v-2H8v2zm0-1v1h2v-1H8zm1 0H8v2h1v-2zm0 1v-1H7v1h2z"
+    fill="currentColor"
+    mask="url(#g)"
+  />
+  <mask id="h" fill="currentColor"><path d="M8 14H7v1h1v-1z" /></mask>
+  <path
+    d="M7 14v-1H6v1h1zm1 0h1v-1H8v1zm0 1v1h1v-1H8zm-1 0H6v1h1v-1zm0 0h1v-2H7v2zm0-1v1h2v-1H7zm1 0H7v2h1v-2zm0 1v-1H6v1h2z"
+    fill="currentColor"
+    mask="url(#h)"
+  />
+  <mask id="i" fill="currentColor"><path d="M18 14h-1v1h1v-1z" /></mask>
+  <path
+    d="M17 14v-1h-1v1h1zm1 0h1v-1h-1v1zm0 1v1h1v-1h-1zm-1 0h-1v1h1v-1zm0 0h1v-2h-1v2zm0-1v1h2v-1h-2zm1 0h-1v2h1v-2zm0 1v-1h-2v1h2z"
+    fill="currentColor"
+    mask="url(#i)"
+  />
+  <mask id="j" fill="currentColor"><path d="M11 12h-1v1h1v-1z" /></mask>
+  <path
+    d="M10 12v-1H9v1h1zm1 0h1v-1h-1v1zm0 1v1h1v-1h-1zm-1 0H9v1h1v-1zm0 0h1v-2h-1v2zm0-1v1h2v-1h-2zm1 0h-1v2h1v-2zm0 1v-1H9v1h2z"
+    fill="currentColor"
+    mask="url(#j)"
+  />
+  <mask id="k" fill="currentColor"><path d="M13 12h-1v1h1v-1z" /></mask>
+  <path
+    d="M12 12v-1h-1v1h1zm1 0h1v-1h-1v1zm0 1v1h1v-1h-1zm-1 0h-1v1h1v-1zm0 0h1v-2h-1v2zm0-1v1h2v-1h-2zm1 0h-1v2h1v-2zm0 1v-1h-2v1h2z"
+    fill="currentColor"
+    mask="url(#k)"
+  />
+  <mask id="l" fill="currentColor"><path d="M15 12h-1v1h1v-1z" /></mask>
+  <path
+    d="M14 12v-1h-1v1h1zm1 0h1v-1h-1v1zm0 1v1h1v-1h-1zm-1 0h-1v1h1v-1zm0 0h1v-2h-1v2zm0-1v1h2v-1h-2zm1 0h-1v2h1v-2zm0 1v-1h-2v1h2z"
+    fill="currentColor"
+    mask="url(#l)"
+  />
+  <mask id="m" fill="currentColor"><path d="M17 12h-1v1h1v-1z" /></mask>
+  <path
+    d="M16 12v-1h-1v1h1zm1 0h1v-1h-1v1zm0 1v1h1v-1h-1zm-1 0h-1v1h1v-1zm0 0h1v-2h-1v2zm0-1v1h2v-1h-2zm1 0h-1v2h1v-2zm0 1v-1h-2v1h2z"
+    fill="currentColor"
+    mask="url(#m)"
+  />
+  <path d="M9.5 14.5h6" stroke="currentColor" />
+</svg>

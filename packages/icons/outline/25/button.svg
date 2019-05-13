@@ -1,8 +1,6 @@
 <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path
-    d="M6.5 8.5l-4 4 4 4M18.5 8.5l4 4-4 4M9.5 20.5l6-16"
+    d="M19 9.5H6A1.5 1.5 0 0 0 4.5 11v3A1.5 1.5 0 0 0 6 15.5h13a1.5 1.5 0 0 0 1.5-1.5v-3A1.5 1.5 0 0 0 19 9.5z"
     stroke="currentColor"
-    stroke-linecap="round"
-    stroke-linejoin="round"
   />
 </svg>
