@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@modulz/generate-icon-lib": "*",
-    "tsdx": "^0.5.5"
+    "tsdx": "^0.5.9"
   },
   "browserslist": [
     ">0.5%",

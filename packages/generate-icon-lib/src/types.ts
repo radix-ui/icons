@@ -3,16 +3,19 @@ import * as path from 'path';
 
 export class CodedError extends Error {
   public code: ERRORS;
+  public hideStack: boolean;
 
-  constructor(code: ERRORS, message: string) {
+  constructor(code: ERRORS, message: string, hideStack: boolean = false) {
     super(message);
     this.code = code;
+    this.hideStack = hideStack;
     Object.setPrototypeOf(this, CodedError.prototype);
   }
 }
 
 export enum ERRORS {
   NETWORK_OFFLINE = 'NETWORK_OFFLINE',
+  DIRTY_WORKING_DIR = 'DIRTY_WORKING_DIR',
   UNEXPECTED = 'UNEXPECTED',
   NO_ICONS_PAGE = 'NO_ICONS_PAGE',
   NO_ICONS_IN_SETS = 'NO_ICONS_IN_SETS',
@@ -36,6 +39,13 @@ export interface IIcons {
   [iconId: string]: IIcon;
 }
 
+export interface ITemplateIcon {
+  name: string;
+  ids: string[];
+  sizes: string[];
+  types: string[];
+}
+
 export interface IIconsSvgUrls {
   readonly [iconId: string]: string;
 }
@@ -54,8 +64,4 @@ export interface IDiffSummary {
   deletions: number;
   filePath: string;
   fullFilePath: string;
-}
-
-export interface IDiffSummaries {
-  [filePath: string]: IDiffSummary;
 }

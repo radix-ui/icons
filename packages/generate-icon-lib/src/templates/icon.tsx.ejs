@@ -12,7 +12,7 @@ for (const type in iconManifest) {
 %>
 interface <%- propsInterfaceName(type, size, name); %> extends SVGIconProps {
   name: "<%- name %>";
-  size: "<%- stripSizePrefix(size) %>";
+  size?: "<%- stripSizePrefix(size) %>";
 }
 
 export const <%- componentName(type, size, name) %>: React.FunctionComponent<<%- propsInterfaceName(type, size, name) %>> =
@@ -33,7 +33,7 @@ type <%- _.upperFirst(_.camelCase(type)) %>TypeIcons = <%-
   ).join(' | ') + ';'
 %>
 
-type <%- _.upperFirst(_.camelCase(type)) %>TypeIconProps = <%- _.upperFirst(_.camelCase(type)) %>TypeIcons & { type: "<%- type %>" };
+type <%- _.upperFirst(_.camelCase(type)) %>TypeIconProps = <%- _.upperFirst(_.camelCase(type)) %>TypeIcons & { type?: "<%- type %>" };
 <% } %>
 
 type IconProps = <%-

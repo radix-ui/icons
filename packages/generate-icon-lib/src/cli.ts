@@ -1,26 +1,25 @@
 import path from 'path';
 import meow from 'meow';
 import chalk from 'chalk';
-import isOnline from 'is-online';
 import { CodedError, ERRORS } from './types';
-import { FILE_PATH_MANIFEST, FILE_PATH_REACT_COMPONENT } from './consts';
 import {
-  createFigmaConfig,
-  getFigmaDocument,
-  getIconsPage,
-  getIcons,
-  renderIdsToSvgs,
-  downloadSvgsToFs,
-  getGitCustomDiff,
   generateReactComponents,
   generateIconManifest,
-  attemptToRemoveDeletedIconSVGs,
-  iconsToSvgPaths,
+  swapGeneratedFiles,
+  createFigmaConfig,
+  getFigmaDocument,
+  downloadSvgsToFs,
+  getGitCustomDiff,
+  renderIdsToSvgs,
+  getIconsPage,
+  prechecks,
+  getIcons,
 } from './services';
+import { handleError } from './utils';
 import { render, unmount } from './view';
 
 async function main() {
-  prechecks();
+  await prechecks();
   const cli = meow(
     `
 	Usage
@@ -128,7 +127,7 @@ async function main() {
 
   /* 5. Generate React Components from the SVGs */
 
-  const reactComponentFilePath = await generateReactComponents(icons);
+  await generateReactComponents(icons);
 
   render({
     spinners: [
@@ -137,7 +136,7 @@ async function main() {
         text: 'Created React Components ⚛️ ✨',
       },
       {
-        text: 'Generating icon manifest...',
+        text: 'Generating Icon Manifest...',
       },
     ],
   });
@@ -154,84 +153,44 @@ async function main() {
         success: true,
         text: 'Created Icon Manifest 📓 🔥',
       },
+      {
+        text: 'Applying changes...',
+      },
     ],
   });
 
-  /* 7. Detect and attempt to remove deleted icons */
-
-  const deletedSvgFiles = await attemptToRemoveDeletedIconSVGs(
+  /* 7. Apply all new files, while removing previous dirs/files entirely. */
+  const touchedPaths = await swapGeneratedFiles(
     previousIconManifest,
     nextIconManifest
   );
 
-  if (deletedSvgFiles.length > 0) {
-    render({
-      spinners: [
-        {
-          success: true,
-          text: 'Cleaned deleted Icons 💇‍',
-        },
-      ],
-    });
-  }
+  render({
+    spinners: [
+      {
+        success: true,
+        text: 'Applied changes to working directory 💇‍',
+      },
+    ],
+  });
 
   /* 8. Finish. Print stats. */
 
   try {
     render({
-      diff: await getGitCustomDiff([
-        ...iconsToSvgPaths(icons),
-        ...deletedSvgFiles,
-        FILE_PATH_REACT_COMPONENT,
-        FILE_PATH_MANIFEST,
-      ]),
+      diff: await getGitCustomDiff(touchedPaths),
     });
   } catch (err) {
-    console.error(err);
     // Swallow git errors, and continue with closing the CLI. 🤙
   }
 
   unmount();
 }
 
-function prechecks() {
-  isOnline().then(isOn => {
-    if (!isOn) {
-      throw new CodedError(
-        ERRORS.NETWORK_OFFLINE,
-        'An internet connection is required to find and render Icons.'
-      );
-    }
-  });
-}
-
-function handleError(err) {
-  unmount();
-  console.log('');
-  if (err instanceof CodedError) {
-    console.error(
-      `${chalk.red.bold('ERROR: ')}${chalk.bgRed.black.bold.inverse(
-        ` ${err.code} `
-      )}
-${err.message}
-${chalk.dim(err.stack ? err.stack.replace(/^.*\n/, '') : '')}`.trim()
-    );
-    process.exit(1);
-  } else {
-    console.log(
-      `${chalk.red.bold('ERROR: ')}${chalk.bgRed.black.bold.inverse(
-        ' UNHANDLED '
-      )}\n`
-    );
-    console.error(err);
-    process.exit(1);
-  }
-}
-
 main()
   .then(() => {
     console.log('Bai 👋');
   })
-  .catch(handleError);
+  .catch(err => handleError(err));
 
-process.addListener('unhandledRejection', handleError);
+process.addListener('unhandledRejection', err => handleError(err));

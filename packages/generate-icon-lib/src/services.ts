@@ -1,32 +1,28 @@
 import { Canvas, Document, FileImageResponse, FileResponse } from 'figma-js';
-import nodeFetch, { Headers, Response } from 'node-fetch';
+import { Headers } from 'node-fetch';
 import * as prettier from 'prettier';
 import isOnline from 'is-online';
+import * as tempy from 'tempy';
 import * as fs from 'fs-extra';
 import cheerio from 'cheerio';
 import * as path from 'path';
 import * as _ from 'lodash';
 import * as ejs from 'ejs';
 import execa from 'execa';
-import SVGO from 'svgo';
-import { FILE_PATH_MANIFEST, FILE_PATH_REACT_COMPONENT } from './consts';
+import { FILE_PATH_MANIFEST, FILE_PATH_ENTRY, FILE_PATH_TYPES } from './consts';
 import {
   CodedError,
   ERRORS,
   IFigmaConfig,
   IIcons,
   IIconsSvgUrls,
-  RequestInitWithRetry,
   IIconManifest,
   IIcon,
-  IDiffSummaries,
   IDiffSummary,
+  ITemplateIcon,
 } from './types';
-
-const defaultRetry = {
-  delay: 1000,
-  retries: 2,
-};
+import { getSvgo, fetch, pushObjLeafNodesToArr, handleError } from './utils';
+import chalk from 'chalk';
 
 const transformers = {
   /**
@@ -95,7 +91,7 @@ const labelling = {
   sizeFromFrameNodeName(nodeName: string): string {
     // Note: We ensure ordering by assignment-time in the object, and avoid numerical
     // key ordering, by adding a non-numerical to the key.
-    return `:${path.basename(nodeName)}`;
+    return labelling.addSizePrefix(path.basename(nodeName));
   },
   filePathFromIcon(icon: IIcon): string {
     return path.join(
@@ -107,47 +103,60 @@ const labelling = {
   stripSizePrefix(size) {
     return size.replace(/^:?(.*)/, '$1');
   },
+  addSizePrefix(size) {
+    return `:${size.replace(/^(:?)(.*)/, '$2')}`;
+  },
 };
 
-let currentOnlineCheck = null;
+let currentTempDir = tempy.directory();
 
-function fetch(
-  url: string,
-  fetchOptions: RequestInitWithRetry = {}
-): Promise<Response> {
-  const retryOptions = { ...defaultRetry, ...fetchOptions.retry };
-  return new Promise((resolve, reject) => {
-    const attemptFetch = (remainingRetries: number) => {
-      nodeFetch(url, fetchOptions)
-        .then(res => {
-          resolve(res);
-        })
-        .catch(async err => {
-          if (remainingRetries > 0) {
-            await asyncDelay(retryOptions.delay);
-            attemptFetch(--remainingRetries);
-          } else {
-            if (!currentOnlineCheck) {
-              currentOnlineCheck = isOnline();
-            }
-            const isOn = await currentOnlineCheck;
-            currentOnlineCheck = null;
-            if (!isOn) {
-              reject(
-                new CodedError(
-                  ERRORS.NETWORK_OFFLINE,
-                  'An internet connection is required to find and render Icons.'
-                )
-              );
-            } else {
-              reject(err);
-            }
-          }
-        });
-    };
+let currentListOfAddedFiles = [];
 
-    attemptFetch(retryOptions.retries);
+export async function prechecks() {
+  /* We can't work offline. */
+  isOnline().then(isOn => {
+    if (!isOn) {
+      throw new CodedError(
+        ERRORS.NETWORK_OFFLINE,
+        'An internet connection is required to find and render Icons.',
+        true
+      );
+    }
   });
+
+  /* We don't want to end up deleted work-in-progress. */
+  const [
+    { stdout: trackedFiles },
+    { stdout: untrackedFiles },
+  ] = await Promise.all([
+    // Checks for uncommitted changes.
+    execa('git', ['diff-index', 'HEAD', './']),
+    // Checks for untracked files.
+    execa('git', ['ls-files', '--others', '--exclude-standard', './']),
+  ]);
+  if (trackedFiles.length > 0 || untrackedFiles.length > 0) {
+    handleError(
+      new CodedError(
+        ERRORS.DIRTY_WORKING_DIR,
+        'There are uncommitted or untracked files in the working directory.\nPlease commit, stash, or remove them. Then try again.',
+        true
+      ),
+      false
+    );
+    console.error(`
+${chalk.bold('Git Status')} ${chalk.dim(
+      `(${['--no-renames', '--untracked-files', '--short', '--', './'].join(
+        ' '
+      )})`
+    )}
+`);
+    await execa(
+      'git',
+      ['status', '--no-renames', '--untracked-files', '--short', '--', './'],
+      { stdio: 'inherit' }
+    );
+    process.exit(1);
+  }
 }
 
 export function createFigmaConfig(fileKey: string): IFigmaConfig {
@@ -274,17 +283,18 @@ export async function downloadSvgsToFs(
         .then(svgRaw => transformers.injectCurrentColor(svgRaw))
         .then(svgRaw => transformers.prettify(svgRaw));
 
-      await fs.outputFile(
-        path.resolve(process.cwd(), labelling.filePathFromIcon(icons[iconId])),
-        processedSvg,
-        { encoding: 'utf8' }
+      const filePath = path.resolve(
+        currentTempDir,
+        labelling.filePathFromIcon(icons[iconId])
       );
+      await fs.outputFile(filePath, processedSvg, { encoding: 'utf8' });
+      currentListOfAddedFiles.push(filePath);
       onProgress();
     })
   );
 }
 
-export function iconsToManifest(icons: IIcons) {
+export function iconsToManifest(icons: IIcons): IIconManifest {
   return Object.keys(icons).reduce((iconManifest: IIconManifest, iconId) => {
     const icon = icons[iconId];
 
@@ -310,70 +320,136 @@ export function iconsToSvgPaths(icons: IIcons) {
   );
 }
 
-export async function filePathToSVGinJSX(filePath) {
-  const absFilePath = path.resolve(process.cwd(), filePath);
-  const svgRaw = await fs.readFile(absFilePath, { encoding: 'utf8' });
+export function filePathToSVGinJSXSync(filePath: string) {
+  const absFilePath = path.resolve(currentTempDir, filePath);
+  const svgRaw = fs.readFileSync(absFilePath, { encoding: 'utf8' });
   return transformers.readyForJSX(svgRaw);
 }
 
 export async function generateReactComponents(icons: IIcons) {
-  const ICON_TEMPLATE_FILE_PATH = path.resolve(
-    __dirname,
-    './templates/icon.tsx.ejs'
+  const getTemplateSource = templateFile =>
+    fs.readFile(path.resolve(__dirname, './templates/', templateFile), {
+      encoding: 'utf8',
+    });
+  const templates = {
+    entry: await getTemplateSource('entry.tsx.ejs'),
+    icon: await getTemplateSource('named-icon.tsx.ejs'),
+    types: await getTemplateSource('types.tsx'),
+  };
+  const iconsWithVariants = Object.values<ITemplateIcon>(
+    Object.keys(icons).reduce(
+      (iconsWithVariants: { [name: string]: ITemplateIcon }, iconId) => {
+        const icon = iconsWithVariants[icons[iconId].name] || {
+          name: icons[iconId].name,
+          ids: [],
+          sizes: [],
+          types: [],
+        };
+        icon.ids = _.uniq(icon.ids.concat(icons[iconId].id));
+        icon.sizes = _.uniq(
+          icon.sizes.concat(labelling.stripSizePrefix(icons[iconId].size))
+        );
+        icon.types = _.uniq(icon.types.concat(icons[iconId].type));
+
+        iconsWithVariants[icons[iconId].name] = icon;
+
+        return iconsWithVariants;
+      },
+      {}
+    )
   );
-  const ICON_TSX_ABSOLUTE_PATH = path.resolve(
-    process.cwd(),
-    FILE_PATH_REACT_COMPONENT
-  );
-  const iconManifest = iconsToManifest(icons);
-  const iconFileTemplate = await fs.readFile(ICON_TEMPLATE_FILE_PATH, {
-    encoding: 'utf8',
-  });
-  const templateData = {
-    iconManifest,
-    _: _,
-    filePathToSVGinJSX,
-    stripSizePrefix: labelling.stripSizePrefix,
-    componentName(type, size, name) {
+
+  const templateHelpers = {
+    iconToComponentName(icon: ITemplateIcon) {
       const pascal = str => _.upperFirst(_.camelCase(str));
-      return `${pascal(name)}${pascal(type)}${pascal(
-        labelling.stripSizePrefix(size)
-      )}Icon`;
+      return `${pascal(icon.name)}Icon`;
     },
-    propsInterfaceName(type, size, name) {
-      return `${templateData.componentName(
+    iconToPropsName(icon: ITemplateIcon) {
+      return `${templateHelpers.iconToComponentName(icon)}Props`;
+    },
+    iconToReactFileName(icon: ITemplateIcon) {
+      return `${templateHelpers.iconToComponentName(icon)}.tsx`;
+    },
+    iconToSVGSourceAsJSX(icon: ITemplateIcon, size: string, type: string) {
+      const filePath = labelling.filePathFromIcon({
+        id: icon.ids[0],
+        name: icon.name,
+        size,
         type,
-        labelling.stripSizePrefix(size),
-        name
-      )}Props`;
+      });
+      return filePathToSVGinJSXSync(filePath);
+    },
+    iconHasSizeAndType(icon: ITemplateIcon, size: string, type: string) {
+      return icon.ids.some(iconId => {
+        const prefixedSize = labelling.addSizePrefix(size);
+        return (
+          icons[iconId].size === prefixedSize && icons[iconId].type === type
+        );
+      });
+    },
+    stripExtension(fileName) {
+      return fileName.replace(/(.*)\.\w+$/, '$1');
     },
   };
-  let reactComponentRaw = await ejs.render(iconFileTemplate, templateData, {
-    async: true,
-  });
+
   const prettierOptions = prettier.resolveConfig.sync(process.cwd());
-  reactComponentRaw = prettier.format(reactComponentRaw, {
+  /* Generate Icon Component Modules */
+  for (const i in iconsWithVariants) {
+    const icon = iconsWithVariants[i];
+    let iconSourceRaw = await ejs.render(templates.icon, {
+      icon,
+      ...templateHelpers,
+    });
+    const iconSource = prettier.format(iconSourceRaw, {
+      ...prettierOptions,
+      parser: 'typescript',
+    });
+    const iconComponentFilePath = path.resolve(
+      currentTempDir,
+      'src/',
+      templateHelpers.iconToReactFileName(icon)
+    );
+    await fs.outputFile(iconComponentFilePath, iconSource);
+    currentListOfAddedFiles.push(iconComponentFilePath);
+  }
+
+  /* Generate Entry Module */
+  let entrySourceRaw = await ejs.render(templates.entry, {
+    icons: iconsWithVariants,
+    ...templateHelpers,
+  });
+  const entrySource = prettier.format(entrySourceRaw, {
     ...prettierOptions,
     parser: 'typescript',
   });
-  await fs.outputFile(ICON_TSX_ABSOLUTE_PATH, reactComponentRaw);
+  const entryFilePath = path.resolve(currentTempDir, FILE_PATH_ENTRY);
+  await fs.outputFile(entryFilePath, entrySource);
+  currentListOfAddedFiles.push(entryFilePath);
+
+  /* Generate Type Modules */
+  const typeDepsFilePath = path.resolve(currentTempDir, FILE_PATH_TYPES);
+  await fs.outputFile(typeDepsFilePath, templates.types);
+  currentListOfAddedFiles.push(typeDepsFilePath);
 }
 
-export async function getCurrentIconManifest() {
-  const ICON_MANIFEST_ABSOLUTE_PATH = path.resolve(
-    process.cwd(),
-    FILE_PATH_MANIFEST
+export async function getCurrentIconManifest(): Promise<IIconManifest> {
+  const { stdout: gitRootDir } = await execa('git', [
+    'rev-parse',
+    '--show-toplevel',
+  ]);
+  const gitRelativePathToManifest = path.relative(
+    gitRootDir,
+    path.resolve(process.cwd(), FILE_PATH_MANIFEST)
   );
-  return (await fs.readJSON(ICON_MANIFEST_ABSOLUTE_PATH, {
-    encoding: 'utf8',
-  })) as {};
+  let { stdout: currentManifest } = await execa('git', [
+    'show',
+    `HEAD:${gitRelativePathToManifest}`,
+  ]);
+  return JSON.parse(currentManifest);
 }
 
 export async function generateIconManifest(icons: IIcons) {
-  const ICON_MANIFEST_ABSOLUTE_PATH = path.resolve(
-    process.cwd(),
-    FILE_PATH_MANIFEST
-  );
+  const iconManifestFilePath = path.resolve(currentTempDir, FILE_PATH_MANIFEST);
   const iconManifest = iconsToManifest(icons);
   let iconManifestRaw = JSON.stringify(iconManifest);
   const prettierOptions = prettier.resolveConfig.sync(process.cwd());
@@ -382,151 +458,86 @@ export async function generateIconManifest(icons: IIcons) {
     parser: 'json',
   });
   const previousIconManifest = await getCurrentIconManifest();
-  await fs.writeFile(ICON_MANIFEST_ABSOLUTE_PATH, iconManifestRaw, {
+  await fs.writeFile(iconManifestFilePath, iconManifestRaw, {
     encoding: 'utf8',
   });
+  currentListOfAddedFiles.push(iconManifestFilePath);
   return [previousIconManifest, iconManifest];
 }
 
-export async function attemptToRemoveDeletedIconSVGs(
+export async function swapGeneratedFiles(
   previousIconManifest: IIconManifest,
   nextIconManifest: IIconManifest
-) {
-  let deletedIconsAsSVGPaths = [];
-  const assignRemovedPropAccessorsRecursive = (
-    a: IIconManifest,
-    b: IIconManifest,
-    accessor: any[] = []
-  ) => {
-    _.forEach(accessor.length ? _.get(a, accessor) : a, (v, k) => {
-      if (v == null) return;
-      const currentAccessor = accessor.concat(k);
-      if (typeof v === 'object') {
-        assignRemovedPropAccessorsRecursive(a, b, currentAccessor);
-      }
-      if (typeof v === 'string') {
-        const leafNodeB = _.get(b, currentAccessor);
-        if (leafNodeB == null) {
-          const leafNodeA = _.get(a, currentAccessor);
-          deletedIconsAsSVGPaths.push(leafNodeA);
-        }
-      }
-    });
-  };
-
-  assignRemovedPropAccessorsRecursive(previousIconManifest, nextIconManifest);
-
-  for (const i in deletedIconsAsSVGPaths) {
-    const filePath = deletedIconsAsSVGPaths[i];
-    await fs.unlink(path.resolve(process.cwd(), filePath));
+): Promise<string[]> {
+  /* We must find all dirs and files that were generated, and remove them: */
+  let generatedFilePaths = [];
+  //  1. The top-level dirs for previous SVGs
+  pushObjLeafNodesToArr(previousIconManifest, generatedFilePaths);
+  //  2. The top-level dirs needed for new SVGs
+  pushObjLeafNodesToArr(nextIconManifest, generatedFilePaths);
+  //  3. The top-level dirs for generated source
+  generatedFilePaths = generatedFilePaths.concat([
+    FILE_PATH_ENTRY,
+    FILE_PATH_TYPES,
+  ]);
+  const topLevelDirs: string[] = _.uniq(
+    generatedFilePaths.map(filePath => filePath.replace(/^([\w-]+).*/, '$1'))
+  );
+  for (const i in topLevelDirs) {
+    const topLevelDir = topLevelDirs[i];
+    await fs.remove(path.resolve(process.cwd(), topLevelDir));
   }
+  //  4. The manifest file
+  await fs.remove(path.resolve(process.cwd(), FILE_PATH_MANIFEST));
 
-  return deletedIconsAsSVGPaths;
+  /* Then we take all the contents of our temp dir and copy them to cwd: */
+  await fs.copy(currentTempDir, process.cwd());
+
+  return [].concat(topLevelDirs, FILE_PATH_MANIFEST);
 }
 
-export async function getGitCustomDiff(
-  files: string[]
-): Promise<IDiffSummary[]> {
-  const cleanedFiles = _.uniq(files.reverse()).reverse();
+export async function getGitCustomDiff(touchedPaths): Promise<IDiffSummary[]> {
   const { stdout: gitRootDir } = await execa('git', [
     'rev-parse',
     '--show-toplevel',
   ]);
+  /* Stage all changes to tracked files. */
+  /* Stage the "intent" to add for all untracked files. */
   await execa('git', [
     'add',
     '-f',
     '--ignore-removal',
     '--intent-to-add',
-    ...cleanedFiles,
+    '--',
+    ...touchedPaths,
   ]);
+  /* Grab the lines changed per file, as well as the kind of change (D, M, A) */
   const [{ stdout: numstatRaw }, { stdout: nameStatRaw }] = await Promise.all([
-    execa('git', ['diff', '--numstat', '--no-renames']),
-    execa('git', ['diff', '--name-status', '--no-renames']),
+    execa('git', ['diff', '--numstat', '--no-renames', '--', './']),
+    execa('git', ['diff', '--name-status', '--no-renames', '--', './']),
   ]);
 
+  /* Transform the raw stdout to renderable data. */
   const nameStat = nameStatRaw.split('\n').map(line => line[0]);
-  const keydNumstat: IDiffSummaries = numstatRaw
+  const diffSummaries: IDiffSummary[] = numstatRaw
     .split('\n')
     .map(line => line.split('\t'))
     .map(([additions, deletions, filePath], i) => {
+      const filePathFromCwd = filePath
+        .replace(path.relative(gitRootDir, process.cwd()), '')
+        .replace(/^\//, '');
+
       return {
         status: nameStat[i] || 'M',
         additions: parseInt(additions, 10),
         deletions: parseInt(deletions, 10),
-        filePath: filePath
-          .replace(path.relative(gitRootDir, process.cwd()), '')
-          .replace(/^\//, ''),
+        filePath: filePathFromCwd,
         fullFilePath: filePath,
       };
-    })
-    .filter(fileSummary => cleanedFiles.includes(fileSummary.filePath))
-    .reduce((keyedFileSummary: IDiffSummaries, fileSummary) => {
-      keyedFileSummary[fileSummary.filePath] = fileSummary;
-      return keyedFileSummary;
-    }, {});
+    });
 
-  const orderedNumStat = cleanedFiles
-    .map(filePath => keydNumstat[filePath])
-    .filter(fileSummary => !!fileSummary);
+  /* Undo the staging done above, to ensure an expected git status after this tool has been run. */
+  await execa('git', ['reset', 'HEAD', './']);
 
-  await execa('git', ['reset', 'HEAD', ...cleanedFiles], { cwd: gitRootDir });
-
-  return orderedNumStat;
-}
-
-function asyncDelay(timeout: number) {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve();
-    }, timeout);
-  });
-}
-
-let svgo = null;
-
-function getSvgo() {
-  if (svgo) return svgo;
-  svgo = new SVGO({
-    plugins: [
-      { removeDoctype: true },
-      { removeXMLProcInst: true },
-      { removeComments: true },
-      { removeMetadata: true },
-      { removeXMLNS: false },
-      { removeEditorsNSData: true },
-      { cleanupAttrs: true },
-      { minifyStyles: true },
-      { convertStyleToAttrs: true },
-      { cleanupIDs: true },
-      { removeRasterImages: false },
-      { removeUselessDefs: true },
-      { cleanupNumericValues: true },
-      { cleanupListOfValues: false },
-      { convertColors: true },
-      { removeUnknownsAndDefaults: true },
-      { removeNonInheritableGroupAttrs: true },
-      { removeUselessStrokeAndFill: true },
-      { removeViewBox: true },
-      { cleanupEnableBackground: true },
-      { removeHiddenElems: true },
-      { removeEmptyText: true },
-      { convertShapeToPath: true },
-      { moveElemsAttrsToGroup: true },
-      { moveGroupAttrsToElems: true },
-      { collapseGroups: true },
-      { convertPathData: true },
-      { convertTransform: true },
-      { removeEmptyAttrs: true },
-      { removeEmptyContainers: true },
-      { mergePaths: true },
-      { removeUnusedNS: true },
-      { sortAttrs: false },
-      { removeTitle: true },
-      { removeDesc: true },
-      { removeDimensions: false },
-      { removeStyleElement: false },
-      { removeScriptElement: false },
-    ],
-  });
-  return svgo;
+  return diffSummaries;
 }

@@ -8,17 +8,13 @@ import {
   Instance as InkInstance,
 } from 'ink';
 import InkSpinner from 'ink-spinner';
+import { IDiffSummary } from './types';
 
 interface ICliState {
   fileKey?: string;
   spinners?: Array<{ success?: true; text: string }>;
   progress?: { text: string; percent: number };
-  diff?: Array<{
-    status: string;
-    additions: number;
-    deletions: number;
-    filePath: string;
-  }>;
+  diff?: IDiffSummary[];
 }
 
 interface ICliViewProps {

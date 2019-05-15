@@ -1,0 +1,30 @@
+import * as React from 'react';
+import { BaseIconProps } from './types';
+
+interface <%- iconToPropsName(icon) %> extends BaseIconProps {
+  size?: <%- icon.sizes.map(s => `"${s}"`).join(' | ') %>;
+  type?: <%- icon.types.map(t => `"${t}"`).join(' | ') %>;
+}
+
+export const <%- iconToComponentName(icon) %> =
+  ({
+    color = 'currentColor',
+    size = '<%- icon.sizes[0] %>',
+    type = '<%- icon.types[0] %>',
+    ...props,
+  }: <%- iconToPropsName(icon) %>) => {
+<% for (const t in icon.types) { %>
+<%   for (const s in icon.sizes) { %>
+<%     if (iconHasSizeAndType(icon, icon.sizes[s], icon.types[t])) { %>
+    if (type === '<%- icon.types[t] %>' && size === '<%- icon.sizes[s] %>') {
+      return <%- iconToSVGSourceAsJSX(icon, icon.sizes[s], icon.types[t]) %>
+    }
+<%     } %>
+<%   } %>
+<% } %>
+
+    console.error(`<%- iconToComponentName(icon) %> doesn't support the combination of ${size} and ${type}`)
+    return null;
+  };
+
+export default <%- iconToComponentName(icon) %>;
