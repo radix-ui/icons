@@ -1,12 +1,18 @@
 {
+  "include": [
+    "src/**/*"
+  ],
   "compilerOptions": {
-    "target": "es5",
-    "module": "esnext",
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
     "esModuleInterop": true,
     "noImplicitAny": false,
-    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "module": "esnext",
     "sourceMap": true,
     "outDir": "dist",
+    "target": "es5",
     "baseUrl": ".",
     "jsx": "react",
     "paths": {
@@ -15,8 +21,5 @@
         "src/types/*"
       ]
     }
-  },
-  "include": [
-    "src/**/*"
-  ]
+  }
 }
