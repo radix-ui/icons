@@ -17,7 +17,8 @@
   ],
   "scripts": {
     "generate-src": "generate-icon-lib --file=LLggMY9IV61CYkCSI7LFFUOY",
-    "build": "tsdx build --format es,cjs --entry src/index.tsx"
+    "build": "rimraf dist && tsdx build --format es,cjs --entry src/index.tsx",
+    "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
     "react": "^16.x",
@@ -25,6 +26,7 @@
   },
   "devDependencies": {
     "@modulz/generate-icon-lib": "*",
+    "rimraf": "^2.6.3",
     "tsdx": "^0.5.9"
   },
   "browserslist": [
