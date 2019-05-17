@@ -336,6 +336,7 @@ export async function generateReactComponents(icons: IIcons) {
     icon: await getTemplateSource('named-icon.tsx.ejs'),
     types: await getTemplateSource('types.tsx'),
   };
+  const firstIcon = Object.values(icons)[0];
   const iconsWithVariants = Object.values<ITemplateIcon>(
     Object.keys(icons).reduce(
       (iconsWithVariants: { [name: string]: ITemplateIcon }, iconId) => {
@@ -360,6 +361,12 @@ export async function generateReactComponents(icons: IIcons) {
   );
 
   const templateHelpers = {
+    getDefaultSize() {
+      return labelling.stripSizePrefix(firstIcon.size);
+    },
+    getDefaultType() {
+      return firstIcon.type;
+    },
     iconToComponentName(icon: ITemplateIcon) {
       const pascal = str => _.upperFirst(_.camelCase(str));
       return `${pascal(icon.name)}Icon`;

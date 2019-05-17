@@ -2,15 +2,15 @@ import * as React from 'react';
 import { BaseIconProps } from './types';
 
 interface <%- iconToPropsName(icon) %> extends BaseIconProps {
-  size?: <%- icon.sizes.map(s => `"${s}"`).join(' | ') %>;
-  type?: <%- icon.types.map(t => `"${t}"`).join(' | ') %>;
+  size<%- icon.sizes[0] === getDefaultSize() ? '?' : '' %>: <%- icon.sizes.map(s => `"${s}"`).join(' | ') %>;
+  type<%- icon.types[0] === getDefaultType() ? '?' : '' %>: <%- icon.types.map(t => `"${t}"`).join(' | ') %>;
 }
 
 export const <%- iconToComponentName(icon) %> =
   ({
     color = 'currentColor',
-    size = '<%- icon.sizes[0] %>',
-    type = '<%- icon.types[0] %>',
+    size<%- icon.sizes[0] === getDefaultSize() ? ` = '${icon.sizes[0]}'` : '' %>,
+    type<%- icon.types[0] === getDefaultType() ? ` = '${icon.types[0]}'` : '' %>,
     ...props,
   }: <%- iconToPropsName(icon) %>) => {
 <% for (const t in icon.types) { %>
