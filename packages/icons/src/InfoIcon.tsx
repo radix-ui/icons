@@ -2,13 +2,13 @@ import * as React from 'react';
 import { BaseIconProps } from './types';
 
 interface InfoIconProps extends BaseIconProps {
-  size?: '15';
+  size: '15';
   type?: 'outline';
 }
 
 export const InfoIcon = ({
   color = 'currentColor',
-  size = '15',
+  size,
   type = 'outline',
   ...props
 }: InfoIconProps) => {

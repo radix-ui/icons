@@ -183,7 +183,7 @@ export { default as ZoomOutIcon } from './ZoomOutIcon';
 export { default as AspectRatioIcon } from './AspectRatioIcon';
 export { default as AvatarIcon } from './AvatarIcon';
 export { default as BadgeIcon } from './BadgeIcon';
-export { default as CaretBottomIcon } from './CaretBottomIcon';
+export { default as CaretDownIcon } from './CaretDownIcon';
 export { default as CaretLeftIcon } from './CaretLeftIcon';
 export { default as CaretRightIcon } from './CaretRightIcon';
 export { default as CaretSortIcon } from './CaretSortIcon';

@@ -1,17 +1,17 @@
 import * as React from 'react';
 import { BaseIconProps } from './types';
 
-interface CaretBottomIconProps extends BaseIconProps {
-  size?: '15';
+interface CaretDownIconProps extends BaseIconProps {
+  size: '15';
   type?: 'outline';
 }
 
-export const CaretBottomIcon = ({
+export const CaretDownIcon = ({
   color = 'currentColor',
-  size = '15',
+  size,
   type = 'outline',
   ...props
-}: CaretBottomIconProps) => {
+}: CaretDownIconProps) => {
   if (type === 'outline' && size === '15') {
     return (
       <svg
@@ -32,9 +32,9 @@ export const CaretBottomIcon = ({
   }
 
   console.error(
-    `CaretBottomIcon doesn't support the combination of ${size} and ${type}`
+    `CaretDownIcon doesn't support the combination of ${size} and ${type}`
   );
   return null;
 };
 
-export default CaretBottomIcon;
+export default CaretDownIcon;

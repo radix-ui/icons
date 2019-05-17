@@ -2,13 +2,13 @@ import * as React from 'react';
 import { BaseIconProps } from './types';
 
 interface MixerHorizontalIconProps extends BaseIconProps {
-  size?: '15';
+  size: '15';
   type?: 'outline';
 }
 
 export const MixerHorizontalIcon = ({
   color = 'currentColor',
-  size = '15',
+  size,
   type = 'outline',
   ...props
 }: MixerHorizontalIconProps) => {
