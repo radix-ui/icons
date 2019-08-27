@@ -1,7 +1,7 @@
 {
   "name": "@modulz/radix-icons",
   "private": false,
-  "version": "0.8.0",
+  "version": "0.8.1",
   "license": "MIT",
   "description": "Radix Icon Set",
   "author": "Lochlan Bunn <lochlan@modulz.app>",
@@ -26,7 +26,7 @@
     "react-dom": "^16.x"
   },
   "devDependencies": {
-    "@modulz/generate-icon-lib": "^0.0.1",
+    "@modulz/generate-icon-lib": "^0.0.2",
     "tsdx": "^0.8.0"
   },
   "gitHead": "dcfeb380ad27ceb7795b59093896737c299c5300"
