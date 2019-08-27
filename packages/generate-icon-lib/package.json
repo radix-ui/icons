@@ -1,7 +1,7 @@
 {
   "name": "@modulz/generate-icon-lib",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Library src generator for Radix Icons",
   "bin": {
     "generate-icon-lib": "./index.js"
@@ -33,7 +33,6 @@
     "lodash": "^4.17.11",
     "meow": "^5.0.0",
     "node-fetch": "^2.4.1",
-    "prettier": "^1.17.0",
     "pretty-bytes": "^5.2.0",
     "react": "^16.8.6",
     "svgo": "^1.2.2",

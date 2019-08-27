@@ -1,3 +1,4 @@
+import { Canvas, Document, FileImageResponse, FileResponse } from 'figma-js';
 import { Headers, RequestInit } from 'node-fetch';
 import * as path from 'path';
 
@@ -65,3 +66,16 @@ export interface IDiffSummary {
   filePath: string;
   fullFilePath: string;
 }
+
+type Omit<T, K> = Pick<T, Exclude<keyof T, K>>;
+
+interface ErrorResponse {
+  readonly err?: string;
+  readonly status?: 400 | 403 | 404 | 429 | 500;
+}
+export interface IFigmaCanvas extends Canvas {}
+export interface IFigmaDocument extends Document {}
+export interface IFigmaFileImageResponse
+  extends Omit<FileImageResponse, 'err' | 'status'>,
+    ErrorResponse {}
+export interface IFigmaFileResponse extends FileResponse, ErrorResponse {}

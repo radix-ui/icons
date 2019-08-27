@@ -1,1 +1,8 @@
-tsconfig.json
+build
+node_modules
+package-lock.json
+package.json
+storybook-static
+public
+.cache
+dist

@@ -1,0 +1,7 @@
+# The repo's directory contents are likely generated,
+# so we want to whitelist what we want to keep in git.
+
+.env
+.size-snapshot.json
+.rts2*
+dist
