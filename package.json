@@ -13,7 +13,7 @@
     "clean": "npm run clean-logs && npm run clean-modules",
     "clean-logs": "rimraf ./packages/*/npm-debug* && rimraf ./*-debug*",
     "clean-modules": "rimraf ./packages/*/node_modules/ && rimraf ./node_modules/",
-    "release": "yarn icons:build && lerna publish"
+    "release": "lerna publish"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^1.13.0",
