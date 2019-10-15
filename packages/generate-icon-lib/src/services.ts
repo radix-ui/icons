@@ -169,7 +169,7 @@ export async function getFigmaDocument(config: IFigmaConfig): Promise<IFigmaDocu
   if (data.status === 403 && data.err === 'Invalid token') {
     throw new CodedError(
       ERRORS.FIGMA_API,
-      'An invalid token was used. Follow the Auth Guide (https://git.io/fjBfF), and try again.'
+      'An invalid token was used. Follow the Auth Guide (https://git.io/Je87i), and try again.'
     );
   }
   return data.document;
