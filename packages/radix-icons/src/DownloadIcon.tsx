@@ -16,7 +16,7 @@ export const DownloadIcon = ({
     return (
       <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-          d="M5.5 12.5V20a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-7.5M12.5 4.5v11"
+          d="M5.5 12.5V20a.5.5 0 00.5.5h13a.5.5 0 00.5-.5v-7.5M12.5 4.5v11"
           stroke={color}
           strokeLinecap="round"
           strokeLinejoin="round"

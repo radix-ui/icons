@@ -162,7 +162,8 @@
       "visible": "outline/25/visible.svg",
       "warning": "outline/25/warning.svg",
       "zoom-in": "outline/25/zoom-in.svg",
-      "zoom-out": "outline/25/zoom-out.svg"
+      "zoom-out": "outline/25/zoom-out.svg",
+      "gear": "outline/25/gear.svg"
     },
     ":15": {
       "arrow-down": "outline/15/arrow-down.svg",
@@ -237,7 +238,8 @@
       "thick-arrow-down": "outline/15/thick-arrow-down.svg",
       "thick-arrow-up": "outline/15/thick-arrow-up.svg",
       "trash": "outline/15/trash.svg",
-      "visible": "outline/15/visible.svg"
+      "visible": "outline/15/visible.svg",
+      "gear": "outline/15/gear.svg"
     }
   }
 }

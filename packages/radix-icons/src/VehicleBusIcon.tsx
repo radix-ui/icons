@@ -21,11 +21,11 @@ export const VehicleBusIcon = ({
           strokeLinejoin="round"
         />
         <path
-          d="M9 18.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM16 18.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"
+          d="M9 18.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM16 18.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
           stroke={color}
         />
         <path d="M2.5 8.5v-2h20v2" stroke={color} strokeLinejoin="round" />
-        <path d="M4.5 6A3.5 3.5 0 0 1 8 2.5h9A3.5 3.5 0 0 1 20.5 6v14.5h-16V6z" stroke={color} />
+        <path d="M4.5 6A3.5 3.5 0 018 2.5h9A3.5 3.5 0 0120.5 6v14.5h-16V6z" stroke={color} />
         <path d="M5 13.5h15" stroke={color} strokeLinejoin="round" />
       </svg>
     );

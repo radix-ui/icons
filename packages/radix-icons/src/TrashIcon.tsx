@@ -16,12 +16,12 @@ export const TrashIcon = ({
     return (
       <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-          d="M17 8.5H8a.5.5 0 0 0-.5.5v11a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V9a.5.5 0 0 0-.5-.5z"
+          d="M17 8.5H8a.5.5 0 00-.5.5v11a.5.5 0 00.5.5h9a.5.5 0 00.5-.5V9a.5.5 0 00-.5-.5z"
           stroke={color}
           strokeLinecap="round"
           strokeLinejoin="bevel"
         />
-        <path d="M17.5 6.5h-10a1 1 0 0 0 0 2h10a1 1 0 1 0 0-2z" stroke={color} />
+        <path d="M17.5 6.5h-10a1 1 0 000 2h10a1 1 0 100-2z" stroke={color} />
         <path d="M10.5 4.5h4" stroke={color} strokeLinecap="round" strokeLinejoin="round" />
         <path d="M10.5 11v7M12.5 11v7M14.5 11v7" stroke={color} />
       </svg>

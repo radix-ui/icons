@@ -16,7 +16,7 @@ export const LockIcon = ({
     return (
       <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-          d="M19 11.5H6A1.5 1.5 0 0 0 4.5 13v6A1.5 1.5 0 0 0 6 20.5h13a1.5 1.5 0 0 0 1.5-1.5v-6a1.5 1.5 0 0 0-1.5-1.5zM7.5 9.5a5 5 0 0 1 10 0v2h-10v-2z"
+          d="M19 11.5H6A1.5 1.5 0 004.5 13v6A1.5 1.5 0 006 20.5h13a1.5 1.5 0 001.5-1.5v-6a1.5 1.5 0 00-1.5-1.5zM7.5 9.5a5 5 0 0110 0v2h-10v-2z"
           stroke={color}
         />
       </svg>
@@ -27,7 +27,7 @@ export const LockIcon = ({
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <rect x="2.5" y="6.5" width="10" height="6" rx=".5" stroke={color} />
-        <path d="M4.5 5.5a3 3 0 0 1 6 0v1h-6v-1z" stroke={color} />
+        <path d="M4.5 5.5a3 3 0 016 0v1h-6v-1z" stroke={color} />
       </svg>
     );
   }

@@ -16,7 +16,7 @@ export const GridIcon = ({
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-          d="M12 2.5H3a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5zM7.5 2v11M13 7.5H2"
+          d="M12 2.5H3a.5.5 0 00-.5.5v9a.5.5 0 00.5.5h9a.5.5 0 00.5-.5V3a.5.5 0 00-.5-.5zM7.5 2v11M13 7.5H2"
           stroke={color}
         />
       </svg>

@@ -16,10 +16,10 @@ export const DeviceMobileLandscapeIcon = ({
     return (
       <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-          d="M19 7.5H6A1.5 1.5 0 0 0 4.5 9v7A1.5 1.5 0 0 0 6 17.5h13a1.5 1.5 0 0 0 1.5-1.5V9A1.5 1.5 0 0 0 19 7.5z"
+          d="M19 7.5H6A1.5 1.5 0 004.5 9v7A1.5 1.5 0 006 17.5h13a1.5 1.5 0 001.5-1.5V9A1.5 1.5 0 0019 7.5z"
           stroke={color}
         />
-        <path d="M17.5 13a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" fill={color} />
+        <path d="M17.5 13a.5.5 0 100-1 .5.5 0 000 1z" fill={color} />
       </svg>
     );
   }

@@ -1,12 +1,12 @@
 <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path
-    d="M8.5 4.5v11a1 1 0 0 0 1 1h11"
+    d="M8.5 4.5v11a1 1 0 001 1h11"
     stroke="currentColor"
     stroke-linecap="round"
     stroke-linejoin="round"
   />
   <path
-    d="M4.5 8.5h11a1 1 0 0 1 1 1v11"
+    d="M4.5 8.5h11a1 1 0 011 1v11"
     stroke="currentColor"
     stroke-linecap="round"
     stroke-linejoin="round"

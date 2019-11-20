@@ -16,7 +16,7 @@ export const LayoutHeaderLeftAlignedSectionsIcon = ({
     return (
       <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-          d="M19 6.5H6A1.5 1.5 0 0 0 4.5 8v9A1.5 1.5 0 0 0 6 18.5h13a1.5 1.5 0 0 0 1.5-1.5V8A1.5 1.5 0 0 0 19 6.5zM9.5 12v6M5 11.5h15.5"
+          d="M19 6.5H6A1.5 1.5 0 004.5 8v9A1.5 1.5 0 006 18.5h13a1.5 1.5 0 001.5-1.5V8A1.5 1.5 0 0019 6.5zM9.5 12v6M5 11.5h15.5"
           stroke={color}
         />
       </svg>

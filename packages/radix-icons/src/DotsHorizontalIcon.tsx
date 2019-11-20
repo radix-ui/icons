@@ -16,7 +16,7 @@ export const DotsHorizontalIcon = ({
     return (
       <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-          d="M5.5 14a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM12.5 14a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM19.5 14a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"
+          d="M5.5 14a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM12.5 14a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM19.5 14a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
           fill={color}
         />
       </svg>

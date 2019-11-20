@@ -16,7 +16,7 @@ export const DeviceDesktopIcon = ({
     return (
       <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-          d="M19 4.5H6A1.5 1.5 0 0 0 4.5 6v9A1.5 1.5 0 0 0 6 16.5h13a1.5 1.5 0 0 0 1.5-1.5V6A1.5 1.5 0 0 0 19 4.5z"
+          d="M19 4.5H6A1.5 1.5 0 004.5 6v9A1.5 1.5 0 006 16.5h13a1.5 1.5 0 001.5-1.5V6A1.5 1.5 0 0019 4.5z"
           stroke={color}
         />
         <path

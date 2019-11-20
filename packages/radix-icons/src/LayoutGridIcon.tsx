@@ -16,7 +16,7 @@ export const LayoutGridIcon = ({
     return (
       <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-          d="M19 5.5H6a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5V6a.5.5 0 0 0-.5-.5zM12.5 6v13M19 12.5H6"
+          d="M19 5.5H6a.5.5 0 00-.5.5v13a.5.5 0 00.5.5h13a.5.5 0 00.5-.5V6a.5.5 0 00-.5-.5zM12.5 6v13M19 12.5H6"
           stroke={color}
         />
       </svg>

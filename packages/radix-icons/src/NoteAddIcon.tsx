@@ -17,7 +17,7 @@ export const NoteAddIcon = ({
       <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path d="M9 16.5h7m-7-6h7-7zm0 3h7-7z" stroke={color} />
         <path
-          d="M18.5 10.5v-6m-3 3h6-6zM18.5 13.5v5a1 1 0 0 1-1 1h-10a1 1 0 0 1-1-1v-10a1 1 0 0 1 1-1h5"
+          d="M18.5 10.5v-6m-3 3h6-6zM18.5 13.5v5a1 1 0 01-1 1h-10a1 1 0 01-1-1v-10a1 1 0 011-1h5"
           stroke={color}
           strokeLinecap="round"
           strokeLinejoin="round"

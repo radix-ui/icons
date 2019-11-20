@@ -16,7 +16,7 @@ export const PositionFixedIcon = ({
     return (
       <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-          d="M10.5 9V5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4c2 .8 2.833 3.333 3 4.5h-10c0-2.4 2-4 3-4.5z"
+          d="M10.5 9V5a.5.5 0 01.5-.5h3a.5.5 0 01.5.5v4c2 .8 2.833 3.333 3 4.5h-10c0-2.4 2-4 3-4.5z"
           stroke={color}
           strokeLinecap="round"
           strokeLinejoin="round"

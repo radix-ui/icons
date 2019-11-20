@@ -1,9 +1,9 @@
 <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path
-    d="M18 5.5H7A1.5 1.5 0 0 0 5.5 7v11A1.5 1.5 0 0 0 7 19.5h11a1.5 1.5 0 0 0 1.5-1.5V7A1.5 1.5 0 0 0 18 5.5z"
+    d="M18 5.5H7A1.5 1.5 0 005.5 7v11A1.5 1.5 0 007 19.5h11a1.5 1.5 0 001.5-1.5V7A1.5 1.5 0 0018 5.5z"
     stroke="currentColor"
   />
-  <path d="M9.5 10.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" stroke="currentColor" />
+  <path d="M9.5 10.5a1 1 0 100-2 1 1 0 000 2z" stroke="currentColor" />
   <path
     d="M6.5 19l8.737-8.5 4.263 3"
     stroke="currentColor"

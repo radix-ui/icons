@@ -22,7 +22,7 @@ export const MixerVerticalIcon = ({
           strokeLinejoin="round"
         />
         <path
-          d="M6.5 14.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM12.5 10.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM18.5 18.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"
+          d="M6.5 14.5a2 2 0 100-4 2 2 0 000 4zM12.5 10.5a2 2 0 100-4 2 2 0 000 4zM18.5 18.5a2 2 0 100-4 2 2 0 000 4z"
           stroke={color}
         />
       </svg>

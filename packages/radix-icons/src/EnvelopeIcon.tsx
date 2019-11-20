@@ -22,7 +22,7 @@ export const EnvelopeIcon = ({
           strokeLinejoin="round"
         />
         <path
-          d="M4.5 8v9a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5V8a.5.5 0 0 0-.5-.5H5a.5.5 0 0 0-.5.5z"
+          d="M4.5 8v9a.5.5 0 00.5.5h15a.5.5 0 00.5-.5V8a.5.5 0 00-.5-.5H5a.5.5 0 00-.5.5z"
           stroke={color}
           strokeLinecap="round"
           strokeLinejoin="round"

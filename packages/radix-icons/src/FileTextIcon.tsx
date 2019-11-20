@@ -16,7 +16,7 @@ export const FileTextIcon = ({
     return (
       <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-          d="M6.5 19.5v-14a1 1 0 0 1 1-1h5.586a1 1 0 0 1 .707.293l4.414 4.414a1 1 0 0 1 .293.707V19.5a1 1 0 0 1-1 1h-10a1 1 0 0 1-1-1z"
+          d="M6.5 19.5v-14a1 1 0 011-1h5.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V19.5a1 1 0 01-1 1h-10a1 1 0 01-1-1z"
           stroke={color}
           strokeLinecap="round"
           strokeLinejoin="round"

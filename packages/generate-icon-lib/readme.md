@@ -19,7 +19,7 @@ This can be provided to `generate-icon-lib` via the `FIGMA_ACCESS_TOKEN` environ
 Create an `.env` file an intended directory for easy reuse:
 
 ```shell
-echo "FIGMA_ACCESS_TOKEN=<token>" >> packages/icons/.env
+echo "FIGMA_ACCESS_TOKEN=<token>" >> packages/radix-icons/.env
 ```
 
 ## Future

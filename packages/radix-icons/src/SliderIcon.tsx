@@ -16,7 +16,7 @@ export const SliderIcon = ({
     return (
       <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path d="M.5 12.5h8M16.5 12.5h8" stroke={color} strokeLinecap="round" />
-        <path d="M12.5 16.5a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" stroke={color} />
+        <path d="M12.5 16.5a4 4 0 100-8 4 4 0 000 8z" stroke={color} />
       </svg>
     );
   }

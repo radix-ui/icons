@@ -21,7 +21,7 @@ export const WarningIcon = ({
           strokeLinecap="round"
           strokeLinejoin="round"
         />
-        <path d="M12.5 17a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" fill={color} />
+        <path d="M12.5 17a.5.5 0 100-1 .5.5 0 000 1z" fill={color} />
       </svg>
     );
   }

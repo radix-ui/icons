@@ -23,7 +23,7 @@ export const DirectionRowIcon = ({
         />
         <path d="M6.5 17.5h11.267" stroke={color} strokeLinecap="round" />
         <path
-          d="M20 4.5H5a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5V5a.5.5 0 0 0-.5-.5zM16.5 4.5v5m-8-5v5-5zm4 0v5-5z"
+          d="M20 4.5H5a.5.5 0 00-.5.5v4a.5.5 0 00.5.5h15a.5.5 0 00.5-.5V5a.5.5 0 00-.5-.5zM16.5 4.5v5m-8-5v5-5zm4 0v5-5z"
           stroke={color}
         />
       </svg>

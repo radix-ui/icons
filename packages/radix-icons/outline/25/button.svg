@@ -1,6 +1,6 @@
 <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path
-    d="M19 9.5H6A1.5 1.5 0 0 0 4.5 11v3A1.5 1.5 0 0 0 6 15.5h13a1.5 1.5 0 0 0 1.5-1.5v-3A1.5 1.5 0 0 0 19 9.5z"
+    d="M19 9.5H6A1.5 1.5 0 004.5 11v3A1.5 1.5 0 006 15.5h13a1.5 1.5 0 001.5-1.5v-3A1.5 1.5 0 0019 9.5z"
     stroke="currentColor"
   />
 </svg>

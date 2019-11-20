@@ -16,7 +16,7 @@ export const HomeIcon = ({
     return (
       <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-          d="M5.5 11.914V20.5h5v-6h4v6h5v-8.586a1 1 0 0 0-.293-.707L12.5 4.5l-6.707 6.707a1 1 0 0 0-.293.707z"
+          d="M5.5 11.914V20.5h5v-6h4v6h5v-8.586a1 1 0 00-.293-.707L12.5 4.5l-6.707 6.707a1 1 0 00-.293.707z"
           stroke={color}
           strokeLinecap="round"
           strokeLinejoin="round"

@@ -16,7 +16,7 @@ export const TextCasingLowercaseIcon = ({
     return (
       <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-          d="M20.5 18v-8M17 17.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM11.5 18v-8M8 17.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"
+          d="M20.5 18v-8M17 17.5a3.5 3.5 0 100-7 3.5 3.5 0 000 7zM11.5 18v-8M8 17.5a3.5 3.5 0 100-7 3.5 3.5 0 000 7z"
           stroke={color}
         />
       </svg>

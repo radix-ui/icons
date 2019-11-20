@@ -10,10 +10,5 @@
     stroke="currentColor"
     stroke-linecap="round"
   />
-  <path
-    d="M17.5 5.5h2v2"
-    stroke="currentColor"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  />
+  <path d="M17.5 5.5h2v2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
 </svg>

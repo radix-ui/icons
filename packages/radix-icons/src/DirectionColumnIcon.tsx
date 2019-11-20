@@ -18,7 +18,7 @@ export const DirectionColumnIcon = ({
         <path d="M20.5 14.5l-3 4-3-4" stroke={color} strokeLinecap="round" strokeLinejoin="round" />
         <path d="M17.5 6.5V18" stroke={color} strokeLinecap="round" />
         <path
-          d="M9.5 20V5a.5.5 0 0 0-.5-.5H5a.5.5 0 0 0-.5.5v15a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5zM9.5 16.5h-5m5-8h-5 5zm0 4h-5 5z"
+          d="M9.5 20V5a.5.5 0 00-.5-.5H5a.5.5 0 00-.5.5v15a.5.5 0 00.5.5h4a.5.5 0 00.5-.5zM9.5 16.5h-5m5-8h-5 5zm0 4h-5 5z"
           stroke={color}
         />
       </svg>

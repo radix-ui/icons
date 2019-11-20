@@ -164,6 +164,7 @@ export { default as VisibleIcon } from './VisibleIcon';
 export { default as WarningIcon } from './WarningIcon';
 export { default as ZoomInIcon } from './ZoomInIcon';
 export { default as ZoomOutIcon } from './ZoomOutIcon';
+export { default as GearIcon } from './GearIcon';
 export { default as AspectRatioIcon } from './AspectRatioIcon';
 export { default as AvatarIcon } from './AvatarIcon';
 export { default as BadgeIcon } from './BadgeIcon';

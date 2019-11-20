@@ -16,7 +16,7 @@ export const PaperAirplaneIcon = ({
     return (
       <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-          d="M22.5 12.5l-18-8v6.537a.5.5 0 0 0 .462.498L17.5 12.5l-12.538.964a.5.5 0 0 0-.462.499V20.5l18-8z"
+          d="M22.5 12.5l-18-8v6.537a.5.5 0 00.462.498L17.5 12.5l-12.538.964a.5.5 0 00-.462.499V20.5l18-8z"
           stroke={color}
           strokeLinecap="round"
           strokeLinejoin="round"

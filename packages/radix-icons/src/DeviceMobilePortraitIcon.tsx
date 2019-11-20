@@ -16,10 +16,10 @@ export const DeviceMobilePortraitIcon = ({
     return (
       <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-          d="M16 4.5H9A1.5 1.5 0 0 0 7.5 6v13A1.5 1.5 0 0 0 9 20.5h7a1.5 1.5 0 0 0 1.5-1.5V6A1.5 1.5 0 0 0 16 4.5z"
+          d="M16 4.5H9A1.5 1.5 0 007.5 6v13A1.5 1.5 0 009 20.5h7a1.5 1.5 0 001.5-1.5V6A1.5 1.5 0 0016 4.5z"
           stroke={color}
         />
-        <path d="M12.5 18a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" fill={color} />
+        <path d="M12.5 18a.5.5 0 100-1 .5.5 0 000 1z" fill={color} />
       </svg>
     );
   }

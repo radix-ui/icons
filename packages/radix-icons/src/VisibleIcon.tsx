@@ -21,7 +21,7 @@ export const VisibleIcon = ({
           strokeLinecap="round"
           strokeLinejoin="round"
         />
-        <path d="M12.5 16.5a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" stroke={color} />
+        <path d="M12.5 16.5a4 4 0 100-8 4 4 0 000 8z" stroke={color} />
       </svg>
     );
   }
