@@ -78,7 +78,7 @@ export { default as ResetIcon } from './ResetIcon';
 export { default as SectionIcon } from './SectionIcon';
 export { default as SlashIcon } from './SlashIcon';
 export { default as SliderIcon } from './SliderIcon';
-export { default as SqiareIcon } from './SqiareIcon';
+export { default as SquareIcon } from './SquareIcon';
 export { default as StackIcon } from './StackIcon';
 export { default as SwitchIcon } from './SwitchIcon';
 export { default as TableIcon } from './TableIcon';
