@@ -2,22 +2,25 @@ import * as React from 'react';
 import { BaseIconProps } from './types';
 
 interface InfoIconProps extends BaseIconProps {
-  size: '15';
+  size?: '15';
   type?: 'outline';
 }
 
 export const InfoIcon = ({
   color = 'currentColor',
-  size,
+  size = '15',
   type = 'outline',
   ...props
 }: InfoIconProps) => {
   if (type === 'outline' && size === '15') {
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <circle cx="7.5" cy="7.5" r="6" stroke={color} />
-        <path d="M7.5 10.5v-4" stroke={color} strokeLinecap="round" strokeLinejoin="round" />
-        <circle cx="7.5" cy="4.5" r=".5" fill={color} />
+        <path
+          d="M7.5 13a5.5 5.5 0 100-11 5.5 5.5 0 000 11zm0 1a6.5 6.5 0 100-13 6.5 6.5 0 000 13zm0-8a.5.5 0 01.5.5v4a.5.5 0 01-1 0v-4a.5.5 0 01.5-.5zm0-.875a.625.625 0 100-1.25.625.625 0 000 1.25z"
+          fill={color}
+          fillRule="evenodd"
+          clipRule="evenodd"
+        />
       </svg>
     );
   }

@@ -2,54 +2,25 @@ import * as React from 'react';
 import { BaseIconProps } from './types';
 
 interface BackpackIconProps extends BaseIconProps {
-  size?: '25' | '15';
+  size?: '15';
   type?: 'outline';
 }
 
 export const BackpackIcon = ({
   color = 'currentColor',
-  size = '25',
+  size = '15',
   type = 'outline',
   ...props
 }: BackpackIconProps) => {
-  if (type === 'outline' && size === '25') {
-    return (
-      <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path
-          d="M6.5 10.5a6 6 0 1112 0v9.69a.31.31 0 01-.31.31H6.81a.31.31 0 01-.31-.31V10.5z"
-          stroke={color}
-        />
-        <path
-          d="M15 13.5h-5a.5.5 0 00-.5.5v3a.5.5 0 00.5.5h5a.5.5 0 00.5-.5v-3a.5.5 0 00-.5-.5z"
-          stroke={color}
-        />
-        <path
-          d="M9.5 5c0-2.5 3-2.5 3-2.5s3 0 3 2.5m-6 5.5c0-3 3-3 3-3s3 0 3 3h-6z"
-          stroke={color}
-          strokeLinejoin="round"
-        />
-        <path
-          d="M4.5 13A1.5 1.5 0 016 11.5h.5v7H6A1.5 1.5 0 014.5 17v-4zm14-1.5h.5a1.5 1.5 0 011.5 1.5v4a1.5 1.5 0 01-1.5 1.5h-.5v-7z"
-          stroke={color}
-        />
-      </svg>
-    );
-  }
-
   if (type === 'outline' && size === '15') {
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-          d="M3.5 9v2.5a1 1 0 001 1h6a1 1 0 001-1V9"
-          stroke={color}
-          strokeLinecap="round"
-          strokeLinejoin="round"
+          d="M9 3H6v1h3V3zM5 3v1H3a1 1 0 00-1 1v2c0 .888.386 1.687 1 2.236V11.5A1.5 1.5 0 004.5 13h6a1.5 1.5 0 001.5-1.5V9.236c.614-.55 1-1.348 1-2.236V5a1 1 0 00-1-1h-2V3a1 1 0 00-1-1H6a1 1 0 00-1 1zm4 2h3v2a1.997 1.997 0 01-2 2H8v-.5a.5.5 0 00-1 0V9H5a1.991 1.991 0 01-1.209-.406A1.997 1.997 0 013 7V5h6zm-2 5H5c-.35 0-.687-.06-1-.17v1.67a.5.5 0 00.5.5h6a.5.5 0 00.5-.5V9.83c-.313.11-.65.17-1 .17H8v.5a.5.5 0 01-1 0V10z"
+          fill={color}
+          fillRule="evenodd"
+          clipRule="evenodd"
         />
-        <path
-          d="M2.5 5a.5.5 0 01.5-.5h9a.5.5 0 01.5.5v2A2.5 2.5 0 0110 9.5H5A2.5 2.5 0 012.5 7V5zM5.5 3a.5.5 0 01.5-.5h3a.5.5 0 01.5.5v1.5h-4V3z"
-          stroke={color}
-        />
-        <path d="M7.5 8.5v2" stroke={color} strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     );
   }

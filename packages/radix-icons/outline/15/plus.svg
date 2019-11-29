@@ -1,3 +1,8 @@
 <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M2.5 7.5h10M7.5 12.5v-10" stroke="currentColor" stroke-linecap="round" />
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M8 7V3H7v4H3v1h4v4h1V8h4V7H8z"
+    fill="currentColor"
+  />
 </svg>

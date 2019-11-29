@@ -2,30 +2,25 @@ import * as React from 'react';
 import { BaseIconProps } from './types';
 
 interface ArrowRightIconProps extends BaseIconProps {
-  size?: '25' | '15';
+  size?: '15';
   type?: 'outline';
 }
 
 export const ArrowRightIcon = ({
   color = 'currentColor',
-  size = '25',
+  size = '15',
   type = 'outline',
   ...props
 }: ArrowRightIconProps) => {
-  if (type === 'outline' && size === '25') {
-    return (
-      <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path d="M14.5 6.5l6 6-6 6" stroke={color} strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M4.5 12.5h16" stroke={color} strokeLinecap="round" />
-      </svg>
-    );
-  }
-
   if (type === 'outline' && size === '15') {
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path d="M8.5 3.5l4 4-4 4" stroke={color} strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M2.5 7.5h10" stroke={color} strokeLinecap="round" />
+        <path
+          d="M8.146 3.146a.5.5 0 01.708 0l4 4a.5.5 0 010 .708l-4 4a.5.5 0 01-.708-.708L11.293 8H2.5a.5.5 0 010-1h8.793L8.146 3.854a.5.5 0 010-.708z"
+          fill={color}
+          fillRule="evenodd"
+          clipRule="evenodd"
+        />
       </svg>
     );
   }

@@ -2,46 +2,25 @@ import * as React from 'react';
 import { BaseIconProps } from './types';
 
 interface TrashIconProps extends BaseIconProps {
-  size?: '25' | '15';
+  size?: '15';
   type?: 'outline';
 }
 
 export const TrashIcon = ({
   color = 'currentColor',
-  size = '25',
+  size = '15',
   type = 'outline',
   ...props
 }: TrashIconProps) => {
-  if (type === 'outline' && size === '25') {
-    return (
-      <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path
-          d="M17 8.5H8a.5.5 0 00-.5.5v11a.5.5 0 00.5.5h9a.5.5 0 00.5-.5V9a.5.5 0 00-.5-.5z"
-          stroke={color}
-          strokeLinecap="round"
-          strokeLinejoin="bevel"
-        />
-        <path d="M17.5 6.5h-10a1 1 0 000 2h10a1 1 0 100-2z" stroke={color} />
-        <path d="M10.5 4.5h4" stroke={color} strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M10.5 11v7M12.5 11v7M14.5 11v7" stroke={color} />
-      </svg>
-    );
-  }
-
   if (type === 'outline' && size === '15') {
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <rect
-          x="4.5"
-          y="4.5"
-          width="6"
-          height="8"
-          rx=".5"
-          stroke={color}
-          strokeLinecap="round"
-          strokeLinejoin="bevel"
+        <path
+          d="M5.5 2a.5.5 0 000 1h4a.5.5 0 000-1h-4zM3 4.5a.5.5 0 01.5-.5h8a.5.5 0 010 1H11v7a1 1 0 01-1 1H5a1 1 0 01-1-1V5h-.5a.5.5 0 01-.5-.5zM5 5h5v7H5V5z"
+          fill={color}
+          fillRule="evenodd"
+          clipRule="evenodd"
         />
-        <path d="M3.5 4.5h8M5.5 2.5h4" stroke={color} strokeLinecap="round" />
       </svg>
     );
   }

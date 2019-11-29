@@ -89,12 +89,20 @@ const transformers = {
 
 const labelling = {
   typeFromFrameNodeName(nodeName: string): string {
-    return path.dirname(nodeName);
+    return path
+      .dirname(nodeName)
+      .toLowerCase()
+      .trim();
   },
   sizeFromFrameNodeName(nodeName: string): string {
     // Note: We ensure ordering by assignment-time in the object, and avoid numerical
     // key ordering, by adding a non-numerical to the key.
-    return labelling.addSizePrefix(path.basename(nodeName));
+    return labelling.addSizePrefix(
+      path
+        .basename(nodeName)
+        .toLowerCase()
+        .trim()
+    );
   },
   filePathFromIcon(icon: IIcon): string {
     return path.join(icon.type, labelling.stripSizePrefix(icon.size), `${icon.name}.svg`);
@@ -239,9 +247,12 @@ export function getIcons(iconsCanvas: IFigmaCanvas): IIcons {
       iconSetNode.children.forEach(iconNode => {
         // Our individual icons frames may be Figma "Components" 🤙
         if (iconNode.type === 'FRAME' || iconNode.type === 'COMPONENT') {
+          // Parse Title Case names, e.g. 'Break Link' => 'break-link'
+          const name = iconNode.name.toLowerCase().replace(/\s/g, '-');
+
           icons[iconNode.id] = {
             id: iconNode.id,
-            name: iconNode.name,
+            name: name,
             size: labelling.sizeFromFrameNodeName(iconSetNode.name),
             type: labelling.typeFromFrameNodeName(iconSetNode.name),
           };

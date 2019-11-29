@@ -2,21 +2,25 @@ import * as React from 'react';
 import { BaseIconProps } from './types';
 
 interface BadgeIconProps extends BaseIconProps {
-  size: '15';
+  size?: '15';
   type?: 'outline';
 }
 
 export const BadgeIcon = ({
   color = 'currentColor',
-  size,
+  size = '15',
   type = 'outline',
   ...props
 }: BadgeIconProps) => {
   if (type === 'outline' && size === '15') {
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <rect x="2.5" y="5.5" width="10" height="4" rx="2" stroke={color} />
-        <path d="M5.5 7.5h4" stroke={color} strokeLinecap="round" />
+        <path
+          d="M4.5 6h6a1.5 1.5 0 010 3h-6a1.5 1.5 0 110-3zM2 7.5A2.5 2.5 0 014.5 5h6a2.5 2.5 0 010 5h-6A2.5 2.5 0 012 7.5zM5.5 7a.5.5 0 000 1h4a.5.5 0 000-1h-4z"
+          fill={color}
+          fillRule="evenodd"
+          clipRule="evenodd"
+        />
       </svg>
     );
   }

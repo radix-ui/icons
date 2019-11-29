@@ -2,28 +2,25 @@ import * as React from 'react';
 import { BaseIconProps } from './types';
 
 interface ChevronLeftIconProps extends BaseIconProps {
-  size?: '25' | '15';
+  size?: '15';
   type?: 'outline';
 }
 
 export const ChevronLeftIcon = ({
   color = 'currentColor',
-  size = '25',
+  size = '15',
   type = 'outline',
   ...props
 }: ChevronLeftIconProps) => {
-  if (type === 'outline' && size === '25') {
-    return (
-      <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path d="M15.5 6.5l-6 6 6 6" stroke={color} strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    );
-  }
-
   if (type === 'outline' && size === '15') {
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path d="M9.5 3.5l-4 4 4 4" stroke={color} strokeLinecap="round" strokeLinejoin="round" />
+        <path
+          d="M9.353 3.146a.5.5 0 010 .707L5.707 7.5l3.646 3.646a.5.5 0 11-.707.707l-4-4a.5.5 0 010-.707l4-4a.5.5 0 01.707 0z"
+          fill={color}
+          fillRule="evenodd"
+          clipRule="evenodd"
+        />
       </svg>
     );
   }

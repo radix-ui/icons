@@ -2,13 +2,13 @@ import * as React from 'react';
 import { BaseIconProps } from './types';
 
 interface TextIconProps extends BaseIconProps {
-  size: '15';
+  size?: '15';
   type?: 'outline';
 }
 
 export const TextIcon = ({
   color = 'currentColor',
-  size,
+  size = '15',
   type = 'outline',
   ...props
 }: TextIconProps) => {
@@ -16,10 +16,10 @@ export const TextIcon = ({
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-          d="M12.5 4.5v-2h-10v2M4.5 12.5h6M7.5 12.5v-10"
-          stroke={color}
-          strokeLinecap="round"
-          strokeLinejoin="round"
+          d="M2 2.5a.5.5 0 01.5-.5h10a.5.5 0 01.5.5v2a.5.5 0 01-1 0V3H8v9h2.5a.5.5 0 010 1h-6a.5.5 0 010-1H7V3H3v1.5a.5.5 0 01-1 0v-2z"
+          fill={color}
+          fillRule="evenodd"
+          clipRule="evenodd"
         />
       </svg>
     );

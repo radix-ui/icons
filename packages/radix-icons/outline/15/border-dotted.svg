@@ -1,5 +1,8 @@
 <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="1.5" cy="7.5" r="1.5" fill="currentColor" />
-  <circle cx="13.5" cy="7.5" r="1.5" fill="currentColor" />
-  <circle cx="7.5" cy="7.5" r="1.5" fill="currentColor" />
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M1.5 6.625a.875.875 0 100 1.75.875.875 0 000-1.75zm4 0a.875.875 0 100 1.75.875.875 0 000-1.75zm4 0a.875.875 0 100 1.75.875.875 0 000-1.75zm3.125.875a.875.875 0 111.75 0 .875.875 0 01-1.75 0z"
+    fill="currentColor"
+  />
 </svg>

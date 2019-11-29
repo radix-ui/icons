@@ -1,6 +1,8 @@
 <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path
-    d="M12 2.5H3a.5.5 0 00-.5.5v9a.5.5 0 00.5.5h9a.5.5 0 00.5-.5V3a.5.5 0 00-.5-.5zM7.5 2v11M13 7.5H2"
-    stroke="currentColor"
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M2 3a1 1 0 011-1h9a1 1 0 011 1v9a1 1 0 01-1 1H3a1 1 0 01-1-1V3zm1 5v4h4V8H3zm4-1H3V3h4v4zm1 1v4h4V8H8zm4-1H8V3h4v4z"
+    fill="currentColor"
   />
 </svg>

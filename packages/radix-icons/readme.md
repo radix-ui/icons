@@ -114,4 +114,4 @@ MIT License
 
 Copyright (c) 2019 Modulz, Inc
 
-[figmafile]: https://www.figma.com/file/LLggMY9IV61CYkCSI7LFFUOY/
+[figmafile]: https://www.figma.com/file/9Df5CaFUEomVzn20gRpaX3/

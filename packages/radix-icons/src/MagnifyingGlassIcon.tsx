@@ -2,32 +2,24 @@ import * as React from 'react';
 import { BaseIconProps } from './types';
 
 interface MagnifyingGlassIconProps extends BaseIconProps {
-  size?: '25' | '15';
+  size?: '15';
   type?: 'outline';
 }
 
 export const MagnifyingGlassIcon = ({
   color = 'currentColor',
-  size = '25',
+  size = '15',
   type = 'outline',
   ...props
 }: MagnifyingGlassIconProps) => {
-  if (type === 'outline' && size === '25') {
-    return (
-      <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path d="M10.5 16.5a6 6 0 100-12 6 6 0 000 12z" stroke={color} />
-        <path d="M20.5 20.5L15 15" stroke={color} strokeLinecap="round" />
-      </svg>
-    );
-  }
-
   if (type === 'outline' && size === '15') {
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <circle cx="6.5" cy="6.5" r="4" stroke={color} />
         <path
-          d="M9.854 9.146a.5.5 0 10-.708.708l.708-.708zm2.292 3.708a.5.5 0 00.708-.708l-.708.708zm-3-3l3 3 .708-.708-3-3-.708.708z"
+          d="M10 6.5a3.5 3.5 0 11-7 0 3.5 3.5 0 017 0zm-.691 3.516a4.5 4.5 0 11.707-.707l2.838 2.837a.5.5 0 01-.708.708L9.31 10.016z"
           fill={color}
+          fillRule="evenodd"
+          clipRule="evenodd"
         />
       </svg>
     );
