@@ -1,4 +1,8 @@
 <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="7.5" cy="7.5" r="6" stroke="currentColor" />
-  <path d="M7.5 2v3M2 7.5h3M10 7.5h3M7.5 10v3" stroke="currentColor" />
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M1.127 7.5a6.373 6.373 0 1112.746 0 6.373 6.373 0 01-12.746 0zM2.1 7A5.424 5.424 0 017 2.1v2.4a.5.5 0 001 0V2.1A5.424 5.424 0 0112.9 7h-2.4a.5.5 0 000 1h2.4A5.425 5.425 0 018 12.9v-2.4a.5.5 0 00-1 0v2.4A5.424 5.424 0 012.1 8h2.4a.5.5 0 000-1H2.1z"
+    fill="currentColor"
+  />
 </svg>

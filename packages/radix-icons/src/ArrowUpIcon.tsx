@@ -2,30 +2,25 @@ import * as React from 'react';
 import { BaseIconProps } from './types';
 
 interface ArrowUpIconProps extends BaseIconProps {
-  size?: '25' | '15';
+  size?: '15';
   type?: 'outline';
 }
 
 export const ArrowUpIcon = ({
   color = 'currentColor',
-  size = '25',
+  size = '15',
   type = 'outline',
   ...props
 }: ArrowUpIconProps) => {
-  if (type === 'outline' && size === '25') {
-    return (
-      <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path d="M18.5 10.5l-6-6-6 6" stroke={color} strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M12.5 4.5v16" stroke={color} strokeLinecap="round" />
-      </svg>
-    );
-  }
-
   if (type === 'outline' && size === '15') {
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path d="M11.5 6.5l-4-4-4 4" stroke={color} strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M7.5 2.5v10" stroke={color} strokeLinecap="round" />
+        <path
+          d="M7.146 2.146a.5.5 0 01.708 0l4 4a.5.5 0 01-.708.708L8 3.707V12.5a.5.5 0 01-1 0V3.707L3.854 6.854a.5.5 0 11-.708-.708l4-4z"
+          fill={color}
+          fillRule="evenodd"
+          clipRule="evenodd"
+        />
       </svg>
     );
   }

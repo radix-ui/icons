@@ -2,32 +2,25 @@ import * as React from 'react';
 import { BaseIconProps } from './types';
 
 interface CrosshairIconProps extends BaseIconProps {
-  size?: '25' | '15';
+  size?: '15';
   type?: 'outline';
 }
 
 export const CrosshairIcon = ({
   color = 'currentColor',
-  size = '25',
+  size = '15',
   type = 'outline',
   ...props
 }: CrosshairIconProps) => {
-  if (type === 'outline' && size === '25') {
-    return (
-      <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path
-          d="M12.5 20.5a8 8 0 100-16 8 8 0 000 16zM12.5 5v3M5 12.5h3M17 12.5h3M12.5 17v3"
-          stroke={color}
-        />
-      </svg>
-    );
-  }
-
   if (type === 'outline' && size === '15') {
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <circle cx="7.5" cy="7.5" r="6" stroke={color} />
-        <path d="M7.5 2v3M2 7.5h3M10 7.5h3M7.5 10v3" stroke={color} />
+        <path
+          d="M1.127 7.5a6.373 6.373 0 1112.746 0 6.373 6.373 0 01-12.746 0zM2.1 7A5.424 5.424 0 017 2.1v2.4a.5.5 0 001 0V2.1A5.424 5.424 0 0112.9 7h-2.4a.5.5 0 000 1h2.4A5.425 5.425 0 018 12.9v-2.4a.5.5 0 00-1 0v2.4A5.424 5.424 0 012.1 8h2.4a.5.5 0 000-1H2.1z"
+          fill={color}
+          fillRule="evenodd"
+          clipRule="evenodd"
+        />
       </svg>
     );
   }

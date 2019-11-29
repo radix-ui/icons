@@ -2,37 +2,24 @@ import * as React from 'react';
 import { BaseIconProps } from './types';
 
 interface CrossIconProps extends BaseIconProps {
-  size?: '25' | '15';
+  size?: '15';
   type?: 'outline';
 }
 
 export const CrossIcon = ({
   color = 'currentColor',
-  size = '25',
+  size = '15',
   type = 'outline',
   ...props
 }: CrossIconProps) => {
-  if (type === 'outline' && size === '25') {
-    return (
-      <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path
-          d="M5.5 19.5l14-14M19.5 19.5l-14-14"
-          stroke={color}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    );
-  }
-
   if (type === 'outline' && size === '15') {
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-          d="M2.5 12.5l10-10M12.5 12.5l-10-10"
-          stroke={color}
-          strokeLinecap="round"
-          strokeLinejoin="round"
+          d="M11.354 4.354a.5.5 0 00-.708-.708L7.5 6.793 4.354 3.646a.5.5 0 10-.708.708L6.793 7.5l-3.147 3.146a.5.5 0 00.708.708L7.5 8.207l3.146 3.147a.5.5 0 00.708-.708L8.207 7.5l3.147-3.146z"
+          fill={color}
+          fillRule="evenodd"
+          clipRule="evenodd"
         />
       </svg>
     );

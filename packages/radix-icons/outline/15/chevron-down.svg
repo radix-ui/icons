@@ -1,8 +1,8 @@
 <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path
-    d="M11.5 5.5l-4 4-4-4"
-    stroke="currentColor"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M3.146 5.646a.5.5 0 01.708 0L7.5 9.293l3.646-3.647a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 010-.708z"
+    fill="currentColor"
   />
 </svg>

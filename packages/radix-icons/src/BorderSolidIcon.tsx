@@ -2,28 +2,25 @@ import * as React from 'react';
 import { BaseIconProps } from './types';
 
 interface BorderSolidIconProps extends BaseIconProps {
-  size?: '25' | '15';
+  size?: '15';
   type?: 'outline';
 }
 
 export const BorderSolidIcon = ({
   color = 'currentColor',
-  size = '25',
+  size = '15',
   type = 'outline',
   ...props
 }: BorderSolidIconProps) => {
-  if (type === 'outline' && size === '25') {
-    return (
-      <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path d="M23 11H2v3h21v-3z" fill={color} />
-      </svg>
-    );
-  }
-
   if (type === 'outline' && size === '15') {
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path fill={color} d="M0 6h15v3H0z" />
+        <path
+          d="M1.25 7.5a.5.5 0 01.5-.5h11.5a.5.5 0 010 1H1.75a.5.5 0 01-.5-.5z"
+          fill={color}
+          fillRule="evenodd"
+          clipRule="evenodd"
+        />
       </svg>
     );
   }

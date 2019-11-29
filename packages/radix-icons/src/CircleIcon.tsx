@@ -2,28 +2,25 @@ import * as React from 'react';
 import { BaseIconProps } from './types';
 
 interface CircleIconProps extends BaseIconProps {
-  size?: '25' | '15';
+  size?: '15';
   type?: 'outline';
 }
 
 export const CircleIcon = ({
   color = 'currentColor',
-  size = '25',
+  size = '15',
   type = 'outline',
   ...props
 }: CircleIconProps) => {
-  if (type === 'outline' && size === '25') {
-    return (
-      <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path d="M12.5 20.5a8 8 0 100-16 8 8 0 000 16z" stroke={color} />
-      </svg>
-    );
-  }
-
   if (type === 'outline' && size === '15') {
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <circle cx="7.5" cy="7.5" r="6" stroke={color} />
+        <path
+          d="M1.127 7.5a6.373 6.373 0 1112.746 0 6.373 6.373 0 01-12.746 0zM7.5 2.077a5.423 5.423 0 100 10.846 5.423 5.423 0 000-10.846z"
+          fill={color}
+          fillRule="evenodd"
+          clipRule="evenodd"
+        />
       </svg>
     );
   }

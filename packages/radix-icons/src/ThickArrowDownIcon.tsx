@@ -2,37 +2,24 @@ import * as React from 'react';
 import { BaseIconProps } from './types';
 
 interface ThickArrowDownIconProps extends BaseIconProps {
-  size?: '25' | '15';
+  size?: '15';
   type?: 'outline';
 }
 
 export const ThickArrowDownIcon = ({
   color = 'currentColor',
-  size = '25',
+  size = '15',
   type = 'outline',
   ...props
 }: ThickArrowDownIconProps) => {
-  if (type === 'outline' && size === '25') {
-    return (
-      <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path
-          d="M15.5 4.5h-6v5h-5l8 11 8-11h-5v-5z"
-          stroke={color}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    );
-  }
-
   if (type === 'outline' && size === '15') {
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-          d="M9.5 2.5h-4v3h-3l5 7 5-7h-3v-3z"
-          stroke={color}
-          strokeLinecap="round"
-          strokeLinejoin="round"
+          d="M5 2.5a.5.5 0 01.5-.5h4a.5.5 0 01.5.5V5h2.5a.5.5 0 01.407.79l-5 7a.5.5 0 01-.814 0l-5-7A.5.5 0 012.5 5H5V2.5zM6 3v2.5a.5.5 0 01-.5.5H3.472L7.5 11.64 11.528 6H9.5a.5.5 0 01-.5-.5V3H6z"
+          fill={color}
+          fillRule="evenodd"
+          clipRule="evenodd"
         />
       </svg>
     );

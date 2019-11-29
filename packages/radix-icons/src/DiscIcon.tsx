@@ -2,30 +2,25 @@ import * as React from 'react';
 import { BaseIconProps } from './types';
 
 interface DiscIconProps extends BaseIconProps {
-  size?: '25' | '15';
+  size?: '15';
   type?: 'outline';
 }
 
 export const DiscIcon = ({
   color = 'currentColor',
-  size = '25',
+  size = '15',
   type = 'outline',
   ...props
 }: DiscIconProps) => {
-  if (type === 'outline' && size === '25') {
-    return (
-      <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path d="M12.5 14.5a2 2 0 100-4 2 2 0 000 4z" stroke={color} />
-        <path d="M12.5 20.5a8 8 0 100-16 8 8 0 000 16z" stroke={color} />
-      </svg>
-    );
-  }
-
   if (type === 'outline' && size === '15') {
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <circle cx="7.5" cy="7.5" r="2" stroke={color} />
-        <circle cx="7.5" cy="7.5" r="6" stroke={color} />
+        <path
+          d="M7.5 1.127a6.373 6.373 0 100 12.746 6.373 6.373 0 000-12.746zM2.077 7.5a5.423 5.423 0 1110.846 0 5.423 5.423 0 01-10.846 0zm6.874 0a1.451 1.451 0 11-2.902 0 1.451 1.451 0 012.902 0zm.95 0a2.401 2.401 0 11-4.802 0 2.401 2.401 0 014.802 0z"
+          fill={color}
+          fillRule="evenodd"
+          clipRule="evenodd"
+        />
       </svg>
     );
   }
