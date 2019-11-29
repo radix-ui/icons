@@ -16,7 +16,7 @@ export const CaretLeftIcon = ({
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-          d="M5.181 7.182l2.5-2.5.637.636L6.136 7.5l2.182 2.182-.637.636-2.5-2.5-.318-.318.318-.318z"
+          d="M5.182 7.182l2.5-2.5.636.636L6.136 7.5l2.182 2.182-.636.636-2.5-2.5-.319-.318.319-.318z"
           fill={color}
           fillRule="evenodd"
           clipRule="evenodd"

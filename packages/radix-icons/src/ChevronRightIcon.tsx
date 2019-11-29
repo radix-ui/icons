@@ -16,7 +16,7 @@ export const ChevronRightIcon = ({
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-          d="M5.647 3.146a.5.5 0 01.707 0l4 4a.5.5 0 010 .707l-4 4a.5.5 0 11-.707-.707L9.293 7.5 5.647 3.853a.5.5 0 010-.707z"
+          d="M5.647 3.146a.5.5 0 01.707 0l4 4a.5.5 0 010 .707l-4 4a.5.5 0 01-.707-.707L9.293 7.5 5.647 3.853a.5.5 0 010-.707z"
           fill={color}
           fillRule="evenodd"
           clipRule="evenodd"

@@ -16,7 +16,7 @@ export const CaretDownIcon = ({
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-          d="M7.182 9.818l-2.5-2.5.636-.636L7.5 8.864l2.182-2.182.636.636-2.5 2.5-.318.319-.318-.319z"
+          d="M7.182 9.818l-2.5-2.5.636-.636L7.5 8.864l2.182-2.182.636.636-2.5 2.5-.318.318-.318-.318z"
           fill={color}
           fillRule="evenodd"
           clipRule="evenodd"
