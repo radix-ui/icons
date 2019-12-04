@@ -18,7 +18,7 @@ yarn
 yarn start
 ```
 
-### Build & Release
+### Build & release
 
 #### Build
 
