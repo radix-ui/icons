@@ -8,7 +8,7 @@ import * as path from 'path';
 import * as _ from 'lodash';
 import * as ejs from 'ejs';
 import execa from 'execa';
-import { FILE_PATH_MANIFEST, FILE_PATH_ENTRY, FILE_PATH_TYPES } from './consts';
+import { FILE_PATH_MANIFEST, FILE_PATH_ENTRY, FILE_PATH_TYPES, FOLDER_PATH_ICONS } from './consts';
 import {
   CodedError,
   ERRORS,
@@ -89,10 +89,10 @@ const transformers = {
 
 const labelling = {
   typeFromFrameNodeName(nodeName: string): string {
-    return path
-      .dirname(nodeName)
-      .toLowerCase()
-      .trim();
+    const base = path.dirname(nodeName);
+    const trimmed = base.trim();
+    const camelCased = _.camelCase(trimmed);
+    return camelCased;
   },
   sizeFromFrameNodeName(nodeName: string): string {
     // Note: We ensure ordering by assignment-time in the object, and avoid numerical
@@ -134,9 +134,9 @@ export async function prechecks() {
   /* We don't want to end up deleted work-in-progress. */
   const [{ stdout: trackedFiles }, { stdout: untrackedFiles }] = await Promise.all([
     // Checks for uncommitted changes.
-    execa('git', ['diff-index', 'HEAD', './']),
+    execa('git', ['diff-index', 'HEAD', '--', FOLDER_PATH_ICONS]),
     // Checks for untracked files.
-    execa('git', ['ls-files', '--others', '--exclude-standard', './']),
+    execa('git', ['ls-files', '--others', '--exclude-standard', FOLDER_PATH_ICONS]),
   ]);
   if (trackedFiles.length > 0 || untrackedFiles.length > 0) {
     handleError(
@@ -149,12 +149,16 @@ export async function prechecks() {
     );
     console.error(`
 ${chalk.bold('Git Status')} ${chalk.dim(
-      `(${['--no-renames', '--untracked-files', '--short', '--', './'].join(' ')})`
+      `(${['--no-renames', '--untracked-files', '--short', '--', FOLDER_PATH_ICONS].join(' ')})`
     )}
 `);
-    await execa('git', ['status', '--no-renames', '--untracked-files', '--short', '--', './'], {
-      stdio: 'inherit',
-    });
+    await execa(
+      'git',
+      ['status', '--no-renames', '--untracked-files', '--short', '--', FOLDER_PATH_ICONS],
+      {
+        stdio: 'inherit',
+      }
+    );
     process.exit(1);
   }
 }
@@ -479,8 +483,8 @@ export async function getGitCustomDiff(touchedPaths): Promise<IDiffSummary[]> {
   await execa('git', ['add', '-f', '--ignore-removal', '--intent-to-add', '--', ...touchedPaths]);
   /* Grab the lines changed per file, as well as the kind of change (D, M, A) */
   const [{ stdout: numstatRaw }, { stdout: nameStatRaw }] = await Promise.all([
-    execa('git', ['diff', '--numstat', '--no-renames', '--', './']),
-    execa('git', ['diff', '--name-status', '--no-renames', '--', './']),
+    execa('git', ['diff', '--numstat', '--no-renames', '--', FOLDER_PATH_ICONS]),
+    execa('git', ['diff', '--name-status', '--no-renames', '--', FOLDER_PATH_ICONS]),
   ]);
 
   /* Transform the raw stdout to renderable data. */
@@ -503,7 +507,7 @@ export async function getGitCustomDiff(touchedPaths): Promise<IDiffSummary[]> {
     });
 
   /* Undo the staging done above, to ensure an expected git status after this tool has been run. */
-  await execa('git', ['reset', 'HEAD', './']);
+  await execa('git', ['reset', 'HEAD', '--', FOLDER_PATH_ICONS]);
 
   return diffSummaries;
 }

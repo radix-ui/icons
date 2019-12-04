@@ -3,7 +3,7 @@ import { BaseIconProps } from './types';
 
 interface ImageIconProps extends BaseIconProps {
   size?: '15';
-  type?: 'outline';
+  type?: 'outline' | 'twoTone';
 }
 
 export const ImageIcon = ({
@@ -17,6 +17,26 @@ export const ImageIcon = ({
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
           d="M12 3H3v8.888l6.195-5.719a.45.45 0 01.555-.043l2.25 1.5V3zm0 5.707L9.545 7.071 4.205 12H12V8.707zM3 2a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V3a1 1 0 00-1-1H3zm2.5 4.026a.526.526 0 100-1.052.526.526 0 000 1.052zm0 .85a1.376 1.376 0 100-2.752 1.376 1.376 0 000 2.752z"
+          fill={color}
+          fillRule="evenodd"
+          clipRule="evenodd"
+        />
+      </svg>
+    );
+  }
+
+  if (type === 'twoTone' && size === '15') {
+    return (
+      <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <path
+          opacity=".15"
+          d="M2 3a1 1 0 011-1h9a1 1 0 011 1v9a1 1 0 01-1 1H3a1 1 0 01-1-1V3z"
+          fill={color}
+          fillRule="evenodd"
+          clipRule="evenodd"
+        />
+        <path
+          d="M12 3H3v8.888l6.195-5.719a.45.45 0 01.555-.043l2.25 1.5V3zm0 5.707L9.545 7.071 4.205 12H12V8.707zM3 2a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V3a1 1 0 00-1-1H3zm3.876 3.5a1.376 1.376 0 11-2.752 0 1.376 1.376 0 012.752 0z"
           fill={color}
           fillRule="evenodd"
           clipRule="evenodd"
