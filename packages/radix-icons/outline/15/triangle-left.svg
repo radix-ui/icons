@@ -1,5 +1,5 @@
 <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <g clip-path="url(#clip0)"><path d="M9 11L4.5 7.5 9 4" fill="currentColor" /></g>
+  <g clip-path="url(#clip0)"><path d="M9 4v7L4.5 7.5 9 4z" fill="currentColor" /></g>
   <defs>
     <clipPath id="clip0">
       <path fill="currentColor" transform="rotate(-180 7.5 7.5)" d="M0 0h15v15H0z" />
