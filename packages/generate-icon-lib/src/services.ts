@@ -89,10 +89,10 @@ const transformers = {
 
 const labelling = {
   typeFromFrameNodeName(nodeName: string): string {
-    return path
-      .dirname(nodeName)
-      .toLowerCase()
-      .trim();
+    const base = path.dirname(nodeName);
+    const trimmed = base.trim();
+    const camelCased = _.camelCase(trimmed);
+    return camelCased;
   },
   sizeFromFrameNodeName(nodeName: string): string {
     // Note: We ensure ordering by assignment-time in the object, and avoid numerical
