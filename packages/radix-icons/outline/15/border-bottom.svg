@@ -2,7 +2,7 @@
   <path
     fill-rule="evenodd"
     clip-rule="evenodd"
-    d="M3 3h9v8H3V3zM2 2h11v11H2V2z"
+    d="M3 2.9h9a.1.1 0 01.1.1v8H2.9V3a.1.1 0 01.1-.1zM2 3a1 1 0 011-1h9a1 1 0 011 1v9a1 1 0 01-1 1H3a1 1 0 01-1-1V3z"
     fill="currentColor"
   />
 </svg>

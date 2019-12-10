@@ -1,12 +1,15 @@
 <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path
-    fill-rule="evenodd"
-    clip-rule="evenodd"
-    d="M.5 7.5c1.5 2.4 4 4 7 4s5.5-1.6 7-4c-1.5-2.4-4-4-7-4S2 5.1.5 7.5z"
-    fill="currentColor"
-    opacity=".15"
-  />
+  <g opacity=".2">
+    <path d="M0 0h15v15H0V0z" fill="currentColor" />
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M.5 7.5c1.5 2.4 4 4 7 4s5.5-1.6 7-4c-1.5-2.4-4-4-7-4S2 5.1.5 7.5z"
+      fill="currentColor"
+    />
+  </g>
   <g clip-path="url(#clip0)">
+    <path d="M0 0h15v15H0V0z" fill="currentColor" />
     <path
       fill-rule="evenodd"
       clip-rule="evenodd"
@@ -15,6 +18,6 @@
     />
   </g>
   <defs>
-    <clipPath id="clip0"><path fill="currentColor" d="M0 0h15v15H0z" /></clipPath>
+    <clipPath id="clip0"><path d="M0 0h15v15H0V0z" fill="currentColor" /></clipPath>
   </defs>
 </svg>

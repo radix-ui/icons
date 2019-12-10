@@ -3,7 +3,7 @@ import { BaseIconProps } from './types';
 
 interface ArrowDownIconProps extends BaseIconProps {
   size?: '15';
-  type?: 'outline';
+  type?: 'outline' | 'twoTone';
 }
 
 export const ArrowDownIcon = ({
@@ -15,6 +15,26 @@ export const ArrowDownIcon = ({
   if (type === 'outline' && size === '15') {
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <path
+          d="M7.5 2a.5.5 0 01.5.5v8.793l3.146-3.147a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 11.708-.708L7 11.293V2.5a.5.5 0 01.5-.5z"
+          fill={color}
+          fillRule="evenodd"
+          clipRule="evenodd"
+        />
+      </svg>
+    );
+  }
+
+  if (type === 'twoTone' && size === '15') {
+    return (
+      <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <path
+          d="M7.5 1.5a1 1 0 011 1v7.586l2.293-2.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L6.5 10.086V2.5a1 1 0 011-1z"
+          fill={color}
+          opacity=".2"
+          fillRule="evenodd"
+          clipRule="evenodd"
+        />
         <path
           d="M7.5 2a.5.5 0 01.5.5v8.793l3.146-3.147a.5.5 0 01.708.708l-4 4a.5.5 0 01-.708 0l-4-4a.5.5 0 11.708-.708L7 11.293V2.5a.5.5 0 01.5-.5z"
           fill={color}

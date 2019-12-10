@@ -19,9 +19,7 @@ export const TriangleRightIcon = ({
           <path d="M6 11V4l4.5 3.5L6 11z" fill={color} />
         </g>
         <defs>
-          <clipPath id="clip0">
-            <path fill={color} d="M0 0h15v15H0z" />
-          </clipPath>
+          <clipPath id="clip0" />
         </defs>
       </svg>
     );
@@ -30,9 +28,13 @@ export const TriangleRightIcon = ({
   if (type === 'twoTone' && size === '15') {
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <g opacity=".15" clipPath="url(#clip0)">
-          <path d="M6 11V4l4.5 3.5L6 11z" fill={color} />
+        <g opacity=".2">
+          <path d="M0 0h15v15H0V0z" fill={color} />
+          <g clipPath="url(#clip0)">
+            <path d="M6 11V4l4.5 3.5L6 11z" fill={color} />
+          </g>
         </g>
+        <path d="M0 0h15v15H0V0z" fill={color} />
         <g clipPath="url(#clip1)">
           <mask id="a" maskUnits="userSpaceOnUse" x="5" y="3" width="7" height="9" fill={color}>
             <path fill={color} d="M5 3h7v9H5z" />
@@ -45,12 +47,8 @@ export const TriangleRightIcon = ({
           />
         </g>
         <defs>
-          <clipPath id="clip0">
-            <path fill={color} d="M0 0h15v15H0z" />
-          </clipPath>
-          <clipPath id="clip1">
-            <path fill={color} d="M0 0h15v15H0z" />
-          </clipPath>
+          <clipPath id="clip0" />
+          <clipPath id="clip1" />
         </defs>
       </svg>
     );

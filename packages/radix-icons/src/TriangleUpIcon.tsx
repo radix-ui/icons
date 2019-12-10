@@ -23,7 +23,11 @@ export const TriangleUpIcon = ({
   if (type === 'twoTone' && size === '15') {
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path d="M4 9h7L7.5 4.5 4 9z" fill={color} opacity=".15" />
+        <g opacity=".2">
+          <path d="M0 0h15v15H0V0z" fill={color} />
+          <path d="M4 9h7L7.5 4.5 4 9z" fill={color} />
+        </g>
+        <path d="M0 0h15v15H0V0z" fill={color} />
         <mask id="a" maskUnits="userSpaceOnUse" x="3" y="3" width="9" height="7" fill={color}>
           <path fill={color} d="M3 3h9v7H3z" />
           <path d="M4 9h7L7.5 4.5 4 9z" />

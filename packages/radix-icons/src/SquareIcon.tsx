@@ -28,7 +28,11 @@ export const SquareIcon = ({
   if (type === 'twoTone' && size === '15') {
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path d="M13 2H2v11h11V2z" fill={color} opacity=".15" />
+        <g opacity=".2">
+          <path d="M0 0h15v15H0V0z" fill={color} />
+          <path d="M13 2H2v11h11V2z" fill={color} />
+        </g>
+        <path d="M0 0h15v15H0V0z" fill={color} />
         <path
           d="M2 3V2h11v11H2V3zm1 9h9V3H3v9z"
           fill={color}

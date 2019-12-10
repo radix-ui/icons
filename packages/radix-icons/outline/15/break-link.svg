@@ -7,7 +7,5 @@
       fill="currentColor"
     />
   </g>
-  <defs>
-    <clipPath id="clip0"><path fill="currentColor" d="M0 0h15v15H0z" /></clipPath>
-  </defs>
+  <defs><clipPath id="clip0" /></defs>
 </svg>

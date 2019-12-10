@@ -3,7 +3,7 @@ import { BaseIconProps } from './types';
 
 interface BorderIconProps extends BaseIconProps {
   size?: '15';
-  type?: 'outline';
+  type?: 'outline' | 'twoTone';
 }
 
 export const BorderIcon = ({
@@ -16,7 +16,25 @@ export const BorderIcon = ({
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-          d="M2.25 4c0-.966.784-1.75 1.75-1.75h7c.966 0 1.75.784 1.75 1.75v7A1.75 1.75 0 0111 12.75H4A1.75 1.75 0 012.25 11V4zM4 3.75a.25.25 0 00-.25.25v7c0 .138.112.25.25.25h7a.25.25 0 00.25-.25V4a.25.25 0 00-.25-.25H4z"
+          d="M2.25 3.5c0-.69.56-1.25 1.25-1.25h8c.69 0 1.25.56 1.25 1.25v8c0 .69-.56 1.25-1.25 1.25h-8c-.69 0-1.25-.56-1.25-1.25v-8zm1.5.25v7.5h7.5v-7.5h-7.5z"
+          fill={color}
+          fillRule="evenodd"
+          clipRule="evenodd"
+        />
+      </svg>
+    );
+  }
+
+  if (type === 'twoTone' && size === '15') {
+    return (
+      <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <path
+          d="M3 3.5a.5.5 0 01.5-.5h8a.5.5 0 01.5.5v8a.5.5 0 01-.5.5h-8a.5.5 0 01-.5-.5v-8z"
+          fill={color}
+          opacity=".2"
+        />
+        <path
+          d="M2.25 3.5c0-.69.56-1.25 1.25-1.25h8c.69 0 1.25.56 1.25 1.25v8c0 .69-.56 1.25-1.25 1.25h-8c-.69 0-1.25-.56-1.25-1.25v-8zm1.5.25v7.5h7.5v-7.5h-7.5z"
           fill={color}
           fillRule="evenodd"
           clipRule="evenodd"

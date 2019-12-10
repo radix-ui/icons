@@ -28,13 +28,16 @@ export const LayoutIcon = ({
   if (type === 'twoTone' && size === '15') {
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path
-          d="M1 5a1 1 0 011-1h11a1 1 0 011 1v5a1 1 0 01-1 1H2a1 1 0 01-1-1V5z"
-          fill={color}
-          opacity=".15"
-          fillRule="evenodd"
-          clipRule="evenodd"
-        />
+        <g opacity=".2">
+          <path d="M0 0h15v15H0V0z" fill={color} />
+          <path
+            d="M1 5a1 1 0 011-1h11a1 1 0 011 1v5a1 1 0 01-1 1H2a1 1 0 01-1-1V5z"
+            fill={color}
+            fillRule="evenodd"
+            clipRule="evenodd"
+          />
+        </g>
+        <path d="M0 0h15v15H0V0z" fill={color} />
         <path
           d="M9 5H6v5h3V5zm1 0v5h3V5h-3zM2 5h3v5H2V5zm0-1a1 1 0 00-1 1v5a1 1 0 001 1h11a1 1 0 001-1V5a1 1 0 00-1-1H2z"
           fill={color}
