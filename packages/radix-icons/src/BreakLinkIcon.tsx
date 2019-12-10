@@ -24,9 +24,7 @@ export const BreakLinkIcon = ({
           />
         </g>
         <defs>
-          <clipPath id="clip0">
-            <path fill={color} d="M0 0h15v15H0z" />
-          </clipPath>
+          <clipPath id="clip0" />
         </defs>
       </svg>
     );

@@ -1,9 +1,9 @@
 <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path
-    d="M7.5 1.843L13.157 7.5 7.5 13.157 1.843 7.5 7.5 1.843z"
-    fill="currentColor"
-    opacity=".15"
-  />
+  <g opacity=".2">
+    <path d="M0 0h15v15H0V0z" fill="currentColor" />
+    <path d="M7.5 1.843L13.157 7.5 7.5 13.157 1.843 7.5 7.5 1.843z" fill="currentColor" />
+  </g>
+  <path d="M0 0h15v15H0V0z" fill="currentColor" />
   <path
     fill-rule="evenodd"
     clip-rule="evenodd"

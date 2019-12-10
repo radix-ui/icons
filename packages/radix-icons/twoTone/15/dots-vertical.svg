@@ -1,11 +1,14 @@
 <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path
-    fill-rule="evenodd"
-    clip-rule="evenodd"
-    d="M8.625 2.5a1.125 1.125 0 11-2.25 0 1.125 1.125 0 012.25 0zm0 5a1.125 1.125 0 11-2.25 0 1.125 1.125 0 012.25 0zM7.5 13.625a1.125 1.125 0 100-2.25 1.125 1.125 0 000 2.25z"
-    fill="currentColor"
-    opacity=".15"
-  />
+  <g opacity=".2">
+    <path d="M0 0h15v15H0V0z" fill="currentColor" />
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M8.625 2.5a1.125 1.125 0 11-2.25 0 1.125 1.125 0 012.25 0zm0 5a1.125 1.125 0 11-2.25 0 1.125 1.125 0 012.25 0zM7.5 13.625a1.125 1.125 0 100-2.25 1.125 1.125 0 000 2.25z"
+      fill="currentColor"
+    />
+  </g>
+  <path d="M0 0h15v15H0V0z" fill="currentColor" />
   <path
     fill-rule="evenodd"
     clip-rule="evenodd"

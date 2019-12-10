@@ -28,13 +28,16 @@ export const ImageIcon = ({
   if (type === 'twoTone' && size === '15') {
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path
-          opacity=".15"
-          d="M2 3a1 1 0 011-1h9a1 1 0 011 1v9a1 1 0 01-1 1H3a1 1 0 01-1-1V3z"
-          fill={color}
-          fillRule="evenodd"
-          clipRule="evenodd"
-        />
+        <g opacity=".2">
+          <path d="M0 0h15v15H0V0z" fill={color} />
+          <path
+            d="M2 3a1 1 0 011-1h9a1 1 0 011 1v9a1 1 0 01-1 1H3a1 1 0 01-1-1V3z"
+            fill={color}
+            fillRule="evenodd"
+            clipRule="evenodd"
+          />
+        </g>
+        <path d="M0 0h15v15H0V0z" fill={color} />
         <path
           d="M12 3H3v8.888l6.195-5.719a.45.45 0 01.555-.043l2.25 1.5V3zm0 5.707L9.545 7.071 4.205 12H12V8.707zM3 2a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V3a1 1 0 00-1-1H3zm3.876 3.5a1.376 1.376 0 11-2.752 0 1.376 1.376 0 012.752 0z"
           fill={color}

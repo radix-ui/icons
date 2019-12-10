@@ -1,6 +1,10 @@
 <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <g opacity=".15" clip-path="url(#clip0)"><path d="M9 4v7L4.5 7.5 9 4z" fill="currentColor" /></g>
+  <g clip-path="url(#clip0)" opacity=".2">
+    <path d="M15 15H0V0h15v15z" fill="currentColor" />
+    <path d="M9 4v7L4.5 7.5 9 4z" fill="currentColor" />
+  </g>
   <g clip-path="url(#clip1)">
+    <path d="M15 15H0V0h15v15z" fill="currentColor" />
     <mask id="a" maskUnits="userSpaceOnUse" x="3" y="3" width="7" height="9" fill="currentColor">
       <path fill="currentColor" d="M3 3h7v9H3z" />
       <path d="M9 4v7L4.5 7.5 9 4z" />
@@ -12,11 +16,7 @@
     />
   </g>
   <defs>
-    <clipPath id="clip0">
-      <path fill="currentColor" transform="rotate(-180 7.5 7.5)" d="M0 0h15v15H0z" />
-    </clipPath>
-    <clipPath id="clip1">
-      <path fill="currentColor" transform="rotate(-180 7.5 7.5)" d="M0 0h15v15H0z" />
-    </clipPath>
+    <clipPath id="clip0"><path d="M15 15H0V0h15v15z" fill="currentColor" /></clipPath>
+    <clipPath id="clip1"><path d="M15 15H0V0h15v15z" fill="currentColor" /></clipPath>
   </defs>
 </svg>

@@ -1,5 +1,9 @@
 <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M4 9h7L7.5 4.5 4 9z" fill="currentColor" opacity=".15" />
+  <g opacity=".2">
+    <path d="M0 0h15v15H0V0z" fill="currentColor" />
+    <path d="M4 9h7L7.5 4.5 4 9z" fill="currentColor" />
+  </g>
+  <path d="M0 0h15v15H0V0z" fill="currentColor" />
   <mask id="a" maskUnits="userSpaceOnUse" x="3" y="3" width="9" height="7" fill="currentColor">
     <path fill="currentColor" d="M3 3h9v7H3z" />
     <path d="M4 9h7L7.5 4.5 4 9z" />
