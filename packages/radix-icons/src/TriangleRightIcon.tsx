@@ -15,12 +15,7 @@ export const TriangleRightIcon = ({
   if (type === 'outline' && size === '15') {
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <g clipPath="url(#clip0)">
-          <path d="M6 11V4l4.5 3.5L6 11z" fill={color} />
-        </g>
-        <defs>
-          <clipPath id="clip0" />
-        </defs>
+        <path d="M6 11V4l4.5 3.5L6 11z" fill={color} />
       </svg>
     );
   }
@@ -28,28 +23,13 @@ export const TriangleRightIcon = ({
   if (type === 'twoTone' && size === '15') {
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <g opacity=".2">
-          <path d="M0 0h15v15H0V0z" fill={color} />
-          <g clipPath="url(#clip0)">
-            <path d="M6 11V4l4.5 3.5L6 11z" fill={color} />
-          </g>
-        </g>
-        <path d="M0 0h15v15H0V0z" fill={color} />
-        <g clipPath="url(#clip1)">
-          <mask id="a" maskUnits="userSpaceOnUse" x="5" y="3" width="7" height="9" fill={color}>
-            <path fill={color} d="M5 3h7v9H5z" />
-            <path d="M6 11V4l4.5 3.5L6 11z" />
-          </mask>
-          <path
-            d="M6 11H5a1 1 0 001.614.79L6 11zm0-7l.614-.79A1 1 0 005 4h1zm4.5 3.5l.614.79a1 1 0 000-1.58l-.614.79zM7 11V4H5v7h2zM5.386 4.79l4.5 3.5 1.228-1.58-4.5-3.5-1.228 1.58zm4.5 1.92l-4.5 3.5 1.228 1.58 4.5-3.5-1.228-1.58z"
-            fill={color}
-            mask="url(#a)"
-          />
-        </g>
-        <defs>
-          <clipPath id="clip0" />
-          <clipPath id="clip1" />
-        </defs>
+        <path d="M6 11V4l4.5 3.5L6 11z" fill={color} opacity=".2" />
+        <path
+          d="M5.56 11.898A1 1 0 015 11V4a1 1 0 011.614-.79l4.5 3.5a1 1 0 010 1.58l-4.5 3.5a1 1 0 01-1.053.108zM6 9.733V11l1-.778 2.686-2.089.814-.633-.814-.633L7 4.777 6 4V9.733z"
+          fill={color}
+          fillRule="evenodd"
+          clipRule="evenodd"
+        />
       </svg>
     );
   }
