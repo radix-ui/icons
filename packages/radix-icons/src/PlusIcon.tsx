@@ -16,7 +16,7 @@ export const PlusIcon = ({
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-          d="M8 7V3H7v4H3v1h4v4h1V8h4V7H8z"
+          d="M8 3.5a.5.5 0 00-1 0V7H3.5a.5.5 0 000 1H7v3.5a.5.5 0 001 0V8h3.5a.5.5 0 000-1H8V3.5z"
           fill={color}
           fillRule="evenodd"
           clipRule="evenodd"
@@ -29,14 +29,14 @@ export const PlusIcon = ({
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-          d="M8.5 3V2h-2v4.5H2v2h4.5V13h2V8.5H13v-2H8.5V3z"
+          d="M8.5 3.5v-1h-2v4h-4v2h4v4h2v-4h4v-2h-4v-3z"
           fill={color}
           opacity=".2"
           fillRule="evenodd"
           clipRule="evenodd"
         />
         <path
-          d="M8 7V3H7v4H3v1h4v4h1V8h4V7H8z"
+          d="M8 3.5a.5.5 0 00-1 0V7H3.5a.5.5 0 000 1H7v3.5a.5.5 0 001 0V8h3.5a.5.5 0 000-1H8V3.5z"
           fill={color}
           fillRule="evenodd"
           clipRule="evenodd"
