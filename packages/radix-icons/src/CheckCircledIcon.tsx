@@ -28,16 +28,13 @@ export const CheckCircledIcon = ({
   if (type === 'twoTone' && size === '15') {
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <g opacity=".2">
-          <path d="M0 0h15v15H0V0z" fill={color} />
-          <path
-            d="M13.398 7.5a5.898 5.898 0 11-11.796 0 5.898 5.898 0 0111.796 0z"
-            fill={color}
-            fillRule="evenodd"
-            clipRule="evenodd"
-          />
-        </g>
-        <path d="M0 0h15v15H0V0z" fill={color} />
+        <path
+          d="M13.398 7.5a5.898 5.898 0 11-11.796 0 5.898 5.898 0 0111.796 0z"
+          fill={color}
+          opacity=".2"
+          fillRule="evenodd"
+          clipRule="evenodd"
+        />
         <path
           d="M7.5 1.127a6.373 6.373 0 100 12.746 6.373 6.373 0 000-12.746zM2.077 7.5a5.423 5.423 0 1110.846 0 5.423 5.423 0 01-10.846 0zm7.839-1.723a.5.5 0 00-.832-.554L6.759 8.71l-.902-.922a.5.5 0 00-.714.699L6.476 9.85a.5.5 0 00.773-.073l2.667-4z"
           fill={color}

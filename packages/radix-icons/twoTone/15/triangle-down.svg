@@ -1,16 +1,9 @@
 <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <g opacity=".2">
-    <path d="M0 0h15v15H0V0z" fill="currentColor" />
-    <path d="M4 6h7l-3.5 4.5L4 6z" fill="currentColor" />
-  </g>
-  <path d="M0 0h15v15H0V0z" fill="currentColor" />
-  <mask id="a" maskUnits="userSpaceOnUse" x="3" y="5" width="9" height="7" fill="currentColor">
-    <path fill="currentColor" d="M3 5h9v7H3z" />
-    <path d="M4 6h7l-3.5 4.5L4 6z" />
-  </mask>
+  <path d="M4 6h7l-3.5 4.5L4 6z" fill="currentColor" opacity=".2" />
   <path
-    d="M4 6V5a1 1 0 00-.79 1.614L4 6zm7 0l.79.614A1 1 0 0011 5v1zm-3.5 4.5l-.79.614a1 1 0 001.58 0L7.5 10.5zM4 7h7V5H4v2zm6.21-1.614l-3.5 4.5 1.58 1.228 3.5-4.5-1.58-1.228zm-1.92 4.5l-3.5-4.5-1.58 1.228 3.5 4.5 1.58-1.228z"
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M3.102 5.56A1 1 0 014 5h7a1 1 0 01.79 1.614l-3.5 4.5a1 1 0 01-1.58 0l-3.5-4.5a1 1 0 01-.108-1.053zM5.267 6H4l.778 1 2.089 2.686.633.814.633-.814L10.223 7 11 6H5.267z"
     fill="currentColor"
-    mask="url(#a)"
   />
 </svg>

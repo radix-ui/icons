@@ -1,19 +1,11 @@
 <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path
-    opacity=".15"
-    d="M7.5 11.5L2 8.25l2.5-1.477 3 1.727 3-1.727L13 8.25 7.5 11.5z"
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M2 5.5l5.5 3.25L13 5.5 7.5 2.25 2 5.5zm.254 2.82a.5.5 0 00-.508.86l5.5 3.25a.5.5 0 00.508 0l5.5-3.25a.5.5 0 00-.508-.86L7.5 11.42l-5.246-3.1z"
     fill="currentColor"
+    opacity=".2"
   />
-  <g opacity=".2">
-    <path d="M0 0h15v15H0V0z" fill="currentColor" />
-    <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
-      d="M2 5.5l5.5 3.25L13 5.5 7.5 2.25 2 5.5zm.254 2.82a.5.5 0 00-.508.86l5.5 3.25a.5.5 0 00.508 0l5.5-3.25a.5.5 0 00-.508-.86L7.5 11.42l-5.246-3.1z"
-      fill="currentColor"
-    />
-  </g>
-  <path d="M0 0h15v15H0V0z" fill="currentColor" />
   <path
     fill-rule="evenodd"
     clip-rule="evenodd"

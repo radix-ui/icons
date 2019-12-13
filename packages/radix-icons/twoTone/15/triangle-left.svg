@@ -1,22 +1,9 @@
 <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <g clip-path="url(#clip0)" opacity=".2">
-    <path d="M15 15H0V0h15v15z" fill="currentColor" />
-    <path d="M9 4v7L4.5 7.5 9 4z" fill="currentColor" />
-  </g>
-  <g clip-path="url(#clip1)">
-    <path d="M15 15H0V0h15v15z" fill="currentColor" />
-    <mask id="a" maskUnits="userSpaceOnUse" x="3" y="3" width="7" height="9" fill="currentColor">
-      <path fill="currentColor" d="M3 3h7v9H3z" />
-      <path d="M9 4v7L4.5 7.5 9 4z" />
-    </mask>
-    <path
-      d="M9 4h1a1 1 0 00-1.614-.79L9 4zm0 7l-.614.79A1 1 0 0010 11H9zM4.5 7.5l-.614-.79a1 1 0 000 1.58L4.5 7.5zM8 4v7h2V4H8zm1.614 6.21l-4.5-3.5-1.228 1.58 4.5 3.5 1.228-1.58zm-4.5-1.92l4.5-3.5-1.228-1.58-4.5 3.5 1.228 1.58z"
-      fill="currentColor"
-      mask="url(#a)"
-    />
-  </g>
-  <defs>
-    <clipPath id="clip0"><path d="M15 15H0V0h15v15z" fill="currentColor" /></clipPath>
-    <clipPath id="clip1"><path d="M15 15H0V0h15v15z" fill="currentColor" /></clipPath>
-  </defs>
+  <path d="M9 4v7L4.5 7.5 9 4z" fill="currentColor" opacity=".2" />
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M9.44 3.102A1 1 0 0110 4v7a1 1 0 01-1.614.79l-4.5-3.5a1 1 0 010-1.58l4.5-3.5a1 1 0 011.053-.108zM9 5.267V4l-1 .778-2.686 2.089L4.5 7.5l.814.633L8 10.223 9 11V5.267z"
+    fill="currentColor"
+  />
 </svg>

@@ -28,11 +28,7 @@ export const ThickArrowUpIcon = ({
   if (type === 'twoTone' && size === '15') {
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <g opacity=".2">
-          <path d="M0 0h15v15H0V0z" fill={color} />
-          <path d="M7.5 2.5l5 7h-3v3h-4v-3h-3l5-7z" fill={color} />
-        </g>
-        <path d="M0 0h15v15H0V0z" fill={color} />
+        <path d="M7.5 2.5l5 7h-3v3h-4v-3h-3l5-7z" fill={color} opacity=".2" />
         <path
           d="M7.5 2a.5.5 0 01.407.21l5 7a.5.5 0 01-.407.79H10v2.5a.5.5 0 01-.5.5h-4a.5.5 0 01-.5-.5V10H2.5a.5.5 0 01-.407-.79l5-7A.5.5 0 017.5 2zM3.472 9H5.5a.5.5 0 01.5.5V12h3V9.5a.5.5 0 01.5-.5h2.028L7.5 3.36 3.472 9z"
           fill={color}
