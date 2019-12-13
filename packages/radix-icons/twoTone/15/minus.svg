@@ -2,9 +2,14 @@
   <path
     fill-rule="evenodd"
     clip-rule="evenodd"
-    d="M2 6.5h11v2H2v-2z"
+    d="M2.5 6.5h10v2h-10v-2z"
     fill="currentColor"
     opacity=".2"
   />
-  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 8H3V7h9v1z" fill="currentColor" />
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M3 7.5a.5.5 0 01.5-.5h8a.5.5 0 010 1h-8a.5.5 0 01-.5-.5z"
+    fill="currentColor"
+  />
 </svg>
