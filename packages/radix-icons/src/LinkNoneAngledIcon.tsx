@@ -1,17 +1,17 @@
 import * as React from 'react';
 import { BaseIconProps } from './types';
 
-interface NoLinkAngledIconProps extends BaseIconProps {
+interface LinkNoneAngledIconProps extends BaseIconProps {
   size?: '15';
   type?: 'outline';
 }
 
-export const NoLinkAngledIcon = ({
+export const LinkNoneAngledIcon = ({
   color = 'currentColor',
   size = '15',
   type = 'outline',
   ...props
-}: NoLinkAngledIconProps) => {
+}: LinkNoneAngledIconProps) => {
   if (type === 'outline' && size === '15') {
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
@@ -25,8 +25,8 @@ export const NoLinkAngledIcon = ({
     );
   }
 
-  console.error(`NoLinkAngledIcon doesn't support the combination of ${size} and ${type}`);
+  console.error(`LinkNoneAngledIcon doesn't support the combination of ${size} and ${type}`);
   return null;
 };
 
-export default NoLinkAngledIcon;
+export default LinkNoneAngledIcon;
