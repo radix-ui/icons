@@ -1,17 +1,17 @@
 import * as React from 'react';
 import { BaseIconProps } from './types';
 
-interface BreakLinkIconProps extends BaseIconProps {
+interface LinkBreakIconProps extends BaseIconProps {
   size?: '15';
   type?: 'outline';
 }
 
-export const BreakLinkIcon = ({
+export const LinkBreakIcon = ({
   color = 'currentColor',
   size = '15',
   type = 'outline',
   ...props
-}: BreakLinkIconProps) => {
+}: LinkBreakIconProps) => {
   if (type === 'outline' && size === '15') {
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
@@ -25,8 +25,8 @@ export const BreakLinkIcon = ({
     );
   }
 
-  console.error(`BreakLinkIcon doesn't support the combination of ${size} and ${type}`);
+  console.error(`LinkBreakIcon doesn't support the combination of ${size} and ${type}`);
   return null;
 };
 
-export default BreakLinkIcon;
+export default LinkBreakIcon;

@@ -1,17 +1,17 @@
 import * as React from 'react';
 import { BaseIconProps } from './types';
 
-interface NoLinkHorizontalIconProps extends BaseIconProps {
+interface LinkNoneHorizontalIconProps extends BaseIconProps {
   size?: '15';
   type?: 'outline';
 }
 
-export const NoLinkHorizontalIcon = ({
+export const LinkNoneHorizontalIcon = ({
   color = 'currentColor',
   size = '15',
   type = 'outline',
   ...props
-}: NoLinkHorizontalIconProps) => {
+}: LinkNoneHorizontalIconProps) => {
   if (type === 'outline' && size === '15') {
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
@@ -25,8 +25,8 @@ export const NoLinkHorizontalIcon = ({
     );
   }
 
-  console.error(`NoLinkHorizontalIcon doesn't support the combination of ${size} and ${type}`);
+  console.error(`LinkNoneHorizontalIcon doesn't support the combination of ${size} and ${type}`);
   return null;
 };
 
-export default NoLinkHorizontalIcon;
+export default LinkNoneHorizontalIcon;

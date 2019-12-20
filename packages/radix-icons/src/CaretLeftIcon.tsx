@@ -16,7 +16,7 @@ export const CaretLeftIcon = ({
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-          d="M5.182 7.182l2.5-2.5.636.636L6.136 7.5l2.182 2.182-.636.636-2.5-2.5-.319-.318.319-.318z"
+          d="M8.068 4.932a.45.45 0 010 .636L6.136 7.5l1.932 1.932a.45.45 0 01-.636.636l-2.25-2.25a.45.45 0 010-.636l2.25-2.25a.45.45 0 01.636 0z"
           fill={color}
           fillRule="evenodd"
           clipRule="evenodd"
@@ -29,14 +29,14 @@ export const CaretLeftIcon = ({
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-          d="M8.707 4.293a1 1 0 010 1.414L6.914 7.5l1.793 1.793a1 1 0 01-1.414 1.414l-2.5-2.5a1 1 0 010-1.414l2.5-2.5a1 1 0 011.414 0z"
+          d="M8.457 4.543a1 1 0 010 1.414L6.914 7.5l1.543 1.543a1 1 0 01-1.414 1.414l-2.25-2.25a1 1 0 010-1.414l2.25-2.25a1 1 0 011.414 0z"
           fill={color}
           opacity=".2"
           fillRule="evenodd"
           clipRule="evenodd"
         />
         <path
-          d="M8.318 4.682a.45.45 0 010 .636L6.136 7.5l2.182 2.182a.45.45 0 01-.636.636l-2.5-2.5a.45.45 0 010-.636l2.5-2.5a.45.45 0 01.636 0z"
+          d="M8.068 4.932a.45.45 0 010 .636L6.136 7.5l1.932 1.932a.45.45 0 01-.636.636l-2.25-2.25a.45.45 0 010-.636l2.25-2.25a.45.45 0 01.636 0z"
           fill={color}
           fillRule="evenodd"
           clipRule="evenodd"
