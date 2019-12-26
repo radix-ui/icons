@@ -60,6 +60,7 @@ export { default as EnvelopeIcon } from './EnvelopeIcon';
 export { default as ExternalLinkIcon } from './ExternalLinkIcon';
 export { default as EyeClosedIcon } from './EyeClosedIcon';
 export { default as EyeOpenIcon } from './EyeOpenIcon';
+export { default as FontSizeIcon } from './FontSizeIcon';
 export { default as GearIcon } from './GearIcon';
 export { default as GridIcon } from './GridIcon';
 export { default as HamburgerIcon } from './HamburgerIcon';
