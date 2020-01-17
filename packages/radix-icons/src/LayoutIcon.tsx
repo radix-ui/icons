@@ -16,7 +16,7 @@ export const LayoutIcon = ({
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-          d="M9 5H6v5h3V5zm1 0v5h3V5h-3zM2 5h3v5H2V5zm0-1a1 1 0 00-1 1v5a1 1 0 001 1h11a1 1 0 001-1V5a1 1 0 00-1-1H2z"
+          d="M9 5H6V10H9V5ZM10 5V10H13V5H10ZM2 5H5V10H2L2 5ZM2 4C1.44772 4 1 4.44772 1 5V10C1 10.5523 1.44772 11 2 11H13C13.5523 11 14 10.5523 14 10V5C14 4.44772 13.5523 4 13 4H2Z"
           fill={color}
           fillRule="evenodd"
           clipRule="evenodd"
@@ -29,14 +29,14 @@ export const LayoutIcon = ({
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-          d="M1 5a1 1 0 011-1h11a1 1 0 011 1v5a1 1 0 01-1 1H2a1 1 0 01-1-1V5z"
+          d="M1 5C1 4.44772 1.44772 4 2 4H13C13.5523 4 14 4.44772 14 5V10C14 10.5523 13.5523 11 13 11H2C1.44772 11 1 10.5523 1 10V5Z"
           fill={color}
           opacity=".2"
           fillRule="evenodd"
           clipRule="evenodd"
         />
         <path
-          d="M9 5H6v5h3V5zm1 0v5h3V5h-3zM2 5h3v5H2V5zm0-1a1 1 0 00-1 1v5a1 1 0 001 1h11a1 1 0 001-1V5a1 1 0 00-1-1H2z"
+          d="M9 5H6V10H9V5ZM10 5V10H13V5H10ZM2 5H5V10H2L2 5ZM2 4C1.44772 4 1 4.44772 1 5V10C1 10.5523 1.44772 11 2 11H13C13.5523 11 14 10.5523 14 10V5C14 4.44772 13.5523 4 13 4H2Z"
           fill={color}
           fillRule="evenodd"
           clipRule="evenodd"
