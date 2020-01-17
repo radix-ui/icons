@@ -15,7 +15,7 @@ export const TriangleRightIcon = ({
   if (type === 'outline' && size === '15') {
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path d="M6 11V4l4.5 3.5L6 11z" fill={color} />
+        <path d="M6 11L6 4L10.5 7.5L6 11Z" fill={color} />
       </svg>
     );
   }
@@ -23,9 +23,9 @@ export const TriangleRightIcon = ({
   if (type === 'twoTone' && size === '15') {
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path d="M6 11V4l4.5 3.5L6 11z" fill={color} opacity=".2" />
+        <path d="M6 11L6 4L10.5 7.5L6 11Z" fill={color} opacity=".2" />
         <path
-          d="M5.56 11.898A1 1 0 015 11V4a1 1 0 011.614-.79l4.5 3.5a1 1 0 010 1.58l-4.5 3.5a1 1 0 01-1.053.108zM6 9.733V11l1-.778 2.686-2.089.814-.633-.814-.633L7 4.777 6 4V9.733z"
+          d="M5.56065 11.8983C5.21755 11.7305 5 11.3819 5 11L5 3.99999C5 3.61806 5.21755 3.26948 5.56065 3.10168C5.90375 2.93387 6.31246 2.97616 6.61394 3.21064L11.1139 6.71064C11.3575 6.9001 11.5 7.1914 11.5 7.49999C11.5 7.80858 11.3575 8.09989 11.1139 8.28934L6.61394 11.7893C6.31246 12.0238 5.90375 12.0661 5.56065 11.8983ZM6 9.73313L6 11L7 10.2222L9.68559 8.13342L10.5 7.49999L9.68559 6.86656L7 4.77777L6 3.99999L6 5.26685L6 9.73313Z"
           fill={color}
           fillRule="evenodd"
           clipRule="evenodd"

@@ -11,20 +11,12 @@ export function handleError(err, exit = true) {
   console.log('');
   if (err instanceof CodedError) {
     console.error(
-      `${chalk.red.bold('ERROR: ')}${chalk.bgRed.black.bold.inverse(
-        ` ${err.code} `
-      )}
+      `${chalk.red.bold('ERROR: ')}${chalk.bgRed.black.bold.inverse(` ${err.code} `)}
 ${err.message}
-${chalk.dim(
-  !(err.hideStack && err.stack) ? err.stack.replace(/^.*\n/, '') : ''
-)}`.trim()
+${chalk.dim(!(err.hideStack && err.stack) ? err.stack.replace(/^.*\n/, '') : '')}`.trim()
     );
   } else {
-    console.log(
-      `${chalk.red.bold('ERROR: ')}${chalk.bgRed.black.bold.inverse(
-        ' UNHANDLED '
-      )}\n`
-    );
+    console.log(`${chalk.red.bold('ERROR: ')}${chalk.bgRed.black.bold.inverse(' UNHANDLED ')}\n`);
     console.error(err);
   }
 
@@ -40,10 +32,7 @@ const defaultRetry = {
   retries: 2,
 };
 
-export function fetch(
-  url: string,
-  fetchOptions: RequestInitWithRetry = {}
-): Promise<Response> {
+export function fetch(url: string, fetchOptions: RequestInitWithRetry = {}): Promise<Response> {
   const retryOptions = { ...defaultRetry, ...fetchOptions.retry };
   return new Promise((resolve, reject) => {
     const attemptFetch = (remainingRetries: number) => {
@@ -87,11 +76,7 @@ function asyncDelay(timeout: number) {
   });
 }
 
-export function pushObjLeafNodesToArr(
-  obj: {},
-  arr: string[],
-  accessor: any[] = []
-) {
+export function pushObjLeafNodesToArr(obj: {}, arr: string[], accessor: any[] = []) {
   _.forEach(accessor.length ? _.get(obj, accessor) : obj, (v, k) => {
     if (v == null) return;
     const currentAccessor = accessor.concat(k);
@@ -136,7 +121,7 @@ export function getSvgo() {
       { moveElemsAttrsToGroup: true },
       { moveGroupAttrsToElems: true },
       { collapseGroups: true },
-      { convertPathData: true },
+      { convertPathData: false },
       { convertTransform: true },
       { removeEmptyAttrs: true },
       { removeEmptyContainers: true },
