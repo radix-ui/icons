@@ -3,16 +3,16 @@ import { BaseIconProps } from './types';
 
 interface TriangleDownIconProps extends BaseIconProps {
   size?: '15';
-  type?: 'outline' | 'twoTone';
+  type?: 'normal' | 'twoTone';
 }
 
 export const TriangleDownIcon = ({
   color = 'currentColor',
   size = '15',
-  type = 'outline',
+  type = 'normal',
   ...props
 }: TriangleDownIconProps) => {
-  if (type === 'outline' && size === '15') {
+  if (type === 'normal' && size === '15') {
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path d="M4 6H11L7.5 10.5L4 6Z" fill={color} />

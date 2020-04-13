@@ -3,16 +3,16 @@ import { BaseIconProps } from './types';
 
 interface DotsHorizontalIconProps extends BaseIconProps {
   size?: '15';
-  type?: 'outline' | 'twoTone';
+  type?: 'normal' | 'twoTone';
 }
 
 export const DotsHorizontalIcon = ({
   color = 'currentColor',
   size = '15',
-  type = 'outline',
+  type = 'normal',
   ...props
 }: DotsHorizontalIconProps) => {
-  if (type === 'outline' && size === '15') {
+  if (type === 'normal' && size === '15') {
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
