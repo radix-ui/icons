@@ -16,7 +16,7 @@ export const MinusIcon = ({
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-          d="M3 7.5C3 7.22386 3.22386 7 3.5 7H11.5C11.7761 7 12 7.22386 12 7.5C12 7.77614 11.7761 8 11.5 8H3.5C3.22386 8 3 7.77614 3 7.5Z"
+          d="M2.5 7.5C2.5 7.22386 2.72386 7 3 7H12C12.2761 7 12.5 7.22386 12.5 7.5C12.5 7.77614 12.2761 8 12 8H3C2.72386 8 2.5 7.77614 2.5 7.5Z"
           fill={color}
           fillRule="evenodd"
           clipRule="evenodd"
@@ -29,14 +29,14 @@ export const MinusIcon = ({
     return (
       <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-          d="M2.5 6.5H3.5H11.5H12.5V8.5H11.5H3.5H2.5V6.5Z"
+          d="M2 6.5H3H12H13V8.5H12H3H2V6.5Z"
           fill={color}
           opacity=".2"
           fillRule="evenodd"
           clipRule="evenodd"
         />
         <path
-          d="M3 7.5C3 7.22386 3.22386 7 3.5 7H11.5C11.7761 7 12 7.22386 12 7.5C12 7.77614 11.7761 8 11.5 8H3.5C3.22386 8 3 7.77614 3 7.5Z"
+          d="M2.5 7.5C2.5 7.22386 2.72386 7 3 7H12C12.2761 7 12.5 7.22386 12.5 7.5C12.5 7.77614 12.2761 8 12 8H3C2.72386 8 2.5 7.77614 2.5 7.5Z"
           fill={color}
           fillRule="evenodd"
           clipRule="evenodd"
