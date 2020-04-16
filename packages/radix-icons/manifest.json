@@ -83,6 +83,7 @@
       "gear": "normal/15/gear.svg",
       "grid": "normal/15/grid.svg",
       "hamburger": "normal/15/hamburger.svg",
+      "list": "normal/15/list.svg",
       "heading": "normal/15/heading.svg",
       "height": "normal/15/height.svg",
       "image": "normal/15/image.svg",
@@ -157,7 +158,11 @@
       "variant-boolean": "normal/15/variant-boolean.svg",
       "variant-ghost": "normal/15/variant-ghost.svg",
       "variant-none": "normal/15/variant-none.svg",
-      "width": "normal/15/width.svg"
+      "width": "normal/15/width.svg",
+      "enter": "normal/15/enter.svg",
+      "exit": "normal/15/exit.svg",
+      "home": "normal/15/home.svg",
+      "video": "normal/15/video.svg"
     }
   },
   "twoTone": {
