@@ -1,9 +1,13 @@
 {
   "normal": {
     ":15": {
+      "arrow-bottom-left": "normal/15/arrow-bottom-left.svg",
+      "arrow-bottom-right": "normal/15/arrow-bottom-right.svg",
       "arrow-down": "normal/15/arrow-down.svg",
       "arrow-left": "normal/15/arrow-left.svg",
       "arrow-right": "normal/15/arrow-right.svg",
+      "arrow-top-right": "normal/15/arrow-top-right.svg",
+      "arrow-top-left": "normal/15/arrow-top-left.svg",
       "arrow-up": "normal/15/arrow-up.svg",
       "aspect-ratio": "normal/15/aspect-ratio.svg",
       "avatar": "normal/15/avatar.svg",
@@ -75,6 +79,7 @@
       "external-link": "normal/15/external-link.svg",
       "eye-closed": "normal/15/eye-closed.svg",
       "eye-open": "normal/15/eye-open.svg",
+      "face": "normal/15/face.svg",
       "font-family": "normal/15/font-family.svg",
       "font-italic": "normal/15/font-italic.svg",
       "font-size": "normal/15/font-size.svg",
@@ -162,7 +167,8 @@
       "enter": "normal/15/enter.svg",
       "exit": "normal/15/exit.svg",
       "home": "normal/15/home.svg",
-      "video": "normal/15/video.svg"
+      "video": "normal/15/video.svg",
+      "write": "normal/15/write.svg"
     }
   },
   "twoTone": {
@@ -234,6 +240,7 @@
       "radio": "twoTone/15/radio.svg",
       "reader": "twoTone/15/reader.svg",
       "rename": "twoTone/15/rename.svg",
+      "rocket": "twoTone/15/rocket.svg",
       "section": "twoTone/15/section.svg",
       "slash": "twoTone/15/slash.svg",
       "slider": "twoTone/15/slider.svg",
