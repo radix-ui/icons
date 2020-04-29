@@ -168,7 +168,8 @@
       "variant-none": "normal/15/variant-none.svg",
       "video": "normal/15/video.svg",
       "width": "normal/15/width.svg",
-      "write": "normal/15/write.svg"
+      "write": "normal/15/write.svg",
+      "cross-large": "normal/15/cross-large.svg"
     }
   },
   "twoTone": {
