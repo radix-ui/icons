@@ -52,6 +52,7 @@ export { default as CornerTopRightIcon } from './CornerTopRightIcon';
 export { default as CornersIcon } from './CornersIcon';
 export { default as CountdownIcon } from './CountdownIcon';
 export { default as CrossIcon } from './CrossIcon';
+export { default as CrossLargeIcon } from './CrossLargeIcon';
 export { default as CrosshairIcon } from './CrosshairIcon';
 export { default as CrosshairClosedIcon } from './CrosshairClosedIcon';
 export { default as CubeIcon } from './CubeIcon';
