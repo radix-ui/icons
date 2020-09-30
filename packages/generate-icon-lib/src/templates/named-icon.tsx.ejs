@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { BaseIconProps } from './types';
+import { IconProps } from './types';
 
 <% /* A. There are variants both for size and type */ %>
 <% if (icon.sizes.length > 1 && icon.types.length > 1) { %>
 
-interface <%- iconToPropsName(icon) %> extends BaseIconProps {
+interface <%- iconToPropsName(icon) %> extends IconProps {
   size<%- icon.sizes[0] === getDefaultSize() ? '?' : '' %>: <%- icon.sizes.map(s => `"${s}"`).join(' | ') %>;
   type<%- icon.types[0] === getDefaultType() ? '?' : '' %>: <%- icon.types.map(t => `"${t}"`).join(' | ') %>;
 }
@@ -33,7 +33,7 @@ export const <%- iconToComponentName(icon) %> =
 <% /* B. There are only size variants */ %>
 <% } else if (icon.sizes.length > 1) { %>
 
-interface <%- iconToPropsName(icon) %> extends BaseIconProps {
+interface <%- iconToPropsName(icon) %> extends IconProps {
   size<%- icon.sizes[0] === getDefaultSize() ? '?' : '' %>: <%- icon.sizes.map(s => `"${s}"`).join(' | ') %>;
 }
 
@@ -58,7 +58,7 @@ export const <%- iconToComponentName(icon) %> =
 <% /* C. There are only type variants */ %>
 <% } else if (icon.types.length > 1) { %>
 
-interface <%- iconToPropsName(icon) %> extends BaseIconProps {
+interface <%- iconToPropsName(icon) %> extends IconProps {
   type<%- icon.types[0] === getDefaultType() ? '?' : '' %>: <%- icon.types.map(t => `"${t}"`).join(' | ') %>;
 }
 
@@ -82,7 +82,7 @@ export const <%- iconToComponentName(icon) %> =
 
 <% /* D. There are no variants */ %>
 <% } else { %>
-export const <%- iconToComponentName(icon) %> = ({ color = 'currentColor', ...props }: BaseIconProps) => {
+export const <%- iconToComponentName(icon) %> = ({ color = 'currentColor', ...props }: IconProps) => {
   return <%- iconToSVGSourceAsJSX(icon, icon.sizes[0], icon.types[0]) %>
 };
 <% } %>
