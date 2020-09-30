@@ -1,52 +1,17 @@
 import * as React from 'react';
-import { BaseIconProps } from './types';
+import { IconProps } from './types';
 
-interface GridIconProps extends BaseIconProps {
-  size?: '15';
-  type?: 'normal' | 'twoTone';
-}
-
-export const GridIcon = ({
-  color = 'currentColor',
-  size = '15',
-  type = 'normal',
-  ...props
-}: GridIconProps) => {
-  if (type === 'normal' && size === '15') {
-    return (
-      <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path
-          d="M2 2.5C2 2.22386 2.22386 2 2.5 2H7H8H12.5C12.7761 2 13 2.22386 13 2.5V7V8V12.5C13 12.7761 12.7761 13 12.5 13H8H7H2.5C2.22386 13 2 12.7761 2 12.5V8V7V2.5ZM3 8V12H7V8H3ZM7 7H3V3H7V7ZM8 8V12H12V8H8ZM12 7H8V3H12V7Z"
-          fill={color}
-          fillRule="evenodd"
-          clipRule="evenodd"
-        />
-      </svg>
-    );
-  }
-
-  if (type === 'twoTone' && size === '15') {
-    return (
-      <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path
-          d="M7 13V12.5H2.5V8H2V7H2.5V2.5H7V2H8V2.5H12.5V7H13V8H12.5V12.5H8V13H7Z"
-          fill={color}
-          opacity=".2"
-          fillRule="evenodd"
-          clipRule="evenodd"
-        />
-        <path
-          d="M2 2.5C2 2.22386 2.22386 2 2.5 2H7H8H12.5C12.7761 2 13 2.22386 13 2.5V7V8V12.5C13 12.7761 12.7761 13 12.5 13H8H7H2.5C2.22386 13 2 12.7761 2 12.5V8V7V2.5ZM3 8V12H7V8H3ZM7 7H3V3H7V7ZM8 8V12H12V8H8ZM12 7H8V3H12V7Z"
-          fill={color}
-          fillRule="evenodd"
-          clipRule="evenodd"
-        />
-      </svg>
-    );
-  }
-
-  console.error(`GridIcon doesn't support the combination of ${size} and ${type}`);
-  return null;
+export const GridIcon = ({ color = 'currentColor', ...props }: IconProps) => {
+  return (
+    <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <path
+        d="M12.5 2H8V7H13V2.5C13 2.22386 12.7761 2 12.5 2ZM13 8H8V13H12.5C12.7761 13 13 12.7761 13 12.5V8ZM7 7V2H2.5C2.22386 2 2 2.22386 2 2.5V7H7ZM2 8V12.5C2 12.7761 2.22386 13 2.5 13H7V8H2ZM2.5 1C1.67157 1 1 1.67157 1 2.5V12.5C1 13.3284 1.67157 14 2.5 14H12.5C13.3284 14 14 13.3284 14 12.5V2.5C14 1.67157 13.3284 1 12.5 1H2.5Z"
+        fill={color}
+        fillRule="evenodd"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
 };
 
 export default GridIcon;

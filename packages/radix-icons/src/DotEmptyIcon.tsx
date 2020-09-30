@@ -1,27 +1,17 @@
 import * as React from 'react';
-import { BaseIconProps } from './types';
+import { IconProps } from './types';
 
-interface DotEmptyIconProps extends BaseIconProps {
-  size?: '15';
-  type?: 'normal';
-}
-
-export const DotEmptyIcon = ({
-  color = 'currentColor',
-  size = '15',
-  type = 'normal',
-  ...props
-}: DotEmptyIconProps) => {
-  if (type === 'normal' && size === '15') {
-    return (
-      <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <circle cx="7.5" cy="7.504" r="2.125" stroke={color} />
-      </svg>
-    );
-  }
-
-  console.error(`DotEmptyIcon doesn't support the combination of ${size} and ${type}`);
-  return null;
+export const DotEmptyIcon = ({ color = 'currentColor', ...props }: IconProps) => {
+  return (
+    <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <path
+        d="M7.5 9.125C8.39746 9.125 9.125 8.39746 9.125 7.5C9.125 6.60254 8.39746 5.875 7.5 5.875C6.60254 5.875 5.875 6.60254 5.875 7.5C5.875 8.39746 6.60254 9.125 7.5 9.125ZM7.5 10.125C8.94975 10.125 10.125 8.94975 10.125 7.5C10.125 6.05025 8.94975 4.875 7.5 4.875C6.05025 4.875 4.875 6.05025 4.875 7.5C4.875 8.94975 6.05025 10.125 7.5 10.125Z"
+        fill={color}
+        fillRule="evenodd"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
 };
 
 export default DotEmptyIcon;

@@ -1,32 +1,17 @@
 import * as React from 'react';
-import { BaseIconProps } from './types';
+import { IconProps } from './types';
 
-interface ChatBubbleIconProps extends BaseIconProps {
-  size?: '15';
-  type?: 'normal';
-}
-
-export const ChatBubbleIcon = ({
-  color = 'currentColor',
-  size = '15',
-  type = 'normal',
-  ...props
-}: ChatBubbleIconProps) => {
-  if (type === 'normal' && size === '15') {
-    return (
-      <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path
-          d="M12 3L3 3.00002C2.44771 3.00003 2 3.44774 2 4.00002V9.00003C2 9.55231 2.44772 10 3 10H7.50003C7.63264 10 7.75982 10.0527 7.85358 10.1465L10 12.2929V10.5C10 10.2239 10.2239 10 10.5 10H12C12.5523 10 13 9.55231 13 9.00003V4C13 3.44771 12.5523 3 12 3ZM2.99999 2.00002L12 2C13.1046 2 14 2.89543 14 4V9.00003C14 10.1046 13.1046 11 12 11H11V13.5C11 13.7022 10.8782 13.8845 10.6913 13.9619C10.5045 14.0393 10.2894 13.9965 10.1464 13.8535L7.29292 11H3C1.89543 11 1 10.1046 1 9.00003V4.00002C1 2.89545 1.89543 2.00003 2.99999 2.00002Z"
-          fill={color}
-          fillRule="evenodd"
-          clipRule="evenodd"
-        />
-      </svg>
-    );
-  }
-
-  console.error(`ChatBubbleIcon doesn't support the combination of ${size} and ${type}`);
-  return null;
+export const ChatBubbleIcon = ({ color = 'currentColor', ...props }: IconProps) => {
+  return (
+    <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <path
+        d="M12.5 3L2.49999 3.00002C1.67157 3.00002 0.999999 3.67159 0.999999 4.50002V9.50002C0.999999 10.3284 1.67157 11 2.5 11H7.50002C7.63263 11 7.75981 11.0527 7.85358 11.1465L9.99999 13.2929V11.5C9.99999 11.2239 10.2239 11 10.5 11H12.5C13.3284 11 14 10.3284 14 9.50002V4.5C14 3.67157 13.3284 3 12.5 3ZM2.49999 2.00002L12.5 2C13.8807 2 15 3.11928 15 4.5V9.50002C15 10.8807 13.8807 12 12.5 12H11V14.5C11 14.7022 10.8782 14.8845 10.6913 14.9619C10.5045 15.0393 10.2894 14.9965 10.1464 14.8535L7.29292 12H2.5C1.11929 12 0 10.8807 0 9.50002V4.50002C0 3.11931 1.11928 2.00002 2.49999 2.00002Z"
+        fill={color}
+        fillRule="evenodd"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
 };
 
 export default ChatBubbleIcon;

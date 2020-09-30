@@ -1,46 +1,17 @@
 import * as React from 'react';
-import { BaseIconProps } from './types';
+import { IconProps } from './types';
 
-interface CubeIconProps extends BaseIconProps {
-  size?: '15';
-  type?: 'normal' | 'twoTone';
-}
-
-export const CubeIcon = ({
-  color = 'currentColor',
-  size = '15',
-  type = 'normal',
-  ...props
-}: CubeIconProps) => {
-  if (type === 'normal' && size === '15') {
-    return (
-      <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path
-          d="M7.27639 1.05279C7.41716 0.982404 7.58284 0.982404 7.72361 1.05279L12.7236 3.55279C12.893 3.63748 13 3.81061 13 4V10.5C13 10.6894 12.893 10.8625 12.7236 10.9472L7.72361 13.4472C7.58284 13.5176 7.41716 13.5176 7.27639 13.4472L2.27639 10.9472C2.107 10.8625 2 10.6894 2 10.5V4C2 3.81061 2.107 3.63748 2.27639 3.55279L7.27639 1.05279ZM3 4.80902L7 6.80902V12.191L3 10.191V4.80902ZM8 12.191L12 10.191V4.80902L8 6.80902V12.191ZM7.5 5.94098L11.382 4L7.5 2.05902L3.61803 4L7.5 5.94098Z"
-          fill={color}
-          fillRule="evenodd"
-          clipRule="evenodd"
-        />
-      </svg>
-    );
-  }
-
-  if (type === 'twoTone' && size === '15') {
-    return (
-      <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path d="M7.5 13L2.5 10.5V4L7.5 1.5L12.5 4V10.5L7.5 13Z" fill={color} opacity=".2" />
-        <path
-          d="M7.27639 1.05279C7.41716 0.982405 7.58284 0.982405 7.72361 1.05279L12.7236 3.55279C12.893 3.63748 13 3.81061 13 4V10.5C13 10.6894 12.893 10.8625 12.7236 10.9472L7.72361 13.4472C7.58284 13.5176 7.41716 13.5176 7.27639 13.4472L2.27639 10.9472C2.107 10.8625 2 10.6894 2 10.5V4C2 3.81061 2.107 3.63748 2.27639 3.55279L7.27639 1.05279ZM3 4.80902L7 6.80902V12.191L3 10.191V4.80902ZM8 12.191L12 10.191V4.80902L8 6.80902V12.191ZM7.5 5.94098L11.382 4L7.5 2.05902L3.61803 4L7.5 5.94098Z"
-          fill={color}
-          fillRule="evenodd"
-          clipRule="evenodd"
-        />
-      </svg>
-    );
-  }
-
-  console.error(`CubeIcon doesn't support the combination of ${size} and ${type}`);
-  return null;
+export const CubeIcon = ({ color = 'currentColor', ...props }: IconProps) => {
+  return (
+    <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <path
+        d="M7.25904 1.31189C7.40908 1.22937 7.59092 1.22937 7.74096 1.31189L12.741 4.06189C12.9007 4.14977 13 4.31765 13 4.5V10.25C13 10.4323 12.9007 10.6002 12.741 10.6881L7.74096 13.4381C7.59092 13.5206 7.40908 13.5206 7.25904 13.4381L2.25904 10.6881C2.09927 10.6002 2 10.4323 2 10.25V4.5C2 4.31765 2.09927 4.14977 2.25904 4.06189L7.25904 1.31189ZM3 5.34564L7 7.54564V12.1544L3 9.95436V5.34564ZM8 12.1544L12 9.95436V5.34564L8 7.54564V12.1544ZM7.5 6.67936L11.4625 4.5L7.5 2.32064L3.53752 4.5L7.5 6.67936Z"
+        fill={color}
+        fillRule="evenodd"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
 };
 
 export default CubeIcon;
