@@ -1,7 +1,10 @@
 import * as React from 'react';
-import { BaseIconProps } from './types';
+import { IconProps } from './types';
 
-interface <%- iconToPropsName(icon) %> extends BaseIconProps {
+<% /* A. There are variants both for size and type */ %>
+<% if (icon.sizes.length > 1 && icon.types.length > 1) { %>
+
+interface <%- iconToPropsName(icon) %> extends IconProps {
   size<%- icon.sizes[0] === getDefaultSize() ? '?' : '' %>: <%- icon.sizes.map(s => `"${s}"`).join(' | ') %>;
   type<%- icon.types[0] === getDefaultType() ? '?' : '' %>: <%- icon.types.map(t => `"${t}"`).join(' | ') %>;
 }
@@ -13,18 +16,75 @@ export const <%- iconToComponentName(icon) %> =
     type<%- icon.types[0] === getDefaultType() ? ` = '${icon.types[0]}'` : '' %>,
     ...props,
   }: <%- iconToPropsName(icon) %>) => {
-<% for (const t in icon.types) { %>
-<%   for (const s in icon.sizes) { %>
-<%     if (iconHasSizeAndType(icon, icon.sizes[s], icon.types[t])) { %>
+<%   for (const t in icon.types) { %>
+<%     for (const s in icon.sizes) { %>
+<%       if (iconHasSizeAndType(icon, icon.sizes[s], icon.types[t])) { %>
     if (type === '<%- icon.types[t] %>' && size === '<%- icon.sizes[s] %>') {
       return <%- iconToSVGSourceAsJSX(icon, icon.sizes[s], icon.types[t]) %>
     }
+<%       } %>
 <%     } %>
 <%   } %>
-<% } %>
 
     console.error(`<%- iconToComponentName(icon) %> doesn't support the combination of ${size} and ${type}`)
     return null;
   };
+
+<% /* B. There are only size variants */ %>
+<% } else if (icon.sizes.length > 1) { %>
+
+interface <%- iconToPropsName(icon) %> extends IconProps {
+  size<%- icon.sizes[0] === getDefaultSize() ? '?' : '' %>: <%- icon.sizes.map(s => `"${s}"`).join(' | ') %>;
+}
+
+export const <%- iconToComponentName(icon) %> =
+  ({
+    color = 'currentColor',
+    size<%- icon.sizes[0] === getDefaultSize() ? ` = '${icon.sizes[0]}'` : '' %>,
+    ...props,
+  }: <%- iconToPropsName(icon) %>) => {
+<%   for (const s in icon.sizes) { %>
+<%     if (iconHasSizeAndType(icon, icon.sizes[s], icon.types[0])) { %>
+    if (size === '<%- icon.sizes[s] %>') {
+      return <%- iconToSVGSourceAsJSX(icon, icon.sizes[s], icon.types[0]) %>
+    }
+<%     } %>
+<%   } %>
+
+    console.error(`<%- iconToComponentName(icon) %> doesn't support ${size}`)
+    return null;
+  };
+  
+<% /* C. There are only type variants */ %>
+<% } else if (icon.types.length > 1) { %>
+
+interface <%- iconToPropsName(icon) %> extends IconProps {
+  type<%- icon.types[0] === getDefaultType() ? '?' : '' %>: <%- icon.types.map(t => `"${t}"`).join(' | ') %>;
+}
+
+export const <%- iconToComponentName(icon) %> =
+  ({
+    color = 'currentColor',
+    type<%- icon.types[0] === getDefaultType() ? ` = '${icon.types[0]}'` : '' %>,
+    ...props,
+  }: <%- iconToPropsName(icon) %>) => {
+<%   for (const t in icon.types) { %>
+<%     if (iconHasSizeAndType(icon, icon.sizes[0], icon.types[t])) { %>
+    if (type === '<%- icon.types[t] %>') {
+      return <%- iconToSVGSourceAsJSX(icon, icon.sizes[0], icon.types[t]) %>
+    }
+<%     } %>
+<%   } %>
+
+    console.error(`<%- iconToComponentName(icon) %> doesn't support ${type}`)
+    return null;
+  };
+
+<% /* D. There are no variants */ %>
+<% } else { %>
+export const <%- iconToComponentName(icon) %> = ({ color = 'currentColor', ...props }: IconProps) => {
+  return <%- iconToSVGSourceAsJSX(icon, icon.sizes[0], icon.types[0]) %>
+};
+<% } %>
 
 export default <%- iconToComponentName(icon) %>;

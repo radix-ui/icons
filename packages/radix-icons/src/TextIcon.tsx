@@ -1,32 +1,17 @@
 import * as React from 'react';
-import { BaseIconProps } from './types';
+import { IconProps } from './types';
 
-interface TextIconProps extends BaseIconProps {
-  size?: '15';
-  type?: 'normal';
-}
-
-export const TextIcon = ({
-  color = 'currentColor',
-  size = '15',
-  type = 'normal',
-  ...props
-}: TextIconProps) => {
-  if (type === 'normal' && size === '15') {
-    return (
-      <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path
-          d="M3.5 2C3.22386 2 3 2.22386 3 2.5V4C3 4.27614 3.22386 4.5 3.5 4.5C3.77614 4.5 4 4.27614 4 4V3H7V11H6C5.72386 11 5.5 11.2239 5.5 11.5C5.5 11.7761 5.72386 12 6 12H7.5H9C9.27614 12 9.5 11.7761 9.5 11.5C9.5 11.2239 9.27614 11 9 11H8V3H11V4C11 4.27614 11.2239 4.5 11.5 4.5C11.7761 4.5 12 4.27614 12 4V2.5C12 2.22386 11.7761 2 11.5 2H7.5H3.5Z"
-          fill={color}
-          fillRule="evenodd"
-          clipRule="evenodd"
-        />
-      </svg>
-    );
-  }
-
-  console.error(`TextIcon doesn't support the combination of ${size} and ${type}`);
-  return null;
+export const TextIcon = ({ color = 'currentColor', ...props }: IconProps) => {
+  return (
+    <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <path
+        d="M3.94999 2.95005L3.94999 4.50001C3.94999 4.74854 3.74852 4.95001 3.49999 4.95001C3.25146 4.95001 3.04999 4.74854 3.04999 4.50001V2.50007C3.04999 2.45249 3.05737 2.40665 3.07105 2.3636C3.12884 2.18178 3.29903 2.05005 3.49999 2.05005H11.5C11.6553 2.05005 11.7923 2.12875 11.8731 2.24845C11.9217 2.32027 11.95 2.40685 11.95 2.50005L11.95 2.50007V4.50001C11.95 4.74854 11.7485 4.95001 11.5 4.95001C11.2515 4.95001 11.05 4.74854 11.05 4.50001V2.95005H8.05V12.0501H9.25434C9.50287 12.0501 9.70434 12.2515 9.70434 12.5001C9.70434 12.7486 9.50287 12.9501 9.25434 12.9501H5.75434C5.50581 12.9501 5.30434 12.7486 5.30434 12.5001C5.30434 12.2515 5.50581 12.0501 5.75434 12.0501H6.95V2.95005H3.94999Z"
+        fill={color}
+        fillRule="evenodd"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
 };
 
 export default TextIcon;

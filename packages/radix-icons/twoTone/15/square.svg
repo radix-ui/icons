@@ -1,9 +1,0 @@
-<svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M13 2H2V13H13V2Z" fill="currentColor" opacity=".2" />
-  <path
-    fill-rule="evenodd"
-    clip-rule="evenodd"
-    d="M2 3V2H3H12H13V3V12V13H12H3H2V12V3ZM3 12H12V3H3V12Z"
-    fill="currentColor"
-  />
-</svg>
