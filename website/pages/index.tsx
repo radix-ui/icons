@@ -30,7 +30,7 @@ export default function Home(props) {
           }}
         >
           {props.icons.map(({ filename, content }) => (
-            <Box key={filename}>
+            <Box key={filename} css={{ color: '$hiContrast' }}>
               <div dangerouslySetInnerHTML={{ __html: content }} />
             </Box>
           ))}
