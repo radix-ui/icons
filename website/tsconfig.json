@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "preserve",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "outDir": "dist",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "es5",
+    "noImplicitAny": false,
+    "lib": ["dom", "es2017"],
+    "allowJs": true,
+    "isolatedModules": true
+  },
+  "exclude": ["node_modules", "pages"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+}
