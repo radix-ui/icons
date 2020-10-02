@@ -1,12 +1,4 @@
 {
-  "name": "@peduarte/byrd",
-  "version": "0.0.1",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
-  "files": [
-    "dist"
-  ],
-  "types": "dist/index.d.ts",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
