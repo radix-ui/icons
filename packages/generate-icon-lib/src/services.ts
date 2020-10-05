@@ -56,6 +56,16 @@ const transformers = {
     return $.xml();
   },
 
+  /**
+   * Injects viewBox attribute so icons will scale when resized.
+   */
+  injectViewBox(svgRaw: string) {
+    const $ = cheerio.load(svgRaw, { xmlMode: true });
+    const svg = $('svg');
+    svg.attr('viewBox', `0 0 ${svg.attr('width')} ${svg.attr('height')}`);
+    return $.xml();
+  },
+
   prettify(svgRaw: string) {
     const prettierOptions = prettier.resolveConfig.sync(process.cwd());
     return prettier.format(svgRaw, { ...prettierOptions, parser: 'html' });
@@ -274,6 +284,7 @@ export async function downloadSvgsToFs(urls: IIconsSvgUrls, icons: IIcons, onPro
         .text()
         .then(async svgRaw => transformers.passSVGO(svgRaw))
         .then(svgRaw => transformers.injectCurrentColor(svgRaw))
+        .then(svgRaw => transformers.injectViewBox(svgRaw))
         .then(svgRaw => transformers.prettify(svgRaw));
 
       const filePath = path.resolve(currentTempDir, labelling.filePathFromIcon(icons[iconId]));
