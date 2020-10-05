@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import useDarkMode from 'use-dark-mode';
-import { css, darkThemeClass, Box } from '@modulz/design-system';
+import { css, darkThemeClass, Button } from '@modulz/design-system';
 
 css.global({
   body: {
@@ -52,13 +52,9 @@ function App({ Component, pageProps }) {
 
       <Component {...pageProps} />
 
-      <Box
-        as="button"
-        css={{ position: 'fixed', zIndex: 999, top: '$3', right: '$3' }}
-        onClick={() => darkMode.toggle()}
-      >
+      <Button css={{ position: 'fixed', zIndex: 999, top: '$3', left: '$3' }} onClick={() => darkMode.toggle()}>
         Toggle theme
-      </Box>
+      </Button>
     </div>
   );
 }
