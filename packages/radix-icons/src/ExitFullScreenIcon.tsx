@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { IconProps } from './types';
 
-export const NormalScreenIcon = ({ color = 'currentColor', ...props }: IconProps) => {
+export const ExitFullScreenIcon = ({ color = 'currentColor', ...props }: IconProps) => {
   return (
     <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15" {...props}>
       <path
@@ -14,4 +14,4 @@ export const NormalScreenIcon = ({ color = 'currentColor', ...props }: IconProps
   );
 };
 
-export default NormalScreenIcon;
+export default ExitFullScreenIcon;
