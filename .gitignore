@@ -26,3 +26,5 @@ yarn-error.log*
 # build
 .rpt2_cache/
 dist/
+
+.vercel

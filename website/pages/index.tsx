@@ -2,20 +2,24 @@ import React from 'react';
 import fs from 'fs';
 import path from 'path';
 import useDarkMode from 'use-dark-mode';
-import { Box, Container, Flex, Grid, Text, styled } from '@modulz/design-system';
+import { Box, Container, Grid, Text, styled, darkThemeClass } from '@modulz/design-system';
+import Icons from '@modulz/radix-icons';
 
 export default function Home(props) {
-  const darkMode = useDarkMode();
+  const darkMode = useDarkMode(undefined, {
+    classNameDark: darkThemeClass,
+    classNameLight: 'theme-default'
+  });
+
   const crimson = darkMode.value ? 'hsla(336, 79%, 48%, 0.5)' : 'hsla(336, 90%, 91%, 1.0)';
   const teal = darkMode.value ? 'hsla(174, 100%, 28%, 0.5)' : 'hsla(174, 75%, 84%, 1.0)';
-  const getIcon = (fileName: string) => props.icons.find(icon => icon.filename === fileName).content as string;
 
   return (
     <Box css={{ color: '$hiContrast' }}>
       <Box
         css={{
           position: 'fixed',
-          top: 'calc(0.5em + 7.5vh)',
+          top: '10vh',
           left: 0,
           right: 0,
           bottom: 0,
@@ -93,7 +97,10 @@ export default function Home(props) {
           <Line color={teal} angle="0deg" offset="0, 1em" />
           <Line color={teal} angle="90deg" offset="0, 0" />
           <Line color={teal} angle="90deg" offset="1em, 0" />
-          <HeroIcon svg={getIcon('arrow-left.svg')} />
+
+          <Box css={{ position: 'relative' }}>
+            <Icons.ArrowLeftIcon style={{ display: 'block', width: '1em', height: '1em' }} />
+          </Box>
 
           <Text
             size="7"
@@ -140,40 +147,50 @@ export default function Home(props) {
       >
         <Text size="2" css={{ lineHeight: '25px' }}>
           <BoxLink href="#svg" target="_blank">
-            <Box as="span" css={{ mr: '$1' }} dangerouslySetInnerHTML={{ __html: getIcon('download.svg') }} />
+            <Box as="span" css={{ mr: '$1' }}>
+              <Icons.DownloadIcon />
+            </Box>
             Download SVG
           </BoxLink>
           <BoxLink href="https://www.figma.com/file/9Df5CaFUEomVzn20gRpaX3/Radix-Icons" target="_blank">
-            <Box as="span" css={{ mr: '$1' }} dangerouslySetInnerHTML={{ __html: getIcon('figma-logo.svg') }} />
+            <Box as="span" css={{ mr: '$1' }}>
+              <Icons.FigmaLogoIcon />
+            </Box>
             Open in Figma
           </BoxLink>
           <BoxLink href="#framer" target="_blank">
-            <Box as="span" css={{ mr: '$1' }} dangerouslySetInnerHTML={{ __html: getIcon('framer-logo.svg') }} />
+            <Box as="span" css={{ mr: '$1' }}>
+              <Icons.FramerLogoIcon />
+            </Box>
             Open in Framer Web
           </BoxLink>
           <BoxLink href="#sketch" target="_blank">
-            <Box as="span" css={{ mr: '$1' }} dangerouslySetInnerHTML={{ __html: getIcon('sketch-logo.svg') }} />
+            <Box as="span" css={{ mr: '$1' }}>
+              <Icons.SketchLogoIcon />
+            </Box>
             Add Library for Sketch
           </BoxLink>
           <BoxLink href="https://www.npmjs.com/package/@modulz/radix-icons" target="_blank">
-            <Box as="span" css={{ mr: '$1' }} dangerouslySetInnerHTML={{ __html: getIcon('cube.svg') }} />
+            <Box as="span" css={{ mr: '$1' }}>
+              <Icons.CubeIcon />
+            </Box>
             Install with npm
           </BoxLink>
         </Text>
       </Box>
 
-      <Container css={{ position: 'relative', textAlign: 'center', mb: '$4' }}>
+      <Container size="4" css={{ position: 'relative', textAlign: 'center', mb: '$4' }}>
         <Box
           css={{
             background: darkMode.value ? '$gray100' : '$loContrast',
             marginBottom: '$5',
             borderRadius: '$2',
-            boxShadow: darkMode.value ? '0 30px 250px -50px black' : '0 30px 250px -50px $gray500',
+            boxShadow: darkMode.value ? '0 50px 250px -70px black' : '0 50px 250px -70px rgba(0, 0, 0, 0.4)',
             default: {
               marginTop: 'calc(30vh + 160px)'
             },
             bp3: {
-              marginTop: 'calc(30vh + 260px)'
+              marginTop: 'calc(25vh + 260px)'
             }
           }}
         >
@@ -250,26 +267,6 @@ function Line({ angle = '0deg', offset = '0px, 0px', color }: LineProps) {
         transformOrigin: 'top left',
         color
       }}
-    />
-  );
-}
-
-type HeroIconProps = {
-  svg: string;
-};
-
-function HeroIcon({ svg }: HeroIconProps) {
-  return (
-    <Box
-      css={{
-        position: 'relative',
-        svg: {
-          display: 'block',
-          width: '1em',
-          height: '1em'
-        }
-      }}
-      dangerouslySetInnerHTML={{ __html: svg }}
     />
   );
 }

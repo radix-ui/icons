@@ -4,10 +4,12 @@
     "build": "next build",
     "start": "next start",
     "prettier": "prettier './**/*.{js,jsx,ts,tsx,json,yml,yaml,css,md,mdx}' --write",
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "install": "cd ../packages/radix-icons && yarn build && cd -"
   },
   "dependencies": {
     "@modulz/design-system": "^0.0.3",
+    "@modulz/radix-icons": "file:./../packages/radix-icons/dist",
     "next": "9.5.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
