@@ -32,6 +32,11 @@ yarn build
 yarn release
 ```
 
+### Website
+
+The website uses local version of the Radix Icons package.
+Don't forget to `yarn` after updating the icons. This will rebuild the package.
+
 ### License
 
 MIT © [Modulz](https://modulz.app)
