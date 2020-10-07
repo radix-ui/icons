@@ -51,7 +51,7 @@ const Abstract = () => {
       <Label>Abstract</Label>
       <Group>
         <Tooltip label="Hamburger">
-          <Icons.HamburgerIcon />
+          <Icons.HamburgerMenuIcon />
         </Tooltip>
         <Tooltip label="Cross 1">
           <Icons.Cross1Icon />
@@ -620,6 +620,9 @@ const Logos = () => {
         <Tooltip label="Modulz Logo">
           <Icons.ModulzLogoIcon />
         </Tooltip>
+        <Tooltip label="Stitches Logo">
+          <Icons.StitchesLogoIcon />
+        </Tooltip>
         <Tooltip label="Figma Logo">
           <Icons.FigmaLogoIcon />
         </Tooltip>
@@ -629,8 +632,8 @@ const Logos = () => {
         <Tooltip label="Sketch Logo">
           <Icons.SketchLogoIcon />
         </Tooltip>
-        <Tooltip label="Stitches Logo">
-          <Icons.StitchesLogoIcon />
+        <Tooltip label="GitHub Logo">
+          <Icons.GitHubLogoIcon />
         </Tooltip>
       </Group>
     </Box>

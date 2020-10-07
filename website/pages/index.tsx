@@ -11,22 +11,20 @@ import Icons from '@modulz/radix-icons';
 // - Download or copy SVG on icon click
 // - FOUT
 // - Links
-// - GitHub link & icon
-// - npm icon
 // - Halloween icons
 // - Animated guides
 // - Design process
-// - Check rendering bugs:
-//   - Home
-//   - Gear
-//   - Link 2
-//   - Link None 2
-//   - Component None
-//   - Shuffle
-//   - Shadow None
 
-/** Naïve UpperCamelCaseIcon to Title Case conversion  */
-const iconNames = Object.keys(Icons).map(key => key.replace(/Icon$/, '').replace(/(.)([0-9A-Z])/g, '$1 $2'));
+const iconNames = Object.keys(Icons).map(key => {
+  switch (key) {
+    // Logos using original PascalCase naming can't be automated
+    case 'GitHubLogoIcon':
+      return 'GitHub Logo';
+    // Naïve UpperCamelCaseIcon to Title Case conversion otherwise
+    default:
+      return key.replace(/Icon$/, '').replace(/(.)([0-9A-Z])/g, '$1 $2');
+  }
+});
 
 export default function Home(props) {
   const darkMode = useDarkMode(undefined, {

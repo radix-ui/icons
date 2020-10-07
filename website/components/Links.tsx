@@ -1,7 +1,14 @@
 import React from 'react';
 import useDarkMode from 'use-dark-mode';
 import { darkThemeClass, styled, Box, Flex } from '@modulz/design-system';
-import { CubeIcon, DownloadIcon, FigmaLogoIcon, FramerLogoIcon, ReaderIcon, SketchLogoIcon } from '@modulz/radix-icons';
+import {
+  CubeIcon,
+  DownloadIcon,
+  FigmaLogoIcon,
+  FramerLogoIcon,
+  GitHubLogoIcon,
+  SketchLogoIcon,
+} from '@modulz/radix-icons';
 
 const Link = styled('a', {
   display: 'flex',
@@ -72,15 +79,15 @@ export const Links = () => {
       </Link>
       <Link href="https://www.npmjs.com/package/@modulz/radix-icons" target="_blank">
         <Box as="span" css={{ mr: '$1' }}>
-          <ReaderIcon />
-        </Box>
-        View on GitHub
-      </Link>
-      <Link href="https://www.npmjs.com/package/@modulz/radix-icons" target="_blank">
-        <Box as="span" css={{ mr: '$1' }}>
           <CubeIcon />
         </Box>
         Install with npm
+      </Link>
+      <Link href="https://github.com/modulz/radix-icons/tree/master/packages/radix-icons" target="_blank">
+        <Box as="span" css={{ mr: '$1' }}>
+          <GitHubLogoIcon />
+        </Box>
+        Read docs on GitHub
       </Link>
     </Flex>
   );
