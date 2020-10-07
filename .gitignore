@@ -10,7 +10,8 @@ node_modules
 
 # production
 /build
-public
+public/*
+!public/noflash.js
 
 # misc
 .DS_Store

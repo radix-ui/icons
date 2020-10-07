@@ -11,9 +11,11 @@
     "@interop-ui/react-tooltip": "^0.0.1-5",
     "@modulz/design-system": "^0.0.3",
     "@modulz/radix-icons": "file:./../packages/radix-icons/dist",
+    "@types/react-input-autosize": "^2.2.0",
     "next": "9.5.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-input-autosize": "^2.2.2",
     "use-dark-mode": "^2.3.1"
   },
   "devDependencies": {
