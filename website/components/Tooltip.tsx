@@ -20,8 +20,8 @@ export const Tooltip = ({
 }: TooltipProps) => {
   return (
     <TooltipPrimitive isOpen={isOpen} onIsOpenChange={onIsOpenChange}>
-      <TooltipPrimitive.Trigger as={Trigger}>{children}</TooltipPrimitive.Trigger>
-      <TooltipPrimitive.Position side="top" sideOffset={5} {...positionProps}>
+      <TooltipPrimitive.Trigger as={IconTrigger}>{children}</TooltipPrimitive.Trigger>
+      <TooltipPrimitive.Position side="top" {...positionProps}>
         <TooltipPrimitive.Content as={Content} aria-label={ariaLabel}>
           {label}
         </TooltipPrimitive.Content>
@@ -31,7 +31,7 @@ export const Tooltip = ({
   );
 };
 
-const Trigger = styled('span', {
+const IconTrigger = styled('span', {
   display: 'block',
   padding: '$1',
   margin: '-$1',

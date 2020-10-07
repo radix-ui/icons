@@ -2,27 +2,11 @@ import React from 'react';
 import useDarkMode from 'use-dark-mode';
 import Icons from '@modulz/radix-icons';
 import { Box, Grid, Text, darkThemeClass, styled } from '@modulz/design-system';
-
 import { Tooltip } from './Tooltip';
 
-export const Overview = () => {
-  const darkMode = useDarkMode(undefined, {
-    classNameDark: darkThemeClass,
-    classNameLight: 'theme-default'
-  });
-
-  // We use a lighter backplate for dark mode, so we want a lighter border color there
-  const border = darkMode.value ? '1px solid $gray400' : '1px solid $gray300';
-
+export const Overview = React.memo(() => {
   return (
-    <Grid
-      css={{
-        borderTop: border,
-        padding: '$2 $6',
-        gap: '$8',
-        gridTemplateColumns: 'repeat(3, 1fr)'
-      }}
-    >
+    <Grid css={{ padding: '0 $6 $2', gap: '$8', gridTemplateColumns: 'repeat(3, 1fr)' }}>
       <Box>
         <Arrows />
         <Components />
@@ -41,7 +25,7 @@ export const Overview = () => {
       </Box>
     </Grid>
   );
-};
+});
 
 const Label = styled(Text, {
   marginTop: '$4',
