@@ -5,7 +5,7 @@ import { Overview } from '../components/Overview';
 import { Hero } from '../components/Hero';
 import { Links } from '../components/Links';
 import { SearchBar } from '../components/SearchBar';
-import Icons from '@modulz/radix-icons';
+import { SearchResults } from '../components/SearchResults';
 
 // TODO
 // - Download or copy SVG on icon click
@@ -15,17 +15,6 @@ import Icons from '@modulz/radix-icons';
 // - Animated guides
 // - Design process
 
-const iconNames = Object.keys(Icons).map(key => {
-  switch (key) {
-    // Logos using original PascalCase naming can't be automated
-    case 'GitHubLogoIcon':
-      return 'GitHub Logo';
-    // Naïve UpperCamelCaseIcon to Title Case conversion otherwise
-    default:
-      return key.replace(/Icon$/, '').replace(/(.)([0-9A-Z])/g, '$1 $2');
-  }
-});
-
 export default function Home(props) {
   const darkMode = useDarkMode(undefined, {
     classNameDark: darkThemeClass,
@@ -33,8 +22,6 @@ export default function Home(props) {
   });
 
   const [searchValue, setSearchValue] = React.useState('');
-  const cleanSearchValue = searchValue.trim().replace(/\s/g, ' ');
-  const matchingNames = iconNames.filter(name => new RegExp(`\\b${cleanSearchValue}`, 'gi').test(name));
 
   return (
     <Box
@@ -68,38 +55,7 @@ export default function Home(props) {
           }}
         >
           <SearchBar value={searchValue} onValueChange={setSearchValue} />
-          {searchValue && matchingNames.length > 0 && (
-            <Grid
-              css={{
-                alignContent: 'start',
-                padding: '$5 $6',
-                columnGap: '$8',
-                rowGap: '$2',
-                // Place icons on rows first, then add more columns as needed, up to 4 total.
-                // And make sure there's at least 3 rows, so it looks nice.
-                // If only there was something like a multi-column layout feature in CSS... 🙃
-                gridAutoFlow: 'column',
-                gridTemplateColumns: 'repeat(4, 1fr)',
-                gridTemplateRows: `repeat(${Math.max(Math.ceil(matchingNames.length / 4), 3)}, auto)`,
-              }}
-            >
-              {matchingNames.map(name => (
-                <Flex css={{ pb: '$3', alignItems: 'center' }}>
-                  <Flex css={{ mr: '$2', p: '$1' }}>
-                    {React.createElement(Object.values(Icons)[iconNames.indexOf(name)])}
-                  </Flex>
-                  <Text size="2">{name}</Text>
-                </Flex>
-              ))}
-            </Grid>
-          )}
-          {!matchingNames.length && (
-            <Flex css={{ alignItems: 'center', justifyContent: 'center', minHeight: 300, padding: '$5 $6' }}>
-              <Text size="2" css={{ textAlign: 'center', lineHeight: '20px' }}>
-                No icons for <Text css={{ fontWeight: 500 }}>{searchValue}</Text>
-              </Text>
-            </Flex>
-          )}
+          <SearchResults value={searchValue} />
           <Box css={{ display: searchValue ? 'none' : 'block' }}>
             <Overview />
           </Box>

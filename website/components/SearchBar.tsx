@@ -1,7 +1,6 @@
 import React from 'react';
 import useDarkMode from 'use-dark-mode';
-
-import { Box, Container, Grid, Flex, Text, darkThemeClass, styled } from '@modulz/design-system';
+import { Box, Flex, darkThemeClass } from '@modulz/design-system';
 import { MagnifyingGlassIcon } from '@modulz/radix-icons';
 import AutosizeInput from 'react-input-autosize';
 
