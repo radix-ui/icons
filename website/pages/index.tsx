@@ -34,7 +34,17 @@ export default function Home(props) {
   const matchingNames = iconNames.filter(name => new RegExp(`\\b${cleanSearchValue}`, 'gi').test(name));
 
   return (
-    <Box>
+    <Box
+      css={{
+        color: '$hiContrast',
+        overflowWrap: 'break-word',
+        WebkitFontSmoothing: 'antialiased' as any,
+        MozOsxFontSmoothing: 'grayscale' as any,
+        '*::selection': {
+          backgroundColor: '$blue300',
+        },
+      }}
+    >
       <Hero />
       <Links />
 
@@ -44,8 +54,8 @@ export default function Home(props) {
             background: darkMode.value ? '$gray100' : '$loContrast',
             marginBottom: '$5',
             borderRadius: '$2',
-            minHeight: 200,
-            boxShadow: darkMode.value ? '0 50px 250px -70px black' : '0 50px 250px -70px rgba(0, 0, 0, 0.4)',
+            minHeight: 900,
+            boxShadow: darkMode.value ? '0 40px 250px -50px black' : '0 40px 250px -50px rgba(0, 0, 0, 0.4)',
             default: {
               marginTop: 'calc(30vh + 160px)',
             },
@@ -55,19 +65,19 @@ export default function Home(props) {
           }}
         >
           <SearchBar value={searchValue} onValueChange={setSearchValue} />
-          {searchValue && (
+          {searchValue && matchingNames.length > 0 && (
             <Grid
               css={{
+                alignContent: 'start',
                 padding: '$5 $6',
-                rowGap: '$2',
                 columnGap: '$8',
-                // Place icons on rows first, then add more columns if needed.
+                rowGap: '$2',
+                // Place icons on rows first, then add more columns as needed, up to 4 total.
                 // And make sure there's at least 3 rows, so it looks nice.
-                // If only there was something like a CSS multi-column layout... 🙃
+                // If only there was something like a multi-column layout feature in CSS... 🙃
                 gridAutoFlow: 'column',
                 gridTemplateColumns: 'repeat(4, 1fr)',
                 gridTemplateRows: `repeat(${Math.max(Math.ceil(matchingNames.length / 4), 3)}, auto)`,
-                whiteSpace: 'nowrap',
               }}
             >
               {matchingNames.map(name => (
@@ -75,12 +85,19 @@ export default function Home(props) {
                   <Flex css={{ mr: '$2', p: '$1' }}>
                     {React.createElement(Object.values(Icons)[iconNames.indexOf(name)])}
                   </Flex>
-                  <Text css={{ fontSize: '$2', lineHeight: '15px' }}>{name}</Text>
+                  <Text size="2">{name}</Text>
                 </Flex>
               ))}
             </Grid>
           )}
-          <Box css={{ visibility: searchValue ? 'hidden' : 'visible' }}>
+          {!matchingNames.length && (
+            <Flex css={{ alignItems: 'center', justifyContent: 'center', minHeight: 300, padding: '$5 $6' }}>
+              <Text size="2" css={{ textAlign: 'center', lineHeight: '20px' }}>
+                No icons for <Text css={{ fontWeight: 500 }}>{searchValue}</Text>
+              </Text>
+            </Flex>
+          )}
+          <Box css={{ display: searchValue ? 'none' : 'block' }}>
             <Overview />
           </Box>
         </Box>

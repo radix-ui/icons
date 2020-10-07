@@ -1,7 +1,6 @@
 import React from 'react';
-import useDarkMode from 'use-dark-mode';
 import Icons from '@modulz/radix-icons';
-import { Box, Grid, Text, darkThemeClass, styled } from '@modulz/design-system';
+import { Box, Grid, Text, styled } from '@modulz/design-system';
 import { Tooltip } from './Tooltip';
 
 export const Overview = React.memo(() => {
@@ -31,20 +30,19 @@ const Label = styled(Text, {
   marginTop: '$4',
   marginBottom: '$5',
   display: 'block',
-  fontSize: '$1',
+  fontSize: '$2',
   fontWeight: 500,
   lineHeight: '25px',
-  letterSpacing: '-0.02em'
+  letterSpacing: '-0.01em',
 });
 
 const Group = styled(Grid, {
-  color: '$hiContrast',
   rowGap: '$6',
   gridTemplateColumns: 'repeat(6, 15px)',
   justifyItems: 'center',
   justifyContent: 'space-between',
   margin: '$4 0 $6',
-  padding: '0 $1'
+  padding: '0 $1',
 });
 
 const Abstract = () => {

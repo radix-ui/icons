@@ -6,25 +6,28 @@ import { CubeIcon, DownloadIcon, FigmaLogoIcon, FramerLogoIcon, ReaderIcon, Sket
 const Link = styled('a', {
   display: 'flex',
   fontSize: '$2',
-  lineHeight: '30px',
+  lineHeight: '25px',
   alignItems: 'center',
   textDecoration: 'none',
   color: 'inherit',
+  '& + &': {
+    marginTop: '$1',
+  },
   '&:hover': {
     fontWeight: 500,
     letterSpacing: '-0.017em',
     wordSpacing: '-0.01em',
-    marginLeft: '-0.01em'
+    marginLeft: '-0.01em',
   },
   svg: {
-    display: 'block'
-  }
+    display: 'block',
+  },
 });
 
 export const Links = () => {
   const darkMode = useDarkMode(undefined, {
     classNameDark: darkThemeClass,
-    classNameLight: 'theme-default'
+    classNameLight: 'theme-default',
   });
 
   return (
@@ -38,7 +41,9 @@ export const Links = () => {
         right: '$5',
         padding: '$3 $4',
         background: darkMode.value ? 'hsl(174, 65%, 14%)' : 'hsl(174, 100%, 94%)',
-        minWidth: 200
+        minWidth: 200,
+        userSelect: 'none',
+        WebkitUserSelect: 'none',
       }}
     >
       <Link href="#svg" target="_blank">

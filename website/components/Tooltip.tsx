@@ -5,7 +5,7 @@ import {
   TooltipProps as TooltipPrimitiveProps,
   TooltipContentProps,
   TooltipPositionProps,
-  styles as tooltipStyles
+  styles as tooltipStyles,
 } from '@interop-ui/react-tooltip';
 
 export type TooltipProps = { label: string } & TooltipPrimitiveProps & TooltipPositionProps & TooltipContentProps;
@@ -21,7 +21,7 @@ export const Tooltip = ({
   return (
     <TooltipPrimitive isOpen={isOpen} onIsOpenChange={onIsOpenChange}>
       <TooltipPrimitive.Trigger as={IconTrigger}>{children}</TooltipPrimitive.Trigger>
-      <TooltipPrimitive.Position side="top" {...positionProps}>
+      <TooltipPrimitive.Position side="top" sideOffset={3} {...positionProps}>
         <TooltipPrimitive.Content as={Content} aria-label={ariaLabel}>
           {label}
         </TooltipPrimitive.Content>
@@ -36,16 +36,16 @@ const IconTrigger = styled('span', {
   padding: '$1',
   margin: '-$1',
   svg: {
-    display: 'block'
-  }
+    display: 'block',
+  },
 });
 
 const Content = styled('div', {
   ...tooltipStyles.root,
   backgroundColor: '$hiContrast',
   fontSize: '$1',
-  color: 'white',
+  color: '$loContrast',
   borderRadius: '$1',
   padding: '$1 $2',
-  maxWidth: 300
+  maxWidth: 300,
 });

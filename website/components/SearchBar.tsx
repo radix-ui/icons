@@ -13,7 +13,7 @@ type SearchBarProps = {
 export const SearchBar = ({ value, onValueChange }: SearchBarProps) => {
   const darkMode = useDarkMode(undefined, {
     classNameDark: darkThemeClass,
-    classNameLight: 'theme-default'
+    classNameLight: 'theme-default',
   });
 
   // We use a lighter backplate for dark mode, so we want a lighter border color there
@@ -21,7 +21,7 @@ export const SearchBar = ({ value, onValueChange }: SearchBarProps) => {
   const inputRef = React.useRef<AutosizeInput | null>(null);
 
   return (
-    <Flex css={{ alignItems: 'center', justifyContent: 'center', padding: '$1', borderBottom: border }}>
+    <Flex css={{ alignItems: 'center', justifyContent: 'center', borderBottom: border }}>
       <Flex as="span" css={{ marginRight: '$1', color: '$gray600' }}>
         <MagnifyingGlassIcon />
       </Flex>
@@ -39,12 +39,12 @@ export const SearchBar = ({ value, onValueChange }: SearchBarProps) => {
             fontFamily: 'inherit',
             minWidth: 45,
             maxWidth: '600px',
-            height: '$5',
+            height: '$6',
             fontSize: '$2',
             '&::placeholder': {
-              color: '$gray600'
-            }
-          }
+              color: '$gray600',
+            },
+          },
         }}
       >
         <AutosizeInput
