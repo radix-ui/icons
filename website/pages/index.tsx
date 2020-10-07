@@ -26,7 +26,7 @@ const iconNames = Object.keys(Icons).map(key => key.replace(/Icon$/, '').replace
 export default function Home(props) {
   const darkMode = useDarkMode(undefined, {
     classNameDark: darkThemeClass,
-    classNameLight: 'theme-default'
+    classNameLight: 'theme-default',
   });
 
   const [searchValue, setSearchValue] = React.useState('');
@@ -47,11 +47,11 @@ export default function Home(props) {
             minHeight: 200,
             boxShadow: darkMode.value ? '0 50px 250px -70px black' : '0 50px 250px -70px rgba(0, 0, 0, 0.4)',
             default: {
-              marginTop: 'calc(30vh + 160px)'
+              marginTop: 'calc(30vh + 160px)',
             },
             bp3: {
-              marginTop: 'calc(25vh + 260px)'
-            }
+              marginTop: 'calc(25vh + 260px)',
+            },
           }}
         >
           <SearchBar value={searchValue} onValueChange={setSearchValue} />
@@ -67,7 +67,7 @@ export default function Home(props) {
                 gridAutoFlow: 'column',
                 gridTemplateColumns: 'repeat(4, 1fr)',
                 gridTemplateRows: `repeat(${Math.max(Math.ceil(matchingNames.length / 4), 3)}, auto)`,
-                whiteSpace: 'nowrap'
+                whiteSpace: 'nowrap',
               }}
             >
               {matchingNames.map(name => (
