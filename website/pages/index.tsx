@@ -19,6 +19,11 @@ import Icons from '@modulz/radix-icons';
 // - Check rendering bugs:
 //   - Home
 //   - Gear
+//   - Link 2
+//   - Link None 2
+//   - Component None
+//   - Shuffle
+//   - Shadow None
 
 /** Naïve UpperCamelCaseIcon to Title Case conversion  */
 const iconNames = Object.keys(Icons).map(key => key.replace(/Icon$/, '').replace(/(.)([0-9A-Z])/g, '$1 $2'));
