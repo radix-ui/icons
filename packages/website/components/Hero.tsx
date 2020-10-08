@@ -6,25 +6,31 @@ import { ArrowLeftIcon } from '@modulz/radix-icons';
 export const Hero = () => {
   const darkMode = useDarkMode();
 
-  // We haven't added these colors to dark mode theme yet
+  // We haven't added teal colors to dark mode theme yet
   const crimson = darkMode.value ? 'hsla(336, 79%, 48%, 0.5)' : '$crimson300';
   const teal = darkMode.value ? 'hsla(174, 100%, 28%, 0.5)' : '$teal400';
 
   return (
     <Box
       css={{
-        position: 'fixed',
-        top: '10vh',
-        left: 0,
-        right: 0,
-        bottom: 0,
         userSelect: 'none',
         WebkitUserSelect: 'none',
         default: {
-          fontSize: '80px',
+          fontSize: '70px',
+          position: 'relative',
+          overflow: 'hidden',
+          height: 400,
+          zIndex: 0,
         },
         bp2: {
           fontSize: '100px',
+          position: 'fixed',
+          overflow: 'visible',
+          top: '10vh',
+          height: 'auto',
+          left: 0,
+          right: 0,
+          bottom: 0,
         },
         bp3: {
           fontSize: '130px',
@@ -35,12 +41,18 @@ export const Hero = () => {
         css={{
           position: 'absolute',
           zIndex: '$2',
-          top: '-0.1em',
-          left: '50%',
+          default: {
+            top: 100,
+            left: '5%',
+          },
           bp1: {
-            transform: 'translate(-80%, 0.5px)',
+            top: 'calc(60px - 0.1em)',
+            left: '12%',
+            transform: 'translate(0, 0.5px)',
           },
           bp2: {
+            top: '-0.1em',
+            left: '50%',
             transform: 'translate(-110%, 0.5px)',
           },
           bp3: {
@@ -71,14 +83,19 @@ export const Hero = () => {
           position: 'absolute',
           zIndex: '$1',
           pointerEvents: 'none',
-          top: '0',
           width: '1em',
           height: '1em',
-          left: '50%',
+          default: {
+            top: 15,
+            left: '65%',
+          },
           bp1: {
+            top: 60,
+            left: '50%',
             transform: 'translateX(1.25em)',
           },
           bp2: {
+            top: 0,
             transform: 'none',
           },
         }}
@@ -102,39 +119,41 @@ export const Hero = () => {
         <Line color={teal} angle="90deg" offset="1em, 0" />
 
         <ArrowLeftIcon style={{ position: 'relative', width: '1em', height: '1em' }} />
-
-        <Text
-          size="7"
-          as="p"
-          css={{
-            position: 'absolute',
-            lineHeight: '1.25',
-            width: '9em',
-            pointerEvents: 'auto',
-            WebkitUserSelect: 'text',
-            userSelect: 'text',
-            fontVariantNumeric: 'proportional-nums',
-            default: {
-              top: '0',
-              opacity: 0.05,
-            },
-            bp1: {
-              top: 220,
-              left: -340,
-              opacity: 1,
-            },
-            bp2: {
-              top: 124,
-              left: 0,
-            },
-            bp3: {
-              top: 190,
-            },
-          }}
-        >
-          A crisp set of 15×15 icons designed by the Modulz team.
-        </Text>
       </Box>
+
+      <Text
+        as="p"
+        css={{
+          zIndex: '$3',
+          position: 'absolute',
+          lineHeight: '1.25',
+          width: '9em',
+          pointerEvents: 'auto',
+          WebkitUserSelect: 'text',
+          userSelect: 'text',
+          fontVariantNumeric: 'proportional-nums',
+          letterSpacing: '-0.02em',
+          default: {
+            fontSize: '$6',
+            top: 285,
+            left: 'calc(5% + 53px)',
+          },
+          bp1: {
+            fontSize: '$7',
+            top: 260,
+            left: 'calc(12% + 60px)',
+          },
+          bp2: {
+            top: 124,
+            left: '50%',
+          },
+          bp3: {
+            top: 190,
+          },
+        }}
+      >
+        A crisp set of 15×15 icons designed by the Modulz team.
+      </Text>
     </Box>
   );
 };

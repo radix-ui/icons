@@ -84,7 +84,7 @@ export default function Home() {
             display: 'block',
             cursor: 'pointer',
             padding: '$2',
-            margin: '$3',
+            margin: '$2',
             borderRadius: '$1',
             zIndex: '$4',
             mixBlendMode: darkMode.value ? 'screen' : 'multiply',
@@ -109,8 +109,8 @@ export default function Home() {
               borderRadius: '$2',
               minHeight: 900,
               boxShadow: darkMode.value ? '0 40px 250px -50px black' : '0 40px 250px -50px rgba(0, 0, 0, 0.4)',
-              default: {
-                marginTop: 'calc(30vh + 160px)',
+              bp2: {
+                marginTop: 'calc(30vh + 240px)',
               },
               bp3: {
                 marginTop: 'calc(25vh + 260px)',
