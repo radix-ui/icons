@@ -59,7 +59,6 @@ export const Menu = ({ isVisible = false }: MenuProps) => {
           right: 0,
           zIndex: '$4',
           paddingBottom: '10vh',
-          minWidth: 210,
         },
         bp2: {
           display: 'block',
@@ -77,31 +76,37 @@ export const Menu = ({ isVisible = false }: MenuProps) => {
         css={{
           flexDirection: 'column',
           alignItems: 'flex-start',
+          default: {
+            minWidth: 170,
+          },
+          bp2: {
+            minWidth: 140,
+          },
         }}
       >
         <MenuLink href="https://raw.githubusercontent.com/modulz/radix-icons/master/radix-icons.zip" target="_blank">
-          <Box as="span" css={{ mr: '$1' }}>
+          <Box as="span" css={{ mr: '$2' }}>
             <DownloadIcon />
           </Box>
           Download SVG
         </MenuLink>
         <MenuLink href="https://www.figma.com/file/9Df5CaFUEomVzn20gRpaX3/Radix-Icons" target="_blank">
-          <Box as="span" css={{ mr: '$1' }}>
+          <Box as="span" css={{ mr: '$2' }}>
             <FigmaLogoIcon />
           </Box>
           Open in Figma
         </MenuLink>
         <MenuLink href="https://www.npmjs.com/package/@modulz/radix-icons" target="_blank">
-          <Box as="span" css={{ mr: '$1' }}>
+          <Box as="span" css={{ mr: '$2' }}>
             <CubeIcon />
           </Box>
           Install with npm
         </MenuLink>
         <MenuLink href="https://github.com/modulz/radix-icons/tree/master/packages/radix-icons" target="_blank">
-          <Box as="span" css={{ mr: '$1' }}>
+          <Box as="span" css={{ mr: '$2' }}>
             <GitHubLogoIcon />
           </Box>
-          Read docs on GitHub
+          View on GitHub
         </MenuLink>
       </Flex>
     </Flex>
