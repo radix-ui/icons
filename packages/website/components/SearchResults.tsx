@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Flex, Grid, Text, styled } from '@modulz/design-system';
-import Icons from '@modulz/radix-icons';
+import * as Icons from '@modulz/radix-icons';
 import { CopyToastVisibility } from './CopyToast';
 
 type SearchResultsProps = {

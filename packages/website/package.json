@@ -1,17 +1,19 @@
 {
+  "name": "website",
+  "private": true,
+  "version": "0.0.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "prettier": "prettier './**/*.{js,jsx,ts,tsx,json,yml,yaml,css,md,mdx}' --write",
-    "test": "echo \"Error: no test specified\" && exit 0",
-    "install": "cd ../packages/radix-icons && yarn build && cd ../../ && rsync -avq --delete ./packages/radix-icons/dist/ ./website/node_modules/@modulz/radix-icons"
+    "test": "echo \"Error: no test specified\" && exit 0"
   },
   "dependencies": {
     "@interop-ui/react-portal": "^0.0.1-6",
     "@interop-ui/react-tooltip": "^0.0.1-5",
     "@modulz/design-system": "^0.0.3",
-    "@modulz/radix-icons": "file:./../packages/radix-icons/dist",
+    "@modulz/radix-icons": "2.4.1",
     "@types/react-input-autosize": "^2.2.0",
     "next": "9.5.1",
     "react": "16.13.1",

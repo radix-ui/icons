@@ -1,5 +1,5 @@
 import React from 'react';
-import Icons from '@modulz/radix-icons';
+import * as Icons from '@modulz/radix-icons';
 import { Box, Grid, Text, styled } from '@modulz/design-system';
 import { Tooltip } from './Tooltip';
 import { CopyToastVisibility } from './CopyToast';

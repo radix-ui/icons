@@ -26,7 +26,7 @@ export default class Document extends NextDocument {
               <style key={index} dangerouslySetInnerHTML={{ __html: content }} />
             ))}
           </>
-        )
+        ),
       };
     } finally {
     }

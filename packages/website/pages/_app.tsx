@@ -8,21 +8,21 @@ css.global({
     margin: 0,
     fontFamily: '$untitled',
     backgroundColor: '$loContrast',
-    WebkitFontSmoothing: 'antialiased' as any
+    WebkitFontSmoothing: 'antialiased' as any,
   },
   svg: {
     verticalAlign: 'center',
-    display: 'inline-block'
+    display: 'inline-block',
   },
   '*': {
-    boxSizing: 'border-box'
-  }
+    boxSizing: 'border-box',
+  },
 });
 
 function App({ Component, pageProps }) {
   const darkMode = useDarkMode(undefined, {
     classNameDark: darkThemeClass,
-    classNameLight: 'theme-default'
+    classNameLight: 'theme-default',
   });
 
   const [mounted, setMounted] = React.useState(false);
