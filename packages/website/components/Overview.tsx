@@ -940,6 +940,9 @@ const Objects = () => {
         <CopyButton label="Globe">
           <Icons.GlobeIcon />
         </CopyButton>
+        <CopyButton label="Sun">
+          <Icons.SunIcon />
+        </CopyButton>
         <CopyButton label="Clock">
           <Icons.ClockIcon />
         </CopyButton>
