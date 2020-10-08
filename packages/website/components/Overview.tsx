@@ -15,7 +15,7 @@ export const Overview = React.memo(() => {
           marginTop: '-$2',
         },
         bp1: {
-          padding: '0 $6 $2',
+          padding: '0 $6 $1',
           marginTop: 0,
         },
         '@media (min-width: 750px)': {

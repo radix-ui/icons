@@ -1,14 +1,15 @@
 import React from 'react';
 import useDarkMode from 'use-dark-mode';
-import { Box, Container } from '@modulz/design-system';
+import { Box, Container, Text } from '@modulz/design-system';
+import { Cross1Icon, HamburgerMenuIcon } from '@modulz/radix-icons';
 import { Overview } from '../components/Overview';
 import { Hero } from '../components/Hero';
 import { Menu } from '../components/Menu';
 import { SearchBar } from '../components/SearchBar';
 import { SearchResults } from '../components/SearchResults';
 import { CopyToast, CopyToastVisibility } from '../components/CopyToast';
-import { Cross1Icon, HamburgerMenuIcon } from '@modulz/radix-icons';
 import { ChromelessButton } from '../components/ChromelessButton';
+import { CodeBlock } from '../components/CodeBlock';
 
 export default function Home() {
   const darkMode = useDarkMode();
@@ -88,7 +89,7 @@ export default function Home() {
         >
           {menuIsVisible ? <Cross1Icon /> : <HamburgerMenuIcon />}
         </ChromelessButton>
-        <Container size="3" css={{ position: 'relative', marginBottom: 150 }}>
+        <Container size="3" css={{ position: 'relative', marginBottom: 'calc(5vh + 25px)' }}>
           <Box
             css={{
               background: darkMode.value ? 'hsl(218, 6%, 10%)' : '$loContrast',
@@ -108,6 +109,46 @@ export default function Home() {
             <SearchResults value={searchValue} />
             <Box css={{ display: searchValue ? 'none' : 'block' }}>
               <Overview />
+            </Box>
+            <Box
+              css={{
+                borderTop: '1px solid $gray500',
+                default: {
+                  padding: '$4 $3 $6',
+                },
+                bp1: {
+                  padding: '$5 $6 $6',
+                },
+              }}
+            >
+              <Box css={{ bp2: { width: '65%' } }}>
+                <Text as="h3" size="4" css={{ fontWeight: 500, letterSpacing: '-0.02em', lineHeight: '25px' }}>
+                  React components
+                </Text>
+                <Text as="p" size="2" css={{ mt: '$3', lineHeight: '20px' }}>
+                  All icons are available as individual React components.
+                  <br />
+                  Install Radix Icons from npm:
+                  <CodeBlock>npm install @modulz/radix-icons</CodeBlock>
+                </Text>
+                <Text as="p" size="2" css={{ mt: '$3', lineHeight: '20px' }}>
+                  Import the icons into your React project:
+                  <br />
+                  <CodeBlock>
+                    {`import { FaceIcon, ImageIcon, SunIcon } from '@modulz/radix-icons'
+
+function MyComponent () {
+  return (
+    <div>
+      <FaceIcon />
+      <SunIcon />
+      <ImageIcon />
+    </div>
+  )
+}`}
+                  </CodeBlock>
+                </Text>
+              </Box>
             </Box>
           </Box>
         </Container>
