@@ -29,3 +29,4 @@ yarn-error.log*
 dist/
 
 .vercel
+!radix-icons.zip

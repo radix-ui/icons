@@ -80,6 +80,10 @@ export default function Home() {
             bp2: {
               display: 'none',
             },
+            svg: {
+              width: 25,
+              height: 25,
+            },
           }}
         >
           {menuIsVisible ? <Cross1Icon /> : <HamburgerMenuIcon />}
