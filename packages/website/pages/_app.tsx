@@ -7,7 +7,7 @@ const globalCss = css.global({
   '*': {
     boxSizing: 'border-box',
   },
-  '*::selection': {
+  '::selection': {
     backgroundColor: '$blue400',
   },
   body: {

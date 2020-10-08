@@ -87,7 +87,7 @@ export default function Home() {
             margin: '$3',
             borderRadius: '$1',
             zIndex: '$4',
-            mixBlendMode: 'multiply',
+            mixBlendMode: darkMode.value ? 'screen' : 'multiply',
             '&:hover': {
               backgroundColor: darkMode.value ? 'hsl(174, 65%, 14%)' : '$teal300',
             },
