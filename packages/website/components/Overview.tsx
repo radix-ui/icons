@@ -145,9 +145,7 @@ const CopyButton = ({ children, label }: CopyButtonProps) => {
                   textarea.setAttribute('readonly', '');
                   textarea.style.position = 'absolute';
                   textarea.style.left = '-9999px';
-                  textarea.style.visibility = 'hidden';
                   document.body.appendChild(textarea);
-                  textarea.focus();
                   textarea.select();
                   document.execCommand('copy');
                   document.body.removeChild(textarea);
