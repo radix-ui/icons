@@ -10,23 +10,6 @@ import { CopyToast, CopyToastVisibility } from '../components/CopyToast';
 import { Cross1Icon, HamburgerMenuIcon } from '@modulz/radix-icons';
 import { ChromelessButton } from '../components/ChromelessButton';
 
-// TODO
-// - Mobile
-// - FOUT
-// - Links
-// - Halloween icons
-// - Test FF
-// - Animated guides
-// - Design process
-// - Social
-// - Favicon
-// - Organize icons in Figma
-// - Fix bloated icons, float precision, etc
-// - Focus visible
-// - Remove TODO
-// - Theme button
-// - Add sun icon
-
 export default function Home() {
   const darkMode = useDarkMode();
 

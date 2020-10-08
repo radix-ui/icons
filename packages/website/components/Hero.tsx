@@ -72,7 +72,15 @@ export const Hero = () => {
           <Box as="span" css={{ display: 'block' }}>
             Radix
           </Box>
-          <Box as="span" css={{ display: 'block', marginLeft: '0.47em' }}>
+          <Box
+            as="span"
+            css={{
+              display: 'block',
+              bp2: {
+                marginLeft: '0.47em',
+              },
+            }}
+          >
             Icons
           </Box>
         </Text>
@@ -136,16 +144,18 @@ export const Hero = () => {
           default: {
             fontSize: '$6',
             top: 285,
-            left: 'calc(5% + 53px)',
+            marginLeft: 7,
+            left: '5%',
           },
           bp1: {
             fontSize: '$7',
-            top: 260,
-            left: 'calc(12% + 60px)',
+            top: 240,
+            left: '12%',
           },
           bp2: {
             top: 124,
             left: '50%',
+            marginLeft: 0,
           },
           bp3: {
             top: 190,
