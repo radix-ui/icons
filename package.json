@@ -7,9 +7,10 @@
   },
   "scripts": {
     "start": "yarn icons",
-    "build": "yarn icons:build",
+    "build": "yarn icons:build && yarn website:build",
     "icons": "lerna exec --scope @modulz/radix-icons -- yarn watch",
     "icons:build": "lerna exec --scope @modulz/radix-icons -- yarn build",
+    "website:build": "lerna exec --scope website -- yarn build",
     "prettier": "prettier './**/*.{js,jsx,ts,tsx,json,yml,yaml,css,md,mdx}' --write",
     "lint": "eslint './packages/**/*.{js,jsx,ts,tsx}'",
     "clean": "npm run clean-logs && npm run clean-modules",
