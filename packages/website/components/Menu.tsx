@@ -79,7 +79,7 @@ export const Menu = ({ isVisible = false }: MenuProps) => {
           alignItems: 'flex-start',
         }}
       >
-        <MenuLink href="#svg" target="_blank">
+        <MenuLink href="https://raw.githubusercontent.com/modulz/radix-icons/master/radix-icons.zip" target="_blank">
           <Box as="span" css={{ mr: '$1' }}>
             <DownloadIcon />
           </Box>
@@ -90,18 +90,6 @@ export const Menu = ({ isVisible = false }: MenuProps) => {
             <FigmaLogoIcon />
           </Box>
           Open in Figma
-        </MenuLink>
-        <MenuLink href="#framer" target="_blank">
-          <Box as="span" css={{ mr: '$1' }}>
-            <FramerLogoIcon />
-          </Box>
-          Open in Framer Web
-        </MenuLink>
-        <MenuLink href="#sketch" target="_blank">
-          <Box as="span" css={{ mr: '$1' }}>
-            <SketchLogoIcon />
-          </Box>
-          Add Library for Sketch
         </MenuLink>
         <MenuLink href="https://www.npmjs.com/package/@modulz/radix-icons" target="_blank">
           <Box as="span" css={{ mr: '$1' }}>
