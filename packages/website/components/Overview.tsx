@@ -1,8 +1,10 @@
 import React from 'react';
+import useDarkMode from 'use-dark-mode';
 import * as Icons from '@modulz/radix-icons';
 import { Box, Grid, Text, styled } from '@modulz/design-system';
 import { Tooltip } from './Tooltip';
 import { CopyToastVisibility } from './CopyToast';
+import { ChromelessButton } from './ChromelessButton';
 
 export const Overview = React.memo(() => {
   return (
@@ -92,29 +94,28 @@ const Group = styled(Grid, {
   },
 });
 
-const GhostButton = styled('button', {
-  border: 0,
-  outline: 0,
-  fontFamily: 'inherit',
-  textAlign: 'inherit',
-  color: 'inherit',
-  display: 'block',
-  appearance: 'none',
-  background: 'transparent',
-  cursor: 'pointer',
-  padding: '$3',
-  margin: '-$3',
-  borderRadius: '$1',
-  '&:active, &:focus': {
-    boxShadow: '0 0 0 2px $teal700',
-  },
-  '&:hover': {
-    backgroundColor: '$teal300',
-  },
-  svg: {
-    display: 'block',
-  },
-});
+const GhostButton = (props: React.ComponentProps<typeof ChromelessButton>) => {
+  const darkMode = useDarkMode();
+
+  return (
+    <ChromelessButton
+      css={{
+        display: 'block',
+        cursor: 'pointer',
+        padding: '$3',
+        margin: '-$3',
+        borderRadius: '$1',
+        '&:hover': {
+          backgroundColor: darkMode.value ? 'hsl(174, 65%, 14%)' : '$teal300',
+        },
+        '&:active, &:focus': {
+          boxShadow: darkMode.value ? '0 0 0 2px hsl(174, 100%, 28%)' : '0 0 0 2px $teal700',
+        },
+      }}
+      {...props}
+    />
+  );
+};
 
 type CopyButtonProps = {
   children?: React.ReactNode;

@@ -1,13 +1,10 @@
 import React from 'react';
 import useDarkMode from 'use-dark-mode';
-import { darkThemeClass, Box, Text } from '@modulz/design-system';
+import { Box, Text } from '@modulz/design-system';
 import { ArrowLeftIcon } from '@modulz/radix-icons';
 
 export const Hero = () => {
-  const darkMode = useDarkMode(undefined, {
-    classNameDark: darkThemeClass,
-    classNameLight: 'theme-default',
-  });
+  const darkMode = useDarkMode();
 
   // We haven't added these colors to dark mode theme yet
   const crimson = darkMode.value ? 'hsla(336, 79%, 48%, 0.5)' : '$crimson300';
@@ -104,7 +101,7 @@ export const Hero = () => {
         <Line color={teal} angle="90deg" offset="0, 0" />
         <Line color={teal} angle="90deg" offset="1em, 0" />
 
-        <ArrowLeftIcon style={{ display: 'block', position: 'relative', width: '1em', height: '1em' }} />
+        <ArrowLeftIcon style={{ position: 'relative', width: '1em', height: '1em' }} />
 
         <Text
           size="7"
@@ -155,7 +152,7 @@ const Line = ({ angle = '0deg', offset = '0px, 0px', color }: LineProps) => {
         position: 'absolute',
         top: 0,
         left: 0,
-        width: 'calc(100vw + 100vh)',
+        width: 'calc(200vw + 200vh)',
         height: '1px',
         transform: `translate3d(${offset}, 0) rotate(${angle}) translate3d(-50%, -50%, 0)`,
         transformOrigin: 'top left',

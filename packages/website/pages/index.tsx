@@ -1,32 +1,36 @@
 import React from 'react';
 import useDarkMode from 'use-dark-mode';
-import { Box, Container, darkThemeClass } from '@modulz/design-system';
+import { Box, Container } from '@modulz/design-system';
 import { Overview } from '../components/Overview';
 import { Hero } from '../components/Hero';
-import { Links } from '../components/Links';
+import { Menu } from '../components/Menu';
 import { SearchBar } from '../components/SearchBar';
 import { SearchResults } from '../components/SearchResults';
 import { CopyToast, CopyToastVisibility } from '../components/CopyToast';
+import { Cross1Icon, HamburgerMenuIcon } from '@modulz/radix-icons';
+import { ChromelessButton } from '../components/ChromelessButton';
 
 // TODO
 // - Mobile
 // - FOUT
 // - Links
 // - Halloween icons
+// - Test FF
 // - Animated guides
 // - Design process
 // - Social
 // - Favicon
 // - Organize icons in Figma
-// - Check dark theme
 // - Fix bloated icons, float precision, etc
 // - Focus visible
+// - Remove TODO
+// - Theme button
+// - Add sun icon
 
 export default function Home() {
-  const darkMode = useDarkMode(undefined, {
-    classNameDark: darkThemeClass,
-    classNameLight: 'theme-default',
-  });
+  const darkMode = useDarkMode();
+
+  const [menuIsVisible, setMenuIsVisible] = React.useState(false);
 
   const [searchValue, setSearchValue] = React.useState('');
   const [toastIsVisible, setToastIsVisible] = React.useState(false);
@@ -39,6 +43,26 @@ export default function Home() {
     setToastTimeout(setTimeout(() => setToastIsVisible(false), 3000));
   };
 
+  const escListener = React.useCallback((event: KeyboardEvent) => {
+    if (event.key === 'Escape') {
+      setMenuIsVisible(false);
+    }
+  }, []);
+
+  React.useEffect(() => {
+    document.body.style.overflow = menuIsVisible ? 'hidden' : 'visible';
+
+    if (menuIsVisible) {
+      document.addEventListener('keydown', escListener);
+    } else {
+      document.removeEventListener('keydown', escListener);
+    }
+
+    return () => {
+      document.removeEventListener('keydown', escListener);
+    };
+  }, [escListener, menuIsVisible]);
+
   return (
     <CopyToastVisibility.Provider
       value={{
@@ -50,11 +74,37 @@ export default function Home() {
     >
       <Box>
         <Hero />
-        <Links />
+        <Menu isVisible={menuIsVisible} />
+        <ChromelessButton
+          onClick={() => setMenuIsVisible(!menuIsVisible)}
+          css={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            display: 'block',
+            cursor: 'pointer',
+            padding: '$2',
+            margin: '$3',
+            borderRadius: '$1',
+            zIndex: '$4',
+            mixBlendMode: 'multiply',
+            '&:hover': {
+              backgroundColor: darkMode.value ? 'hsl(174, 65%, 14%)' : '$teal300',
+            },
+            '&:active, &:focus': {
+              boxShadow: darkMode.value ? '0 0 0 2px hsl(174, 100%, 28%)' : '0 0 0 2px $teal700',
+            },
+            bp2: {
+              display: 'none',
+            },
+          }}
+        >
+          {menuIsVisible ? <Cross1Icon /> : <HamburgerMenuIcon />}
+        </ChromelessButton>
         <Container size="3" css={{ position: 'relative', marginBottom: 150 }}>
           <Box
             css={{
-              background: darkMode.value ? '$gray100' : '$loContrast',
+              background: darkMode.value ? 'hsl(218, 6%, 10%)' : '$loContrast',
               marginBottom: '$5',
               borderRadius: '$2',
               minHeight: 900,

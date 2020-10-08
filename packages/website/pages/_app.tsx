@@ -74,7 +74,7 @@ function App({ Component, pageProps }) {
 
       <Component {...pageProps} />
 
-      <Button css={{ position: 'fixed', zIndex: 999, top: '$3', left: '$3' }} onClick={() => darkMode.toggle()}>
+      <Button css={{ position: 'fixed', zIndex: 999, bottom: '$3', left: '$3' }} onClick={() => darkMode.toggle()}>
         Toggle theme
       </Button>
     </div>

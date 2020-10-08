@@ -1,35 +1,36 @@
 import React from 'react';
-import { Box, Flex, Grid, Text, styled } from '@modulz/design-system';
+import useDarkMode from 'use-dark-mode';
 import * as Icons from '@modulz/radix-icons';
+import { Box, Flex, Grid, Text, styled } from '@modulz/design-system';
 import { CopyToastVisibility } from './CopyToast';
+import { ChromelessButton } from './ChromelessButton';
 
 type SearchResultsProps = {
   value: string;
 };
 
-const GhostButton = styled('button', {
-  margin: 0,
-  border: 0,
-  outline: 0,
-  fontFamily: 'inherit',
-  color: 'inherit',
-  display: 'block',
-  width: '100%',
-  appearance: 'none',
-  background: 'transparent',
-  cursor: 'pointer',
-  padding: '$2',
-  borderRadius: '$2',
-  '&:active, &:focus': {
-    boxShadow: '0 0 0 2px $teal700',
-  },
-  '&:hover': {
-    backgroundColor: '$teal300',
-  },
-  svg: {
-    display: 'block',
-  },
-});
+const GhostButton = (props: React.ComponentProps<typeof ChromelessButton>) => {
+  const darkMode = useDarkMode();
+
+  return (
+    <ChromelessButton
+      css={{
+        width: '100%',
+        display: 'block',
+        cursor: 'pointer',
+        padding: '$2',
+        borderRadius: '$2',
+        '&:hover': {
+          backgroundColor: darkMode.value ? 'hsl(174, 65%, 14%)' : '$teal300',
+        },
+        '&:active, &:focus': {
+          boxShadow: darkMode.value ? '0 0 0 2px hsl(174, 100%, 28%)' : '0 0 0 2px $teal700',
+        },
+      }}
+      {...props}
+    />
+  );
+};
 
 const iconNames = Object.keys(Icons).map((key) => {
   switch (key) {

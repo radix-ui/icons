@@ -19,6 +19,7 @@ export const SearchBar = ({ value, onValueChange }: SearchBarProps) => {
       <Box
         css={{
           input: {
+            color: 'inherit',
             boxSizing: 'content-box',
             background: 'transparent',
             border: 0,
