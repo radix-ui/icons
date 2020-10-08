@@ -20,25 +20,18 @@ export const Tooltip = ({
 }: TooltipProps) => {
   return (
     <TooltipPrimitive isOpen={isOpen} onIsOpenChange={onIsOpenChange}>
-      <TooltipPrimitive.Trigger as={IconTrigger}>{children}</TooltipPrimitive.Trigger>
-      <TooltipPrimitive.Position side="top" sideOffset={3} {...positionProps}>
+      {children}
+      <TooltipPrimitive.Position side="top" sideOffset={20} {...positionProps}>
         <TooltipPrimitive.Content as={Content} aria-label={ariaLabel}>
           {label}
         </TooltipPrimitive.Content>
-        <TooltipPrimitive.Arrow style={{ ...tooltipStyles.arrow }} offset={10} />
+        {/* <TooltipPrimitive.Arrow style={{ ...tooltipStyles.arrow }} offset={10} /> */}
       </TooltipPrimitive.Position>
     </TooltipPrimitive>
   );
 };
 
-const IconTrigger = styled('span', {
-  display: 'block',
-  padding: '$1',
-  margin: '-$1',
-  svg: {
-    display: 'block',
-  },
-});
+Tooltip.Trigger = TooltipPrimitive.Trigger;
 
 const Content = styled('div', {
   ...tooltipStyles.root,
@@ -47,5 +40,4 @@ const Content = styled('div', {
   color: '$loContrast',
   borderRadius: '$1',
   padding: '$1 $2',
-  maxWidth: 300,
 });

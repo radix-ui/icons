@@ -2,6 +2,7 @@ import React from 'react';
 import Icons from '@modulz/radix-icons';
 import { Box, Grid, Text, styled } from '@modulz/design-system';
 import { Tooltip } from './Tooltip';
+import { CopyToastVisibility } from './CopyToast';
 
 export const Overview = React.memo(() => {
   return (
@@ -30,7 +31,7 @@ const Label = styled(Text, {
   marginTop: '$4',
   marginBottom: '$5',
   display: 'block',
-  fontSize: '$2',
+  fontSize: '$1',
   fontWeight: 500,
   lineHeight: '25px',
   letterSpacing: '-0.01em',
@@ -45,137 +46,213 @@ const Group = styled(Grid, {
   padding: '0 $1',
 });
 
+const GhostButton = styled('button', {
+  border: 0,
+  fontFamily: 'inherit',
+  color: 'inherit',
+  display: 'block',
+  appearance: 'none',
+  background: 'transparent',
+  cursor: 'pointer',
+  padding: '$3',
+  margin: '-$3',
+  borderRadius: '$1',
+  '&:active': {
+    boxShadow: '0 0 0 2px #47D1C3',
+  },
+  '&:focus': {
+    outline: 0,
+    boxShadow: '0 0 0 2px #47D1C3',
+  },
+  '&:hover': {
+    backgroundColor: '#E1FFFC',
+  },
+  svg: {
+    display: 'block',
+  },
+});
+
+type CopyButtonProps = {
+  children?: React.ReactNode;
+  label: string;
+};
+
+const CopyButton = ({ children, label }: CopyButtonProps) => {
+  return (
+    <CopyToastVisibility.Consumer>
+      {({ setIcon, setIsVisible }) => (
+        <Tooltip label={label}>
+          <Tooltip.Trigger as="div">
+            <GhostButton
+              onClick={(event: React.MouseEvent) => {
+                const svg = event.currentTarget.querySelector('svg');
+                const code = svg && svg.parentElement ? svg.parentElement.innerHTML : null;
+
+                // Copy code to clipboard via a hidden textarea element
+                if (code) {
+                  // Temporary shim until a proper focus-visible handler is added
+                  if (document.activeElement instanceof HTMLButtonElement) {
+                    document.activeElement.blur();
+                  }
+
+                  const textarea = document.createElement('textarea');
+                  textarea.value = code.toString();
+                  textarea.setAttribute('readonly', '');
+                  textarea.style.position = 'absolute';
+                  textarea.style.left = '-9999px';
+                  textarea.style.visibility = 'hidden';
+                  document.body.appendChild(textarea);
+                  textarea.focus();
+                  textarea.select();
+                  document.execCommand('copy');
+                  document.body.removeChild(textarea);
+
+                  // Show CopyToast and set latest icon
+                  setIsVisible();
+                  setIcon(code);
+                }
+              }}
+            >
+              {children}
+            </GhostButton>
+          </Tooltip.Trigger>
+        </Tooltip>
+      )}
+    </CopyToastVisibility.Consumer>
+  );
+};
+
 const Abstract = () => {
   return (
     <Box>
       <Label>Abstract</Label>
       <Group>
-        <Tooltip label="Hamburger">
+        <CopyButton label="Hamburger">
           <Icons.HamburgerMenuIcon />
-        </Tooltip>
-        <Tooltip label="Cross 1">
+        </CopyButton>
+        <CopyButton label="Cross 1">
           <Icons.Cross1Icon />
-        </Tooltip>
-        <Tooltip label="Dots Horizontal">
+        </CopyButton>
+        <CopyButton label="Dots Horizontal">
           <Icons.DotsHorizontalIcon />
-        </Tooltip>
-        <Tooltip label="Dots Vertical">
+        </CopyButton>
+        <CopyButton label="Dots Vertical">
           <Icons.DotsVerticalIcon />
-        </Tooltip>
-        <Tooltip label="Plus">
+        </CopyButton>
+        <CopyButton label="Plus">
           <Icons.PlusIcon />
-        </Tooltip>
-        <Tooltip label="Minus">
+        </CopyButton>
+        <CopyButton label="Minus">
           <Icons.MinusIcon />
-        </Tooltip>
-        <Tooltip label="Check">
+        </CopyButton>
+        <CopyButton label="Check">
           <Icons.CheckIcon />
-        </Tooltip>
-        <Tooltip label="Cross 2">
+        </CopyButton>
+        <CopyButton label="Cross 2">
           <Icons.Cross2Icon />
-        </Tooltip>
-        <Tooltip label="Check Circled">
+        </CopyButton>
+        <CopyButton label="Check Circled">
           <Icons.CheckCircledIcon />
-        </Tooltip>
-        <Tooltip label="Cross Circled">
+        </CopyButton>
+        <CopyButton label="Cross Circled">
           <Icons.CrossCircledIcon />
-        </Tooltip>
-        <Tooltip label="Plus Circled">
+        </CopyButton>
+        <CopyButton label="Plus Circled">
           <Icons.PlusCircledIcon />
-        </Tooltip>
-        <Tooltip label="Minus Circled">
+        </CopyButton>
+        <CopyButton label="Minus Circled">
           <Icons.MinusCircledIcon />
-        </Tooltip>
-        <Tooltip label="Question Mark">
+        </CopyButton>
+        <CopyButton label="Question Mark">
           <Icons.QuestionMarkIcon />
-        </Tooltip>
-        <Tooltip label="Question Mark Circled ">
+        </CopyButton>
+        <CopyButton label="Question Mark Circled ">
           <Icons.QuestionMarkCircledIcon />
-        </Tooltip>
-        <Tooltip label="Info Circled">
+        </CopyButton>
+        <CopyButton label="Info Circled">
           <Icons.InfoCircledIcon />
-        </Tooltip>
-        <Tooltip label="Exclamation Triangle">
+        </CopyButton>
+        <CopyButton label="Exclamation Triangle">
           <Icons.ExclamationTriangleIcon />
-        </Tooltip>
-        <Tooltip label="Share 1">
+        </CopyButton>
+        <CopyButton label="Share 1">
           <Icons.Share1Icon />
-        </Tooltip>
-        <Tooltip label="Share 2">
+        </CopyButton>
+        <CopyButton label="Share 2">
           <Icons.Share2Icon />
-        </Tooltip>
-        <Tooltip label="External Link">
+        </CopyButton>
+        <CopyButton label="External Link">
           <Icons.ExternalLinkIcon />
-        </Tooltip>
-        <Tooltip label="Enter">
+        </CopyButton>
+        <CopyButton label="Enter">
           <Icons.EnterIcon />
-        </Tooltip>
-        <Tooltip label="Exit">
+        </CopyButton>
+        <CopyButton label="Exit">
           <Icons.ExitIcon />
-        </Tooltip>
-        <Tooltip label="Download">
+        </CopyButton>
+        <CopyButton label="Download">
           <Icons.DownloadIcon />
-        </Tooltip>
-        <Tooltip label="Upload">
+        </CopyButton>
+        <CopyButton label="Upload">
           <Icons.UploadIcon />
-        </Tooltip>
-        <Tooltip label="Reset">
+        </CopyButton>
+        <CopyButton label="Reset">
           <Icons.ResetIcon />
-        </Tooltip>
-        <Tooltip label="Reload">
+        </CopyButton>
+        <CopyButton label="Reload">
           <Icons.ReloadIcon />
-        </Tooltip>
-        <Tooltip label="Update">
+        </CopyButton>
+        <CopyButton label="Update">
           <Icons.UpdateIcon />
-        </Tooltip>
-        <Tooltip label="Enter Full Screen ">
+        </CopyButton>
+        <CopyButton label="Enter Full Screen ">
           <Icons.EnterFullScreenIcon />
-        </Tooltip>
-        <Tooltip label="Exit Full Screen ">
+        </CopyButton>
+        <CopyButton label="Exit Full Screen ">
           <Icons.ExitFullScreenIcon />
-        </Tooltip>
-        <Tooltip label="Drag Handle Vertical ">
+        </CopyButton>
+        <CopyButton label="Drag Handle Vertical ">
           <Icons.DragHandleVerticalIcon />
-        </Tooltip>
-        <Tooltip label="Drag Handle Horizontal ">
+        </CopyButton>
+        <CopyButton label="Drag Handle Horizontal ">
           <Icons.DragHandleHorizontalIcon />
-        </Tooltip>
-        <Tooltip label="Drag Handle Dots  1">
+        </CopyButton>
+        <CopyButton label="Drag Handle Dots  1">
           <Icons.DragHandleDots1Icon />
-        </Tooltip>
-        <Tooltip label="Drag Handle Dots  2">
+        </CopyButton>
+        <CopyButton label="Drag Handle Dots  2">
           <Icons.DragHandleDots2Icon />
-        </Tooltip>
-        <Tooltip label="Dot">
+        </CopyButton>
+        <CopyButton label="Dot">
           <Icons.DotIcon />
-        </Tooltip>
-        <Tooltip label="Dot Solid">
+        </CopyButton>
+        <CopyButton label="Dot Solid">
           <Icons.DotSolidIcon />
-        </Tooltip>
-        <Tooltip label="Commit">
+        </CopyButton>
+        <CopyButton label="Commit">
           <Icons.CommitIcon />
-        </Tooltip>
-        <Tooltip label="Slash">
+        </CopyButton>
+        <CopyButton label="Slash">
           <Icons.SlashIcon />
-        </Tooltip>
-        <Tooltip label="Half 1">
+        </CopyButton>
+        <CopyButton label="Half 1">
           <Icons.Half1Icon />
-        </Tooltip>
-        <Tooltip label="Half 2">
+        </CopyButton>
+        <CopyButton label="Half 2">
           <Icons.Half2Icon />
-        </Tooltip>
-        <Tooltip label="View None">
+        </CopyButton>
+        <CopyButton label="View None">
           <Icons.ViewNoneIcon />
-        </Tooltip>
-        <Tooltip label="View Vertical">
+        </CopyButton>
+        <CopyButton label="View Vertical">
           <Icons.ViewVerticalIcon />
-        </Tooltip>
-        <Tooltip label="View Horizontal">
+        </CopyButton>
+        <CopyButton label="View Horizontal">
           <Icons.ViewHorizontalIcon />
-        </Tooltip>
-        <Tooltip label="View Grid">
+        </CopyButton>
+        <CopyButton label="View Grid">
           <Icons.ViewGridIcon />
-        </Tooltip>
+        </CopyButton>
       </Group>
     </Box>
   );
@@ -186,60 +263,60 @@ const Alignment = () => {
     <Box>
       <Label>Alignment</Label>
       <Group>
-        <Tooltip label="Align Left">
+        <CopyButton label="Align Left">
           <Icons.AlignLeftIcon />
-        </Tooltip>
-        <Tooltip label="Align Vertical Centers ">
+        </CopyButton>
+        <CopyButton label="Align Vertical Centers ">
           <Icons.AlignVerticalCentersIcon />
-        </Tooltip>
-        <Tooltip label="Align Right">
+        </CopyButton>
+        <CopyButton label="Align Right">
           <Icons.AlignRightIcon />
-        </Tooltip>
-        <Tooltip label="Align Top">
+        </CopyButton>
+        <CopyButton label="Align Top">
           <Icons.AlignTopIcon />
-        </Tooltip>
-        <Tooltip label="Align Horizontal Centers ">
+        </CopyButton>
+        <CopyButton label="Align Horizontal Centers ">
           <Icons.AlignHorizontalCentersIcon />
-        </Tooltip>
-        <Tooltip label="Align Bottom">
+        </CopyButton>
+        <CopyButton label="Align Bottom">
           <Icons.AlignBottomIcon />
-        </Tooltip>
-        <Tooltip label="Align Stretch">
+        </CopyButton>
+        <CopyButton label="Align Stretch">
           <Icons.AlignStretchIcon />
-        </Tooltip>
-        <Tooltip label="Align Start">
+        </CopyButton>
+        <CopyButton label="Align Start">
           <Icons.AlignStartIcon />
-        </Tooltip>
-        <Tooltip label="Align Center">
+        </CopyButton>
+        <CopyButton label="Align Center">
           <Icons.AlignCenterIcon />
-        </Tooltip>
-        <Tooltip label="Align End">
+        </CopyButton>
+        <CopyButton label="Align End">
           <Icons.AlignEndIcon />
-        </Tooltip>
-        <Tooltip label="Justify Stretch">
+        </CopyButton>
+        <CopyButton label="Justify Stretch">
           <Icons.JustifyStretchIcon />
-        </Tooltip>
-        <Tooltip label="Justify Start">
+        </CopyButton>
+        <CopyButton label="Justify Start">
           <Icons.JustifyStartIcon />
-        </Tooltip>
-        <Tooltip label="Justify Center">
+        </CopyButton>
+        <CopyButton label="Justify Center">
           <Icons.JustifyCenterIcon />
-        </Tooltip>
-        <Tooltip label="Justify End">
+        </CopyButton>
+        <CopyButton label="Justify End">
           <Icons.JustifyEndIcon />
-        </Tooltip>
-        <Tooltip label="Pin Left">
+        </CopyButton>
+        <CopyButton label="Pin Left">
           <Icons.PinLeftIcon />
-        </Tooltip>
-        <Tooltip label="Pin Right">
+        </CopyButton>
+        <CopyButton label="Pin Right">
           <Icons.PinRightIcon />
-        </Tooltip>
-        <Tooltip label="Pin Top">
+        </CopyButton>
+        <CopyButton label="Pin Top">
           <Icons.PinTopIcon />
-        </Tooltip>
-        <Tooltip label="Pin Bottom">
+        </CopyButton>
+        <CopyButton label="Pin Bottom">
           <Icons.PinBottomIcon />
-        </Tooltip>
+        </CopyButton>
       </Group>
     </Box>
   );
@@ -250,108 +327,108 @@ const Arrows = () => {
     <Box>
       <Label>Arrows</Label>
       <Group>
-        <Tooltip label="Arrow Left">
+        <CopyButton label="Arrow Left">
           <Icons.ArrowLeftIcon />
-        </Tooltip>
-        <Tooltip label="Arrow Right">
+        </CopyButton>
+        <CopyButton label="Arrow Right">
           <Icons.ArrowRightIcon />
-        </Tooltip>
-        <Tooltip label="Arrow Up">
+        </CopyButton>
+        <CopyButton label="Arrow Up">
           <Icons.ArrowUpIcon />
-        </Tooltip>
-        <Tooltip label="Arrow Down">
+        </CopyButton>
+        <CopyButton label="Arrow Down">
           <Icons.ArrowDownIcon />
-        </Tooltip>
-        <Tooltip label="Arrow Top Left ">
+        </CopyButton>
+        <CopyButton label="Arrow Top Left ">
           <Icons.ArrowTopLeftIcon />
-        </Tooltip>
-        <Tooltip label="Arrow Top Right ">
+        </CopyButton>
+        <CopyButton label="Arrow Top Right ">
           <Icons.ArrowTopRightIcon />
-        </Tooltip>
-        <Tooltip label="Arrow Bottom Left ">
+        </CopyButton>
+        <CopyButton label="Arrow Bottom Left ">
           <Icons.ArrowBottomLeftIcon />
-        </Tooltip>
-        <Tooltip label="Arrow Bottom Right ">
+        </CopyButton>
+        <CopyButton label="Arrow Bottom Right ">
           <Icons.ArrowBottomRightIcon />
-        </Tooltip>
-        <Tooltip label="Chevron Down">
+        </CopyButton>
+        <CopyButton label="Chevron Down">
           <Icons.ChevronDownIcon />
-        </Tooltip>
-        <Tooltip label="Chevron Left">
+        </CopyButton>
+        <CopyButton label="Chevron Left">
           <Icons.ChevronLeftIcon />
-        </Tooltip>
-        <Tooltip label="Chevron Right">
+        </CopyButton>
+        <CopyButton label="Chevron Right">
           <Icons.ChevronRightIcon />
-        </Tooltip>
-        <Tooltip label="Chevron Up">
+        </CopyButton>
+        <CopyButton label="Chevron Up">
           <Icons.ChevronUpIcon />
-        </Tooltip>
-        <Tooltip label="Double Arrow Down ">
+        </CopyButton>
+        <CopyButton label="Double Arrow Down ">
           <Icons.DoubleArrowDownIcon />
-        </Tooltip>
-        <Tooltip label="Double Arrow Left ">
+        </CopyButton>
+        <CopyButton label="Double Arrow Left ">
           <Icons.DoubleArrowLeftIcon />
-        </Tooltip>
-        <Tooltip label="Double Arrow Right ">
+        </CopyButton>
+        <CopyButton label="Double Arrow Right ">
           <Icons.DoubleArrowRightIcon />
-        </Tooltip>
-        <Tooltip label="Double Arrow Up ">
+        </CopyButton>
+        <CopyButton label="Double Arrow Up ">
           <Icons.DoubleArrowUpIcon />
-        </Tooltip>
-        <Tooltip label="Thick Arrow Left ">
+        </CopyButton>
+        <CopyButton label="Thick Arrow Left ">
           <Icons.ThickArrowLeftIcon />
-        </Tooltip>
-        <Tooltip label="Thick Arrow Right ">
+        </CopyButton>
+        <CopyButton label="Thick Arrow Right ">
           <Icons.ThickArrowRightIcon />
-        </Tooltip>
-        <Tooltip label="Thick Arrow Up ">
+        </CopyButton>
+        <CopyButton label="Thick Arrow Up ">
           <Icons.ThickArrowUpIcon />
-        </Tooltip>
-        <Tooltip label="Thick Arrow Down ">
+        </CopyButton>
+        <CopyButton label="Thick Arrow Down ">
           <Icons.ThickArrowDownIcon />
-        </Tooltip>
-        <Tooltip label="Triangle Left">
+        </CopyButton>
+        <CopyButton label="Triangle Left">
           <Icons.TriangleLeftIcon />
-        </Tooltip>
-        <Tooltip label="Triangle Right">
+        </CopyButton>
+        <CopyButton label="Triangle Right">
           <Icons.TriangleRightIcon />
-        </Tooltip>
-        <Tooltip label="Triangle Up">
+        </CopyButton>
+        <CopyButton label="Triangle Up">
           <Icons.TriangleUpIcon />
-        </Tooltip>
-        <Tooltip label="Triangle Down">
+        </CopyButton>
+        <CopyButton label="Triangle Down">
           <Icons.TriangleDownIcon />
-        </Tooltip>
-        <Tooltip label="Caret Left">
+        </CopyButton>
+        <CopyButton label="Caret Left">
           <Icons.CaretLeftIcon />
-        </Tooltip>
-        <Tooltip label="Caret Right">
+        </CopyButton>
+        <CopyButton label="Caret Right">
           <Icons.CaretRightIcon />
-        </Tooltip>
-        <Tooltip label="Caret Up">
+        </CopyButton>
+        <CopyButton label="Caret Up">
           <Icons.CaretUpIcon />
-        </Tooltip>
-        <Tooltip label="Caret Down">
+        </CopyButton>
+        <CopyButton label="Caret Down">
           <Icons.CaretDownIcon />
-        </Tooltip>
-        <Tooltip label="Caret Sort">
+        </CopyButton>
+        <CopyButton label="Caret Sort">
           <Icons.CaretSortIcon />
-        </Tooltip>
-        <Tooltip label="Width">
+        </CopyButton>
+        <CopyButton label="Width">
           <Icons.WidthIcon />
-        </Tooltip>
-        <Tooltip label="Height">
+        </CopyButton>
+        <CopyButton label="Height">
           <Icons.HeightIcon />
-        </Tooltip>
-        <Tooltip label="Size">
+        </CopyButton>
+        <CopyButton label="Size">
           <Icons.SizeIcon />
-        </Tooltip>
-        <Tooltip label="Move">
+        </CopyButton>
+        <CopyButton label="Move">
           <Icons.MoveIcon />
-        </Tooltip>
-        <Tooltip label="All Sides">
+        </CopyButton>
+        <CopyButton label="All Sides">
           <Icons.AllSidesIcon />
-        </Tooltip>
+        </CopyButton>
       </Group>
     </Box>
   );
@@ -362,54 +439,54 @@ const Borders = () => {
     <Box>
       <Label>Borders and corners</Label>
       <Group>
-        <Tooltip label="Border All">
+        <CopyButton label="Border All">
           <Icons.BorderAllIcon />
-        </Tooltip>
-        <Tooltip label="Border Split">
+        </CopyButton>
+        <CopyButton label="Border Split">
           <Icons.BorderSplitIcon />
-        </Tooltip>
-        <Tooltip label="Border None">
+        </CopyButton>
+        <CopyButton label="Border None">
           <Icons.BorderNoneIcon />
-        </Tooltip>
-        <Tooltip label="Border Left">
+        </CopyButton>
+        <CopyButton label="Border Left">
           <Icons.BorderLeftIcon />
-        </Tooltip>
-        <Tooltip label="Border Right">
+        </CopyButton>
+        <CopyButton label="Border Right">
           <Icons.BorderRightIcon />
-        </Tooltip>
-        <Tooltip label="Border Top">
+        </CopyButton>
+        <CopyButton label="Border Top">
           <Icons.BorderTopIcon />
-        </Tooltip>
-        <Tooltip label="Border Bottom">
+        </CopyButton>
+        <CopyButton label="Border Bottom">
           <Icons.BorderBottomIcon />
-        </Tooltip>
-        <Tooltip label="Corners">
+        </CopyButton>
+        <CopyButton label="Corners">
           <Icons.CornersIcon />
-        </Tooltip>
-        <Tooltip label="Corner Top Left ">
+        </CopyButton>
+        <CopyButton label="Corner Top Left ">
           <Icons.CornerTopLeftIcon />
-        </Tooltip>
-        <Tooltip label="Corner Top Right ">
+        </CopyButton>
+        <CopyButton label="Corner Top Right ">
           <Icons.CornerTopRightIcon />
-        </Tooltip>
-        <Tooltip label="Corner Bottom Left ">
+        </CopyButton>
+        <CopyButton label="Corner Bottom Left ">
           <Icons.CornerBottomLeftIcon />
-        </Tooltip>
-        <Tooltip label="Corner Bottom Right ">
+        </CopyButton>
+        <CopyButton label="Corner Bottom Right ">
           <Icons.CornerBottomRightIcon />
-        </Tooltip>
-        <Tooltip label="Border Style">
+        </CopyButton>
+        <CopyButton label="Border Style">
           <Icons.BorderStyleIcon />
-        </Tooltip>
-        <Tooltip label="Border Solid">
+        </CopyButton>
+        <CopyButton label="Border Solid">
           <Icons.BorderSolidIcon />
-        </Tooltip>
-        <Tooltip label="Border Dashed">
+        </CopyButton>
+        <CopyButton label="Border Dashed">
           <Icons.BorderDashedIcon />
-        </Tooltip>
-        <Tooltip label="Border Dotted">
+        </CopyButton>
+        <CopyButton label="Border Dotted">
           <Icons.BorderDottedIcon />
-        </Tooltip>
+        </CopyButton>
       </Group>
     </Box>
   );
@@ -420,93 +497,93 @@ const Components = () => {
     <Box>
       <Label>Components</Label>
       <Group>
-        <Tooltip label="Box">
+        <CopyButton label="Box">
           <Icons.BoxIcon />
-        </Tooltip>
-        <Tooltip label="Aspect Ratio">
+        </CopyButton>
+        <CopyButton label="Aspect Ratio">
           <Icons.AspectRatioIcon />
-        </Tooltip>
-        <Tooltip label="Container">
+        </CopyButton>
+        <CopyButton label="Container">
           <Icons.ContainerIcon />
-        </Tooltip>
-        <Tooltip label="Section">
+        </CopyButton>
+        <CopyButton label="Section">
           <Icons.SectionIcon />
-        </Tooltip>
-        <Tooltip label="Layout">
+        </CopyButton>
+        <CopyButton label="Layout">
           <Icons.LayoutIcon />
-        </Tooltip>
-        <Tooltip label="Grid">
+        </CopyButton>
+        <CopyButton label="Grid">
           <Icons.GridIcon />
-        </Tooltip>
-        <Tooltip label="Table">
+        </CopyButton>
+        <CopyButton label="Table">
           <Icons.TableIcon />
-        </Tooltip>
-        <Tooltip label="Image">
+        </CopyButton>
+        <CopyButton label="Image">
           <Icons.ImageIcon />
-        </Tooltip>
-        <Tooltip label="Switch">
+        </CopyButton>
+        <CopyButton label="Switch">
           <Icons.SwitchIcon />
-        </Tooltip>
-        <Tooltip label="Checkbox">
+        </CopyButton>
+        <CopyButton label="Checkbox">
           <Icons.CheckboxIcon />
-        </Tooltip>
-        <Tooltip label="Radiobutton">
+        </CopyButton>
+        <CopyButton label="Radiobutton">
           <Icons.RadiobuttonIcon />
-        </Tooltip>
-        <Tooltip label="Avatar">
+        </CopyButton>
+        <CopyButton label="Avatar">
           <Icons.AvatarIcon />
-        </Tooltip>
-        <Tooltip label="Button">
+        </CopyButton>
+        <CopyButton label="Button">
           <Icons.ButtonIcon />
-        </Tooltip>
-        <Tooltip label="Badge">
+        </CopyButton>
+        <CopyButton label="Badge">
           <Icons.BadgeIcon />
-        </Tooltip>
-        <Tooltip label="Input">
+        </CopyButton>
+        <CopyButton label="Input">
           <Icons.InputIcon />
-        </Tooltip>
-        <Tooltip label="Slider">
+        </CopyButton>
+        <CopyButton label="Slider">
           <Icons.SliderIcon />
-        </Tooltip>
-        <Tooltip label="Heading">
+        </CopyButton>
+        <CopyButton label="Heading">
           <Icons.HeadingIcon />
-        </Tooltip>
-        <Tooltip label="Text">
+        </CopyButton>
+        <CopyButton label="Text">
           <Icons.TextIcon />
-        </Tooltip>
-        <Tooltip label="Quote">
+        </CopyButton>
+        <CopyButton label="Quote">
           <Icons.QuoteIcon />
-        </Tooltip>
-        <Tooltip label="Code">
+        </CopyButton>
+        <CopyButton label="Code">
           <Icons.CodeIcon />
-        </Tooltip>
-        <Tooltip label="List Bullet">
+        </CopyButton>
+        <CopyButton label="List Bullet">
           <Icons.ListBulletIcon />
-        </Tooltip>
-        <Tooltip label="Dropdown Menu">
+        </CopyButton>
+        <CopyButton label="Dropdown Menu">
           <Icons.DropdownMenuIcon />
-        </Tooltip>
-        <Tooltip label="Video">
+        </CopyButton>
+        <CopyButton label="Video">
           <Icons.VideoIcon />
-        </Tooltip>
-        <Tooltip label="Pie Chart">
+        </CopyButton>
+        <CopyButton label="Pie Chart">
           <Icons.PieChartIcon />
-        </Tooltip>
-        <Tooltip label="Calendar">
+        </CopyButton>
+        <CopyButton label="Calendar">
           <Icons.CalendarIcon />
-        </Tooltip>
-        <Tooltip label="Dashboard">
+        </CopyButton>
+        <CopyButton label="Dashboard">
           <Icons.DashboardIcon />
-        </Tooltip>
-        <Tooltip label="Activity Log">
+        </CopyButton>
+        <CopyButton label="Activity Log">
           <Icons.ActivityLogIcon />
-        </Tooltip>
-        <Tooltip label="Divider Vertical">
+        </CopyButton>
+        <CopyButton label="Divider Vertical">
           <Icons.DividerVerticalIcon />
-        </Tooltip>
-        <Tooltip label="Divider Horizontal">
+        </CopyButton>
+        <CopyButton label="Divider Horizontal">
           <Icons.DividerHorizontalIcon />
-        </Tooltip>
+        </CopyButton>
       </Group>
     </Box>
   );
@@ -517,96 +594,96 @@ const Design = () => {
     <Box>
       <Label>Design</Label>
       <Group>
-        <Tooltip label="Frame">
+        <CopyButton label="Frame">
           <Icons.FrameIcon />
-        </Tooltip>
-        <Tooltip label="Crop">
+        </CopyButton>
+        <CopyButton label="Crop">
           <Icons.CropIcon />
-        </Tooltip>
-        <Tooltip label="Layers">
+        </CopyButton>
+        <CopyButton label="Layers">
           <Icons.LayersIcon />
-        </Tooltip>
-        <Tooltip label="Stack">
+        </CopyButton>
+        <CopyButton label="Stack">
           <Icons.StackIcon />
-        </Tooltip>
-        <Tooltip label="Tokens">
+        </CopyButton>
+        <CopyButton label="Tokens">
           <Icons.TokensIcon />
-        </Tooltip>
-        <Tooltip label="Component 1">
+        </CopyButton>
+        <CopyButton label="Component 1">
           <Icons.Component1Icon />
-        </Tooltip>
-        <Tooltip label="Component 2">
+        </CopyButton>
+        <CopyButton label="Component 2">
           <Icons.Component2Icon />
-        </Tooltip>
-        <Tooltip label="Symbol">
+        </CopyButton>
+        <CopyButton label="Symbol">
           <Icons.SymbolIcon />
-        </Tooltip>
-        <Tooltip label="Component Instance">
+        </CopyButton>
+        <CopyButton label="Component Instance">
           <Icons.ComponentInstanceIcon />
-        </Tooltip>
-        <Tooltip label="Component None">
+        </CopyButton>
+        <CopyButton label="Component None">
           <Icons.ComponentNoneIcon />
-        </Tooltip>
-        <Tooltip label="Component Boolean">
+        </CopyButton>
+        <CopyButton label="Component Boolean">
           <Icons.ComponentBooleanIcon />
-        </Tooltip>
-        <Tooltip label="Component Placeholder">
+        </CopyButton>
+        <CopyButton label="Component Placeholder">
           <Icons.ComponentPlaceholderIcon />
-        </Tooltip>
-        <Tooltip label="Opacity">
+        </CopyButton>
+        <CopyButton label="Opacity">
           <Icons.OpacityIcon />
-        </Tooltip>
-        <Tooltip label="Blending Mode">
+        </CopyButton>
+        <CopyButton label="Blending Mode">
           <Icons.BlendingModeIcon />
-        </Tooltip>
-        <Tooltip label="Mask On">
+        </CopyButton>
+        <CopyButton label="Mask On">
           <Icons.MaskOnIcon />
-        </Tooltip>
-        <Tooltip label="Mask Off">
+        </CopyButton>
+        <CopyButton label="Mask Off">
           <Icons.MaskOffIcon />
-        </Tooltip>
-        <Tooltip label="Shadow">
+        </CopyButton>
+        <CopyButton label="Shadow">
           <Icons.ShadowIcon />
-        </Tooltip>
-        <Tooltip label="Shadow None">
+        </CopyButton>
+        <CopyButton label="Shadow None">
           <Icons.ShadowNoneIcon />
-        </Tooltip>
-        <Tooltip label="Value">
+        </CopyButton>
+        <CopyButton label="Value">
           <Icons.ValueIcon />
-        </Tooltip>
-        <Tooltip label="Value None">
+        </CopyButton>
+        <CopyButton label="Value None">
           <Icons.ValueNoneIcon />
-        </Tooltip>
-        <Tooltip label="Zoom In">
+        </CopyButton>
+        <CopyButton label="Zoom In">
           <Icons.ZoomInIcon />
-        </Tooltip>
-        <Tooltip label="Zoom Out">
+        </CopyButton>
+        <CopyButton label="Zoom Out">
           <Icons.ZoomOutIcon />
-        </Tooltip>
-        <Tooltip label="Cursor Text">
+        </CopyButton>
+        <CopyButton label="Cursor Text">
           <Icons.CursorTextIcon />
-        </Tooltip>
-        <Tooltip label="Square">
+        </CopyButton>
+        <CopyButton label="Square">
           <Icons.SquareIcon />
-        </Tooltip>
-        <Tooltip label="Group">
+        </CopyButton>
+        <CopyButton label="Group">
           <Icons.GroupIcon />
-        </Tooltip>
-        <Tooltip label="Dimensions">
+        </CopyButton>
+        <CopyButton label="Dimensions">
           <Icons.DimensionsIcon />
-        </Tooltip>
-        <Tooltip label="Box Model">
+        </CopyButton>
+        <CopyButton label="Box Model">
           <Icons.BoxModelIcon />
-        </Tooltip>
-        <Tooltip label="Margin">
+        </CopyButton>
+        <CopyButton label="Margin">
           <Icons.MarginIcon />
-        </Tooltip>
-        <Tooltip label="Columns">
+        </CopyButton>
+        <CopyButton label="Columns">
           <Icons.ColumnsIcon />
-        </Tooltip>
-        <Tooltip label="Rows">
+        </CopyButton>
+        <CopyButton label="Rows">
           <Icons.RowsIcon />
-        </Tooltip>
+        </CopyButton>
       </Group>
     </Box>
   );
@@ -617,24 +694,24 @@ const Logos = () => {
     <Box>
       <Label>Logos</Label>
       <Group>
-        <Tooltip label="Modulz Logo">
+        <CopyButton label="Modulz Logo">
           <Icons.ModulzLogoIcon />
-        </Tooltip>
-        <Tooltip label="Stitches Logo">
+        </CopyButton>
+        <CopyButton label="Stitches Logo">
           <Icons.StitchesLogoIcon />
-        </Tooltip>
-        <Tooltip label="Figma Logo">
+        </CopyButton>
+        <CopyButton label="Figma Logo">
           <Icons.FigmaLogoIcon />
-        </Tooltip>
-        <Tooltip label="Framer Logo">
+        </CopyButton>
+        <CopyButton label="Framer Logo">
           <Icons.FramerLogoIcon />
-        </Tooltip>
-        <Tooltip label="Sketch Logo">
+        </CopyButton>
+        <CopyButton label="Sketch Logo">
           <Icons.SketchLogoIcon />
-        </Tooltip>
-        <Tooltip label="GitHub Logo">
+        </CopyButton>
+        <CopyButton label="GitHub Logo">
           <Icons.GitHubLogoIcon />
-        </Tooltip>
+        </CopyButton>
       </Group>
     </Box>
   );
@@ -645,42 +722,42 @@ const Music = () => {
     <Box>
       <Label>Music</Label>
       <Group>
-        <Tooltip label="Play">
+        <CopyButton label="Play">
           <Icons.PlayIcon />
-        </Tooltip>
-        <Tooltip label="Resume">
+        </CopyButton>
+        <CopyButton label="Resume">
           <Icons.ResumeIcon />
-        </Tooltip>
-        <Tooltip label="Pause">
+        </CopyButton>
+        <CopyButton label="Pause">
           <Icons.PauseIcon />
-        </Tooltip>
-        <Tooltip label="Stop">
+        </CopyButton>
+        <CopyButton label="Stop">
           <Icons.StopIcon />
-        </Tooltip>
-        <Tooltip label="Track Previous">
+        </CopyButton>
+        <CopyButton label="Track Previous">
           <Icons.TrackPreviousIcon />
-        </Tooltip>
-        <Tooltip label="Track Next">
+        </CopyButton>
+        <CopyButton label="Track Next">
           <Icons.TrackNextIcon />
-        </Tooltip>
-        <Tooltip label="Loop">
+        </CopyButton>
+        <CopyButton label="Loop">
           <Icons.LoopIcon />
-        </Tooltip>
-        <Tooltip label="Shuffle">
+        </CopyButton>
+        <CopyButton label="Shuffle">
           <Icons.ShuffleIcon />
-        </Tooltip>
-        <Tooltip label="Speaker Loud">
+        </CopyButton>
+        <CopyButton label="Speaker Loud">
           <Icons.SpeakerLoudIcon />
-        </Tooltip>
-        <Tooltip label="Speaker Moderate">
+        </CopyButton>
+        <CopyButton label="Speaker Moderate">
           <Icons.SpeakerModerateIcon />
-        </Tooltip>
-        <Tooltip label="Speaker Quiet">
+        </CopyButton>
+        <CopyButton label="Speaker Quiet">
           <Icons.SpeakerQuietIcon />
-        </Tooltip>
-        <Tooltip label="Speaker Off">
+        </CopyButton>
+        <CopyButton label="Speaker Off">
           <Icons.SpeakerOffIcon />
-        </Tooltip>
+        </CopyButton>
       </Group>
     </Box>
   );
@@ -691,162 +768,162 @@ const Objects = () => {
     <Box>
       <Label>Objects</Label>
       <Group>
-        <Tooltip label="Magnifying Glass">
+        <CopyButton label="Magnifying Glass">
           <Icons.MagnifyingGlassIcon />
-        </Tooltip>
-        <Tooltip label="Gear">
+        </CopyButton>
+        <CopyButton label="Gear">
           <Icons.GearIcon />
-        </Tooltip>
-        <Tooltip label="Bell">
+        </CopyButton>
+        <CopyButton label="Bell">
           <Icons.BellIcon />
-        </Tooltip>
-        <Tooltip label="Home">
+        </CopyButton>
+        <CopyButton label="Home">
           <Icons.HomeIcon />
-        </Tooltip>
-        <Tooltip label="Lock Closed">
+        </CopyButton>
+        <CopyButton label="Lock Closed">
           <Icons.LockClosedIcon />
-        </Tooltip>
-        <Tooltip label="Lock Open 1 ">
+        </CopyButton>
+        <CopyButton label="Lock Open 1 ">
           <Icons.LockOpen1Icon />
-        </Tooltip>
-        <Tooltip label="Lock Open 2 ">
+        </CopyButton>
+        <CopyButton label="Lock Open 2 ">
           <Icons.LockOpen2Icon />
-        </Tooltip>
-        <Tooltip label="Backpack">
+        </CopyButton>
+        <CopyButton label="Backpack">
           <Icons.BackpackIcon />
-        </Tooltip>
-        <Tooltip label="Camera">
+        </CopyButton>
+        <CopyButton label="Camera">
           <Icons.CameraIcon />
-        </Tooltip>
-        <Tooltip label="Paper Plane">
+        </CopyButton>
+        <CopyButton label="Paper Plane">
           <Icons.PaperPlaneIcon />
-        </Tooltip>
-        <Tooltip label="Rocket">
+        </CopyButton>
+        <CopyButton label="Rocket">
           <Icons.RocketIcon />
-        </Tooltip>
-        <Tooltip label="Envelope Closed">
+        </CopyButton>
+        <CopyButton label="Envelope Closed">
           <Icons.EnvelopeClosedIcon />
-        </Tooltip>
-        <Tooltip label="Envelope Open">
+        </CopyButton>
+        <CopyButton label="Envelope Open">
           <Icons.EnvelopeOpenIcon />
-        </Tooltip>
-        <Tooltip label="Chat Bubble">
+        </CopyButton>
+        <CopyButton label="Chat Bubble">
           <Icons.ChatBubbleIcon />
-        </Tooltip>
-        <Tooltip label="Link 1">
+        </CopyButton>
+        <CopyButton label="Link 1">
           <Icons.Link1Icon />
-        </Tooltip>
-        <Tooltip label="Link None 1 ">
+        </CopyButton>
+        <CopyButton label="Link None 1 ">
           <Icons.LinkNone1Icon />
-        </Tooltip>
-        <Tooltip label="Link Break 1 ">
+        </CopyButton>
+        <CopyButton label="Link Break 1 ">
           <Icons.LinkBreak1Icon />
-        </Tooltip>
-        <Tooltip label="Link 2">
+        </CopyButton>
+        <CopyButton label="Link 2">
           <Icons.Link2Icon />
-        </Tooltip>
-        <Tooltip label="Link None 2 ">
+        </CopyButton>
+        <CopyButton label="Link None 2 ">
           <Icons.LinkNone2Icon />
-        </Tooltip>
-        <Tooltip label="Link Break 2 ">
+        </CopyButton>
+        <CopyButton label="Link Break 2 ">
           <Icons.LinkBreak2Icon />
-        </Tooltip>
-        <Tooltip label="Trash">
+        </CopyButton>
+        <CopyButton label="Trash">
           <Icons.TrashIcon />
-        </Tooltip>
-        <Tooltip label="Pencil 1">
+        </CopyButton>
+        <CopyButton label="Pencil 1">
           <Icons.Pencil1Icon />
-        </Tooltip>
-        <Tooltip label="Pencil 2">
+        </CopyButton>
+        <CopyButton label="Pencil 2">
           <Icons.Pencil2Icon />
-        </Tooltip>
-        <Tooltip label="Bookmark">
+        </CopyButton>
+        <CopyButton label="Bookmark">
           <Icons.BookmarkIcon />
-        </Tooltip>
-        <Tooltip label="Drawing Pin">
+        </CopyButton>
+        <CopyButton label="Drawing Pin">
           <Icons.DrawingPinIcon />
-        </Tooltip>
-        <Tooltip label="Drawing Pin Solid ">
+        </CopyButton>
+        <CopyButton label="Drawing Pin Solid ">
           <Icons.DrawingPinSolidIcon />
-        </Tooltip>
-        <Tooltip label="Sewing Pin">
+        </CopyButton>
+        <CopyButton label="Sewing Pin">
           <Icons.SewingPinIcon />
-        </Tooltip>
-        <Tooltip label="Sewing Pin Solid ">
+        </CopyButton>
+        <CopyButton label="Sewing Pin Solid ">
           <Icons.SewingPinSolidIcon />
-        </Tooltip>
-        <Tooltip label="Cube">
+        </CopyButton>
+        <CopyButton label="Cube">
           <Icons.CubeIcon />
-        </Tooltip>
-        <Tooltip label="Mix">
+        </CopyButton>
+        <CopyButton label="Mix">
           <Icons.MixIcon />
-        </Tooltip>
-        <Tooltip label="Mixer Horizontal">
+        </CopyButton>
+        <CopyButton label="Mixer Horizontal">
           <Icons.MixerHorizontalIcon />
-        </Tooltip>
-        <Tooltip label="Mixer Vertical">
+        </CopyButton>
+        <CopyButton label="Mixer Vertical">
           <Icons.MixerVerticalIcon />
-        </Tooltip>
-        <Tooltip label="File">
+        </CopyButton>
+        <CopyButton label="File">
           <Icons.FileIcon />
-        </Tooltip>
-        <Tooltip label="File Text">
+        </CopyButton>
+        <CopyButton label="File Text">
           <Icons.FileTextIcon />
-        </Tooltip>
-        <Tooltip label="File Plus">
+        </CopyButton>
+        <CopyButton label="File Plus">
           <Icons.FilePlusIcon />
-        </Tooltip>
-        <Tooltip label="File Minus">
+        </CopyButton>
+        <CopyButton label="File Minus">
           <Icons.FileMinusIcon />
-        </Tooltip>
-        <Tooltip label="Reader">
+        </CopyButton>
+        <CopyButton label="Reader">
           <Icons.ReaderIcon />
-        </Tooltip>
-        <Tooltip label="Id Card">
+        </CopyButton>
+        <CopyButton label="Id Card">
           <Icons.IdCardIcon />
-        </Tooltip>
-        <Tooltip label="Crosshair 1">
+        </CopyButton>
+        <CopyButton label="Crosshair 1">
           <Icons.Crosshair1Icon />
-        </Tooltip>
-        <Tooltip label="Crosshair 2">
+        </CopyButton>
+        <CopyButton label="Crosshair 2">
           <Icons.Crosshair2Icon />
-        </Tooltip>
-        <Tooltip label="Target">
+        </CopyButton>
+        <CopyButton label="Target">
           <Icons.TargetIcon />
-        </Tooltip>
-        <Tooltip label="Disc">
+        </CopyButton>
+        <CopyButton label="Disc">
           <Icons.DiscIcon />
-        </Tooltip>
-        <Tooltip label="Globe">
+        </CopyButton>
+        <CopyButton label="Globe">
           <Icons.GlobeIcon />
-        </Tooltip>
-        <Tooltip label="Clock">
+        </CopyButton>
+        <CopyButton label="Clock">
           <Icons.ClockIcon />
-        </Tooltip>
-        <Tooltip label="Timer">
+        </CopyButton>
+        <CopyButton label="Timer">
           <Icons.TimerIcon />
-        </Tooltip>
-        <Tooltip label="Stopwatch">
+        </CopyButton>
+        <CopyButton label="Stopwatch">
           <Icons.StopwatchIcon />
-        </Tooltip>
-        <Tooltip label="Lap Timer">
+        </CopyButton>
+        <CopyButton label="Lap Timer">
           <Icons.LapTimerIcon />
-        </Tooltip>
-        <Tooltip label="Countdown Timer">
+        </CopyButton>
+        <CopyButton label="Countdown Timer">
           <Icons.CountdownTimerIcon />
-        </Tooltip>
-        <Tooltip label="Face">
+        </CopyButton>
+        <CopyButton label="Face">
           <Icons.FaceIcon />
-        </Tooltip>
-        <Tooltip label="Person">
+        </CopyButton>
+        <CopyButton label="Person">
           <Icons.PersonIcon />
-        </Tooltip>
-        <Tooltip label="Eye Open">
+        </CopyButton>
+        <CopyButton label="Eye Open">
           <Icons.EyeOpenIcon />
-        </Tooltip>
-        <Tooltip label="Eye Closed">
+        </CopyButton>
+        <CopyButton label="Eye Closed">
           <Icons.EyeClosedIcon />
-        </Tooltip>
+        </CopyButton>
       </Group>
     </Box>
   );
@@ -857,66 +934,66 @@ const Typography = () => {
     <Box>
       <Label>Typography</Label>
       <Group>
-        <Tooltip label="Font Style">
+        <CopyButton label="Font Style">
           <Icons.FontStyleIcon />
-        </Tooltip>
-        <Tooltip label="Font Italic">
+        </CopyButton>
+        <CopyButton label="Font Italic">
           <Icons.FontItalicIcon />
-        </Tooltip>
-        <Tooltip label="Font Roman">
+        </CopyButton>
+        <CopyButton label="Font Roman">
           <Icons.FontRomanIcon />
-        </Tooltip>
-        <Tooltip label="Font Bold">
+        </CopyButton>
+        <CopyButton label="Font Bold">
           <Icons.FontBoldIcon />
-        </Tooltip>
-        <Tooltip label="Letter Case Uppercase ">
+        </CopyButton>
+        <CopyButton label="Letter Case Uppercase ">
           <Icons.LetterCaseUppercaseIcon />
-        </Tooltip>
-        <Tooltip label="Letter Case Capitalize ">
+        </CopyButton>
+        <CopyButton label="Letter Case Capitalize ">
           <Icons.LetterCaseCapitalizeIcon />
-        </Tooltip>
-        <Tooltip label="Letter Case Lowercase ">
+        </CopyButton>
+        <CopyButton label="Letter Case Lowercase ">
           <Icons.LetterCaseLowercaseIcon />
-        </Tooltip>
-        <Tooltip label="Letter Case Toggle ">
+        </CopyButton>
+        <CopyButton label="Letter Case Toggle ">
           <Icons.LetterCaseToggleIcon />
-        </Tooltip>
-        <Tooltip label="Letter Spacing">
+        </CopyButton>
+        <CopyButton label="Letter Spacing">
           <Icons.LetterSpacingIcon />
-        </Tooltip>
-        <Tooltip label="Align Baseline">
+        </CopyButton>
+        <CopyButton label="Align Baseline">
           <Icons.AlignBaselineIcon />
-        </Tooltip>
-        <Tooltip label="Font Size">
+        </CopyButton>
+        <CopyButton label="Font Size">
           <Icons.FontSizeIcon />
-        </Tooltip>
-        <Tooltip label="Font Family">
+        </CopyButton>
+        <CopyButton label="Font Family">
           <Icons.FontFamilyIcon />
-        </Tooltip>
-        <Tooltip label="Underline">
+        </CopyButton>
+        <CopyButton label="Underline">
           <Icons.UnderlineIcon />
-        </Tooltip>
-        <Tooltip label="Strikethrough">
+        </CopyButton>
+        <CopyButton label="Strikethrough">
           <Icons.StrikethroughIcon />
-        </Tooltip>
-        <Tooltip label="Overline">
+        </CopyButton>
+        <CopyButton label="Overline">
           <Icons.OverlineIcon />
-        </Tooltip>
-        <Tooltip label="Line Height">
+        </CopyButton>
+        <CopyButton label="Line Height">
           <Icons.LineHeightIcon />
-        </Tooltip>
-        <Tooltip label="Text Align Left ">
+        </CopyButton>
+        <CopyButton label="Text Align Left ">
           <Icons.TextAlignLeftIcon />
-        </Tooltip>
-        <Tooltip label="Text Align Center ">
+        </CopyButton>
+        <CopyButton label="Text Align Center ">
           <Icons.TextAlignCenterIcon />
-        </Tooltip>
-        <Tooltip label="Text Align Right ">
+        </CopyButton>
+        <CopyButton label="Text Align Right ">
           <Icons.TextAlignRightIcon />
-        </Tooltip>
-        <Tooltip label="Text Align Justify ">
+        </CopyButton>
+        <CopyButton label="Text Align Justify ">
           <Icons.TextAlignJustifyIcon />
-        </Tooltip>
+        </CopyButton>
       </Group>
     </Box>
   );

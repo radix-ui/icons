@@ -8,6 +8,7 @@
     "install": "cd ../packages/radix-icons && yarn build && cd ../../ && rsync -avq --delete ./packages/radix-icons/dist/ ./website/node_modules/@modulz/radix-icons"
   },
   "dependencies": {
+    "@interop-ui/react-portal": "^0.0.1-6",
     "@interop-ui/react-tooltip": "^0.0.1-5",
     "@modulz/design-system": "^0.0.3",
     "@modulz/radix-icons": "file:./../packages/radix-icons/dist",
