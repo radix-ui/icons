@@ -1,5 +1,4 @@
 import React from 'react';
-import useDarkMode from 'use-dark-mode';
 import { Box, Flex, darkThemeClass } from '@modulz/design-system';
 import { MagnifyingGlassIcon } from '@modulz/radix-icons';
 import AutosizeInput from 'react-input-autosize';
@@ -10,18 +9,11 @@ type SearchBarProps = {
 };
 
 export const SearchBar = ({ value, onValueChange }: SearchBarProps) => {
-  const darkMode = useDarkMode(undefined, {
-    classNameDark: darkThemeClass,
-    classNameLight: 'theme-default',
-  });
-
-  // We use a lighter backplate for dark mode, so we want a lighter border color there
-  const border = darkMode.value ? '1px solid $gray400' : '1px solid $gray300';
   const inputRef = React.useRef<AutosizeInput | null>(null);
 
   return (
-    <Flex css={{ alignItems: 'center', justifyContent: 'center', borderBottom: border }}>
-      <Flex as="span" css={{ marginRight: '$1', color: '$gray600' }}>
+    <Flex css={{ alignItems: 'center', justifyContent: 'center', borderBottom: '1px solid $gray500' }}>
+      <Flex as="span" css={{ marginRight: '$1', color: '$gray800' }}>
         <MagnifyingGlassIcon />
       </Flex>
       <Box
@@ -41,7 +33,7 @@ export const SearchBar = ({ value, onValueChange }: SearchBarProps) => {
             height: '$6',
             fontSize: '$2',
             '&::placeholder': {
-              color: '$gray600',
+              color: '$gray800',
             },
           },
         }}
@@ -52,7 +44,7 @@ export const SearchBar = ({ value, onValueChange }: SearchBarProps) => {
           placeholder="Search"
           name="form-field-name"
           value={value}
-          onChange={event => onValueChange(event.target.value)}
+          onChange={(event) => onValueChange(event.target.value)}
         />
       </Box>
     </Flex>

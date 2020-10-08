@@ -6,7 +6,22 @@ import { CopyToastVisibility } from './CopyToast';
 
 export const Overview = React.memo(() => {
   return (
-    <Grid css={{ padding: '0 $6 $2', gap: '$8', gridTemplateColumns: 'repeat(3, 1fr)' }}>
+    <Grid
+      css={{
+        default: {
+          padding: '0 $3 $2',
+          marginTop: '-$2',
+        },
+        bp1: {
+          padding: '0 $6 $2',
+          marginTop: 0,
+        },
+        '@media (min-width: 750px)': {
+          gridTemplateColumns: 'repeat(3, 1fr)',
+          gap: '$8',
+        },
+      }}
+    >
       <Box>
         <Arrows />
         <Components />
@@ -38,17 +53,50 @@ const Label = styled(Text, {
 });
 
 const Group = styled(Grid, {
-  rowGap: '$6',
-  gridTemplateColumns: 'repeat(6, 15px)',
   justifyItems: 'center',
   justifyContent: 'space-between',
   margin: '$4 0 $6',
   padding: '0 $1',
+  rowGap: '$6',
+
+  '@media (max-width: 350px)': {
+    gridTemplateColumns: 'repeat(5, 15px)',
+  },
+
+  '@media (min-width: 350px) and (max-width: 449px)': {
+    gridTemplateColumns: 'repeat(7, 15px)',
+  },
+
+  '@media (min-width: 450px) and (max-width: 549px)': {
+    gridTemplateColumns: 'repeat(9, 15px)',
+  },
+
+  '@media (min-width: 550px) and (max-width: 649px)': {
+    gridTemplateColumns: 'repeat(10, 15px)',
+  },
+
+  '@media (min-width: 650px) and (max-width: 749px)': {
+    gridTemplateColumns: 'repeat(12, 15px)',
+  },
+
+  '@media (min-width: 750px) and (max-width: 899px)': {
+    gridTemplateColumns: 'repeat(4, 15px)',
+  },
+
+  '@media (min-width: 900px) and (max-width: 1049px)': {
+    gridTemplateColumns: 'repeat(5, 15px)',
+  },
+
+  '@media (min-width: 1050px)': {
+    gridTemplateColumns: 'repeat(6, 15px)',
+  },
 });
 
 const GhostButton = styled('button', {
   border: 0,
+  outline: 0,
   fontFamily: 'inherit',
+  textAlign: 'inherit',
   color: 'inherit',
   display: 'block',
   appearance: 'none',
@@ -57,15 +105,11 @@ const GhostButton = styled('button', {
   padding: '$3',
   margin: '-$3',
   borderRadius: '$1',
-  '&:active': {
-    boxShadow: '0 0 0 2px #47D1C3',
-  },
-  '&:focus': {
-    outline: 0,
-    boxShadow: '0 0 0 2px #47D1C3',
+  '&:active, &:focus': {
+    boxShadow: '0 0 0 2px $teal700',
   },
   '&:hover': {
-    backgroundColor: '#E1FFFC',
+    backgroundColor: '$teal300',
   },
   svg: {
     display: 'block',

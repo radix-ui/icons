@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled } from '@modulz/design-system';
+import { Text, styled } from '@modulz/design-system';
 import {
   Tooltip as TooltipPrimitive,
   TooltipProps as TooltipPrimitiveProps,
@@ -33,7 +33,7 @@ export const Tooltip = ({
 
 Tooltip.Trigger = TooltipPrimitive.Trigger;
 
-const Content = styled('div', {
+const Content = styled(Text, {
   ...tooltipStyles.root,
   backgroundColor: '$hiContrast',
   fontSize: '$1',

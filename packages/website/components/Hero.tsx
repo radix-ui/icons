@@ -9,8 +9,9 @@ export const Hero = () => {
     classNameLight: 'theme-default',
   });
 
-  const crimson = darkMode.value ? 'hsla(336, 79%, 48%, 0.5)' : 'hsla(336, 90%, 91%, 1.0)';
-  const teal = darkMode.value ? 'hsla(174, 100%, 28%, 0.5)' : 'hsla(174, 75%, 84%, 1.0)';
+  // We haven't added these colors to dark mode theme yet
+  const crimson = darkMode.value ? 'hsla(336, 79%, 48%, 0.5)' : '$crimson300';
+  const teal = darkMode.value ? 'hsla(174, 100%, 28%, 0.5)' : '$teal400';
 
   return (
     <Box
@@ -40,10 +41,13 @@ export const Hero = () => {
           top: '-0.1em',
           left: '50%',
           bp1: {
-            transform: 'translateX(-80%)',
+            transform: 'translate(-80%, 0.5px)',
           },
           bp2: {
-            transform: 'translateX(-110%)',
+            transform: 'translate(-110%, 0.5px)',
+          },
+          bp3: {
+            transform: 'translate(-110%, -0.5px)',
           },
         }}
       >
@@ -112,6 +116,7 @@ export const Hero = () => {
             pointerEvents: 'auto',
             WebkitUserSelect: 'text',
             userSelect: 'text',
+            fontVariantNumeric: 'proportional-nums',
             default: {
               top: '0',
               opacity: 0.05,

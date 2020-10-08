@@ -47,7 +47,7 @@ export const Links = () => {
         top: '$5',
         right: '$5',
         padding: '$3 $4',
-        background: darkMode.value ? 'hsl(174, 65%, 14%)' : 'hsl(174, 100%, 94%)',
+        background: darkMode.value ? 'hsl(174, 65%, 14%)' : '$teal300',
         minWidth: 200,
         userSelect: 'none',
         WebkitUserSelect: 'none',

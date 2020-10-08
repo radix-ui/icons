@@ -48,20 +48,10 @@ export default function Home() {
         setIsVisible: setToastIsVisibleTimeout,
       }}
     >
-      <Box
-        css={{
-          color: '$hiContrast',
-          overflowWrap: 'break-word',
-          WebkitFontSmoothing: 'antialiased' as any,
-          MozOsxFontSmoothing: 'grayscale' as any,
-          '*::selection': {
-            backgroundColor: '$blue300',
-          },
-        }}
-      >
+      <Box>
         <Hero />
         <Links />
-        <Container size="4" css={{ position: 'relative', marginBottom: 150 }}>
+        <Container size="3" css={{ position: 'relative', marginBottom: 150 }}>
           <Box
             css={{
               background: darkMode.value ? '$gray100' : '$loContrast',

@@ -3,23 +3,31 @@ import Head from 'next/head';
 import useDarkMode from 'use-dark-mode';
 import { css, darkThemeClass, Button } from '@modulz/design-system';
 
-css.global({
+const globalCss = css.global({
+  '*': {
+    boxSizing: 'border-box',
+  },
+  '*::selection': {
+    backgroundColor: '$blue400',
+  },
   body: {
     margin: 0,
+    minWidth: 320,
+    color: '$hiContrast',
+    overflowWrap: 'break-word',
     fontFamily: '$untitled',
     backgroundColor: '$loContrast',
     WebkitFontSmoothing: 'antialiased' as any,
+    MozOsxFontSmoothing: 'grayscale' as any,
   },
   svg: {
-    verticalAlign: 'center',
-    display: 'inline-block',
-  },
-  '*': {
-    boxSizing: 'border-box',
+    display: 'block',
   },
 });
 
 function App({ Component, pageProps }) {
+  globalCss();
+
   const darkMode = useDarkMode(undefined, {
     classNameDark: darkThemeClass,
     classNameLight: 'theme-default',
