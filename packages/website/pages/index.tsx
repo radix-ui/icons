@@ -11,7 +11,6 @@ import { CopyToast, CopyToastVisibility } from '../components/CopyToast';
 import { CodeBlock } from '../components/CodeBlock';
 import { IconLink } from '../components/IconLink';
 import { Section } from '../components/Section';
-import { TitleAndMetaTags } from '../components/TitleAndMetaTags';
 import { DarkModeButton } from '../components/DarkModeButton';
 
 export default function Home() {
