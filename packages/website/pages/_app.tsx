@@ -1,5 +1,7 @@
 import React from 'react';
-import { css } from '@modulz/design-system';
+import { Button, css, darkThemeClass } from '@modulz/design-system';
+import useDarkMode from 'use-dark-mode';
+import { TitleAndMetaTags } from '../components/TitleAndMetaTags';
 
 const globalCss = css.global({
   '*': {
@@ -26,10 +28,10 @@ const globalCss = css.global({
 function App({ Component, pageProps }) {
   globalCss();
 
-  // const darkMode = useDarkMode(undefined, {
-  //   classNameDark: darkThemeClass,
-  //   classNameLight: 'theme-default',
-  // });
+  const darkMode = useDarkMode(undefined, {
+    classNameDark: darkThemeClass,
+    classNameLight: 'theme-default',
+  });
 
   const [mounted, setMounted] = React.useState(false);
 
@@ -43,6 +45,7 @@ function App({ Component, pageProps }) {
   if (!mounted) {
     return (
       <div style={{ visibility: 'hidden' }}>
+        <TitleAndMetaTags />
         <Component {...pageProps} />
       </div>
     );
@@ -52,11 +55,9 @@ function App({ Component, pageProps }) {
     <div>
       <Component {...pageProps} />
 
-      {/*
       <Button css={{ position: 'fixed', zIndex: 999, bottom: '$3', left: '$3' }} onClick={() => darkMode.toggle()}>
         Toggle theme
       </Button>
-      */}
     </div>
   );
 }

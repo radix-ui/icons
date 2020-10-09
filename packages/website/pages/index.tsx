@@ -15,7 +15,10 @@ import { TitleAndMetaTags } from '../components/TitleAndMetaTags';
 import { DarkModeButton } from '../components/DarkModeButton';
 
 export default function Home() {
-  const darkMode = useDarkMode();
+  const darkMode = useDarkMode(undefined, {
+    classNameDark: darkThemeClass,
+    classNameLight: 'theme-default',
+  });
 
   const [searchValue, setSearchValue] = React.useState('');
   const [toastIsVisible, setToastIsVisible] = React.useState(false);
@@ -37,7 +40,6 @@ export default function Home() {
         setIsVisible: setToastIsVisibleTimeout,
       }}
     >
-      <TitleAndMetaTags />
       <Box>
         <Hero />
         <Menu />
