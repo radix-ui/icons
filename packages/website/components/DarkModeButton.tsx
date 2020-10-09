@@ -24,8 +24,9 @@ export const DarkModeButton = () => {
         borderRadius: '$1',
         zIndex: '$4',
         color: '$hiContrast',
+        backgroundColor: '$gray200',
         '&:hover': {
-          backgroundColor: '$gray300',
+          backgroundColor: '$gray400',
         },
         '&:active, &:focus': {
           boxShadow: '0 0 0 2px $gray700',

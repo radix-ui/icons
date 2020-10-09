@@ -19,11 +19,15 @@ export const Hero = () => {
         userSelect: 'none',
         WebkitUserSelect: 'none',
         default: {
-          fontSize: '70px',
+          fontSize: '60px',
           position: 'relative',
           overflow: 'hidden',
-          height: 400,
+          height: 300,
           zIndex: 0,
+        },
+        bp1: {
+          height: 400,
+          fontSize: '70px',
         },
         bp2: {
           fontSize: '100px',
@@ -45,13 +49,13 @@ export const Hero = () => {
           position: 'absolute',
           zIndex: '$2',
           default: {
-            top: 100,
+            top: '$5',
             left: '5%',
+            transform: 'translate(0, 0.5px)',
           },
           bp1: {
             top: 'calc(60px - 0.1em)',
             left: '12%',
-            transform: 'translate(0, 0.5px)',
           },
           bp2: {
             top: '-0.1em',
@@ -91,21 +95,23 @@ export const Hero = () => {
 
       <Box
         css={{
-          position: 'absolute',
           zIndex: '$1',
           pointerEvents: 'none',
           width: '1em',
           height: '1em',
           default: {
-            top: 15,
-            left: '65%',
+            position: 'fixed',
+            top: 110,
+            left: '73%',
           },
           bp1: {
             top: 60,
             left: '50%',
+            right: 'auto',
             transform: 'translateX(1.25em)',
           },
           bp2: {
+            position: 'absolute',
             top: 0,
             transform: 'none',
           },
@@ -137,7 +143,6 @@ export const Hero = () => {
         css={{
           zIndex: '$3',
           position: 'absolute',
-          lineHeight: '1.25',
           width: '9em',
           pointerEvents: 'auto',
           WebkitUserSelect: 'text',
@@ -146,12 +151,14 @@ export const Hero = () => {
           letterSpacing: '-0.02em',
           default: {
             fontSize: '$6',
-            top: 285,
+            lineHeight: '1.35',
+            top: 190,
             marginLeft: 7,
             left: '5%',
           },
           bp1: {
             fontSize: '$7',
+            lineHeight: '1.25',
             top: 240,
             left: '12%',
           },
