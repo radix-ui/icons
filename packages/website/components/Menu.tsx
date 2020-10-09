@@ -43,25 +43,29 @@ export const Menu = () => {
     <Flex
       css={{
         position: 'fixed',
-        top: '$5',
-        right: '$5',
-        alignItems: 'center',
-        justifyContent: 'center',
-        background: darkMode.value ? 'hsl(174, 65%, 14%)' : '$teal300',
-        userSelect: 'none',
-        WebkitUserSelect: 'none',
-        zIndex: 'auto',
-        borderRadius: '$1',
-        padding: '$3 $4',
+        top: 0,
+        right: 0,
+        margin: '$5',
+        justifyContent: 'flex-end',
         default: {
           display: 'none',
         },
         bp2: {
-          display: 'flex',
+          display: 'inline-flex',
         },
       }}
     >
-      <Flex css={{ flexDirection: 'column', alignItems: 'flex-start' }}>
+      <Flex
+        css={{
+          background: darkMode.value ? 'hsl(174, 65%, 14%)' : '$teal300',
+          borderRadius: '$1',
+          boxShadow: '0 10px 40px -10px hsla(174, 100%, 30%, 0.05)',
+          flexDirection: 'column',
+          padding: '$3 $4',
+          userSelect: 'none',
+          WebkitUserSelect: 'none',
+        }}
+      >
         <MenuLink href="https://www.figma.com/file/9Df5CaFUEomVzn20gRpaX3/Radix-Icons" target="_blank">
           <Box as="span" css={{ mr: '$2' }}>
             <FigmaLogoIcon />
