@@ -1,14 +1,7 @@
 import React from 'react';
 import useDarkMode from 'use-dark-mode';
 import { styled, Box, Flex } from '@modulz/design-system';
-import {
-  CubeIcon,
-  DownloadIcon,
-  FigmaLogoIcon,
-  FramerLogoIcon,
-  GitHubLogoIcon,
-  SketchLogoIcon,
-} from '@modulz/radix-icons';
+import { CubeIcon, DownloadIcon, FigmaLogoIcon, GitHubLogoIcon, SketchLogoIcon } from '@modulz/radix-icons';
 
 const MenuLink = styled('a', {
   display: 'flex',
@@ -95,6 +88,12 @@ export const Menu = ({ isVisible = false }: MenuProps) => {
             <FigmaLogoIcon />
           </Box>
           Open in Figma
+        </MenuLink>
+        <MenuLink href="https://raw.githubusercontent.com/modulz/radix-icons/master/Radix-Icons.sketch" target="_blank">
+          <Box as="span" css={{ mr: '$2' }}>
+            <SketchLogoIcon />
+          </Box>
+          Download for Sketch
         </MenuLink>
         <MenuLink href="https://www.npmjs.com/package/@modulz/radix-icons" target="_blank">
           <Box as="span" css={{ mr: '$2' }}>
