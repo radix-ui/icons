@@ -1,42 +1,30 @@
-> WIP
+<a href="https://icons.modulz.app" >
+  <img alt="radix icons" src="https://user-images.githubusercontent.com/372831/95560147-25d35880-0a19-11eb-9f75-0185f082b217.png">
+</a>
 
-# Radix Icons Monorepo
+# Radix Icons
 
-This repository is a [monorepo](https://github.com/babel/babel/blob/master/doc/design/monorepo.md) powered by [Lerna](https://github.com/lerna/lerna) and [yarn workspaces](https://yarnpkg.com/lang/en/docs/cli/workspaces/).
+A crisp set of 15×15 icons designed by the [Modulz](https://modulz.app) team.
 
-### Develop
+---
 
-#### Install dependencies
+## Documentation
 
-```sh
-yarn
-```
+For full documentation, visit [icons.modulz.app](https://icons.modulz.app).
 
-#### Run icon generator
+## Contributing
 
-```sh
-yarn start
-```
 
-### Build & release
+Please follow our [contributing guidelines](./CONTRIBUTING.md).
 
-#### Build
+## Authors
 
-```sh
-yarn build
-```
+- Vlad Moroz ([@vladyslavmoroz](https://twitter.com/vladyslavmoroz)) - [Modulz](https://modulz.app)
+- Pedro Duarte ([@peduarte](https://twitter.com/peduarte)) - [Modulz](https://modulz.app)
+- Lochlan Bunn ([@loklaan](https://twitter.com/loklaan))
 
-#### Release
+## License
 
-```sh
-yarn release
-```
+Licensed under the MIT License, Copyright © 2020-present Modulz.
 
-### Website
-
-The website uses local version of the Radix Icons package.
-Don't forget to `yarn` after updating the icons. This will rebuild the package.
-
-### License
-
-MIT © [Modulz](https://modulz.app)
+See [LICENSE](./LICENSE.md) for more information.
