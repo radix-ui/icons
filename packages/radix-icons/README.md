@@ -6,7 +6,7 @@ A crisp set of 15×15 icons designed by the [Modulz](https://modulz.app) team.
 
 ## Documentation
 
-All icons are sourced from a single-source-of-truth [Figma file][figmafile], and made available as **React Components** and **individual SVGs**.
+All icons are sourced from a single-source-of-truth [Figma file][https://www.figma.com/file/9Df5CaFUEomVzn20gRpaX3/], and made available as **React Components** and **individual SVGs**.
 
 #### React
 
@@ -88,11 +88,3 @@ Licensed under the MIT License, Copyright © 2020-present Modulz.
 
 See [LICENSE](./LICENSE.md) for more information.
 
-
-## Legal
-
-MIT License
-
-Copyright (c) 2019 Modulz, Inc
-
-[figmafile]: https://www.figma.com/file/9Df5CaFUEomVzn20gRpaX3/
