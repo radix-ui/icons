@@ -2,74 +2,35 @@
 
 A crisp set of 15×15 icons designed by the [Modulz](https://modulz.app) team.
 
+Visit [icons.modulz.app](https://icons.modulz.app) to browse the icons.
+
 ---
 
 ## Documentation
 
-All icons are sourced from a single-source-of-truth [Figma file][https://www.figma.com/file/9Df5CaFUEomVzn20gRpaX3/], and made available as **React Components** and **individual SVGs**.
+All icons are available as individual React components.
 
-#### React
+Install Radix Icons from npm:
 
-All Icons are available as individual React Components.
-
-- Supports Typescript
-- Supports Treeshaking
-
-```js
-import { CameraIcon } from '@modulz/radix-icons';
-
-render(<CameraIcon size="25" type="outline" />);
+```bash
+npm install @modulz/radix-icons
 ```
 
-_Icons can be discovered on the [Icons page](https://icons.modulz.app)._
-
-#### SVGs
-
-All SVGs in the set are available in the package, and can be accessed with the following path-pattern from `node_modules`:
+Import the icons into your React project:
 
 ```js
-'@modulz/radix-icons/<type>/<size>/<name>.svg';
-```
+import { FaceIcon, ImageIcon, SunIcon } from '@modulz/radix-icons'
 
-By using a bundler (such as [Webpack](https://webpack.js.org), [Parcel](https://parceljs.org/) or [Rollup](https://rollupjs.org/)) you can pull an SVG in to JavaScript or CSS.
-
-**in JS**
-
-```js
-import svgUrl from '@modulz/radix-icons/outline/25/camera.svg';
-```
-
-**in CSS**
-
-```css
-.camera-icon {
-  background-image: url(~@modulz/radix-icons/outline/25/camera.svg);
-  width: 25px;
-  height: 25px;
+function MyComponent () {
+  return (
+    <div>
+      <FaceIcon />
+      <SunIcon />
+      <ImageIcon />
+    </div>
+  )
 }
 ```
-
-#### Manifest
-
-The manifest of the Icon Set lists the SVGs via their hierarchy - it can be used to dynamically consume the the Icon Set.
-
-```js
-import iconManifest from '@modulz/radix-icons/manifest.json';
-
-console.log(iconManifest);
-```
-
-```json
-{
-  "outline": {
-    ":25": {
-      "camera": "outline/25/camera.svg"
-    }
-  }
-}
-```
-
-We intend to formalise the schema of the manifest in a larger effort to support importing Icon Sets to Modulz through NPM.
 
 ## Contributing
 
