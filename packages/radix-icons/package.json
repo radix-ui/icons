@@ -16,7 +16,7 @@
     "manifest.json"
   ],
   "scripts": {
-    "generate-src": "generate-icon-lib --file=9Df5CaFUEomVzn20gRpaX3 && zip -r ../../radix-icons.zip ./icons/15",
+    "generate-src": "generate-icon-lib --file=9Df5CaFUEomVzn20gRpaX3 && cd ./icons/15 && zip -r ../../../../radix-icons.zip ./",
     "build": "rimraf dist && tsdx build --format es,cjs --entry src/index.tsx",
     "watch": "rimraf dist && tsdx watch --format es,cjs --entry src/index.tsx",
     "prepublishOnly": "npm run build"
