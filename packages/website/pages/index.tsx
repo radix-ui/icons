@@ -122,20 +122,20 @@ export default function Home() {
               }}
             >
               <Box css={{ bp2: { width: '65%' } }}>
-                <Text as="h3" size="4" css={{ fontWeight: 500, letterSpacing: '-0.02em', lineHeight: '25px' }}>
+                <Text as="h3" size="5" css={{ fontWeight: 500, letterSpacing: '-0.02em', lineHeight: '30px' }}>
                   React components
                 </Text>
-                <Text as="p" size="2" css={{ mt: '$3', lineHeight: '20px' }}>
+                <Text as="p" size="3" css={{ mt: '$3', lineHeight: '25px' }}>
                   All icons are available as individual React components.
                   <br />
                   Install Radix Icons from npm:
-                  <CodeBlock>npm install @modulz/radix-icons</CodeBlock>
                 </Text>
-                <Text as="p" size="2" css={{ mt: '$3', lineHeight: '20px' }}>
+                <CodeBlock css={{ mt: '$3' }}>npm install @modulz/radix-icons</CodeBlock>
+                <Text as="p" size="3" css={{ mt: '$3', lineHeight: '25px' }}>
                   Import the icons into your React project:
-                  <br />
-                  <CodeBlock>
-                    {`import { FaceIcon, ImageIcon, SunIcon } from '@modulz/radix-icons'
+                </Text>
+                <CodeBlock css={{ mt: '$3' }}>
+                  {`import { FaceIcon, ImageIcon, SunIcon } from '@modulz/radix-icons'
 
 function MyComponent () {
   return (
@@ -146,8 +146,7 @@ function MyComponent () {
     </div>
   )
 }`}
-                  </CodeBlock>
-                </Text>
+                </CodeBlock>
               </Box>
             </Box>
           </Box>

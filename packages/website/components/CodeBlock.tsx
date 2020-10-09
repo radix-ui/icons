@@ -4,7 +4,7 @@ export const CodeBlock = styled('pre', {
   backgroundColor: '$gray200',
   color: '$gray900',
   fontFamily: '$mono',
-  fontSize: 'max(12px, 85%)',
+  fontSize: '$2',
   overflowX: 'auto',
   maxWidth: '100%',
   overflowWrap: 'normal',
