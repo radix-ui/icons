@@ -23,4 +23,4 @@ For full documentation, visit [icons.modulz.app](https://icons.modulz.app).
 
 Licensed under the MIT License, Copyright © 2020-present Modulz.
 
-See [LICENSE](./LICENSE.md) for more information.
+See [LICENSE](./LICENSE) for more information.
