@@ -1,13 +1,17 @@
 {
   "private": true,
   "workspaces": {
-    "packages": ["packages/*"]
+    "packages": [
+      "packages/*"
+    ]
   },
+
   "scripts": {
     "start": "yarn icons",
-    "build": "yarn icons:build",
+    "build": "yarn icons:build && yarn website:build",
     "icons": "lerna exec --scope @modulz/radix-icons -- yarn watch",
     "icons:build": "lerna exec --scope @modulz/radix-icons -- yarn build",
+    "website:build": "lerna exec --scope website -- yarn build",
     "prettier": "prettier './**/*.{js,jsx,ts,tsx,json,yml,yaml,css,md,mdx}' --write",
     "lint": "eslint './packages/**/*.{js,jsx,ts,tsx}'",
     "clean": "npm run clean-logs && npm run clean-modules",
@@ -29,7 +33,7 @@
     "husky": "^2.7.0",
     "lerna": "^3.15.0",
     "lint-staged": "^9.0.0",
-    "prettier": "^1.18.2",
+    "prettier": "^2.0.5",
     "rimraf": "^2.6.3",
     "yarnhook": "^0.4.1"
   },

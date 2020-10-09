@@ -6,3 +6,6 @@ storybook-static
 public
 .cache
 dist
+.next
+out
+.mdx-data

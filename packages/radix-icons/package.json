@@ -16,7 +16,7 @@
     "manifest.json"
   ],
   "scripts": {
-    "generate-src": "generate-icon-lib --file=9Df5CaFUEomVzn20gRpaX3",
+    "generate-src": "generate-icon-lib --file=9Df5CaFUEomVzn20gRpaX3 && zip -r ../../radix-icons.zip ./icons/15",
     "build": "rimraf dist && tsdx build --format es,cjs --entry src/index.tsx",
     "watch": "rimraf dist && tsdx watch --format es,cjs --entry src/index.tsx",
     "prepublishOnly": "npm run build"
@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@modulz/generate-icon-lib": "^0.0.7",
-    "tsdx": "0.5.9"
+    "tsdx": "0.14.0"
   },
   "gitHead": "dcfeb380ad27ceb7795b59093896737c299c5300"
 }

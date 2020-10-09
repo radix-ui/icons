@@ -10,7 +10,8 @@ node_modules
 
 # production
 /build
-public
+public/*
+!public/noflash.js
 
 # misc
 .DS_Store
@@ -27,4 +28,5 @@ yarn-error.log*
 .rpt2_cache/
 dist/
 
+.vercel
 !radix-icons.zip

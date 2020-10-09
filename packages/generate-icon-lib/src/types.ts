@@ -31,9 +31,10 @@ export interface IFigmaConfig {
 
 export interface IIcon {
   id: string;
-  name: string;
   size: string;
   type: string;
+  jsxName: string;
+  svgName: string;
 }
 
 export interface IIcons {
@@ -41,10 +42,11 @@ export interface IIcons {
 }
 
 export interface ITemplateIcon {
-  name: string;
   ids: string[];
   sizes: string[];
   types: string[];
+  jsxName: string;
+  svgName: string;
 }
 
 export interface IIconsSvgUrls {
@@ -75,7 +77,5 @@ interface ErrorResponse {
 }
 export interface IFigmaCanvas extends Canvas {}
 export interface IFigmaDocument extends Document {}
-export interface IFigmaFileImageResponse
-  extends Omit<FileImageResponse, 'err' | 'status'>,
-    ErrorResponse {}
+export interface IFigmaFileImageResponse extends Omit<FileImageResponse, 'err' | 'status'>, ErrorResponse {}
 export interface IFigmaFileResponse extends FileResponse, ErrorResponse {}

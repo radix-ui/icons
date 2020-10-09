@@ -56,6 +56,16 @@ const transformers = {
     return $.xml();
   },
 
+  /**
+   * Injects viewBox attribute so icons will scale when resized.
+   */
+  injectViewBox(svgRaw: string) {
+    const $ = cheerio.load(svgRaw, { xmlMode: true });
+    const svg = $('svg');
+    svg.attr('viewBox', `0 0 ${svg.attr('width')} ${svg.attr('height')}`);
+    return $.xml();
+  },
+
   prettify(svgRaw: string) {
     const prettierOptions = prettier.resolveConfig.sync(process.cwd());
     return prettier.format(svgRaw, { ...prettierOptions, parser: 'html' });
@@ -105,7 +115,7 @@ const labelling = {
     );
   },
   filePathFromIcon(icon: IIcon): string {
-    return path.join(icon.type, labelling.stripSizePrefix(icon.size), `${icon.name}.svg`);
+    return path.join(icon.type, labelling.stripSizePrefix(icon.size), `${icon.svgName}.svg`);
   },
   stripSizePrefix(size) {
     return size.replace(/^:?(.*)/, '$1');
@@ -152,13 +162,9 @@ ${chalk.bold('Git Status')} ${chalk.dim(
       `(${['--no-renames', '--untracked-files', '--short', '--', FOLDER_PATH_ICONS].join(' ')})`
     )}
 `);
-    await execa(
-      'git',
-      ['status', '--no-renames', '--untracked-files', '--short', '--', FOLDER_PATH_ICONS],
-      {
-        stdio: 'inherit',
-      }
-    );
+    await execa('git', ['status', '--no-renames', '--untracked-files', '--short', '--', FOLDER_PATH_ICONS], {
+      stdio: 'inherit',
+    });
     process.exit(1);
   }
 }
@@ -205,10 +211,7 @@ export async function renderIdsToSvgs(ids: string[], config: IFigmaConfig): Prom
   if (!resp.ok) {
     switch (resp.status) {
       case 400:
-        throw new CodedError(
-          ERRORS.FIGMA_API,
-          `Unexpected error encountered from Figma API\n${error}`
-        );
+        throw new CodedError(ERRORS.FIGMA_API, `Unexpected error encountered from Figma API\n${error}`);
       case 404:
         throw new CodedError(
           ERRORS.FIGMA_API,
@@ -227,11 +230,7 @@ export async function renderIdsToSvgs(ids: string[], config: IFigmaConfig): Prom
   if (!data.images || !Object.keys(data.images).length) {
     throw new CodedError(
       ERRORS.UNEXPECTED,
-      `An error occured after rendering icons in Figma. Render response:\n${JSON.stringify(
-        data,
-        null,
-        2
-      )}`
+      `An error occured after rendering icons in Figma. Render response:\n${JSON.stringify(data, null, 2)}`
     );
   }
 
@@ -251,12 +250,20 @@ export function getIcons(iconsCanvas: IFigmaCanvas): IIcons {
       iconSetNode.children.forEach(iconNode => {
         // Our individual icons frames may be Figma "Components" 🤙
         if (iconNode.type === 'FRAME' || iconNode.type === 'COMPONENT') {
-          // Parse Title Case names, e.g. 'Break Link' => 'break-link'
-          const name = iconNode.name.toLowerCase().replace(/\s/g, '-');
+          // 'Break Link' => 'break-link'
+          // 'GitHub Logo' => 'github-logo'
+          const svgName = _.kebabCase(iconNode.name.toLowerCase());
+
+          // We insert whitespace between lower and uppercase letters
+          // to make sure that lodash preserves existing camel-casing.
+          // 'Break Link' => 'BreakLink'
+          // 'GitHub Logo' => 'GitHubLogo'
+          const jsxName = _.upperFirst(_.camelCase(iconNode.name.replace(/([0-9a-z])([0-9A-Z])/g, '$1 $2')));
 
           icons[iconNode.id] = {
+            jsxName,
+            svgName,
             id: iconNode.id,
-            name: name,
             size: labelling.sizeFromFrameNodeName(iconSetNode.name),
             type: labelling.typeFromFrameNodeName(iconSetNode.name),
           };
@@ -274,6 +281,7 @@ export async function downloadSvgsToFs(urls: IIconsSvgUrls, icons: IIcons, onPro
         .text()
         .then(async svgRaw => transformers.passSVGO(svgRaw))
         .then(svgRaw => transformers.injectCurrentColor(svgRaw))
+        .then(svgRaw => transformers.injectViewBox(svgRaw))
         .then(svgRaw => transformers.prettify(svgRaw));
 
       const filePath = path.resolve(currentTempDir, labelling.filePathFromIcon(icons[iconId]));
@@ -294,8 +302,8 @@ export function iconsToManifest(icons: IIcons): IIconManifest {
     if (!iconManifest[icon.type][icon.size]) {
       iconManifest[icon.type][icon.size] = {};
     }
-    if (!iconManifest[icon.type][icon.size][icon.name]) {
-      iconManifest[icon.type][icon.size][icon.name] = labelling.filePathFromIcon(icon);
+    if (!iconManifest[icon.type][icon.size][icon.svgName]) {
+      iconManifest[icon.type][icon.size][icon.svgName] = labelling.filePathFromIcon(icon);
     }
 
     return iconManifest;
@@ -325,17 +333,18 @@ export async function generateReactComponents(icons: IIcons) {
   const firstIcon = Object.values(icons)[0];
   const iconsWithVariants = Object.values<ITemplateIcon>(
     Object.keys(icons).reduce((iconsWithVariants: { [name: string]: ITemplateIcon }, iconId) => {
-      const icon = iconsWithVariants[icons[iconId].name] || {
-        name: icons[iconId].name,
+      const icon = iconsWithVariants[icons[iconId].svgName] || {
         ids: [],
         sizes: [],
         types: [],
+        svgName: icons[iconId].svgName,
+        jsxName: icons[iconId].jsxName,
       };
       icon.ids = _.uniq(icon.ids.concat(icons[iconId].id));
       icon.sizes = _.uniq(icon.sizes.concat(labelling.stripSizePrefix(icons[iconId].size)));
       icon.types = _.uniq(icon.types.concat(icons[iconId].type));
 
-      iconsWithVariants[icons[iconId].name] = icon;
+      iconsWithVariants[icons[iconId].svgName] = icon;
 
       return iconsWithVariants;
     }, {})
@@ -349,19 +358,19 @@ export async function generateReactComponents(icons: IIcons) {
       return firstIcon.type;
     },
     iconToComponentName(icon: ITemplateIcon) {
-      const pascal = str => _.upperFirst(_.camelCase(str));
-      return `${pascal(icon.name)}Icon`;
+      return `${icon.jsxName}Icon`;
     },
     iconToPropsName(icon: ITemplateIcon) {
-      return `${templateHelpers.iconToComponentName(icon)}Props`;
+      return `${icon.jsxName}IconProps`;
     },
     iconToReactFileName(icon: ITemplateIcon) {
-      return `${templateHelpers.iconToComponentName(icon)}.tsx`;
+      return `${icon.jsxName}Icon.tsx`;
     },
     iconToSVGSourceAsJSX(icon: ITemplateIcon, size: string, type: string) {
       const filePath = labelling.filePathFromIcon({
         id: icon.ids[0],
-        name: icon.name,
+        svgName: icon.svgName,
+        jsxName: icon.jsxName,
         size,
         type,
       });
@@ -390,11 +399,7 @@ export async function generateReactComponents(icons: IIcons) {
       ...prettierOptions,
       parser: 'typescript',
     });
-    const iconComponentFilePath = path.resolve(
-      currentTempDir,
-      'src/',
-      templateHelpers.iconToReactFileName(icon)
-    );
+    const iconComponentFilePath = path.resolve(currentTempDir, 'src/', templateHelpers.iconToReactFileName(icon));
     await fs.outputFile(iconComponentFilePath, iconSource);
     currentListOfAddedFiles.push(iconComponentFilePath);
   }
@@ -420,14 +425,8 @@ export async function generateReactComponents(icons: IIcons) {
 
 export async function getCurrentIconManifest(): Promise<IIconManifest> {
   const { stdout: gitRootDir } = await execa('git', ['rev-parse', '--show-toplevel']);
-  const gitRelativePathToManifest = path.relative(
-    gitRootDir,
-    path.resolve(process.cwd(), FILE_PATH_MANIFEST)
-  );
-  let { stdout: currentManifest } = await execa('git', [
-    'show',
-    `HEAD:${gitRelativePathToManifest}`,
-  ]);
+  const gitRelativePathToManifest = path.relative(gitRootDir, path.resolve(process.cwd(), FILE_PATH_MANIFEST));
+  let { stdout: currentManifest } = await execa('git', ['show', `HEAD:${gitRelativePathToManifest}`]);
   return JSON.parse(currentManifest);
 }
 
@@ -460,9 +459,7 @@ export async function swapGeneratedFiles(
   pushObjLeafNodesToArr(nextIconManifest, generatedFilePaths);
   //  3. The top-level dirs for generated source
   generatedFilePaths = generatedFilePaths.concat([FILE_PATH_ENTRY, FILE_PATH_TYPES]);
-  const topLevelDirs: string[] = _.uniq(
-    generatedFilePaths.map(filePath => filePath.replace(/^([\w-]+).*/, '$1'))
-  );
+  const topLevelDirs: string[] = _.uniq(generatedFilePaths.map(filePath => filePath.replace(/^([\w-]+).*/, '$1')));
   for (const i in topLevelDirs) {
     const topLevelDir = topLevelDirs[i];
     await fs.remove(path.resolve(process.cwd(), topLevelDir));
@@ -493,9 +490,7 @@ export async function getGitCustomDiff(touchedPaths): Promise<IDiffSummary[]> {
     .split('\n')
     .map(line => line.split('\t'))
     .map(([additions, deletions, filePath], i) => {
-      const filePathFromCwd = filePath
-        .replace(path.relative(gitRootDir, process.cwd()), '')
-        .replace(/^\//, '');
+      const filePathFromCwd = filePath.replace(path.relative(gitRootDir, process.cwd()), '').replace(/^\//, '');
 
       return {
         status: nameStat[i] || 'M',

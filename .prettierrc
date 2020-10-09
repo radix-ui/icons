@@ -1,7 +1,9 @@
 {
   "singleQuote": true,
   "trailingComma": "es5",
-  "printWidth": 100,
+  "printWidth": 120,
+  "semi": true,
+  "tabWidth": 2,
   "overrides": [
     {
       "files": "*.mdx",
