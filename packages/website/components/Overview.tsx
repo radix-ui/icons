@@ -1,7 +1,7 @@
 import React from 'react';
 import useDarkMode from 'use-dark-mode';
 import * as Icons from '@modulz/radix-icons';
-import { Box, Grid, Text, styled } from '@modulz/design-system';
+import { Box, Grid, Text, styled, darkThemeClass } from '@modulz/design-system';
 import { Tooltip } from './Tooltip';
 import { CopyToastVisibility } from './CopyToast';
 import { ChromelessButton } from './ChromelessButton';
@@ -95,7 +95,10 @@ const Group = styled(Grid, {
 });
 
 const GhostButton = (props: React.ComponentProps<typeof ChromelessButton>) => {
-  const darkMode = useDarkMode();
+  const darkMode = useDarkMode(undefined, {
+    classNameDark: darkThemeClass,
+    classNameLight: 'theme-default',
+  });
 
   return (
     <ChromelessButton

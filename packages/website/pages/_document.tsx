@@ -37,7 +37,6 @@ export default class Document extends NextDocument {
       <Html lang="en">
         <Head></Head>
         <body>
-          <script src="/noflash.js" />
           <Main />
           <NextScript />
         </body>

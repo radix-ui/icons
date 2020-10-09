@@ -1,5 +1,6 @@
 import React from 'react';
 import { css } from '@modulz/design-system';
+import { TitleAndMetaTags } from '../components/TitleAndMetaTags';
 
 const globalCss = css.global({
   '*': {
@@ -26,11 +27,6 @@ const globalCss = css.global({
 function App({ Component, pageProps }) {
   globalCss();
 
-  // const darkMode = useDarkMode(undefined, {
-  //   classNameDark: darkThemeClass,
-  //   classNameLight: 'theme-default',
-  // });
-
   const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => {
@@ -43,21 +39,17 @@ function App({ Component, pageProps }) {
   if (!mounted) {
     return (
       <div style={{ visibility: 'hidden' }}>
+        <TitleAndMetaTags key="1" />
         <Component {...pageProps} />
       </div>
     );
   }
 
   return (
-    <div>
+    <>
+      <TitleAndMetaTags key="2" />
       <Component {...pageProps} />
-
-      {/*
-      <Button css={{ position: 'fixed', zIndex: 999, bottom: '$3', left: '$3' }} onClick={() => darkMode.toggle()}>
-        Toggle theme
-      </Button>
-      */}
-    </div>
+    </>
   );
 }
 

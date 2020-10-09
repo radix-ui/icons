@@ -11,7 +11,7 @@ export const Section: React.FunctionComponent = ({ children }: SectionProps) => 
       css={{
         borderTop: '1px solid $gray500',
         default: {
-          padding: '$4 $3 $6',
+          padding: '$4 $3 $4',
         },
         bp1: {
           padding: '$5 $6 $6',

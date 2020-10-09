@@ -12,7 +12,7 @@
   "dependencies": {
     "@interop-ui/react-portal": "^0.0.1-6",
     "@interop-ui/react-tooltip": "^0.0.1-5",
-    "@modulz/design-system": "0.0.4",
+    "@modulz/design-system": "0.0.5",
     "@modulz/radix-icons": "^3.0.0",
     "@types/react-input-autosize": "^2.2.0",
     "next": "9.5.4",

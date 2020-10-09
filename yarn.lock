@@ -2245,10 +2245,10 @@
     npmlog "^4.1.2"
     write-file-atomic "^2.3.0"
 
-"@modulz/design-system@0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@modulz/design-system/-/design-system-0.0.4.tgz#92b2f921c5c97b12e2399968f8e3aeebcb79407f"
-  integrity sha512-w6eOAGpWb6U/+Is5UNDXZR72xSPsGHMbCymqHAOXwDDopvDCcxr/Uof1SCUJ7fvkXEBm5f8C4yd/+AUbCBXU7A==
+"@modulz/design-system@0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@modulz/design-system/-/design-system-0.0.5.tgz#e909b3777a0a7ed955efac8b38bad27b619bf2d1"
+  integrity sha512-HuXLQET27NBZvh4NDK2DRYvev07SzRem+vkPErQucYjPLhCeWoqfPTOVrf/DOzjgqnTHmLy+yNai1WGvZUjquQ==
   dependencies:
     "@interop-ui/react-accordion" "^0.0.1-7"
     "@interop-ui/react-alert-dialog" "^0.0.1-4"
@@ -2269,6 +2269,11 @@
     next "9.5.4"
     react "16.13.1"
     react-dom "16.13.1"
+
+"@modulz/radix-icons@^2.4.1":
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/@modulz/radix-icons/-/radix-icons-2.4.1.tgz#3423adcc4cf647fe44f5c3a21d10ddd61876a949"
+  integrity sha512-U5/v/x+QnPiazReaNnQBV1wAQ5I3mRiycJclbQd+YiWQQMFNmj91AFHZE+mxntipAPfmslTnJfYRUX4DQVjr5g==
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
