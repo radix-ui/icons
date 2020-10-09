@@ -12,11 +12,6 @@ A crisp set of 15×15 icons designed by the [Modulz](https://modulz.app) team.
 
 For full documentation, visit [icons.modulz.app](https://icons.modulz.app).
 
-## Contributing
-
-
-Please follow our [contributing guidelines](./CONTRIBUTING.md).
-
 ## Authors
 
 - Vlad Moroz ([@vladyslavmoroz](https://twitter.com/vladyslavmoroz)) - [Modulz](https://modulz.app)
