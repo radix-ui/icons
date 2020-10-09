@@ -22,7 +22,7 @@ export const DarkModeButton = () => {
         padding: '$2',
         margin: '$2',
         borderRadius: '$1',
-        zIndex: '1000',
+        zIndex: '$4',
         color: '$hiContrast',
         mixBlendMode: darkMode.value ? 'screen' : 'multiply',
         '&:hover': {
