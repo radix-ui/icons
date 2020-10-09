@@ -111,11 +111,6 @@ export default function Home() {
                       </Box>
                       Download SVG
                     </IconLink>
-                  </Text>
-                  <Text
-                    size="3"
-                    css={{ display: 'flex', flexFlow: 'column', alignItems: 'start', mt: '$3', lineHeight: '25px' }}
-                  >
                     <IconLink href="https://www.npmjs.com/package/@modulz/radix-icons" target="_blank">
                       <Box as="span" css={{ mr: '$2' }}>
                         <CubeIcon />
