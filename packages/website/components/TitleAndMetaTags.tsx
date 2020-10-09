@@ -6,12 +6,16 @@ export function TitleAndMetaTags({
   title = 'Radix Icons',
   description = 'A crisp set of 15×15 icons designed by the Modulz team.',
 }) {
-  const image = `${url}/preview.png`;
+  // const image = `${url}/preview.png`;
+  const image = 'https://raw.githubusercontent.com/modulz/radix-icons/master/packages/website/public/preview.png';
+  const favicon = 'https://raw.githubusercontent.com/modulz/radix-icons/master/packages/website/public/favicon.ico';
 
   return (
     <Head>
       <title>{title}</title>
       <meta name="description" content={description} />
+
+      <link rel="icon" href={favicon} />
 
       <meta property="og:url" content={url} />
       <meta property="og:title" content={title} />
