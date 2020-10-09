@@ -1,6 +1,6 @@
 import React from 'react';
 import useDarkMode from 'use-dark-mode';
-import { Box, Container, Text, darkThemeClass } from '@modulz/design-system';
+import { Box, Container, Text, Link, darkThemeClass } from '@modulz/design-system';
 import { FigmaLogoIcon, SketchLogoIcon, DownloadIcon, CubeIcon, GitHubLogoIcon } from '@modulz/radix-icons';
 import { Overview } from '../components/Overview';
 import { Hero } from '../components/Hero';
@@ -73,9 +73,9 @@ export default function Home() {
                   },
                   '@media (min-width: 750px)': {
                     display: 'grid',
-                    gridAutoFlow: 'dense',
                     gridTemplateColumns: 'repeat(3, 1fr)',
-                    gap: '$8',
+                    gridTemplateRows: 'auto 1fr',
+                    columnGap: '$8',
                   },
                 }}
               >
@@ -85,7 +85,7 @@ export default function Home() {
                   </Text>
                   <Text
                     size="3"
-                    css={{ display: 'flex', flexFlow: 'column', alignItems: 'start', mt: '$3', lineHeight: '25px' }}
+                    css={{ display: 'flex', flexFlow: 'column', alignItems: 'start', mt: '$2', lineHeight: '25px' }}
                   >
                     <IconLink href="https://www.figma.com/file/9Df5CaFUEomVzn20gRpaX3/Radix-Icons" target="_blank">
                       <Box as="span" css={{ mr: '$2' }}>
@@ -125,20 +125,24 @@ export default function Home() {
                     </IconLink>
                   </Text>
                 </Box>
-                <Box css={{ gridColumn: '1 / 3' }}>
+                <Box
+                  css={{
+                    gridColumn: '1 / 3',
+                    gridRow: '1 / 3',
+                    '@media (max-width: 749px)': { marginBottom: '$5' },
+                  }}
+                >
                   <Text as="h3" size="5" css={{ fontWeight: 500, letterSpacing: '-0.02em', lineHeight: '30px' }}>
                     React components
                   </Text>
-                  <Text as="p" size="3" css={{ mt: '$3', lineHeight: '25px' }}>
-                    All icons are available as individual React components.
-                    <br />
-                    Install Radix Icons from npm:
+                  <Text as="p" size="3" css={{ mt: '$2', lineHeight: '25px' }}>
+                    All icons are available as individual React components. Install Radix Icons from npm:
                   </Text>
-                  <CodeBlock css={{ mt: '$3' }}>npm install @modulz/radix-icons</CodeBlock>
-                  <Text as="p" size="3" css={{ mt: '$3', lineHeight: '25px' }}>
+                  <CodeBlock css={{ mt: '$2' }}>npm install @modulz/radix-icons</CodeBlock>
+                  <Text as="p" size="3" css={{ mt: '$2', lineHeight: '25px' }}>
                     Import the icons into your React project:
                   </Text>
-                  <CodeBlock css={{ mt: '$3' }}>
+                  <CodeBlock css={{ mt: '$2' }}>
                     {`import { FaceIcon, ImageIcon, SunIcon } from '@modulz/radix-icons'
 
 function MyComponent () {
@@ -151,6 +155,16 @@ function MyComponent () {
   )
 }`}
                   </CodeBlock>
+                </Box>
+                <Box css={{ gridColumn: '3 / 4' }}>
+                  <Text as="h3" size="5" css={{ fontWeight: 500, letterSpacing: '-0.02em', lineHeight: '30px' }}>
+                    License
+                  </Text>
+                  <Text as="p" size="3" css={{ mt: '$2', lineHeight: '25px' }}>
+                    Licensed under the{' '}
+                    <Link href="https://github.com/modulz/radix-icons/blob/master/LICENSE">MIT License</Link>. Copyright
+                    © 2020–present Modulz.
+                  </Text>
                 </Box>
               </Box>
             </Section>
