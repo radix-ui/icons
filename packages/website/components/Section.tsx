@@ -18,7 +18,7 @@ export const Section: React.FunctionComponent = ({ children }: SectionProps) => 
         },
       }}
     >
-      <Box css={{ bp2: { width: '65%' } }}>{children}</Box>
+      {children}
     </Box>
   );
 };

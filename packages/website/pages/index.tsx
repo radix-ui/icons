@@ -60,57 +60,34 @@ export default function Home() {
               <Overview />
             </Box>
             <Section>
-              <Text as="h3" size="5" css={{ fontWeight: 500, letterSpacing: '-0.02em', lineHeight: '30px' }}>
-                Design assets
-              </Text>
-              <Text as="p" size="3" css={{ mt: '$3', lineHeight: '25px' }}>
-                Use Radix Icons as a component library in your favorite design tool:
-              </Text>
-              <Text
-                size="3"
-                css={{ display: 'flex', flexFlow: 'column', alignItems: 'start', mt: '$3', lineHeight: '25px' }}
+              <Box
+                css={{
+                  '@media (max-width: 749px)': {
+                    display: 'flex',
+                    flexDirection: 'column-reverse',
+                  },
+                  '@media (min-width: 750px)': {
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(3, 1fr)',
+                    gap: '$8',
+                  },
+                }}
               >
-                <IconLink href="https://www.figma.com/file/9Df5CaFUEomVzn20gRpaX3/Radix-Icons" target="_blank">
-                  <Box as="span" css={{ mr: '$2' }}>
-                    <FigmaLogoIcon />
-                  </Box>
-                  Open in Figma
-                </IconLink>
-                <IconLink
-                  href="https://raw.githubusercontent.com/modulz/radix-icons/master/Radix-Icons.sketch"
-                  target="_blank"
-                >
-                  <Box as="span" css={{ mr: '$2' }}>
-                    <SketchLogoIcon />
-                  </Box>
-                  Download for Sketch
-                </IconLink>
-                <IconLink
-                  href="https://raw.githubusercontent.com/modulz/radix-icons/master/radix-icons.zip"
-                  target="_blank"
-                >
-                  <Box as="span" css={{ mr: '$2' }}>
-                    <DownloadIcon />
-                  </Box>
-                  Download SVG
-                </IconLink>
-              </Text>
-            </Section>
-            <Section>
-              <Text as="h3" size="5" css={{ fontWeight: 500, letterSpacing: '-0.02em', lineHeight: '30px' }}>
-                React components
-              </Text>
-              <Text as="p" size="3" css={{ mt: '$3', lineHeight: '25px' }}>
-                All icons are available as individual React components.
-                <br />
-                Install Radix Icons from npm:
-              </Text>
-              <CodeBlock css={{ mt: '$3' }}>npm install @modulz/radix-icons</CodeBlock>
-              <Text as="p" size="3" css={{ mt: '$3', lineHeight: '25px' }}>
-                Import the icons into your React project:
-              </Text>
-              <CodeBlock css={{ mt: '$3' }}>
-                {`import { FaceIcon, ImageIcon, SunIcon } from '@modulz/radix-icons'
+                <Box css={{ gridColumn: '1 / span 2' }}>
+                  <Text as="h3" size="5" css={{ fontWeight: 500, letterSpacing: '-0.02em', lineHeight: '30px' }}>
+                    React components
+                  </Text>
+                  <Text as="p" size="3" css={{ mt: '$3', lineHeight: '25px' }}>
+                    All icons are available as individual React components.
+                    <br />
+                    Install Radix Icons from npm:
+                  </Text>
+                  <CodeBlock css={{ mt: '$3' }}>npm install @modulz/radix-icons</CodeBlock>
+                  <Text as="p" size="3" css={{ mt: '$3', lineHeight: '25px' }}>
+                    Import the icons into your React project:
+                  </Text>
+                  <CodeBlock css={{ mt: '$3' }}>
+                    {`import { FaceIcon, ImageIcon, SunIcon } from '@modulz/radix-icons'
 
 function MyComponent () {
   return (
@@ -121,7 +98,43 @@ function MyComponent () {
     </div>
   )
 }`}
-              </CodeBlock>
+                  </CodeBlock>
+                </Box>
+                <Box css={{ mb: '$5' }}>
+                  <Text as="h3" size="5" css={{ fontWeight: 500, letterSpacing: '-0.02em', lineHeight: '30px' }}>
+                    Design assets
+                  </Text>
+                  <Text
+                    size="3"
+                    css={{ display: 'flex', flexFlow: 'column', alignItems: 'start', mt: '$3', lineHeight: '25px' }}
+                  >
+                    <IconLink href="https://www.figma.com/file/9Df5CaFUEomVzn20gRpaX3/Radix-Icons" target="_blank">
+                      <Box as="span" css={{ mr: '$2' }}>
+                        <FigmaLogoIcon />
+                      </Box>
+                      Open in Figma
+                    </IconLink>
+                    <IconLink
+                      href="https://raw.githubusercontent.com/modulz/radix-icons/master/Radix-Icons.sketch"
+                      target="_blank"
+                    >
+                      <Box as="span" css={{ mr: '$2' }}>
+                        <SketchLogoIcon />
+                      </Box>
+                      Download for Sketch
+                    </IconLink>
+                    <IconLink
+                      href="https://raw.githubusercontent.com/modulz/radix-icons/master/radix-icons.zip"
+                      target="_blank"
+                    >
+                      <Box as="span" css={{ mr: '$2' }}>
+                        <DownloadIcon />
+                      </Box>
+                      Download SVG
+                    </IconLink>
+                  </Text>
+                </Box>
+              </Box>
             </Section>
           </Box>
         </Container>
