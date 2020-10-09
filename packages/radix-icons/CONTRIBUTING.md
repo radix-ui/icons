@@ -11,7 +11,7 @@ Further instructions can be found in the readme for `@modulz/generate-icon-lib`.
 
 #### Vector Icons
 
-Access the [Figma file][figmafile], make changes, then run `yarn generate-src` and open a PR.
+Access the [Figma file](https://www.figma.com/file/9Df5CaFUEomVzn20gRpaX3/), make changes, then run `yarn generate-src` and open a PR.
 
 There are a couple things to keep in mind when making changes:
 
