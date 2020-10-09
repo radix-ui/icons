@@ -1,6 +1,6 @@
 import React from 'react';
 import useDarkMode from 'use-dark-mode';
-import { Box, Container, Text } from '@modulz/design-system';
+import { Box, Container, Text, darkThemeClass } from '@modulz/design-system';
 import { FigmaLogoIcon, SketchLogoIcon, DownloadIcon } from '@modulz/radix-icons';
 import { Overview } from '../components/Overview';
 import { Hero } from '../components/Hero';
@@ -12,6 +12,7 @@ import { CodeBlock } from '../components/CodeBlock';
 import { IconLink } from '../components/IconLink';
 import { Section } from '../components/Section';
 import { TitleAndMetaTags } from '../components/TitleAndMetaTags';
+import { DarkModeButton } from '../components/DarkModeButton';
 
 export default function Home() {
   const darkMode = useDarkMode();
@@ -40,6 +41,7 @@ export default function Home() {
       <Box>
         <Hero />
         <Menu />
+        <DarkModeButton />
         <Container size="3" css={{ position: 'relative', marginBottom: 'calc(5vh + 25px)' }}>
           <Box
             css={{
