@@ -20,6 +20,7 @@ Please follow our [contributing guidelines](./CONTRIBUTING.md).
 ## Authors
 
 - Vlad Moroz ([@vladyslavmoroz](https://twitter.com/vladyslavmoroz)) - [Modulz](https://modulz.app)
+- Colm Tuite ([@colmtuite](https://twitter.com/colmtuite)) - [Modulz](https://modulz.app)
 - Pedro Duarte ([@peduarte](https://twitter.com/peduarte)) - [Modulz](https://modulz.app)
 - Lochlan Bunn ([@loklaan](https://twitter.com/loklaan))
 
