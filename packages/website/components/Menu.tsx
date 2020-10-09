@@ -26,11 +26,7 @@ const MenuLink = styled('a', {
   },
 });
 
-type MenuProps = {
-  isVisible?: boolean;
-};
-
-export const Menu = ({ isVisible = false }: MenuProps) => {
+export const Menu = () => {
   const darkMode = useDarkMode();
 
   return (
@@ -43,13 +39,7 @@ export const Menu = ({ isVisible = false }: MenuProps) => {
         userSelect: 'none',
         WebkitUserSelect: 'none',
         default: {
-          display: isVisible ? 'flex' : 'none',
-          top: 0,
-          left: 0,
-          bottom: 0,
-          right: 0,
-          zIndex: '$4',
-          paddingBottom: '10vh',
+          display: 'none',
         },
         bp2: {
           display: 'block',
