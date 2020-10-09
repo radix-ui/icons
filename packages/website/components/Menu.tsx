@@ -12,9 +12,7 @@ const MenuLink = styled('a', {
     marginTop: '$1',
   },
   '&:hover': {
-    fontWeight: 500,
-    letterSpacing: '-0.017em',
-    wordSpacing: '-0.01em',
+    textDecoration: 'underline',
   },
   default: {
     padding: '0 $3',
@@ -77,12 +75,6 @@ export const Menu = ({ isVisible = false }: MenuProps) => {
           },
         }}
       >
-        <MenuLink href="https://raw.githubusercontent.com/modulz/radix-icons/master/radix-icons.zip" target="_blank">
-          <Box as="span" css={{ mr: '$2' }}>
-            <DownloadIcon />
-          </Box>
-          Download SVG
-        </MenuLink>
         <MenuLink href="https://www.figma.com/file/9Df5CaFUEomVzn20gRpaX3/Radix-Icons" target="_blank">
           <Box as="span" css={{ mr: '$2' }}>
             <FigmaLogoIcon />
@@ -94,6 +86,12 @@ export const Menu = ({ isVisible = false }: MenuProps) => {
             <SketchLogoIcon />
           </Box>
           Download for Sketch
+        </MenuLink>
+        <MenuLink href="https://raw.githubusercontent.com/modulz/radix-icons/master/radix-icons.zip" target="_blank">
+          <Box as="span" css={{ mr: '$2' }}>
+            <DownloadIcon />
+          </Box>
+          Download SVG
         </MenuLink>
         <MenuLink href="https://www.npmjs.com/package/@modulz/radix-icons" target="_blank">
           <Box as="span" css={{ mr: '$2' }}>

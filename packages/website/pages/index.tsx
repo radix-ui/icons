@@ -1,7 +1,7 @@
 import React from 'react';
 import useDarkMode from 'use-dark-mode';
 import { Box, Container, Text } from '@modulz/design-system';
-import { Cross1Icon, HamburgerMenuIcon } from '@modulz/radix-icons';
+import { Cross1Icon, HamburgerMenuIcon, FigmaLogoIcon, SketchLogoIcon, DownloadIcon } from '@modulz/radix-icons';
 import { Overview } from '../components/Overview';
 import { Hero } from '../components/Hero';
 import { Menu } from '../components/Menu';
@@ -10,6 +10,8 @@ import { SearchResults } from '../components/SearchResults';
 import { CopyToast, CopyToastVisibility } from '../components/CopyToast';
 import { ChromelessButton } from '../components/ChromelessButton';
 import { CodeBlock } from '../components/CodeBlock';
+import { IconLink } from '../components/IconLink';
+import { Section } from '../components/Section';
 
 export default function Home() {
   const darkMode = useDarkMode();
@@ -110,32 +112,58 @@ export default function Home() {
             <Box css={{ display: searchValue ? 'none' : 'block' }}>
               <Overview />
             </Box>
-            <Box
-              css={{
-                borderTop: '1px solid $gray500',
-                default: {
-                  padding: '$4 $3 $6',
-                },
-                bp1: {
-                  padding: '$5 $6 $6',
-                },
-              }}
-            >
-              <Box css={{ bp2: { width: '65%' } }}>
-                <Text as="h3" size="5" css={{ fontWeight: 500, letterSpacing: '-0.02em', lineHeight: '30px' }}>
-                  React components
-                </Text>
-                <Text as="p" size="3" css={{ mt: '$3', lineHeight: '25px' }}>
-                  All icons are available as individual React components.
-                  <br />
-                  Install Radix Icons from npm:
-                </Text>
-                <CodeBlock css={{ mt: '$3' }}>npm install @modulz/radix-icons</CodeBlock>
-                <Text as="p" size="3" css={{ mt: '$3', lineHeight: '25px' }}>
-                  Import the icons into your React project:
-                </Text>
-                <CodeBlock css={{ mt: '$3' }}>
-                  {`import { FaceIcon, ImageIcon, SunIcon } from '@modulz/radix-icons'
+            <Section>
+              <Text as="h3" size="5" css={{ fontWeight: 500, letterSpacing: '-0.02em', lineHeight: '30px' }}>
+                Design assets
+              </Text>
+              <Text as="p" size="3" css={{ mt: '$3', lineHeight: '25px' }}>
+                Use Radix Icons as a component library in your favorite design tool:
+              </Text>
+              <Text
+                size="3"
+                css={{ display: 'flex', flexFlow: 'column', alignItems: 'start', mt: '$3', lineHeight: '25px' }}
+              >
+                <IconLink href="https://www.figma.com/file/9Df5CaFUEomVzn20gRpaX3/Radix-Icons" target="_blank">
+                  <Box as="span" css={{ mr: '$2' }}>
+                    <FigmaLogoIcon />
+                  </Box>
+                  Open in Figma
+                </IconLink>
+                <IconLink
+                  href="https://raw.githubusercontent.com/modulz/radix-icons/master/Radix-Icons.sketch"
+                  target="_blank"
+                >
+                  <Box as="span" css={{ mr: '$2' }}>
+                    <SketchLogoIcon />
+                  </Box>
+                  Download for Sketch
+                </IconLink>
+                <IconLink
+                  href="https://raw.githubusercontent.com/modulz/radix-icons/master/radix-icons.zip"
+                  target="_blank"
+                >
+                  <Box as="span" css={{ mr: '$2' }}>
+                    <DownloadIcon />
+                  </Box>
+                  Download SVG
+                </IconLink>
+              </Text>
+            </Section>
+            <Section>
+              <Text as="h3" size="5" css={{ fontWeight: 500, letterSpacing: '-0.02em', lineHeight: '30px' }}>
+                React components
+              </Text>
+              <Text as="p" size="3" css={{ mt: '$3', lineHeight: '25px' }}>
+                All icons are available as individual React components.
+                <br />
+                Install Radix Icons from npm:
+              </Text>
+              <CodeBlock css={{ mt: '$3' }}>npm install @modulz/radix-icons</CodeBlock>
+              <Text as="p" size="3" css={{ mt: '$3', lineHeight: '25px' }}>
+                Import the icons into your React project:
+              </Text>
+              <CodeBlock css={{ mt: '$3' }}>
+                {`import { FaceIcon, ImageIcon, SunIcon } from '@modulz/radix-icons'
 
 function MyComponent () {
   return (
@@ -146,9 +174,8 @@ function MyComponent () {
     </div>
   )
 }`}
-                </CodeBlock>
-              </Box>
-            </Box>
+              </CodeBlock>
+            </Section>
           </Box>
         </Container>
         <CopyToast />
