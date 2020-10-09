@@ -21,7 +21,7 @@ import { CameraIcon } from '@modulz/radix-icons';
 render(<CameraIcon size="25" type="outline" />);
 ```
 
-_Icons can be discovered on the [Icons page](https://www.modulz.app/icons)._
+_Icons can be discovered on the [Icons page](https://icons.modulz.app)._
 
 #### SVGs
 
