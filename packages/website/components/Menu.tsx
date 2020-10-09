@@ -101,7 +101,7 @@ export const Menu = ({ isVisible = false }: MenuProps) => {
           </Box>
           Install with npm
         </MenuLink>
-        <MenuLink href="https://github.com/modulz/radix-icons/tree/master/packages/radix-icons" target="_blank">
+        <MenuLink href="https://github.com/modulz/radix-icons" target="_blank">
           <Box as="span" css={{ mr: '$2' }}>
             <GitHubLogoIcon />
           </Box>
