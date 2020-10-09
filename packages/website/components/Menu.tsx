@@ -1,6 +1,6 @@
 import React from 'react';
 import useDarkMode from 'use-dark-mode';
-import { styled, Box, Flex } from '@modulz/design-system';
+import { styled, Box, Flex, darkThemeClass } from '@modulz/design-system';
 import { CubeIcon, DownloadIcon, FigmaLogoIcon, GitHubLogoIcon, SketchLogoIcon } from '@modulz/radix-icons';
 
 const MenuLink = styled('a', {
@@ -27,7 +27,10 @@ const MenuLink = styled('a', {
 });
 
 export const Menu = () => {
-  const darkMode = useDarkMode();
+  const darkMode = useDarkMode(undefined, {
+    classNameDark: darkThemeClass,
+    classNameLight: 'theme-default',
+  });
 
   return (
     <Flex

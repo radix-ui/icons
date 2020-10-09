@@ -1,10 +1,13 @@
 import React from 'react';
 import useDarkMode from 'use-dark-mode';
-import { Box, Text } from '@modulz/design-system';
+import { Box, Text, darkThemeClass } from '@modulz/design-system';
 import { ArrowLeftIcon } from '@modulz/radix-icons';
 
 export const Hero = () => {
-  const darkMode = useDarkMode();
+  const darkMode = useDarkMode(undefined, {
+    classNameDark: darkThemeClass,
+    classNameLight: 'theme-default',
+  });
 
   // We haven't added teal colors to dark mode theme yet
   const crimson = darkMode.value ? 'hsla(336, 79%, 48%, 0.5)' : '$crimson300';
