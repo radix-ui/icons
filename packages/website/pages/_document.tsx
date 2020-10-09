@@ -1,5 +1,5 @@
 import React from 'react';
-import NextDocument, { Head, Main, NextScript } from 'next/document';
+import NextDocument, { Head, Html, Main, NextScript } from 'next/document';
 import { css } from '@modulz/design-system';
 
 export default class Document extends NextDocument {
@@ -34,14 +34,14 @@ export default class Document extends NextDocument {
 
   render() {
     return (
-      <html lang="en">
+      <Html lang="en">
         <Head />
         <body>
           <script src="/noflash.js" />
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }
