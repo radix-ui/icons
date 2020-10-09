@@ -35,7 +35,7 @@ export default class Document extends NextDocument {
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head></Head>
         <body>
           <script src="/noflash.js" />
           <Main />

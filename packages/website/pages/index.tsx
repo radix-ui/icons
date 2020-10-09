@@ -11,6 +11,7 @@ import { CopyToast, CopyToastVisibility } from '../components/CopyToast';
 import { CodeBlock } from '../components/CodeBlock';
 import { IconLink } from '../components/IconLink';
 import { Section } from '../components/Section';
+import { TitleAndMetaTags } from '../components/TitleAndMetaTags';
 
 export default function Home() {
   const darkMode = useDarkMode();
@@ -35,6 +36,7 @@ export default function Home() {
         setIsVisible: setToastIsVisibleTimeout,
       }}
     >
+      <TitleAndMetaTags />
       <Box>
         <Hero />
         <Menu />
