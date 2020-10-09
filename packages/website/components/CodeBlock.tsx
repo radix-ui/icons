@@ -11,13 +11,5 @@ export const CodeBlock = styled('pre', {
   padding: '$3 $4',
   borderRadius: '$2',
   lineHeight: '25px',
-
-  variants: {
-    size: {
-      large: {
-        px: '$3',
-        fontSize: '$2',
-      },
-    },
-  },
+  margin: 0,
 });

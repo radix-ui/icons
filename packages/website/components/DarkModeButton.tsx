@@ -24,12 +24,11 @@ export const DarkModeButton = () => {
         borderRadius: '$1',
         zIndex: '$4',
         color: '$hiContrast',
-        mixBlendMode: darkMode.value ? 'screen' : 'multiply',
         '&:hover': {
-          backgroundColor: darkMode.value ? 'hsl(174, 65%, 14%)' : '$teal300',
+          backgroundColor: '$gray300',
         },
         '&:active, &:focus': {
-          boxShadow: darkMode.value ? '0 0 0 2px hsl(174, 100%, 28%)' : '0 0 0 2px $teal700',
+          boxShadow: '0 0 0 2px $gray700',
         },
         bp2: {
           left: 0,

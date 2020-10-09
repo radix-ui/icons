@@ -39,7 +39,7 @@ function App({ Component, pageProps }) {
   if (!mounted) {
     return (
       <div style={{ visibility: 'hidden' }}>
-        <TitleAndMetaTags title="Radix Icons - Loading" />
+        <TitleAndMetaTags key="1" />
         <Component {...pageProps} />
       </div>
     );
@@ -47,7 +47,7 @@ function App({ Component, pageProps }) {
 
   return (
     <>
-      <TitleAndMetaTags title="Radix Icons" />
+      <TitleAndMetaTags key="2" />
       <Component {...pageProps} />
     </>
   );

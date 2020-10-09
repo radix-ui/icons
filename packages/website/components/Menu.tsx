@@ -7,12 +7,18 @@ const MenuLink = styled('a', {
   display: 'flex',
   alignItems: 'center',
   textDecoration: 'none',
+  borderRadius: '$1',
   color: 'inherit',
+  outline: 0,
   '& + &': {
     marginTop: '$1',
   },
   '&:hover': {
     textDecoration: 'underline',
+  },
+  '&:focus': {
+    boxShadow: '0 0 0 1px',
+    textDecoration: 'none',
   },
   default: {
     padding: '0 $3',
@@ -20,7 +26,8 @@ const MenuLink = styled('a', {
     lineHeight: '35px',
   },
   bp2: {
-    padding: '0',
+    padding: '0 $1',
+    margin: '0 -$1',
     fontSize: '$2',
     lineHeight: '25px',
   },
