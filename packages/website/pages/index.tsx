@@ -1,6 +1,6 @@
 import React from 'react';
 import useDarkMode from 'use-dark-mode';
-import { Box, Container, Text, darkThemeClass, Separator } from '@modulz/design-system';
+import { Box, Container, Text, darkThemeClass } from '@modulz/design-system';
 import { FigmaLogoIcon, SketchLogoIcon, DownloadIcon, CubeIcon, GitHubLogoIcon } from '@modulz/radix-icons';
 import { Overview } from '../components/Overview';
 import { Hero } from '../components/Hero';
@@ -112,7 +112,6 @@ export default function Home() {
                       Download SVG
                     </IconLink>
                   </Text>
-                  <Separator size="2" css={{ margin: '$5 0' }} />
                   <Text
                     size="3"
                     css={{ display: 'flex', flexFlow: 'column', alignItems: 'start', mt: '$3', lineHeight: '25px' }}
