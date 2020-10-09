@@ -29,8 +29,8 @@ echo "FIGMA_ACCESS_TOKEN=<token>" >> packages/radix-icons/.env
 - [ ] Allow the CLI to re-run on existing SVGs in a package ie. after changing the React component template
 - [ ] Publish the `@modulz/generate-icon-lib` CLI Tool for public use
 
-## Legal
+## License
 
-MIT License
+Licensed under the MIT License, Copyright © 2020-present Modulz.
 
-Copyright (c) 2019 Modulz, Inc
+See [LICENSE](./LICENSE.md) for more information.
