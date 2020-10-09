@@ -68,7 +68,68 @@ function App({ Component, pageProps }) {
           crossOrigin="anonymous"
           href="https://develop.modulz.app/fonts/UntitledSansWeb-Regular.woff2"
         />
-        <link rel="stylesheet" href="https://develop.modulz.app/fonts/fonts.css" />
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              @font-face {
+                font-family: 'Untitled Sans';
+                font-weight: 400;
+                font-display: block;
+                src:
+                  url(https://develop.modulz.app/fonts/UntitledSansWeb-Regular.woff2) format('woff2'),
+                  url(https://develop.modulz.app/fonts/UntitledSansWeb-Regular.woff) format('woff');
+              }
+
+              @font-face {
+                font-family: 'Untitled Sans';
+                font-weight: 500;
+                font-display: block;
+                src:
+                  url(https://develop.modulz.app/fonts/UntitledSansWeb-Medium.woff2) format('woff2'),
+                  url(https://develop.modulz.app/fonts/UntitledSansWeb-Medium.woff) format('woff');
+              }
+
+              @font-face {
+                font-family: 'Söhne Mono';
+                font-weight: normal;
+                font-style: normal;
+                font-display: block;
+                src
+                  url(https://develop.modulz.app/fonts/'soehne-mono-web-buch.woff2') format('woff2'),
+                  url(https://develop.modulz.app/fonts/'soehne-mono-web-buch.woff') format('woff');
+              }
+
+              @font-face {
+                font-family: 'Söhne Mono';
+                font-weight: normal;
+                font-style: italic;
+                font-display: block;
+                src:
+                  url(https://develop.modulz.app/fonts/'soehne-mono-web-buch-kursiv.woff2') format('woff2'),
+                  url(https://develop.modulz.app/fonts/'soehne-mono-web-buch-kursiv.woff') format('woff');
+              }
+
+              @font-face {
+                font-family: 'Söhne Mono';
+                font-weight: 500;
+                font-style: normal;
+                font-display: block;
+                src:
+                  url(https://develop.modulz.app/fonts/'soehne-mono-web-kraftig.woff2') format('woff2'),
+                  url(https://develop.modulz.app/fonts/'soehne-mono-web-kraftig.woff') format('woff');
+              }
+
+              @font-face {
+                font-family: 'Söhne Mono';
+                font-weight: 500;
+                font-style: italic;
+                font-display: block;
+                src:
+                  url(https://develop.modulz.app/fonts/'soehne-mono-web-kraftig-kursiv.woff2') format('woff2'),
+                  url(https://develop.modulz.app/fonts/'soehne-mono-web-kraftig-kursiv.woff') format('woff');
+              }`,
+          }}
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
 
