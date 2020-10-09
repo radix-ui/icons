@@ -71,6 +71,10 @@ console.log(iconManifest);
 
 We intend to formalise the schema of the manifest in a larger effort to support importing Icon Sets to Modulz through NPM.
 
+## Contributing
+
+Please follow our [contributing guidelines](./CONTRIBUTING.md).
+
 ## Authors
 
 - Vlad Moroz ([@vladyslavmoroz](https://twitter.com/vladyslavmoroz)) - [Modulz](https://modulz.app)
@@ -83,7 +87,6 @@ We intend to formalise the schema of the manifest in a larger effort to support 
 Licensed under the MIT License, Copyright © 2020-present Modulz.
 
 See [LICENSE](./LICENSE.md) for more information.
-
 
 
 ## Legal
