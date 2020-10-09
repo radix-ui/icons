@@ -1,14 +1,12 @@
 # Radix Icons
 
-<!-- Need an image here of all the icons! -->
+A crisp set of 15×15 icons designed by the [Modulz](https://modulz.app) team.
 
-A crisp ⧉ icon set built by the [Modulz](https://www.modulz.app/about) team.
+---
 
-➤ Visit the [Icons page](https://deploy-preview-31--eager-lewin-57feec.netlify.com/icons) to explore further.
+## Documentation
 
 All icons are sourced from a single-source-of-truth [Figma file][figmafile], and made available as **React Components** and **individual SVGs**.
-
-## Getting Started
 
 #### React
 
@@ -73,40 +71,20 @@ console.log(iconManifest);
 
 We intend to formalise the schema of the manifest in a larger effort to support importing Icon Sets to Modulz through NPM.
 
-## Contributing
+## Authors
 
-There are many ways to contribute to the Icon Set. Please first [create an issue](https://github.com/modulz/radix/issues/new) with your proposal, and from there we can start a conversation.
+- Vlad Moroz ([@vladyslavmoroz](https://twitter.com/vladyslavmoroz)) - [Modulz](https://modulz.app)
+- Colm Tuite ([@colmtuite](https://twitter.com/colmtuite)) - [Modulz](https://modulz.app)
+- Pedro Duarte ([@peduarte](https://twitter.com/peduarte)) - [Modulz](https://modulz.app)
+- Lochlan Bunn ([@loklaan](https://twitter.com/loklaan))
 
-**To run `yarn generate-src` you'll need to:**
+## License
 
-1. Generate a personal Figma access token
-2. Add it to an `.env` file under the `FIGMA_ACCESS_TOKEN` var.
+Licensed under the MIT License, Copyright © 2020-present Modulz.
 
-Further instructions can be found in the readme for `@modulz/generate-icon-lib`.
+See [LICENSE](./LICENSE.md) for more information.
 
-#### Vector Icons
 
-Access the [Figma file][figmafile], make changes, then run `yarn generate-src` and open a PR.
-
-There are a couple things to keep in mind when making changes:
-
-1. Name for the primary page should remain "Icons"
-2. Naming convention for top-level frames inform `type` and `size` groupings
-3. The `type` and `size` of the last top-level frame becomes the default values for the React Component
-
-_The [Figma file][figmafile] should contain additional guidelines for making changes._
-
-#### React Component
-
-Have a look in `packages/generate-icon-lib/src/templates` for the templating code that affects the components created by running `yarn generate-src`.
-
-Makes changes to the CLI, then re-run `yarn generate-src`, then open a PR. Try to keep commits separated between the CLI and files created in this package.
-
-_At the time of writing, the CLI can not rerun on existing SVGs, and will instead pull down the latest SVGs from the Figma file._
-
-#### Documentation
-
-Jump into an `.md` file, make edits, and open a PR.
 
 ## Legal
 
