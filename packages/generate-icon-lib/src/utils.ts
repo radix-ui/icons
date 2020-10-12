@@ -37,10 +37,10 @@ export function fetch(url: string, fetchOptions: RequestInitWithRetry = {}): Pro
   return new Promise((resolve, reject) => {
     const attemptFetch = (remainingRetries: number) => {
       nodeFetch(url, fetchOptions)
-        .then(res => {
+        .then((res) => {
           resolve(res);
         })
-        .catch(async err => {
+        .catch(async (err) => {
           if (remainingRetries > 0) {
             await asyncDelay(retryOptions.delay);
             attemptFetch(--remainingRetries);
@@ -52,10 +52,7 @@ export function fetch(url: string, fetchOptions: RequestInitWithRetry = {}): Pro
             currentOnlineCheck = null;
             if (!isOn) {
               reject(
-                new CodedError(
-                  ERRORS.NETWORK_OFFLINE,
-                  'An internet connection is required to find and render Icons.'
-                )
+                new CodedError(ERRORS.NETWORK_OFFLINE, 'An internet connection is required to find and render Icons.')
               );
             } else {
               reject(err);
@@ -69,7 +66,7 @@ export function fetch(url: string, fetchOptions: RequestInitWithRetry = {}): Pro
 }
 
 function asyncDelay(timeout: number) {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       resolve();
     }, timeout);
@@ -113,7 +110,7 @@ export function getSvgo() {
       { removeUnknownsAndDefaults: true },
       { removeNonInheritableGroupAttrs: true },
       { removeUselessStrokeAndFill: true },
-      { removeViewBox: true },
+      { removeViewBox: false },
       { cleanupEnableBackground: true },
       { removeHiddenElems: true },
       { removeEmptyText: true },

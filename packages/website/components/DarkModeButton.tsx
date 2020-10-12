@@ -3,6 +3,7 @@ import useDarkMode from 'use-dark-mode';
 import { SunIcon } from '@modulz/radix-icons';
 import { darkThemeClass } from '@modulz/design-system';
 import { ChromelessButton } from './ChromelessButton';
+import { MoonIcon } from '@modulz/radix-icons';
 
 export const DarkModeButton = () => {
   const darkMode = useDarkMode(undefined, {
@@ -24,9 +25,10 @@ export const DarkModeButton = () => {
         borderRadius: '$1',
         zIndex: '$4',
         color: '$hiContrast',
-        backgroundColor: '$gray200',
+        backgroundColor: '$loContrast',
+        boxShadow: '0 0 0 1px $gray400',
         '&:hover': {
-          backgroundColor: '$gray400',
+          boxShadow: '0 0 0 1px $gray600',
         },
         '&:active, &:focus': {
           boxShadow: '0 0 0 2px $gray700',
@@ -37,7 +39,7 @@ export const DarkModeButton = () => {
         },
       }}
     >
-      <SunIcon />
+      {darkMode.value ? <MoonIcon /> : <SunIcon />}
     </ChromelessButton>
   );
 };
