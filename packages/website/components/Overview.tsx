@@ -946,11 +946,17 @@ const Objects = () => {
         <CopyButton label="Sun">
           <Icons.SunIcon />
         </CopyButton>
+        <CopyButton label="Moon">
+          <Icons.MoonIcon />
+        </CopyButton>
         <CopyButton label="Clock">
           <Icons.ClockIcon />
         </CopyButton>
         <CopyButton label="Timer">
           <Icons.TimerIcon />
+        </CopyButton>
+        <CopyButton label="Countdown Timer">
+          <Icons.CountdownTimerIcon />
         </CopyButton>
         <CopyButton label="Stopwatch">
           <Icons.StopwatchIcon />
@@ -958,8 +964,11 @@ const Objects = () => {
         <CopyButton label="Lap Timer">
           <Icons.LapTimerIcon />
         </CopyButton>
-        <CopyButton label="Countdown Timer">
-          <Icons.CountdownTimerIcon />
+        <CopyButton label="Lightning Bolt">
+          <Icons.LightningBoltIcon />
+        </CopyButton>
+        <CopyButton label="Magic Wand">
+          <Icons.MagicWandIcon />
         </CopyButton>
         <CopyButton label="Face">
           <Icons.FaceIcon />
