@@ -30,7 +30,10 @@ export const DarkModeButton = () => {
         '&:hover': {
           boxShadow: '0 0 0 1px $gray600',
         },
-        '&:active, &:focus': {
+        '&:active': {
+          boxShadow: '0 0 0 2px $gray700',
+        },
+        '&:focus': {
           boxShadow: '0 0 0 2px $gray700',
         },
         bp2: {
