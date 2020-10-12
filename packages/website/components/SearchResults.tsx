@@ -40,6 +40,8 @@ const iconNames = Object.keys(Icons).map((key) => {
     // Logos using original PascalCase naming can't be automated
     case 'GitHubLogoIcon':
       return 'GitHub Logo';
+    case 'IconJarLogoIcon':
+      return 'IconJar Logo';
 
     // Naïve UpperCamelCaseIcon to Title Case conversion otherwise
     default:
