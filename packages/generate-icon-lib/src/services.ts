@@ -43,7 +43,7 @@ const transformers = {
   injectCurrentColor(svgRaw: string) {
     const $ = cheerio.load(svgRaw, { xmlMode: true });
     $('*').each((i, el) => {
-      Object.keys(el.attribs).forEach(attrKey => {
+      Object.keys(el.attribs).forEach((attrKey) => {
         if (['fill', 'stroke'].includes(attrKey)) {
           const val = $(el).attr(attrKey);
           if (val !== 'none') {
@@ -56,16 +56,6 @@ const transformers = {
     return $.xml();
   },
 
-  /**
-   * Injects viewBox attribute so icons will scale when resized.
-   */
-  injectViewBox(svgRaw: string) {
-    const $ = cheerio.load(svgRaw, { xmlMode: true });
-    const svg = $('svg');
-    svg.attr('viewBox', `0 0 ${svg.attr('width')} ${svg.attr('height')}`);
-    return $.xml();
-  },
-
   prettify(svgRaw: string) {
     const prettierOptions = prettier.resolveConfig.sync(process.cwd());
     return prettier.format(svgRaw, { ...prettierOptions, parser: 'html' });
@@ -74,16 +64,12 @@ const transformers = {
   readyForJSX(svgRaw: string) {
     const $ = cheerio.load(svgRaw, { xmlMode: true });
     $('*').each((i, el) => {
-      Object.keys(el.attribs).forEach(attrKey => {
+      Object.keys(el.attribs).forEach((attrKey) => {
         if (attrKey.includes('-')) {
-          $(el)
-            .attr(_.camelCase(attrKey), el.attribs[attrKey])
-            .removeAttr(attrKey);
+          $(el).attr(_.camelCase(attrKey), el.attribs[attrKey]).removeAttr(attrKey);
         }
         if (attrKey === 'class') {
-          $(el)
-            .attr('className', el.attribs[attrKey])
-            .removeAttr(attrKey);
+          $(el).attr('className', el.attribs[attrKey]).removeAttr(attrKey);
         }
       });
     });
@@ -107,12 +93,7 @@ const labelling = {
   sizeFromFrameNodeName(nodeName: string): string {
     // Note: We ensure ordering by assignment-time in the object, and avoid numerical
     // key ordering, by adding a non-numerical to the key.
-    return labelling.addSizePrefix(
-      path
-        .basename(nodeName)
-        .toLowerCase()
-        .trim()
-    );
+    return labelling.addSizePrefix(path.basename(nodeName).toLowerCase().trim());
   },
   filePathFromIcon(icon: IIcon): string {
     return path.join(icon.type, labelling.stripSizePrefix(icon.size), `${icon.svgName}.svg`);
@@ -131,7 +112,7 @@ let currentListOfAddedFiles = [];
 
 export async function prechecks() {
   /* We can't work offline. */
-  isOnline().then(isOn => {
+  isOnline().then((isOn) => {
     if (!isOn) {
       throw new CodedError(
         ERRORS.NETWORK_OFFLINE,
@@ -238,7 +219,7 @@ export async function renderIdsToSvgs(ids: string[], config: IFigmaConfig): Prom
 }
 
 export function getIconsPage(document: IFigmaDocument): IFigmaCanvas | null {
-  const canvas = document.children.find(page => page.name.toLowerCase() === 'icons');
+  const canvas = document.children.find((page) => page.name.toLowerCase() === 'icons');
 
   return canvas && canvas.type === 'CANVAS' ? canvas : null;
 }
@@ -247,7 +228,7 @@ export function getIcons(iconsCanvas: IFigmaCanvas): IIcons {
   return iconsCanvas.children.reduce((icons: IIcons, iconSetNode) => {
     // We technically don't want icon sets to be in Groups, but we should still allow it
     if (iconSetNode.type === 'FRAME' || iconSetNode.type === 'GROUP') {
-      iconSetNode.children.forEach(iconNode => {
+      iconSetNode.children.forEach((iconNode) => {
         // Our individual icons frames may be Figma "Components" 🤙
         if (iconNode.type === 'FRAME' || iconNode.type === 'COMPONENT') {
           // 'Break Link' => 'break-link'
@@ -276,13 +257,12 @@ export function getIcons(iconsCanvas: IFigmaCanvas): IIcons {
 
 export async function downloadSvgsToFs(urls: IIconsSvgUrls, icons: IIcons, onProgress: () => void) {
   await Promise.all(
-    Object.keys(urls).map(async iconId => {
+    Object.keys(urls).map(async (iconId) => {
       const processedSvg = await (await fetch(urls[iconId]))
         .text()
-        .then(async svgRaw => transformers.passSVGO(svgRaw))
-        .then(svgRaw => transformers.injectCurrentColor(svgRaw))
-        .then(svgRaw => transformers.injectViewBox(svgRaw))
-        .then(svgRaw => transformers.prettify(svgRaw));
+        .then(async (svgRaw) => transformers.passSVGO(svgRaw))
+        .then((svgRaw) => transformers.injectCurrentColor(svgRaw))
+        .then((svgRaw) => transformers.prettify(svgRaw));
 
       const filePath = path.resolve(currentTempDir, labelling.filePathFromIcon(icons[iconId]));
       await fs.outputFile(filePath, processedSvg, { encoding: 'utf8' });
@@ -311,7 +291,7 @@ export function iconsToManifest(icons: IIcons): IIconManifest {
 }
 
 export function iconsToSvgPaths(icons: IIcons) {
-  return Object.keys(icons).map(iconId => labelling.filePathFromIcon(icons[iconId]));
+  return Object.keys(icons).map((iconId) => labelling.filePathFromIcon(icons[iconId]));
 }
 
 export function filePathToSVGinJSXSync(filePath: string) {
@@ -321,7 +301,7 @@ export function filePathToSVGinJSXSync(filePath: string) {
 }
 
 export async function generateReactComponents(icons: IIcons) {
-  const getTemplateSource = templateFile =>
+  const getTemplateSource = (templateFile) =>
     fs.readFile(path.resolve(__dirname, './templates/', templateFile), {
       encoding: 'utf8',
     });
@@ -377,7 +357,7 @@ export async function generateReactComponents(icons: IIcons) {
       return filePathToSVGinJSXSync(filePath);
     },
     iconHasSizeAndType(icon: ITemplateIcon, size: string, type: string) {
-      return icon.ids.some(iconId => {
+      return icon.ids.some((iconId) => {
         const prefixedSize = labelling.addSizePrefix(size);
         return icons[iconId].size === prefixedSize && icons[iconId].type === type;
       });
@@ -459,7 +439,7 @@ export async function swapGeneratedFiles(
   pushObjLeafNodesToArr(nextIconManifest, generatedFilePaths);
   //  3. The top-level dirs for generated source
   generatedFilePaths = generatedFilePaths.concat([FILE_PATH_ENTRY, FILE_PATH_TYPES]);
-  const topLevelDirs: string[] = _.uniq(generatedFilePaths.map(filePath => filePath.replace(/^([\w-]+).*/, '$1')));
+  const topLevelDirs: string[] = _.uniq(generatedFilePaths.map((filePath) => filePath.replace(/^([\w-]+).*/, '$1')));
   for (const i in topLevelDirs) {
     const topLevelDir = topLevelDirs[i];
     await fs.remove(path.resolve(process.cwd(), topLevelDir));
@@ -485,10 +465,10 @@ export async function getGitCustomDiff(touchedPaths): Promise<IDiffSummary[]> {
   ]);
 
   /* Transform the raw stdout to renderable data. */
-  const nameStat = nameStatRaw.split('\n').map(line => line[0]);
+  const nameStat = nameStatRaw.split('\n').map((line) => line[0]);
   const diffSummaries: IDiffSummary[] = numstatRaw
     .split('\n')
-    .map(line => line.split('\t'))
+    .map((line) => line.split('\t'))
     .map(([additions, deletions, filePath], i) => {
       const filePathFromCwd = filePath.replace(path.relative(gitRootDir, process.cwd()), '').replace(/^\//, '');
 
