@@ -755,6 +755,9 @@ const Logos = () => {
         <CopyButton label="Sketch Logo">
           <Icons.SketchLogoIcon />
         </CopyButton>
+        <CopyButton label="IconJar Logo">
+          <Icons.IconJarLogoIcon />
+        </CopyButton>
         <CopyButton label="GitHub Logo">
           <Icons.GitHubLogoIcon />
         </CopyButton>
