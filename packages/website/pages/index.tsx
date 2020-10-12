@@ -1,7 +1,14 @@
 import React from 'react';
 import useDarkMode from 'use-dark-mode';
 import { Box, Container, Text, Link, darkThemeClass } from '@modulz/design-system';
-import { FigmaLogoIcon, SketchLogoIcon, DownloadIcon, CubeIcon, GitHubLogoIcon } from '@modulz/radix-icons';
+import {
+  CubeIcon,
+  DownloadIcon,
+  FigmaLogoIcon,
+  GitHubLogoIcon,
+  IconJarLogoIcon,
+  SketchLogoIcon,
+} from '@modulz/radix-icons';
 import { Overview } from '../components/Overview';
 import { Hero } from '../components/Hero';
 import { Menu } from '../components/Menu';
@@ -101,6 +108,15 @@ export default function Home() {
                         <SketchLogoIcon />
                       </Box>
                       Download for Sketch
+                    </IconLink>
+                    <IconLink
+                      href="https://raw.githubusercontent.com/modulz/radix-icons/master/Radix-Icons.iconjar.zip"
+                      target="_blank"
+                    >
+                      <Box as="span" css={{ mr: '$2' }}>
+                        <IconJarLogoIcon />
+                      </Box>
+                      Download IconJar
                     </IconLink>
                     <IconLink
                       href="https://raw.githubusercontent.com/modulz/radix-icons/master/radix-icons.zip"

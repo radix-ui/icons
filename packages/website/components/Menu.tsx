@@ -1,7 +1,14 @@
 import React from 'react';
 import useDarkMode from 'use-dark-mode';
 import { styled, Box, Flex, darkThemeClass } from '@modulz/design-system';
-import { CubeIcon, DownloadIcon, FigmaLogoIcon, GitHubLogoIcon, SketchLogoIcon } from '@modulz/radix-icons';
+import {
+  CubeIcon,
+  DownloadIcon,
+  FigmaLogoIcon,
+  GitHubLogoIcon,
+  IconJarLogoIcon,
+  SketchLogoIcon,
+} from '@modulz/radix-icons';
 
 const MenuLink = styled('a', {
   display: 'flex',
@@ -77,6 +84,15 @@ export const Menu = () => {
             <SketchLogoIcon />
           </Box>
           Download for Sketch
+        </MenuLink>
+        <MenuLink
+          href="https://raw.githubusercontent.com/modulz/radix-icons/master/Radix-Icons.iconjar.zip"
+          target="_blank"
+        >
+          <Box as="span" css={{ mr: '$2' }}>
+            <IconJarLogoIcon />
+          </Box>
+          Download IconJar
         </MenuLink>
         <MenuLink href="https://raw.githubusercontent.com/modulz/radix-icons/master/radix-icons.zip" target="_blank">
           <Box as="span" css={{ mr: '$2' }}>
