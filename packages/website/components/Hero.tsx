@@ -21,7 +21,6 @@ export const Hero = () => {
         default: {
           fontSize: '60px',
           position: 'relative',
-          overflow: 'hidden',
           height: 300,
           zIndex: 0,
         },
@@ -41,6 +40,12 @@ export const Hero = () => {
         },
         bp3: {
           fontSize: '130px',
+        },
+        // Tap into hardware accelaration to work around a Safari rendering
+        // bug when scrolling down, changing theme and scrolling up would
+        // result in broken z-index order, with lines appearing over text.
+        '& > *': {
+          willChange: 'transform',
         },
       }}
     >
@@ -193,7 +198,7 @@ const Line = ({ angle = '0deg', offset = '0px, 0px', color }: LineProps) => {
         left: 0,
         width: 'calc(200vw + 200vh)',
         height: '1px',
-        transform: `translate3d(${offset}, 0) rotate(${angle}) translate3d(-50%, -50%, 0)`,
+        transform: `translate(${offset}) rotate(${angle}) translate(-50%, -50%)`,
         transformOrigin: 'top left',
         backgroundColor: color,
       }}
