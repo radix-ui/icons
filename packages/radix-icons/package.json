@@ -1,7 +1,7 @@
 {
   "name": "@modulz/radix-icons",
   "private": false,
-  "version": "3.1.0",
+  "version": "3.2.0",
   "license": "MIT",
   "description": "Radix Icon Set",
   "author": "Lochlan Bunn <lochlan@modulz.app>",
