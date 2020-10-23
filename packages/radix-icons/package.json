@@ -5,9 +5,9 @@
   "license": "MIT",
   "description": "Radix Icon Set",
   "author": "Lochlan Bunn <lochlan@modulz.app>",
-  "module": "dist/modulzradix-icons.es.production.js",
+  "module": "dist/radix-icons.esm.js",
   "main": "index.js",
-  "typings": "dist/index.d.ts",
+  "types": "dist/index.d.ts",
   "files": [
     "outline/",
     "solid/",
