@@ -102,7 +102,6 @@ export const SearchResults = ({ value }: SearchResultsProps) => {
                         textarea.setAttribute('readonly', '');
                         textarea.style.position = 'absolute';
                         textarea.style.left = '-9999px';
-                        textarea.style.visibility = 'hidden';
                         document.body.appendChild(textarea);
                         textarea.select();
                         document.execCommand('copy');
