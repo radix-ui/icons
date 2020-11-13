@@ -281,6 +281,9 @@ const Abstract = () => {
         <CopyButton label="Slash">
           <Icons.SlashIcon />
         </CopyButton>
+        <CopyButton label="Circle Backslash">
+          <Icons.CircleBackslashIcon />
+        </CopyButton>
         <CopyButton label="Half 1">
           <Icons.Half1Icon />
         </CopyButton>
@@ -624,6 +627,9 @@ const Components = () => {
         <CopyButton label="Activity Log">
           <Icons.ActivityLogIcon />
         </CopyButton>
+        <CopyButton label="Bar Chart">
+          <Icons.BarChartIcon />
+        </CopyButton>
         <CopyButton label="Divider Vertical">
           <Icons.DividerVerticalIcon />
         </CopyButton>
@@ -706,9 +712,6 @@ const Design = () => {
         <CopyButton label="Zoom Out">
           <Icons.ZoomOutIcon />
         </CopyButton>
-        <CopyButton label="Cursor Text">
-          <Icons.CursorTextIcon />
-        </CopyButton>
         <CopyButton label="Square">
           <Icons.SquareIcon />
         </CopyButton>
@@ -718,17 +721,32 @@ const Design = () => {
         <CopyButton label="Dimensions">
           <Icons.DimensionsIcon />
         </CopyButton>
-        <CopyButton label="Box Model">
-          <Icons.BoxModelIcon />
-        </CopyButton>
-        <CopyButton label="Margin">
-          <Icons.MarginIcon />
+        <CopyButton label="Rotate Counter-Clockwise">
+          <Icons.RotateCounterClockwiseIcon />
         </CopyButton>
         <CopyButton label="Columns">
           <Icons.ColumnsIcon />
         </CopyButton>
         <CopyButton label="Rows">
           <Icons.RowsIcon />
+        </CopyButton>
+        <CopyButton label="Box Model">
+          <Icons.BoxModelIcon />
+        </CopyButton>
+        <CopyButton label="Padding">
+          <Icons.PaddingIcon />
+        </CopyButton>
+        <CopyButton label="Margin">
+          <Icons.MarginIcon />
+        </CopyButton>
+        <CopyButton label="Angle">
+          <Icons.AngleIcon />
+        </CopyButton>
+        <CopyButton label="Cursor Arrow">
+          <Icons.CursorArrowIcon />
+        </CopyButton>
+        <CopyButton label="Cursor Text">
+          <Icons.CursorTextIcon />
         </CopyButton>
       </Group>
     </Box>
@@ -754,6 +772,9 @@ const Logos = () => {
         </CopyButton>
         <CopyButton label="Sketch Logo">
           <Icons.SketchLogoIcon />
+        </CopyButton>
+        <CopyButton label="Twitter Logo">
+          <Icons.TwitterLogoIcon />
         </CopyButton>
         <CopyButton label="IconJar Logo">
           <Icons.IconJarLogoIcon />
@@ -904,6 +925,12 @@ const Objects = () => {
         <CopyButton label="Cube">
           <Icons.CubeIcon />
         </CopyButton>
+        <CopyButton label="Archive">
+          <Icons.ArchiveIcon />
+        </CopyButton>
+        <CopyButton label="Crumpled Paper">
+          <Icons.CrumpledPaperIcon />
+        </CopyButton>
         <CopyButton label="Mix">
           <Icons.MixIcon />
         </CopyButton>
@@ -927,6 +954,15 @@ const Objects = () => {
         </CopyButton>
         <CopyButton label="Reader">
           <Icons.ReaderIcon />
+        </CopyButton>
+        <CopyButton label="Card Stack">
+          <Icons.CardStackIcon />
+        </CopyButton>
+        <CopyButton label="Card Stack Plus">
+          <Icons.CardStackPlusIcon />
+        </CopyButton>
+        <CopyButton label="Card Stack Minus">
+          <Icons.CardStackMinusIcon />
         </CopyButton>
         <CopyButton label="Id Card">
           <Icons.IdCardIcon />
@@ -958,6 +994,9 @@ const Objects = () => {
         <CopyButton label="Timer">
           <Icons.TimerIcon />
         </CopyButton>
+        <CopyButton label="Counter-Clockwise Clock">
+          <Icons.CounterClockwiseClockIcon />
+        </CopyButton>
         <CopyButton label="Countdown Timer">
           <Icons.CountdownTimerIcon />
         </CopyButton>
@@ -984,6 +1023,9 @@ const Objects = () => {
         </CopyButton>
         <CopyButton label="Eye Closed">
           <Icons.EyeClosedIcon />
+        </CopyButton>
+        <CopyButton label="Hand">
+          <Icons.HandIcon />
         </CopyButton>
       </Group>
     </Box>
@@ -1039,6 +1081,9 @@ const Typography = () => {
         </CopyButton>
         <CopyButton label="Overline">
           <Icons.OverlineIcon />
+        </CopyButton>
+        <CopyButton label="Pilcrow">
+          <Icons.PilcrowIcon />
         </CopyButton>
         <CopyButton label="Line Height">
           <Icons.LineHeightIcon />
