@@ -42,6 +42,10 @@ const iconNames = Object.keys(Icons).map((key) => {
       return 'GitHub Logo';
     case 'IconJarLogoIcon':
       return 'IconJar Logo';
+    case 'CounterClockwiseClockIcon':
+      return 'Counter-Clockwise Clock';
+    case 'RotateCounterClockwiseIcon':
+      return 'Rotate Counter-Clockwise';
 
     // Naïve UpperCamelCaseIcon to Title Case conversion otherwise
     default:
