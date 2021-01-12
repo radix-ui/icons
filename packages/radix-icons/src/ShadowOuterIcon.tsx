@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { IconProps } from './types';
 
-export const OuterShadowIcon = ({ color = 'currentColor', ...props }: IconProps) => {
+export const ShadowOuterIcon = ({ color = 'currentColor', ...props }: IconProps) => {
   return (
     <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
@@ -13,7 +13,7 @@ export const OuterShadowIcon = ({ color = 'currentColor', ...props }: IconProps)
       />
       <path
         opacity=".2"
-        d="M12.851 5.0732C13.8683 6.07105 14.5 7.46198 14.5 8.99999C14.5 12.0375 12.0375 14.5 8.99996 14.5C7.46208 14.5 6.07125 13.8685 5.07342 12.8512L5.43036 12.5011C6.33803 13.4264 7.60179 14 8.99996 14C11.7614 14 14 11.7614 14 8.99999C14 7.6017 13.4263 6.33785 12.5009 5.43017L12.851 5.0732Z"
+        d="M12.851 5.0732C13.8684 6.07105 14.5 7.46198 14.5 8.99999C14.5 12.0375 12.0376 14.5 9.00002 14.5C7.46214 14.5 6.07131 13.8685 5.07348 12.8512L5.43042 12.5011C6.33809 13.4264 7.60185 14 9.00002 14C11.7614 14 14 11.7614 14 8.99999C14 7.6017 13.4264 6.33785 12.5009 5.43017L12.851 5.0732Z"
         fill={color}
         fillRule="evenodd"
         clipRule="evenodd"
@@ -49,4 +49,4 @@ export const OuterShadowIcon = ({ color = 'currentColor', ...props }: IconProps)
   );
 };
 
-export default OuterShadowIcon;
+export default ShadowOuterIcon;
