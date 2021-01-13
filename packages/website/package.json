@@ -1,7 +1,7 @@
 {
   "name": "website",
   "private": true,
-  "version": "0.0.4",
+  "version": "0.0.5",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -13,7 +13,7 @@
     "@interop-ui/react-portal": "^0.0.1-6",
     "@interop-ui/react-tooltip": "^0.0.1-5",
     "@modulz/design-system": "0.0.5",
-    "@modulz/radix-icons": "^3.3.0",
+    "@modulz/radix-icons": "^4.0.0",
     "@types/react-input-autosize": "^2.2.0",
     "next": "9.5.4",
     "react": "16.13.1",
