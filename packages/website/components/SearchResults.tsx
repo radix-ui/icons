@@ -42,6 +42,8 @@ const iconNames = Object.keys(Icons).map((key) => {
       return 'GitHub Logo';
     case 'IconJarLogoIcon':
       return 'IconJar Logo';
+    case 'CodeSandboxLogoIcon':
+      return 'CodeSandbox Logo';
     case 'CounterClockwiseClockIcon':
       return 'Counter-Clockwise Clock';
     case 'RotateCounterClockwiseIcon':
@@ -127,7 +129,7 @@ export const SearchResults = ({ value }: SearchResultsProps) => {
                       }}
                     >
                       <Flex as="span" css={{ mr: '$1', p: '$1', flex: '0' }}>
-                        {React.createElement(Object.values(Icons)[iconNames.indexOf(name)])}
+                        {React.createElement(Object.values<React.FC>(Icons)[iconNames.indexOf(name)])}
                       </Flex>
                       <Text
                         size="2"

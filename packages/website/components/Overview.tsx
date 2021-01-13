@@ -272,14 +272,17 @@ const Abstract = () => {
         <CopyButton label="Dot">
           <Icons.DotIcon />
         </CopyButton>
-        <CopyButton label="Dot Solid">
-          <Icons.DotSolidIcon />
+        <CopyButton label="Dot Filled">
+          <Icons.DotFilledIcon />
         </CopyButton>
         <CopyButton label="Commit">
           <Icons.CommitIcon />
         </CopyButton>
         <CopyButton label="Slash">
           <Icons.SlashIcon />
+        </CopyButton>
+        <CopyButton label="Circle">
+          <Icons.CircleIcon />
         </CopyButton>
         <CopyButton label="Circle Backslash">
           <Icons.CircleBackslashIcon />
@@ -290,9 +293,6 @@ const Abstract = () => {
         <CopyButton label="Half 2">
           <Icons.Half2Icon />
         </CopyButton>
-        <CopyButton label="View None">
-          <Icons.ViewNoneIcon />
-        </CopyButton>
         <CopyButton label="View Vertical">
           <Icons.ViewVerticalIcon />
         </CopyButton>
@@ -301,6 +301,18 @@ const Abstract = () => {
         </CopyButton>
         <CopyButton label="View Grid">
           <Icons.ViewGridIcon />
+        </CopyButton>
+        <CopyButton label="View None">
+          <Icons.ViewNoneIcon />
+        </CopyButton>
+        <CopyButton label="Square">
+          <Icons.SquareIcon />
+        </CopyButton>
+        <CopyButton label="Copy">
+          <Icons.CopyIcon />
+        </CopyButton>
+        <CopyButton label="Dash">
+          <Icons.DashIcon />
         </CopyButton>
       </Group>
     </Box>
@@ -312,47 +324,41 @@ const Alignment = () => {
     <Box>
       <Label>Alignment</Label>
       <Group>
-        <CopyButton label="Align Left">
-          <Icons.AlignLeftIcon />
-        </CopyButton>
-        <CopyButton label="Align Vertical Centers ">
-          <Icons.AlignVerticalCentersIcon />
-        </CopyButton>
-        <CopyButton label="Align Right">
-          <Icons.AlignRightIcon />
-        </CopyButton>
         <CopyButton label="Align Top">
           <Icons.AlignTopIcon />
         </CopyButton>
-        <CopyButton label="Align Horizontal Centers ">
-          <Icons.AlignHorizontalCentersIcon />
+        <CopyButton label="Align Center Horizontally ">
+          <Icons.AlignCenterHorizontallyIcon />
         </CopyButton>
         <CopyButton label="Align Bottom">
           <Icons.AlignBottomIcon />
         </CopyButton>
-        <CopyButton label="Align Stretch">
-          <Icons.AlignStretchIcon />
+        <CopyButton label="Stretch Vertically">
+          <Icons.StretchVerticallyIcon />
         </CopyButton>
-        <CopyButton label="Align Start">
-          <Icons.AlignStartIcon />
+        <CopyButton label="Align Left">
+          <Icons.AlignLeftIcon />
         </CopyButton>
-        <CopyButton label="Align Center">
-          <Icons.AlignCenterIcon />
+        <CopyButton label="Align Center Vertically ">
+          <Icons.AlignCenterVerticallyIcon />
         </CopyButton>
-        <CopyButton label="Align End">
-          <Icons.AlignEndIcon />
+        <CopyButton label="Align Right">
+          <Icons.AlignRightIcon />
         </CopyButton>
-        <CopyButton label="Justify Stretch">
-          <Icons.JustifyStretchIcon />
+        <CopyButton label="Stretch Horizontally">
+          <Icons.StretchHorizontallyIcon />
         </CopyButton>
-        <CopyButton label="Justify Start">
-          <Icons.JustifyStartIcon />
+        <CopyButton label="Space Between Horizontally">
+          <Icons.SpaceBetweenHorizontallyIcon />
         </CopyButton>
-        <CopyButton label="Justify Center">
-          <Icons.JustifyCenterIcon />
+        <CopyButton label="Space Evenly Horizontally">
+          <Icons.SpaceEvenlyHorizontallyIcon />
         </CopyButton>
-        <CopyButton label="Justify End">
-          <Icons.JustifyEndIcon />
+        <CopyButton label="Space Between Vertically">
+          <Icons.SpaceBetweenVerticallyIcon />
+        </CopyButton>
+        <CopyButton label="Space Evenly Vertically">
+          <Icons.SpaceEvenlyVerticallyIcon />
         </CopyButton>
         <CopyButton label="Pin Left">
           <Icons.PinLeftIcon />
@@ -594,12 +600,6 @@ const Components = () => {
         <CopyButton label="Slider">
           <Icons.SliderIcon />
         </CopyButton>
-        <CopyButton label="Heading">
-          <Icons.HeadingIcon />
-        </CopyButton>
-        <CopyButton label="Text">
-          <Icons.TextIcon />
-        </CopyButton>
         <CopyButton label="Quote">
           <Icons.QuoteIcon />
         </CopyButton>
@@ -700,6 +700,12 @@ const Design = () => {
         <CopyButton label="Shadow None">
           <Icons.ShadowNoneIcon />
         </CopyButton>
+        <CopyButton label="Shadow Inner">
+          <Icons.ShadowInnerIcon />
+        </CopyButton>
+        <CopyButton label="Shadow Outer">
+          <Icons.ShadowOuterIcon />
+        </CopyButton>
         <CopyButton label="Value">
           <Icons.ValueIcon />
         </CopyButton>
@@ -712,8 +718,8 @@ const Design = () => {
         <CopyButton label="Zoom Out">
           <Icons.ZoomOutIcon />
         </CopyButton>
-        <CopyButton label="Square">
-          <Icons.SquareIcon />
+        <CopyButton label="Transparency Grid">
+          <Icons.TransparencyGridIcon />
         </CopyButton>
         <CopyButton label="Group">
           <Icons.GroupIcon />
@@ -748,6 +754,12 @@ const Design = () => {
         <CopyButton label="Cursor Text">
           <Icons.CursorTextIcon />
         </CopyButton>
+        <CopyButton label="Column Spacing">
+          <Icons.ColumnSpacingIcon />
+        </CopyButton>
+        <CopyButton label="Row Spacing">
+          <Icons.RowSpacingIcon />
+        </CopyButton>
       </Group>
     </Box>
   );
@@ -781,6 +793,15 @@ const Logos = () => {
         </CopyButton>
         <CopyButton label="GitHub Logo">
           <Icons.GitHubLogoIcon />
+        </CopyButton>
+        <CopyButton label="Vercel Logo">
+          <Icons.VercelLogoIcon />
+        </CopyButton>
+        <CopyButton label="CodeSandbox Logo">
+          <Icons.CodeSandboxLogoIcon />
+        </CopyButton>
+        <CopyButton label="Notion Logo">
+          <Icons.NotionLogoIcon />
         </CopyButton>
       </Group>
     </Box>
@@ -913,14 +934,14 @@ const Objects = () => {
         <CopyButton label="Drawing Pin">
           <Icons.DrawingPinIcon />
         </CopyButton>
-        <CopyButton label="Drawing Pin Solid ">
-          <Icons.DrawingPinSolidIcon />
+        <CopyButton label="Drawing Pin Filled ">
+          <Icons.DrawingPinFilledIcon />
         </CopyButton>
         <CopyButton label="Sewing Pin">
           <Icons.SewingPinIcon />
         </CopyButton>
-        <CopyButton label="Sewing Pin Solid ">
-          <Icons.SewingPinSolidIcon />
+        <CopyButton label="Sewing Pin Filled ">
+          <Icons.SewingPinFilledIcon />
         </CopyButton>
         <CopyButton label="Cube">
           <Icons.CubeIcon />
@@ -1021,11 +1042,35 @@ const Objects = () => {
         <CopyButton label="Eye Open">
           <Icons.EyeOpenIcon />
         </CopyButton>
+        <CopyButton label="Eye None">
+          <Icons.EyeNoneIcon />
+        </CopyButton>
         <CopyButton label="Eye Closed">
           <Icons.EyeClosedIcon />
         </CopyButton>
         <CopyButton label="Hand">
           <Icons.HandIcon />
+        </CopyButton>
+        <CopyButton label="Ruler Horizontal">
+          <Icons.RulerHorizontalIcon />
+        </CopyButton>
+        <CopyButton label="Ruler Square">
+          <Icons.RulerSquareIcon />
+        </CopyButton>
+        <CopyButton label="Clipboard">
+          <Icons.ClipboardIcon />
+        </CopyButton>
+        <CopyButton label="Clipboard Copy">
+          <Icons.ClipboardCopyIcon />
+        </CopyButton>
+        <CopyButton label="Star">
+          <Icons.StarIcon />
+        </CopyButton>
+        <CopyButton label="StarFilled">
+          <Icons.StarFilledIcon />
+        </CopyButton>
+        <CopyButton label="Cookie">
+          <Icons.CookieIcon />
         </CopyButton>
       </Group>
     </Box>
@@ -1073,6 +1118,18 @@ const Typography = () => {
         <CopyButton label="Font Family">
           <Icons.FontFamilyIcon />
         </CopyButton>
+        <CopyButton label="Heading">
+          <Icons.HeadingIcon />
+        </CopyButton>
+        <CopyButton label="Text">
+          <Icons.TextIcon />
+        </CopyButton>
+        <CopyButton label="Text None">
+          <Icons.TextNoneIcon />
+        </CopyButton>
+        <CopyButton label="Line Height">
+          <Icons.LineHeightIcon />
+        </CopyButton>
         <CopyButton label="Underline">
           <Icons.UnderlineIcon />
         </CopyButton>
@@ -1084,9 +1141,6 @@ const Typography = () => {
         </CopyButton>
         <CopyButton label="Pilcrow">
           <Icons.PilcrowIcon />
-        </CopyButton>
-        <CopyButton label="Line Height">
-          <Icons.LineHeightIcon />
         </CopyButton>
         <CopyButton label="Text Align Left ">
           <Icons.TextAlignLeftIcon />
