@@ -1,9 +1,9 @@
 import React from 'react';
 import useDarkMode from 'use-dark-mode';
-import { SunIcon } from '@modulz/radix-icons';
+import { SunIcon } from '@radix-ui/react-icons';
 import { darkThemeClass } from '@modulz/design-system';
 import { ChromelessButton } from './ChromelessButton';
-import { MoonIcon } from '@modulz/radix-icons';
+import { MoonIcon } from '@radix-ui/react-icons';
 
 export const DarkModeButton = () => {
   const darkMode = useDarkMode(undefined, {

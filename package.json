@@ -9,8 +9,8 @@
   "scripts": {
     "start": "yarn icons",
     "build": "yarn icons:build && yarn website:build",
-    "icons": "lerna exec --scope @modulz/radix-icons -- yarn watch",
-    "icons:build": "lerna exec --scope @modulz/radix-icons -- yarn build",
+    "icons": "lerna exec --scope @radix-ui/react-icons -- yarn watch",
+    "icons:build": "lerna exec --scope @radix-ui/react-icons -- yarn build",
     "website:build": "lerna exec --scope website -- yarn build",
     "prettier": "prettier './**/*.{js,jsx,ts,tsx,json,yml,yaml,css,md,mdx}' --write",
     "lint": "eslint './packages/**/*.{js,jsx,ts,tsx}'",

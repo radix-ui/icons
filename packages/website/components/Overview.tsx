@@ -1,6 +1,6 @@
 import React from 'react';
 import useDarkMode from 'use-dark-mode';
-import * as Icons from '@modulz/radix-icons';
+import * as Icons from '@radix-ui/react-icons';
 import { Box, Grid, Text, styled, darkThemeClass } from '@modulz/design-system';
 import { Tooltip } from './Tooltip';
 import { CopyToastVisibility } from './CopyToast';

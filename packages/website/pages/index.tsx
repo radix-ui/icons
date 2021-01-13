@@ -8,7 +8,7 @@ import {
   GitHubLogoIcon,
   IconJarLogoIcon,
   SketchLogoIcon,
-} from '@modulz/radix-icons';
+} from '@radix-ui/react-icons';
 import { Overview } from '../components/Overview';
 import { Hero } from '../components/Hero';
 import { Menu } from '../components/Menu';
@@ -101,7 +101,7 @@ export default function Home() {
                       Open in Figma
                     </IconLink>
                     <IconLink
-                      href="https://raw.githubusercontent.com/modulz/radix-icons/master/Radix-Icons.sketch"
+                      href="https://raw.githubusercontent.com/radix-ui/icons/master/Radix-Icons.sketch"
                       target="_blank"
                     >
                       <Box as="span" css={{ mr: '$2' }}>
@@ -110,7 +110,7 @@ export default function Home() {
                       Download for Sketch
                     </IconLink>
                     <IconLink
-                      href="https://raw.githubusercontent.com/modulz/radix-icons/master/Radix-Icons.iconjar.zip"
+                      href="https://raw.githubusercontent.com/radix-ui/icons/master/Radix-Icons.iconjar.zip"
                       target="_blank"
                     >
                       <Box as="span" css={{ mr: '$2' }}>
@@ -119,7 +119,7 @@ export default function Home() {
                       Download IconJar
                     </IconLink>
                     <IconLink
-                      href="https://raw.githubusercontent.com/modulz/radix-icons/master/radix-icons.zip"
+                      href="https://raw.githubusercontent.com/radix-ui/icons/master/radix-icons.zip"
                       target="_blank"
                     >
                       <Box as="span" css={{ mr: '$2' }}>
@@ -127,13 +127,13 @@ export default function Home() {
                       </Box>
                       Download SVG
                     </IconLink>
-                    <IconLink href="https://www.npmjs.com/package/@modulz/radix-icons" target="_blank">
+                    <IconLink href="https://www.npmjs.com/package/@radix-ui/react-icons" target="_blank">
                       <Box as="span" css={{ mr: '$2' }}>
                         <CubeIcon />
                       </Box>
                       Install with npm
                     </IconLink>
-                    <IconLink href="https://github.com/modulz/radix-icons" target="_blank">
+                    <IconLink href="https://github.com/radix-ui/icons" target="_blank">
                       <Box as="span" css={{ mr: '$2' }}>
                         <GitHubLogoIcon />
                       </Box>
@@ -154,12 +154,12 @@ export default function Home() {
                   <Text as="p" size="3" css={{ mt: '$2', lineHeight: '25px' }}>
                     All icons are available as individual React components. Install Radix Icons from npm:
                   </Text>
-                  <CodeBlock css={{ mt: '$2' }}>npm install @modulz/radix-icons</CodeBlock>
+                  <CodeBlock css={{ mt: '$2' }}>npm install @radix-ui/react-icons</CodeBlock>
                   <Text as="p" size="3" css={{ mt: '$2', lineHeight: '25px' }}>
                     Import the icons into your React project:
                   </Text>
                   <CodeBlock css={{ mt: '$2' }}>
-                    {`import { FaceIcon, ImageIcon, SunIcon } from '@modulz/radix-icons'
+                    {`import { FaceIcon, ImageIcon, SunIcon } from '@radix-ui/react-icons'
 
 function MyComponent () {
   return (
@@ -178,7 +178,7 @@ function MyComponent () {
                   </Text>
                   <Text as="p" size="3" css={{ mt: '$2', lineHeight: '25px' }}>
                     Licensed under the{' '}
-                    <Link href="https://github.com/modulz/radix-icons/blob/master/LICENSE">MIT License</Link>. Copyright
+                    <Link href="https://github.com/radix-ui/icons/blob/master/LICENSE">MIT License</Link>. Copyright
                     © 2020–present Modulz.
                   </Text>
                 </Box>

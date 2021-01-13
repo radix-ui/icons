@@ -19,16 +19,16 @@ npm install @modulz/radix-icons
 Import the icons into your React project:
 
 ```js
-import { FaceIcon, ImageIcon, SunIcon } from '@modulz/radix-icons'
+import { FaceIcon, ImageIcon, SunIcon } from '@radix-ui/react-icons';
 
-function MyComponent () {
+function MyComponent() {
   return (
     <div>
       <FaceIcon />
       <SunIcon />
       <ImageIcon />
     </div>
-  )
+  );
 }
 ```
 
@@ -48,4 +48,3 @@ Please follow our [contributing guidelines](./CONTRIBUTING.md).
 Licensed under the MIT License, Copyright © 2020-present Modulz.
 
 See [LICENSE](./LICENSE.md) for more information.
-

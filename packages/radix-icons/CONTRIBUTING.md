@@ -1,6 +1,6 @@
 ## Contributing
 
-There are many ways to contribute to Radix Icons. Please first [create an issue](https://github.com/modulz/radix-icons/issues/new) with your proposal, and from there we can start a conversation.
+There are many ways to contribute to Radix Icons. Please first [create an issue](https://github.com/radix-ui/icons/issues/new) with your proposal, and from there we can start a conversation.
 
 **To run `yarn generate-src` you'll need to:**
 

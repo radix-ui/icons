@@ -1,7 +1,7 @@
 import React from 'react';
 import useDarkMode from 'use-dark-mode';
 import { Box, Text, darkThemeClass } from '@modulz/design-system';
-import { ArrowLeftIcon } from '@modulz/radix-icons';
+import { ArrowLeftIcon } from '@radix-ui/react-icons';
 
 export const Hero = () => {
   const darkMode = useDarkMode(undefined, {

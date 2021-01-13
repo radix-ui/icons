@@ -1,10 +1,14 @@
 {
-  "name": "@modulz/radix-icons",
+  "name": "@radix-ui/react-icons",
   "private": false,
-  "version": "4.0.0",
+  "version": "0.0.0",
   "license": "MIT",
-  "description": "Radix Icon Set",
-  "author": "Lochlan Bunn <lochlan@modulz.app>",
+  "description": "Radix UI React Icon Set",
+  "authors": [
+    "Vlad Moroz <vlad@modulz.app>",
+    "Pedro Duarte <pedro@modulz.app>",
+    "Colm Tuite <colm@modulz.app>"
+  ],
   "module": "dist/radix-icons.esm.js",
   "main": "index.js",
   "types": "dist/index.d.ts",

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Flex, darkThemeClass } from '@modulz/design-system';
-import { MagnifyingGlassIcon } from '@modulz/radix-icons';
+import { MagnifyingGlassIcon } from '@radix-ui/react-icons';
 import AutosizeInput from 'react-input-autosize';
 
 type SearchBarProps = {

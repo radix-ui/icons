@@ -8,7 +8,7 @@ import {
   GitHubLogoIcon,
   IconJarLogoIcon,
   SketchLogoIcon,
-} from '@modulz/radix-icons';
+} from '@radix-ui/react-icons';
 
 const MenuLink = styled('a', {
   display: 'flex',
