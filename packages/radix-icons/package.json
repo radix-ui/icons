@@ -1,7 +1,7 @@
 {
   "name": "@radix-ui/react-icons",
   "private": false,
-  "version": "1.0.0",
+  "version": "0.0.0",
   "license": "MIT",
   "description": "Radix UI React Icon Set",
   "authors": [
@@ -32,5 +32,5 @@
     "@modulz/generate-icon-lib": "^0.1.0",
     "tsdx": "0.14.0"
   },
-  "gitHead": "92efbe5e84dd6f141b6854e318cc0d7d5b6d43d8"
+  "gitHead": "29b7e717e4994c0cac1d77cbf4eddac631041521"
 }
