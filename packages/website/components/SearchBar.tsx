@@ -46,6 +46,7 @@ export const SearchBar = ({ value, onValueChange }: SearchBarProps) => {
           name="form-field-name"
           value={value}
           onChange={(event) => onValueChange(event.target.value)}
+          autoFocus
         />
       </Box>
     </Flex>
