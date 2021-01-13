@@ -27,6 +27,7 @@ yarn-error.log*
 # build
 .rpt2_cache/
 dist/
+lerna-debug.log
 
 .vercel
 !radix-icons.zip
