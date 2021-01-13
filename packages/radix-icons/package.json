@@ -19,6 +19,9 @@
     "index.js",
     "manifest.json"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "generate-src": "generate-icon-lib --file=9Df5CaFUEomVzn20gRpaX3 && mv ./icons/15/* ./icons && rmdir ./icons/15 && cd ./icons && zip -r ../../../radix-icons.zip ./",
     "build": "rimraf dist && tsdx build --format es,cjs --entry src/index.tsx",
