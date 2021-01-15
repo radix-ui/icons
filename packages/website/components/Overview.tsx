@@ -327,8 +327,8 @@ const Alignment = () => {
         <CopyButton label="Align Top">
           <Icons.AlignTopIcon />
         </CopyButton>
-        <CopyButton label="Align Center Horizontally ">
-          <Icons.AlignCenterHorizontallyIcon />
+        <CopyButton label="Align Center Vertically ">
+          <Icons.AlignCenterVerticallyIcon />
         </CopyButton>
         <CopyButton label="Align Bottom">
           <Icons.AlignBottomIcon />
@@ -339,8 +339,8 @@ const Alignment = () => {
         <CopyButton label="Align Left">
           <Icons.AlignLeftIcon />
         </CopyButton>
-        <CopyButton label="Align Center Vertically ">
-          <Icons.AlignCenterVerticallyIcon />
+        <CopyButton label="Align Center Horizontally ">
+          <Icons.AlignCenterHorizontallyIcon />
         </CopyButton>
         <CopyButton label="Align Right">
           <Icons.AlignRightIcon />
