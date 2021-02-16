@@ -9,7 +9,7 @@
     "Pedro Duarte <pedro@modulz.app>",
     "Colm Tuite <colm@modulz.app>"
   ],
-  "module": "dist/radix-icons.esm.js",
+  "module": "dist/react-icons.esm.js",
   "main": "index.js",
   "types": "dist/index.d.ts",
   "files": [
