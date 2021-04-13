@@ -9,13 +9,13 @@ interface <%- iconToPropsName(icon) %> extends IconProps {
   type<%- icon.types[0] === getDefaultType() ? '?' : '' %>: <%- icon.types.map(t => `"${t}"`).join(' | ') %>;
 }
 
-export const <%- iconToComponentName(icon) %> =
+export const <%- iconToComponentName(icon) %> = React.forwardRef<SVGSVGElement, <%- iconToPropsName(icon) %>>(
   ({
     color = 'currentColor',
     size<%- icon.sizes[0] === getDefaultSize() ? ` = '${icon.sizes[0]}'` : '' %>,
     type<%- icon.types[0] === getDefaultType() ? ` = '${icon.types[0]}'` : '' %>,
     ...props,
-  }: <%- iconToPropsName(icon) %>) => {
+  }, forwardedRef) => {
 <%   for (const t in icon.types) { %>
 <%     for (const s in icon.sizes) { %>
 <%       if (iconHasSizeAndType(icon, icon.sizes[s], icon.types[t])) { %>
@@ -28,7 +28,8 @@ export const <%- iconToComponentName(icon) %> =
 
     console.error(`<%- iconToComponentName(icon) %> doesn't support the combination of ${size} and ${type}`)
     return null;
-  };
+  }
+);
 
 <% /* B. There are only size variants */ %>
 <% } else if (icon.sizes.length > 1) { %>
@@ -37,12 +38,12 @@ interface <%- iconToPropsName(icon) %> extends IconProps {
   size<%- icon.sizes[0] === getDefaultSize() ? '?' : '' %>: <%- icon.sizes.map(s => `"${s}"`).join(' | ') %>;
 }
 
-export const <%- iconToComponentName(icon) %> =
+export const <%- iconToComponentName(icon) %> = React.forwardRef<SVGSVGElement, <%- iconToPropsName(icon) %>>(
   ({
     color = 'currentColor',
     size<%- icon.sizes[0] === getDefaultSize() ? ` = '${icon.sizes[0]}'` : '' %>,
     ...props,
-  }: <%- iconToPropsName(icon) %>) => {
+  }, forwardedRef) => {
 <%   for (const s in icon.sizes) { %>
 <%     if (iconHasSizeAndType(icon, icon.sizes[s], icon.types[0])) { %>
     if (size === '<%- icon.sizes[s] %>') {
@@ -53,7 +54,8 @@ export const <%- iconToComponentName(icon) %> =
 
     console.error(`<%- iconToComponentName(icon) %> doesn't support ${size}`)
     return null;
-  };
+  }
+);
   
 <% /* C. There are only type variants */ %>
 <% } else if (icon.types.length > 1) { %>
@@ -62,12 +64,12 @@ interface <%- iconToPropsName(icon) %> extends IconProps {
   type<%- icon.types[0] === getDefaultType() ? '?' : '' %>: <%- icon.types.map(t => `"${t}"`).join(' | ') %>;
 }
 
-export const <%- iconToComponentName(icon) %> =
+export const <%- iconToComponentName(icon) %> = React.forwardRef<SVGSVGElement, <%- iconToPropsName(icon) %>>(
   ({
     color = 'currentColor',
     type<%- icon.types[0] === getDefaultType() ? ` = '${icon.types[0]}'` : '' %>,
     ...props,
-  }: <%- iconToPropsName(icon) %>) => {
+  }, forwardedRef) => {
 <%   for (const t in icon.types) { %>
 <%     if (iconHasSizeAndType(icon, icon.sizes[0], icon.types[t])) { %>
     if (type === '<%- icon.types[t] %>') {
@@ -78,13 +80,16 @@ export const <%- iconToComponentName(icon) %> =
 
     console.error(`<%- iconToComponentName(icon) %> doesn't support ${type}`)
     return null;
-  };
+  }
+);
 
 <% /* D. There are no variants */ %>
 <% } else { %>
-export const <%- iconToComponentName(icon) %> = ({ color = 'currentColor', ...props }: IconProps) => {
-  return <%- iconToSVGSourceAsJSX(icon, icon.sizes[0], icon.types[0]) %>
-};
+export const <%- iconToComponentName(icon) %> = React.forwardRef<SVGSVGElement, IconProps>(
+  ({ color = 'currentColor', ...props }, forwardedRef) => {
+    return <%- iconToSVGSourceAsJSX(icon, icon.sizes[0], icon.types[0]) %>
+  }
+);
 <% } %>
 
 export default <%- iconToComponentName(icon) %>;
