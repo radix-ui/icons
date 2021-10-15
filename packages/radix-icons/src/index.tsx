@@ -25,6 +25,7 @@ export { default as BarChartIcon } from './BarChartIcon';
 export { default as BellIcon } from './BellIcon';
 export { default as BlendingModeIcon } from './BlendingModeIcon';
 export { default as BookmarkIcon } from './BookmarkIcon';
+export { default as BookmarkFilledIcon } from './BookmarkFilledIcon';
 export { default as BorderAllIcon } from './BorderAllIcon';
 export { default as BorderBottomIcon } from './BorderBottomIcon';
 export { default as BorderDashedIcon } from './BorderDashedIcon';

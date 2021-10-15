@@ -931,6 +931,9 @@ const Objects = () => {
         <CopyButton label="Bookmark">
           <Icons.BookmarkIcon />
         </CopyButton>
+        <CopyButton label="Bookmark Filled">
+          <Icons.BookmarkFilledIcon />
+        </CopyButton>
         <CopyButton label="Drawing Pin">
           <Icons.DrawingPinIcon />
         </CopyButton>
