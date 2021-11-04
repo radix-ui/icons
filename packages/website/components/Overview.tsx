@@ -173,7 +173,7 @@ const Abstract = () => {
     <Box>
       <Label>Abstract</Label>
       <Group>
-        <CopyButton label="Hamburger">
+        <CopyButton label="Hamburger Menu">
           <Icons.HamburgerMenuIcon />
         </CopyButton>
         <CopyButton label="Cross 1">
