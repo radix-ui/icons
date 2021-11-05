@@ -173,7 +173,7 @@ const Abstract = () => {
     <Box>
       <Label>Abstract</Label>
       <Group>
-        <CopyButton label="Hamburger">
+        <CopyButton label="Hamburger Menu">
           <Icons.HamburgerMenuIcon />
         </CopyButton>
         <CopyButton label="Cross 1">
@@ -212,7 +212,7 @@ const Abstract = () => {
         <CopyButton label="Question Mark">
           <Icons.QuestionMarkIcon />
         </CopyButton>
-        <CopyButton label="Question Mark Circled ">
+        <CopyButton label="Question Mark Circled">
           <Icons.QuestionMarkCircledIcon />
         </CopyButton>
         <CopyButton label="Info Circled">
@@ -251,16 +251,16 @@ const Abstract = () => {
         <CopyButton label="Update">
           <Icons.UpdateIcon />
         </CopyButton>
-        <CopyButton label="Enter Full Screen ">
+        <CopyButton label="Enter Full Screen">
           <Icons.EnterFullScreenIcon />
         </CopyButton>
-        <CopyButton label="Exit Full Screen ">
+        <CopyButton label="Exit Full Screen">
           <Icons.ExitFullScreenIcon />
         </CopyButton>
-        <CopyButton label="Drag Handle Vertical ">
+        <CopyButton label="Drag Handle Vertical">
           <Icons.DragHandleVerticalIcon />
         </CopyButton>
-        <CopyButton label="Drag Handle Horizontal ">
+        <CopyButton label="Drag Handle Horizontal">
           <Icons.DragHandleHorizontalIcon />
         </CopyButton>
         <CopyButton label="Drag Handle Dots  1">
@@ -327,7 +327,7 @@ const Alignment = () => {
         <CopyButton label="Align Top">
           <Icons.AlignTopIcon />
         </CopyButton>
-        <CopyButton label="Align Center Vertically ">
+        <CopyButton label="Align Center Vertically">
           <Icons.AlignCenterVerticallyIcon />
         </CopyButton>
         <CopyButton label="Align Bottom">
@@ -339,7 +339,7 @@ const Alignment = () => {
         <CopyButton label="Align Left">
           <Icons.AlignLeftIcon />
         </CopyButton>
-        <CopyButton label="Align Center Horizontally ">
+        <CopyButton label="Align Center Horizontally">
           <Icons.AlignCenterHorizontallyIcon />
         </CopyButton>
         <CopyButton label="Align Right">
@@ -394,16 +394,16 @@ const Arrows = () => {
         <CopyButton label="Arrow Down">
           <Icons.ArrowDownIcon />
         </CopyButton>
-        <CopyButton label="Arrow Top Left ">
+        <CopyButton label="Arrow Top Left">
           <Icons.ArrowTopLeftIcon />
         </CopyButton>
-        <CopyButton label="Arrow Top Right ">
+        <CopyButton label="Arrow Top Right">
           <Icons.ArrowTopRightIcon />
         </CopyButton>
-        <CopyButton label="Arrow Bottom Left ">
+        <CopyButton label="Arrow Bottom Left">
           <Icons.ArrowBottomLeftIcon />
         </CopyButton>
-        <CopyButton label="Arrow Bottom Right ">
+        <CopyButton label="Arrow Bottom Right">
           <Icons.ArrowBottomRightIcon />
         </CopyButton>
         <CopyButton label="Chevron Down">
@@ -418,28 +418,28 @@ const Arrows = () => {
         <CopyButton label="Chevron Up">
           <Icons.ChevronUpIcon />
         </CopyButton>
-        <CopyButton label="Double Arrow Down ">
+        <CopyButton label="Double Arrow Down">
           <Icons.DoubleArrowDownIcon />
         </CopyButton>
-        <CopyButton label="Double Arrow Left ">
+        <CopyButton label="Double Arrow Left">
           <Icons.DoubleArrowLeftIcon />
         </CopyButton>
-        <CopyButton label="Double Arrow Right ">
+        <CopyButton label="Double Arrow Right">
           <Icons.DoubleArrowRightIcon />
         </CopyButton>
-        <CopyButton label="Double Arrow Up ">
+        <CopyButton label="Double Arrow Up">
           <Icons.DoubleArrowUpIcon />
         </CopyButton>
-        <CopyButton label="Thick Arrow Left ">
+        <CopyButton label="Thick Arrow Left">
           <Icons.ThickArrowLeftIcon />
         </CopyButton>
-        <CopyButton label="Thick Arrow Right ">
+        <CopyButton label="Thick Arrow Right">
           <Icons.ThickArrowRightIcon />
         </CopyButton>
-        <CopyButton label="Thick Arrow Up ">
+        <CopyButton label="Thick Arrow Up">
           <Icons.ThickArrowUpIcon />
         </CopyButton>
-        <CopyButton label="Thick Arrow Down ">
+        <CopyButton label="Thick Arrow Down">
           <Icons.ThickArrowDownIcon />
         </CopyButton>
         <CopyButton label="Triangle Left">
@@ -518,16 +518,16 @@ const Borders = () => {
         <CopyButton label="Corners">
           <Icons.CornersIcon />
         </CopyButton>
-        <CopyButton label="Corner Top Left ">
+        <CopyButton label="Corner Top Left">
           <Icons.CornerTopLeftIcon />
         </CopyButton>
-        <CopyButton label="Corner Top Right ">
+        <CopyButton label="Corner Top Right">
           <Icons.CornerTopRightIcon />
         </CopyButton>
-        <CopyButton label="Corner Bottom Left ">
+        <CopyButton label="Corner Bottom Left">
           <Icons.CornerBottomLeftIcon />
         </CopyButton>
-        <CopyButton label="Corner Bottom Right ">
+        <CopyButton label="Corner Bottom Right">
           <Icons.CornerBottomRightIcon />
         </CopyButton>
         <CopyButton label="Border Style">
@@ -874,10 +874,10 @@ const Objects = () => {
         <CopyButton label="Lock Closed">
           <Icons.LockClosedIcon />
         </CopyButton>
-        <CopyButton label="Lock Open 1 ">
+        <CopyButton label="Lock Open 1">
           <Icons.LockOpen1Icon />
         </CopyButton>
-        <CopyButton label="Lock Open 2 ">
+        <CopyButton label="Lock Open 2">
           <Icons.LockOpen2Icon />
         </CopyButton>
         <CopyButton label="Backpack">
@@ -904,19 +904,19 @@ const Objects = () => {
         <CopyButton label="Link 1">
           <Icons.Link1Icon />
         </CopyButton>
-        <CopyButton label="Link None 1 ">
+        <CopyButton label="Link None 1">
           <Icons.LinkNone1Icon />
         </CopyButton>
-        <CopyButton label="Link Break 1 ">
+        <CopyButton label="Link Break 1">
           <Icons.LinkBreak1Icon />
         </CopyButton>
         <CopyButton label="Link 2">
           <Icons.Link2Icon />
         </CopyButton>
-        <CopyButton label="Link None 2 ">
+        <CopyButton label="Link None 2">
           <Icons.LinkNone2Icon />
         </CopyButton>
-        <CopyButton label="Link Break 2 ">
+        <CopyButton label="Link Break 2">
           <Icons.LinkBreak2Icon />
         </CopyButton>
         <CopyButton label="Trash">
@@ -934,13 +934,13 @@ const Objects = () => {
         <CopyButton label="Drawing Pin">
           <Icons.DrawingPinIcon />
         </CopyButton>
-        <CopyButton label="Drawing Pin Filled ">
+        <CopyButton label="Drawing Pin Filled">
           <Icons.DrawingPinFilledIcon />
         </CopyButton>
         <CopyButton label="Sewing Pin">
           <Icons.SewingPinIcon />
         </CopyButton>
-        <CopyButton label="Sewing Pin Filled ">
+        <CopyButton label="Sewing Pin Filled">
           <Icons.SewingPinFilledIcon />
         </CopyButton>
         <CopyButton label="Cube">
@@ -1094,16 +1094,16 @@ const Typography = () => {
         <CopyButton label="Font Bold">
           <Icons.FontBoldIcon />
         </CopyButton>
-        <CopyButton label="Letter Case Uppercase ">
+        <CopyButton label="Letter Case Uppercase">
           <Icons.LetterCaseUppercaseIcon />
         </CopyButton>
-        <CopyButton label="Letter Case Capitalize ">
+        <CopyButton label="Letter Case Capitalize">
           <Icons.LetterCaseCapitalizeIcon />
         </CopyButton>
-        <CopyButton label="Letter Case Lowercase ">
+        <CopyButton label="Letter Case Lowercase">
           <Icons.LetterCaseLowercaseIcon />
         </CopyButton>
-        <CopyButton label="Letter Case Toggle ">
+        <CopyButton label="Letter Case Toggle">
           <Icons.LetterCaseToggleIcon />
         </CopyButton>
         <CopyButton label="Letter Spacing">
@@ -1142,16 +1142,16 @@ const Typography = () => {
         <CopyButton label="Pilcrow">
           <Icons.PilcrowIcon />
         </CopyButton>
-        <CopyButton label="Text Align Left ">
+        <CopyButton label="Text Align Left">
           <Icons.TextAlignLeftIcon />
         </CopyButton>
-        <CopyButton label="Text Align Center ">
+        <CopyButton label="Text Align Center">
           <Icons.TextAlignCenterIcon />
         </CopyButton>
-        <CopyButton label="Text Align Right ">
+        <CopyButton label="Text Align Right">
           <Icons.TextAlignRightIcon />
         </CopyButton>
-        <CopyButton label="Text Align Justify ">
+        <CopyButton label="Text Align Justify">
           <Icons.TextAlignJustifyIcon />
         </CopyButton>
       </Group>
