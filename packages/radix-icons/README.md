@@ -13,7 +13,7 @@ All icons are available as individual React components.
 Install Radix Icons from npm:
 
 ```bash
-npm install @modulz/radix-icons
+npm install @radix-ui/react-icons
 ```
 
 Import the icons into your React project:

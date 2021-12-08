@@ -100,7 +100,7 @@ export const Menu = () => {
           </Box>
           Download SVG
         </MenuLink>
-        <MenuLink href="https://www.npmjs.com/package/@modulz/radix-icons" target="_blank">
+        <MenuLink href="https://www.npmjs.com/package/@radix-ui/react-icons" target="_blank">
           <Box as="span" css={{ mr: '$2' }}>
             <CubeIcon />
           </Box>
