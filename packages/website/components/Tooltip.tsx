@@ -2,39 +2,39 @@ import React from 'react';
 import { Text, styled } from '@modulz/design-system';
 import {
   Tooltip as TooltipPrimitive,
-  TooltipProps as TooltipPrimitiveProps,
-  TooltipContentProps,
-  TooltipPositionProps,
-  styles as tooltipStyles,
+  TooltipContent as TooltipPrimitiveContent,
+  TooltipTrigger as TooltipPrimitiveTrigger,
+  // TooltipProps as TooltipPrimitiveProps,
+  // TooltipContentProps,
+  // TooltipPositionProps,
+  // styles as tooltipStyles,
 } from '@interop-ui/react-tooltip';
 
-export type TooltipProps = { label: string } & TooltipPrimitiveProps & TooltipPositionProps & TooltipContentProps;
+export type TooltipProps = { label: string } & React.ComponentProps<typeof TooltipPrimitive> &
+  React.ComponentProps<typeof TooltipPrimitiveContent>;
 
 export const Tooltip = ({
   'aria-label': ariaLabel,
   children,
   label,
-  isOpen,
-  onIsOpenChange,
-  ...positionProps
+  open,
+  onOpenChange,
+  ...contentProps
 }: TooltipProps) => {
   return (
-    <TooltipPrimitive isOpen={isOpen} onIsOpenChange={onIsOpenChange}>
+    <TooltipPrimitive open={open} onOpenChange={onOpenChange}>
       {children}
-      <TooltipPrimitive.Position side="top" sideOffset={20} {...positionProps}>
-        <TooltipPrimitive.Content as={Content} aria-label={ariaLabel}>
-          {label}
-        </TooltipPrimitive.Content>
-        {/* <TooltipPrimitive.Arrow style={{ ...tooltipStyles.arrow }} offset={10} /> */}
-      </TooltipPrimitive.Position>
+      <TooltipPrimitiveContent side="top" sideOffset={20} as={Content} aria-label={ariaLabel} {...contentProps}>
+        {label}
+      </TooltipPrimitiveContent>
     </TooltipPrimitive>
   );
 };
 
-Tooltip.Trigger = TooltipPrimitive.Trigger;
+Tooltip.Trigger = TooltipPrimitiveTrigger;
 
 const Content = styled(Text, {
-  ...tooltipStyles.root,
+  // ...tooltipStyles.root,
   backgroundColor: '$hiContrast',
   fontSize: '$1',
   color: '$loContrast',
