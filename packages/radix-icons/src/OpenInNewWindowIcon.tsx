@@ -23,3 +23,5 @@ export const OpenInNewWindowIcon = React.forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+
+export default OpenInNewWindowIcon;
