@@ -1,5 +1,6 @@
 import React from 'react';
 import useDarkMode from 'use-dark-mode';
+import escapeStringRegexp from 'escape-string-regexp';
 import * as Icons from '@radix-ui/react-icons';
 import { Box, Flex, Grid, Text, darkThemeClass } from '@modulz/design-system';
 import { CopyToastVisibility } from './CopyToast';
@@ -58,7 +59,7 @@ const iconNames = Object.keys(Icons).map((key) => {
 });
 
 export const SearchResults = ({ value }: SearchResultsProps) => {
-  const cleanValue = value.trim().replace(/\s/g, ' ');
+  const cleanValue = escapeStringRegexp(value.trim().replace(/\s/g, ' '));
   const matchingNames = iconNames.filter((name) => new RegExp(`\\b${cleanValue}`, 'gi').test(name));
 
   return (
