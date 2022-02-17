@@ -38,6 +38,8 @@ const GhostButton = (props: React.ComponentProps<typeof ChromelessButton>) => {
 const iconNames = Object.keys(Icons).map((key) => {
   switch (key) {
     // Logos using original PascalCase naming can't be automated
+    case 'LinkedInLogoIcon':
+      return 'LinkedIn Logo';
     case 'GitHubLogoIcon':
       return 'GitHub Logo';
     case 'IconJarLogoIcon':
@@ -129,7 +131,7 @@ export const SearchResults = ({ value }: SearchResultsProps) => {
                       }}
                     >
                       <Flex as="span" css={{ mr: '$1', p: '$1', flex: '0' }}>
-                        {React.createElement(Object.values(Icons)[iconNames.indexOf(name)])}
+                        {React.createElement(Object.values(Icons)[iconNames.indexOf(name)] as any)}
                       </Flex>
                       <Text
                         size="2"
