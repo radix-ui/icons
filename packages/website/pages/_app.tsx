@@ -1,13 +1,13 @@
 import React from 'react';
-import { css } from '@modulz/design-system';
+import { globalCss } from '@modulz/design-system';
 import { TitleAndMetaTags } from '../components/TitleAndMetaTags';
 
-const globalCss = css.global({
+const setGlobalCss = globalCss({
   '*': {
     boxSizing: 'border-box',
   },
   '::selection': {
-    backgroundColor: '$blue400',
+    backgroundColor: '$mintA4',
   },
   body: {
     margin: 0,
@@ -25,7 +25,7 @@ const globalCss = css.global({
 });
 
 function App({ Component, pageProps }) {
-  globalCss();
+  setGlobalCss();
 
   const [mounted, setMounted] = React.useState(false);
 

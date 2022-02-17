@@ -1,8 +1,6 @@
 import React from 'react';
-import useDarkMode from 'use-dark-mode';
 import * as Icons from '@radix-ui/react-icons';
-import { Box, Grid, Text, styled, darkThemeClass } from '@modulz/design-system';
-import { Tooltip } from './Tooltip';
+import { Box, Grid, Text, Tooltip, styled } from '@modulz/design-system';
 import { CopyToastVisibility } from './CopyToast';
 import { ChromelessButton } from './ChromelessButton';
 
@@ -10,11 +8,10 @@ export const Overview = React.memo(() => {
   return (
     <Grid
       css={{
-        default: {
-          padding: '0 $3 $2',
-          marginTop: '-$2',
-        },
-        bp1: {
+        padding: '0 $3 $2',
+        marginTop: '-$2',
+
+        '@bp1': {
           padding: '0 $6 $1',
           marginTop: 0,
         },
@@ -44,15 +41,22 @@ export const Overview = React.memo(() => {
   );
 });
 
-const Label = styled(Text, {
-  marginTop: '$4',
-  marginBottom: '$5',
-  display: 'block',
-  fontSize: '$1',
-  fontWeight: 500,
-  lineHeight: '25px',
-  letterSpacing: '-0.01em',
-});
+const Label = styled(
+  Text,
+  {
+    marginTop: '$4',
+    marginBottom: '$5',
+    display: 'block',
+    fontWeight: 500,
+    lineHeight: '25px',
+    letterSpacing: '-0.01em',
+  },
+  {
+    defaultVariants: {
+      size: 1,
+    },
+  }
+);
 
 const Group = styled(Grid, {
   justifyItems: 'center',
@@ -94,31 +98,19 @@ const Group = styled(Grid, {
   },
 });
 
-const GhostButton = (props: React.ComponentProps<typeof ChromelessButton>) => {
-  const darkMode = useDarkMode(undefined, {
-    classNameDark: darkThemeClass,
-    classNameLight: 'theme-default',
-  });
-
-  return (
-    <ChromelessButton
-      css={{
-        display: 'block',
-        cursor: 'pointer',
-        padding: '$3',
-        margin: '-$3',
-        borderRadius: '$1',
-        '&:hover': {
-          backgroundColor: darkMode.value ? 'hsl(174, 65%, 14%)' : '$teal300',
-        },
-        '&:active, &:focus': {
-          boxShadow: darkMode.value ? '0 0 0 2px hsl(174, 100%, 28%)' : '0 0 0 2px $teal700',
-        },
-      }}
-      {...props}
-    />
-  );
-};
+const GhostButton = styled(ChromelessButton, {
+  display: 'block',
+  cursor: 'pointer',
+  padding: '$3',
+  margin: '-$3',
+  borderRadius: '$1',
+  '&:hover': {
+    backgroundColor: '$mintA4',
+  },
+  '&:active, &:focus': {
+    boxShadow: '0 0 0 2px $colors$mintA8',
+  },
+});
 
 type CopyButtonProps = {
   children?: React.ReactNode;
@@ -129,39 +121,37 @@ const CopyButton = ({ children, label }: CopyButtonProps) => {
   return (
     <CopyToastVisibility.Consumer>
       {({ setIcon, setIsVisible }) => (
-        <Tooltip label={label}>
-          <Tooltip.Trigger as="div">
-            <GhostButton
-              onClick={(event: React.MouseEvent) => {
-                const svg = event.currentTarget.querySelector('svg');
-                const code = svg && svg.parentElement ? svg.parentElement.innerHTML : null;
+        <Tooltip content={label} side="top" sideOffset={5}>
+          <GhostButton
+            onClick={(event: React.MouseEvent) => {
+              const svg = event.currentTarget.querySelector('svg');
+              const code = svg && svg.parentElement ? svg.parentElement.innerHTML : null;
 
-                // Copy code to clipboard via a hidden textarea element
-                if (code) {
-                  // Temporary shim until a proper focus-visible handler is added
-                  if (document.activeElement instanceof HTMLButtonElement) {
-                    document.activeElement.blur();
-                  }
-
-                  const textarea = document.createElement('textarea');
-                  textarea.value = code.toString();
-                  textarea.setAttribute('readonly', '');
-                  textarea.style.position = 'absolute';
-                  textarea.style.left = '-9999px';
-                  document.body.appendChild(textarea);
-                  textarea.select();
-                  document.execCommand('copy');
-                  document.body.removeChild(textarea);
-
-                  // Show CopyToast and set latest icon
-                  setIsVisible();
-                  setIcon(code);
+              // Copy code to clipboard via a hidden textarea element
+              if (code) {
+                // Temporary shim until a proper focus-visible handler is added
+                if (document.activeElement instanceof HTMLButtonElement) {
+                  document.activeElement.blur();
                 }
-              }}
-            >
-              {children}
-            </GhostButton>
-          </Tooltip.Trigger>
+
+                const textarea = document.createElement('textarea');
+                textarea.value = code.toString();
+                textarea.setAttribute('readonly', '');
+                textarea.style.position = 'absolute';
+                textarea.style.left = '-9999px';
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+
+                // Show CopyToast and set latest icon
+                setIsVisible();
+                setIcon(code);
+              }
+            }}
+          >
+            {children}
+          </GhostButton>
         </Tooltip>
       )}
     </CopyToastVisibility.Consumer>

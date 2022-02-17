@@ -1,34 +1,29 @@
 import React from 'react';
 import useDarkMode from 'use-dark-mode';
-import { Box, Text, darkThemeClass } from '@modulz/design-system';
+import { Box, Text, darkTheme } from '@modulz/design-system';
 import { ArrowLeftIcon } from '@radix-ui/react-icons';
 
 export const Hero = () => {
   const darkMode = useDarkMode(undefined, {
-    classNameDark: darkThemeClass,
+    classNameDark: darkTheme.className,
     classNameLight: 'theme-default',
   });
-
-  // We haven't added teal colors to dark mode theme yet
-  const crimson = darkMode.value ? 'hsla(336, 79%, 48%, 0.5)' : '$crimson300';
-  const teal = darkMode.value ? 'hsla(174, 100%, 28%, 0.5)' : '$teal400';
 
   return (
     <Box
       css={{
         userSelect: 'none',
         WebkitUserSelect: 'none',
-        default: {
-          fontSize: '60px',
-          position: 'relative',
-          height: 300,
-          zIndex: 0,
-        },
-        bp1: {
+        fontSize: '60px',
+        position: 'relative',
+        height: 300,
+        zIndex: 0,
+
+        '@bp1': {
           height: 400,
           fontSize: '70px',
         },
-        bp2: {
+        '@bp2': {
           fontSize: '100px',
           position: 'fixed',
           overflow: 'visible',
@@ -38,7 +33,7 @@ export const Hero = () => {
           right: 0,
           bottom: 0,
         },
-        bp3: {
+        '@bp3': {
           fontSize: '130px',
         },
         // Tap into hardware accelaration to work around a Safari rendering
@@ -53,21 +48,20 @@ export const Hero = () => {
         css={{
           position: 'absolute',
           zIndex: '$2',
-          default: {
-            top: '$5',
-            left: '5%',
-            transform: 'translate(0, 0.5px)',
-          },
-          bp1: {
+          top: '$5',
+          left: '5%',
+          transform: 'translate(0, 0.5px)',
+
+          '@bp1': {
             top: 'calc(60px - 0.1em)',
             left: '12%',
           },
-          bp2: {
+          '@bp2': {
             top: '-0.1em',
             left: '50%',
             transform: 'translate(-110%, 0.5px)',
           },
-          bp3: {
+          '@bp3': {
             transform: 'translate(-110%, -0.5px)',
           },
         }}
@@ -88,7 +82,7 @@ export const Hero = () => {
             as="span"
             css={{
               display: 'block',
-              bp2: {
+              '@bp2': {
                 marginLeft: '0.47em',
               },
             }}
@@ -104,41 +98,40 @@ export const Hero = () => {
           pointerEvents: 'none',
           width: '1em',
           height: '1em',
-          default: {
-            position: 'fixed',
-            top: 110,
-            left: '73%',
-          },
-          bp1: {
+          position: 'fixed',
+          top: 110,
+          left: '73%',
+
+          '@bp1': {
             top: 60,
             left: '50%',
             right: 'auto',
             transform: 'translateX(1.25em)',
           },
-          bp2: {
+          '@bp2': {
             position: 'absolute',
             top: 0,
             transform: 'none',
           },
         }}
       >
-        <Line color={crimson} angle="0deg" offset="0, 0.467em" />
-        <Line color={crimson} angle="0deg" offset="0, 0.533em" />
+        <Line color="$crimson6" angle="0deg" offset="0, 0.467em" />
+        <Line color="$crimson6" angle="0deg" offset="0, 0.533em" />
 
-        <Line color={crimson} angle="45deg" offset="-0.288em, 0" />
-        <Line color={crimson} angle="45deg" offset="-0.288em, 0.090em" />
+        <Line color="$crimson6" angle="45deg" offset="-0.288em, 0" />
+        <Line color="$crimson6" angle="45deg" offset="-0.288em, 0.090em" />
 
-        <Line color={crimson} angle="-45deg" offset="0.622em, 0" />
-        <Line color={crimson} angle="-45deg" offset="0.622em, 0.090em" />
+        <Line color="$crimson6" angle="-45deg" offset="0.622em, 0" />
+        <Line color="$crimson6" angle="-45deg" offset="0.622em, 0.090em" />
 
-        <Line color={crimson} angle="45deg" offset="0.242em, 0" />
-        <Line color={crimson} angle="-45deg" offset="0.242em, 1em" />
+        <Line color="$crimson6" angle="45deg" offset="0.242em, 0" />
+        <Line color="$crimson6" angle="-45deg" offset="0.242em, 1em" />
 
-        <Line color={teal} angle="0deg" offset="0, 0" />
-        <Line color={teal} angle="0deg" offset="0, 1em" />
+        <Line color="$mint5" angle="0deg" offset="0, 0" />
+        <Line color="$mint5" angle="0deg" offset="0, 1em" />
 
-        <Line color={teal} angle="90deg" offset="0, 0" />
-        <Line color={teal} angle="90deg" offset="1em, 0" />
+        <Line color="$mint5" angle="90deg" offset="0, 0" />
+        <Line color="$mint5" angle="90deg" offset="1em, 0" />
 
         <ArrowLeftIcon style={{ position: 'relative', width: '1em', height: '1em' }} />
       </Box>
@@ -154,25 +147,24 @@ export const Hero = () => {
           userSelect: 'text',
           fontVariantNumeric: 'proportional-nums',
           letterSpacing: '-0.02em',
-          default: {
-            fontSize: '$6',
-            lineHeight: '1.35',
-            top: 190,
-            marginLeft: 7,
-            left: '5%',
-          },
-          bp1: {
+          fontSize: '$6',
+          lineHeight: '1.35',
+          top: 190,
+          marginLeft: 7,
+          left: '5%',
+
+          '@bp1': {
             fontSize: '$7',
             lineHeight: '1.25',
             top: 240,
             left: '12%',
           },
-          bp2: {
+          '@bp2': {
             top: 124,
             left: '50%',
             marginLeft: 0,
           },
-          bp3: {
+          '@bp3': {
             top: 190,
           },
         }}
