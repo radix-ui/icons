@@ -115,17 +115,17 @@ export const Hero = () => {
           },
         }}
       >
-        <Line color="$crimson6" angle="0deg" offset="0, 0.467em" />
-        <Line color="$crimson6" angle="0deg" offset="0, 0.533em" />
+        <Line color="$pink5" angle="0deg" offset="0, 0.467em" />
+        <Line color="$pink5" angle="0deg" offset="0, 0.533em" />
 
-        <Line color="$crimson6" angle="45deg" offset="-0.288em, 0" />
-        <Line color="$crimson6" angle="45deg" offset="-0.288em, 0.090em" />
+        <Line color="$pink5" angle="45deg" offset="-0.288em, 0" />
+        <Line color="$pink5" angle="45deg" offset="-0.288em, 0.090em" />
 
-        <Line color="$crimson6" angle="-45deg" offset="0.622em, 0" />
-        <Line color="$crimson6" angle="-45deg" offset="0.622em, 0.090em" />
+        <Line color="$pink5" angle="-45deg" offset="0.622em, 0" />
+        <Line color="$pink5" angle="-45deg" offset="0.622em, 0.090em" />
 
-        <Line color="$crimson6" angle="45deg" offset="0.242em, 0" />
-        <Line color="$crimson6" angle="-45deg" offset="0.242em, 1em" />
+        <Line color="$pink5" angle="45deg" offset="0.242em, 0" />
+        <Line color="$pink5" angle="-45deg" offset="0.242em, 1em" />
 
         <Line color="$mint5" angle="0deg" offset="0, 0" />
         <Line color="$mint5" angle="0deg" offset="0, 1em" />
