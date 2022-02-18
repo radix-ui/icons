@@ -22,20 +22,20 @@ export const Overview = React.memo(() => {
       }}
     >
       <Box>
-        <Arrows />
-        <Components />
-        <Design />
-      </Box>
-      <Box>
-        <Objects />
         <Typography />
         <Music />
+        <Abstract />
+        <Logos />
       </Box>
       <Box>
-        <Alignment />
-        <Abstract />
+        <Arrows />
+        <Objects />
+      </Box>
+      <Box>
+        <Design />
+        <Components />
         <Borders />
-        <Logos />
+        <Alignment />
       </Box>
     </Grid>
   );
@@ -208,6 +208,9 @@ const Abstract = () => {
         <CopyButton label="Info Circled">
           <Icons.InfoCircledIcon />
         </CopyButton>
+        <CopyButton label="Accessibility">
+          <Icons.AccessibilityIcon />
+        </CopyButton>
         <CopyButton label="Exclamation Triangle">
           <Icons.ExclamationTriangleIcon />
         </CopyButton>
@@ -219,6 +222,9 @@ const Abstract = () => {
         </CopyButton>
         <CopyButton label="External Link">
           <Icons.ExternalLinkIcon />
+        </CopyButton>
+        <CopyButton label="Open In New Window">
+          <Icons.OpenInNewWindowIcon />
         </CopyButton>
         <CopyButton label="Enter">
           <Icons.EnterIcon />
@@ -300,9 +306,6 @@ const Abstract = () => {
         </CopyButton>
         <CopyButton label="Copy">
           <Icons.CopyIcon />
-        </CopyButton>
-        <CopyButton label="Dash">
-          <Icons.DashIcon />
         </CopyButton>
       </Group>
     </Box>
@@ -684,6 +687,9 @@ const Design = () => {
         <CopyButton label="Mask Off">
           <Icons.MaskOffIcon />
         </CopyButton>
+        <CopyButton label="Color Wheel">
+          <Icons.ColorWheelIcon />
+        </CopyButton>
         <CopyButton label="Shadow">
           <Icons.ShadowIcon />
         </CopyButton>
@@ -725,6 +731,9 @@ const Design = () => {
         </CopyButton>
         <CopyButton label="Rows">
           <Icons.RowsIcon />
+        </CopyButton>
+        <CopyButton label="Transform">
+          <Icons.TransformIcon />
         </CopyButton>
         <CopyButton label="Box Model">
           <Icons.BoxModelIcon />
@@ -792,6 +801,15 @@ const Logos = () => {
         </CopyButton>
         <CopyButton label="Notion Logo">
           <Icons.NotionLogoIcon />
+        </CopyButton>
+        <CopyButton label="Discord Logo">
+          <Icons.DiscordLogoIcon />
+        </CopyButton>
+        <CopyButton label="Instagram Logo">
+          <Icons.InstagramLogoIcon />
+        </CopyButton>
+        <CopyButton label="LinkedIn Logo">
+          <Icons.LinkedInLogoIcon />
         </CopyButton>
       </Group>
     </Box>
@@ -1056,11 +1074,38 @@ const Objects = () => {
         <CopyButton label="Clipboard Copy">
           <Icons.ClipboardCopyIcon />
         </CopyButton>
+        <CopyButton label="Desktop">
+          <Icons.DesktopIcon />
+        </CopyButton>
+        <CopyButton label="Laptop">
+          <Icons.LaptopIcon />
+        </CopyButton>
+        <CopyButton label="Mobile">
+          <Icons.MobileIcon />
+        </CopyButton>
+        <CopyButton label="Keyboard">
+          <Icons.KeyboardIcon />
+        </CopyButton>
         <CopyButton label="Star">
           <Icons.StarIcon />
         </CopyButton>
         <CopyButton label="StarFilled">
           <Icons.StarFilledIcon />
+        </CopyButton>
+        <CopyButton label="Heart">
+          <Icons.HeartIcon />
+        </CopyButton>
+        <CopyButton label="HeartFilled">
+          <Icons.HeartFilledIcon />
+        </CopyButton>
+        <CopyButton label="Scissors">
+          <Icons.ScissorsIcon />
+        </CopyButton>
+        <CopyButton label="Hobby Knife">
+          <Icons.HobbyKnifeIcon />
+        </CopyButton>
+        <CopyButton label="Eraser">
+          <Icons.EraserIcon />
         </CopyButton>
         <CopyButton label="Cookie">
           <Icons.CookieIcon />
@@ -1146,6 +1191,18 @@ const Typography = () => {
         </CopyButton>
         <CopyButton label="Text Align Justify">
           <Icons.TextAlignJustifyIcon />
+        </CopyButton>
+        <CopyButton label="Text Align Top">
+          <Icons.TextAlignTopIcon />
+        </CopyButton>
+        <CopyButton label="Text Align Middle">
+          <Icons.TextAlignMiddleIcon />
+        </CopyButton>
+        <CopyButton label="Text Align Bottom">
+          <Icons.TextAlignBottomIcon />
+        </CopyButton>
+        <CopyButton label="Dash">
+          <Icons.DashIcon />
         </CopyButton>
       </Group>
     </Box>
