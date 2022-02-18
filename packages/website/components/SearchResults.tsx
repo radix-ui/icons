@@ -149,7 +149,7 @@ export const SearchResults = ({ value }: SearchResultsProps) => {
           {!matchingNames.length && (
             <Flex css={{ alignItems: 'center', justifyContent: 'center', minHeight: 300, padding: '$5 $6' }}>
               <Text size="2" css={{ textAlign: 'center', lineHeight: '20px' }}>
-                No icons for <Text css={{ display: 'inline', fontWeight: 500 }}>{value}</Text>
+                No icons for <span style={{ fontWeight: 500 }}>{value}</span>
               </Text>
             </Flex>
           )}
