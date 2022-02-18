@@ -9,15 +9,13 @@ import {
   IconJarLogoIcon,
   SketchLogoIcon,
 } from '@radix-ui/react-icons';
-import { Overview } from '../components/Overview';
 import { Hero } from '../components/Hero';
 import { Menu } from '../components/Menu';
-import { SearchBar } from '../components/SearchBar';
-import { SearchResults } from '../components/SearchResults';
 import { CopyToast, CopyToastVisibility } from '../components/CopyToast';
 import { CodeBlock } from '../components/CodeBlock';
 import { IconLink } from '../components/IconLink';
 import { Section } from '../components/Section';
+import { MainContent } from '../components/MainContent';
 import { DarkModeButton } from '../components/DarkModeButton';
 
 export default function Home() {
@@ -26,7 +24,6 @@ export default function Home() {
     classNameLight: 'theme-default',
   });
 
-  const [searchValue, setSearchValue] = React.useState('');
   const [toastIsVisible, setToastIsVisible] = React.useState(false);
   const [toastIcon, setToastIcon] = React.useState('');
   const [toastTimeout, setToastTimeout] = React.useState<ReturnType<typeof setTimeout>>();
@@ -67,11 +64,7 @@ export default function Home() {
                 },
               }}
             >
-              <SearchBar value={searchValue} onValueChange={setSearchValue} />
-              <SearchResults value={searchValue} />
-              <Box css={{ display: searchValue ? 'none' : 'block' }}>
-                <Overview />
-              </Box>
+              <MainContent />
               <Section>
                 <Box
                   css={{

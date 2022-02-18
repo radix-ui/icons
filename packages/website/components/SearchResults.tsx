@@ -86,7 +86,7 @@ export const SearchResults = ({ value }: SearchResultsProps) => {
               }}
             >
               {matchingNames.map((name) => (
-                <Box css={{ minWidth: 0 }}>
+                <Box css={{ minWidth: 0 }} key={name}>
                   <GhostButton
                     onClick={(event: React.MouseEvent) => {
                       const svg = event.currentTarget.querySelector('svg');

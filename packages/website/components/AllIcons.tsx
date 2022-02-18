@@ -4,7 +4,7 @@ import { Box, Grid, Text, Tooltip, styled } from '@modulz/design-system';
 import { CopyToastVisibility } from './CopyToast';
 import { ChromelessButton } from './ChromelessButton';
 
-export const Overview = React.memo(() => {
+export const AllIcons = React.memo(() => {
   return (
     <Grid
       css={{
