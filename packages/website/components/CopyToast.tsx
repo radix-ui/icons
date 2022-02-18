@@ -1,5 +1,5 @@
 import React from 'react';
-import { Portal } from '@interop-ui/react-portal';
+import { Portal } from '@radix-ui/react-portal';
 import { Box, Text } from '@modulz/design-system';
 
 type CopyToastVisibilityValue = {

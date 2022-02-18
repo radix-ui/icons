@@ -10,8 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 0"
   },
   "dependencies": {
-    "@interop-ui/react-portal": "^0.0.1-6",
-    "@interop-ui/react-tooltip": "^0.0.1-5",
+    "@radix-ui/react-portal": "0.1.3",
     "@modulz/design-system": "0.6.2",
     "@radix-ui/react-icons": "^1.0.3",
     "@types/react-input-autosize": "^2.2.0",
