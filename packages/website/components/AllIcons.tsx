@@ -1089,13 +1089,13 @@ const Objects = () => {
         <CopyButton label="Star">
           <Icons.StarIcon />
         </CopyButton>
-        <CopyButton label="StarFilled">
+        <CopyButton label="Star Filled">
           <Icons.StarFilledIcon />
         </CopyButton>
         <CopyButton label="Heart">
           <Icons.HeartIcon />
         </CopyButton>
-        <CopyButton label="HeartFilled">
+        <CopyButton label="Heart Filled">
           <Icons.HeartFilledIcon />
         </CopyButton>
         <CopyButton label="Scissors">
