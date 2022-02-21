@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import Script from 'next/script';
 
 export function TitleAndMetaTags({
   url = 'https://icons.modulz.app',
@@ -100,7 +101,7 @@ export function TitleAndMetaTags({
               }`,
         }}
       />
-      <script
+      <Script
         dangerouslySetInnerHTML={{
           __html: `(function() {
                 try {
@@ -111,7 +112,7 @@ export function TitleAndMetaTags({
               })()
           `,
         }}
-      ></script>
+      />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </Head>
   );

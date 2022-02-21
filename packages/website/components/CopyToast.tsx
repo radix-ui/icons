@@ -1,5 +1,5 @@
 import React from 'react';
-import { Portal } from '@interop-ui/react-portal';
+import { Portal } from '@radix-ui/react-portal';
 import { Box, Text } from '@modulz/design-system';
 
 type CopyToastVisibilityValue = {
@@ -48,15 +48,15 @@ export const CopyToast = () => {
                 transitionDuration: isVisible ? '50ms' : '300ms',
               }}
             >
-              <Text as="p" size="3" css={{ color: '$loContrast', lineHeight: '20px', letterSpacing: '-0.015em' }}>
-                Copied to clipboard
+              <Text as="p" size="2" css={{ color: '$loContrast', lineHeight: '21px' }}>
+                SVG copied to clipboard
                 <Box
                   as="span"
                   dangerouslySetInnerHTML={{ __html: icon }}
                   css={{
                     display: 'inline-flex',
                     marginLeft: '0.75em',
-                    marginTop: 2,
+                    marginTop: 3,
                     verticalAlign: 'top',
                     justifyContent: 'center',
                   }}

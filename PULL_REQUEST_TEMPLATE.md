@@ -14,4 +14,5 @@ PR checklist:
 - [ ] Website is up to date
 - [ ] Sketch file is up to date
 - [ ] IconJar file is up to date
+  - [ ] Icon names in the IconJar library are correct
   - [ ] Version in the IconJar library description is correct

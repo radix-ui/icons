@@ -1,7 +1,7 @@
 import React from 'react';
 import useDarkMode from 'use-dark-mode';
 import * as Icons from '@radix-ui/react-icons';
-import { Box, Flex, Grid, Text, darkThemeClass } from '@modulz/design-system';
+import { Box, Flex, Grid, Text, darkTheme } from '@modulz/design-system';
 import { CopyToastVisibility } from './CopyToast';
 import { ChromelessButton } from './ChromelessButton';
 
@@ -10,11 +10,6 @@ type SearchResultsProps = {
 };
 
 const GhostButton = (props: React.ComponentProps<typeof ChromelessButton>) => {
-  const darkMode = useDarkMode(undefined, {
-    classNameDark: darkThemeClass,
-    classNameLight: 'theme-default',
-  });
-
   return (
     <ChromelessButton
       css={{
@@ -24,10 +19,10 @@ const GhostButton = (props: React.ComponentProps<typeof ChromelessButton>) => {
         padding: '$2',
         borderRadius: '$2',
         '&:hover': {
-          backgroundColor: darkMode.value ? 'hsl(174, 65%, 14%)' : '$teal300',
+          backgroundColor: '$mintA4',
         },
         '&:active, &:focus': {
-          boxShadow: darkMode.value ? '0 0 0 2px hsl(174, 100%, 28%)' : '0 0 0 2px $teal700',
+          boxShadow: '0 0 0 2px $colors$mintA8',
         },
       }}
       {...props}
@@ -38,6 +33,8 @@ const GhostButton = (props: React.ComponentProps<typeof ChromelessButton>) => {
 const iconNames = Object.keys(Icons).map((key) => {
   switch (key) {
     // Logos using original PascalCase naming can't be automated
+    case 'LinkedInLogoIcon':
+      return 'LinkedIn Logo';
     case 'GitHubLogoIcon':
       return 'GitHub Logo';
     case 'IconJarLogoIcon':
@@ -56,7 +53,7 @@ const iconNames = Object.keys(Icons).map((key) => {
 });
 
 export const SearchResults = ({ value }: SearchResultsProps) => {
-  const cleanValue = value.trim().replace(/\s/g, ' ');
+  const cleanValue = escapeStringRegexp(value.trim().replace(/\s/g, ' '));
   const matchingNames = iconNames.filter((name) => new RegExp(`\\b${cleanValue}`, 'gi').test(name));
 
   return (
@@ -68,17 +65,16 @@ export const SearchResults = ({ value }: SearchResultsProps) => {
               css={{
                 rowGap: '$2',
                 alignContent: 'start',
-                default: {
-                  padding: '$2 $3',
-                },
-                bp1: {
+                padding: '$2 $3',
+
+                '@bp1': {
                   columnGap: '$6',
                   padding: '$5 $6',
                   gridAutoFlow: 'column',
                   gridTemplateColumns: 'repeat(2, 1fr)',
                   gridTemplateRows: `repeat(${Math.max(Math.ceil(matchingNames.length / 2), 3)}, auto)`,
                 },
-                bp2: {
+                '@bp2': {
                   // Place icons on rows first, then add more columns as needed, up to 4 total.
                   // And make sure there's at least 3 rows, so it looks nice.
                   // If only there was something like a multi-column layout feature in CSS... 🙃
@@ -90,7 +86,7 @@ export const SearchResults = ({ value }: SearchResultsProps) => {
               }}
             >
               {matchingNames.map((name) => (
-                <Box css={{ minWidth: 0 }}>
+                <Box css={{ minWidth: 0 }} key={name}>
                   <GhostButton
                     onClick={(event: React.MouseEvent) => {
                       const svg = event.currentTarget.querySelector('svg');
@@ -129,7 +125,7 @@ export const SearchResults = ({ value }: SearchResultsProps) => {
                       }}
                     >
                       <Flex as="span" css={{ mr: '$1', p: '$1', flex: '0' }}>
-                        {React.createElement(Object.values(Icons)[iconNames.indexOf(name)])}
+                        {React.createElement(Object.values(Icons)[iconNames.indexOf(name)] as any)}
                       </Flex>
                       <Text
                         size="2"
@@ -153,7 +149,7 @@ export const SearchResults = ({ value }: SearchResultsProps) => {
           {!matchingNames.length && (
             <Flex css={{ alignItems: 'center', justifyContent: 'center', minHeight: 300, padding: '$5 $6' }}>
               <Text size="2" css={{ textAlign: 'center', lineHeight: '20px' }}>
-                No icons for <Text css={{ display: 'inline', fontWeight: 500 }}>{value}</Text>
+                No icons for <span style={{ fontWeight: 500 }}>{value}</span>
               </Text>
             </Flex>
           )}
@@ -162,3 +158,14 @@ export const SearchResults = ({ value }: SearchResultsProps) => {
     </CopyToastVisibility.Consumer>
   );
 };
+
+// https://github.com/sindresorhus/escape-string-regexp/blob/main/index.js
+function escapeStringRegexp(string) {
+  if (typeof string !== 'string') {
+    throw new TypeError('Expected a string');
+  }
+
+  // Escape characters with special meaning either inside or outside character sets.
+  // Use a simple backslash escape when it’s always valid, and a `\xnn` escape when the simpler form would be disallowed by Unicode patterns’ stricter grammar.
+  return string.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&').replace(/-/g, '\\x2d');
+}

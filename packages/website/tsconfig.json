@@ -17,7 +17,8 @@
     "noImplicitAny": false,
     "lib": ["dom", "es2017"],
     "allowJs": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "incremental": true
   },
   "exclude": ["node_modules", "pages"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]

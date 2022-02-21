@@ -1,8 +1,9 @@
 import { styled } from '@modulz/design-system';
 
 export const CodeBlock = styled('pre', {
-  backgroundColor: '$gray200',
-  color: '$gray900',
+  backgroundColor: '$slate1',
+  boxShadow: 'inset 0 0 0 1px $colors$slate3',
+  color: '$slate11',
   fontFamily: '$mono',
   fontSize: '$2',
   overflowX: 'auto',

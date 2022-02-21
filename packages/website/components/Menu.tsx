@@ -1,6 +1,6 @@
 import React from 'react';
 import useDarkMode from 'use-dark-mode';
-import { styled, Box, Flex, darkThemeClass } from '@modulz/design-system';
+import { styled, Box, Flex, darkTheme } from '@modulz/design-system';
 import {
   CubeIcon,
   DownloadIcon,
@@ -17,6 +17,17 @@ const MenuLink = styled('a', {
   borderRadius: '$1',
   color: 'inherit',
   outline: 0,
+  padding: '0 $3',
+  fontSize: '$3',
+  lineHeight: '35px',
+
+  '@bp2': {
+    padding: '0 $1',
+    margin: '0 -$1',
+    fontSize: '$2',
+    lineHeight: '25px',
+  },
+
   '& + &': {
     marginTop: '$1',
   },
@@ -27,22 +38,11 @@ const MenuLink = styled('a', {
     boxShadow: '0 0 0 1px',
     textDecoration: 'none',
   },
-  default: {
-    padding: '0 $3',
-    fontSize: '$3',
-    lineHeight: '35px',
-  },
-  bp2: {
-    padding: '0 $1',
-    margin: '0 -$1',
-    fontSize: '$2',
-    lineHeight: '25px',
-  },
 });
 
 export const Menu = () => {
   const darkMode = useDarkMode(undefined, {
-    classNameDark: darkThemeClass,
+    classNameDark: darkTheme.className,
     classNameLight: 'theme-default',
   });
 
@@ -54,17 +54,16 @@ export const Menu = () => {
         right: 0,
         margin: '$5',
         justifyContent: 'flex-end',
-        default: {
-          display: 'none',
-        },
-        bp2: {
+        display: 'none',
+
+        '@bp2': {
           display: 'inline-flex',
         },
       }}
     >
       <Flex
         css={{
-          background: darkMode.value ? 'hsl(174, 65%, 14%)' : '$teal300',
+          background: darkMode.value ? '$mint5' : '$mint3',
           borderRadius: '$1',
           boxShadow: '0 10px 40px -10px hsla(174, 100%, 30%, 0.05)',
           flexDirection: 'column',

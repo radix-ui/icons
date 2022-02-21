@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Flex, darkThemeClass } from '@modulz/design-system';
+import { Box, Flex, darkTheme } from '@modulz/design-system';
 import { MagnifyingGlassIcon } from '@radix-ui/react-icons';
 import AutosizeInput from 'react-input-autosize';
 
@@ -12,8 +12,8 @@ export const SearchBar = ({ value, onValueChange }: SearchBarProps) => {
   const inputRef = React.useRef<AutosizeInput | null>(null);
 
   return (
-    <Flex css={{ alignItems: 'center', justifyContent: 'center', borderBottom: '1px solid $gray500' }}>
-      <Flex as="span" css={{ marginRight: '$1', color: '$gray800' }}>
+    <Flex css={{ alignItems: 'center', justifyContent: 'center', borderBottom: '1px solid $slate5' }}>
+      <Flex as="span" css={{ marginRight: '$1', color: '$slate10' }}>
         <MagnifyingGlassIcon />
       </Flex>
       <Box
@@ -34,7 +34,7 @@ export const SearchBar = ({ value, onValueChange }: SearchBarProps) => {
             height: '$6',
             fontSize: '$2',
             '&::placeholder': {
-              color: '$gray800',
+              color: '$slate9',
             },
           },
         }}
