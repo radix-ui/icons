@@ -92,4 +92,6 @@ export const <%- iconToComponentName(icon) %> = React.forwardRef<SVGSVGElement, 
 );
 <% } %>
 
+<%- iconToComponentName(icon) %>.displayName = <%- iconToComponentName(icon) %>;
+
 export default <%- iconToComponentName(icon) %>;
