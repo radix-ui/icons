@@ -173,7 +173,7 @@ function MyComponent () {
                     <Text as="p" size="3" css={{ mt: '$2', lineHeight: '25px' }}>
                       Licensed under the{' '}
                       <Link href="https://github.com/radix-ui/icons/blob/master/LICENSE">MIT License</Link>. Copyright
-                      © 2020–present Modulz.
+                      © 2022–present WorkOS.
                     </Text>
                   </Box>
                 </Box>

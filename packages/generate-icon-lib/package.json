@@ -6,7 +6,7 @@
   "bin": {
     "generate-icon-lib": "./index.js"
   },
-  "author": "Lochlan Bunn <lochlan@modulz.app>",
+  "author": "Lochlan Bunn",
   "dependencies": {
     "@types/cheerio": "^0.22.11",
     "@types/dotenv": "^6.1.1",

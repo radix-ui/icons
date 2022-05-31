@@ -78,14 +78,14 @@ export const Menu = () => {
           </Box>
           Open in Figma
         </MenuLink>
-        <MenuLink href="https://raw.githubusercontent.com/modulz/radix-icons/master/Radix-Icons.sketch" target="_blank">
+        <MenuLink href="https://raw.githubusercontent.com/radix-ui/icons/master/Radix-Icons.sketch" target="_blank">
           <Box as="span" css={{ mr: '$2' }}>
             <SketchLogoIcon />
           </Box>
           Download for Sketch
         </MenuLink>
         <MenuLink
-          href="https://raw.githubusercontent.com/modulz/radix-icons/master/Radix-Icons.iconjar.zip"
+          href="https://raw.githubusercontent.com/radix-ui/icons/master/Radix-Icons.iconjar.zip"
           target="_blank"
         >
           <Box as="span" css={{ mr: '$2' }}>
@@ -93,7 +93,7 @@ export const Menu = () => {
           </Box>
           Download IconJar
         </MenuLink>
-        <MenuLink href="https://raw.githubusercontent.com/modulz/radix-icons/master/radix-icons.zip" target="_blank">
+        <MenuLink href="https://raw.githubusercontent.com/radix-ui/icons/master/radix-icons.zip" target="_blank">
           <Box as="span" css={{ mr: '$2' }}>
             <DownloadIcon />
           </Box>
@@ -105,7 +105,7 @@ export const Menu = () => {
           </Box>
           Install with npm
         </MenuLink>
-        <MenuLink href="https://github.com/modulz/radix-icons" target="_blank">
+        <MenuLink href="https://github.com/radix-ui/icons" target="_blank">
           <Box as="span" css={{ mr: '$2' }}>
             <GitHubLogoIcon />
           </Box>

@@ -1,8 +1,8 @@
 # Radix Icons
 
-A crisp set of 15×15 icons designed by the [Modulz](https://modulz.app) team.
+A crisp set of 15×15 icons designed by the [WorkOS](https://workos.com) team.
 
-Visit [icons.modulz.app](https://icons.modulz.app) to browse the icons.
+Visit [icons.radix-ui.com](https://icons.radix-ui.com) to browse the icons.
 
 ---
 
@@ -38,13 +38,13 @@ Please follow our [contributing guidelines](./CONTRIBUTING.md).
 
 ## Authors
 
-- Vlad Moroz ([@vladyslavmoroz](https://twitter.com/vladyslavmoroz)) - [Modulz](https://modulz.app)
-- Colm Tuite ([@colmtuite](https://twitter.com/colmtuite)) - [Modulz](https://modulz.app)
-- Pedro Duarte ([@peduarte](https://twitter.com/peduarte)) - [Modulz](https://modulz.app)
+- Vlad Moroz ([@vladyslavmoroz](https://twitter.com/vladyslavmoroz)) - [WorkOS](https://workos.com)
+- Colm Tuite ([@colmtuite](https://twitter.com/colmtuite)) - [WorkOS](https://workos.com)
+- Pedro Duarte ([@peduarte](https://twitter.com/peduarte))
 - Lochlan Bunn ([@loklaan](https://twitter.com/loklaan))
 
 ## License
 
-Licensed under the MIT License, Copyright © 2020-present Modulz.
+Licensed under the MIT License, Copyright © 2022-present WorkOS.
 
 See [LICENSE](./LICENSE.md) for more information.
