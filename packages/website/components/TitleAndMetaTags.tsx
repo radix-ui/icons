@@ -30,14 +30,14 @@ export function TitleAndMetaTags({
         rel="preload"
         type="font/woff2"
         crossOrigin="anonymous"
-        href="https://develop.modulz.app/fonts/UntitledSansWeb-Medium.woff2"
+        href="/fonts/UntitledSansWeb-Medium.woff2"
       />
       <link
         as="font"
         rel="preload"
         type="font/woff2"
         crossOrigin="anonymous"
-        href="https://develop.modulz.app/fonts/UntitledSansWeb-Regular.woff2"
+        href="/fonts/UntitledSansWeb-Regular.woff2"
       />
       <style
         dangerouslySetInnerHTML={{
@@ -47,8 +47,8 @@ export function TitleAndMetaTags({
                 font-weight: 400;
                 font-display: block;
                 src:
-                  url(https://develop.modulz.app/fonts/UntitledSansWeb-Regular.woff2) format('woff2'),
-                  url(https://develop.modulz.app/fonts/UntitledSansWeb-Regular.woff) format('woff');
+                  url(/fonts/UntitledSansWeb-Regular.woff2) format('woff2'),
+                  url(/fonts/UntitledSansWeb-Regular.woff) format('woff');
               }
 
               @font-face {
@@ -56,8 +56,8 @@ export function TitleAndMetaTags({
                 font-weight: 500;
                 font-display: block;
                 src:
-                  url(https://develop.modulz.app/fonts/UntitledSansWeb-Medium.woff2) format('woff2'),
-                  url(https://develop.modulz.app/fonts/UntitledSansWeb-Medium.woff) format('woff');
+                  url(/fonts/UntitledSansWeb-Medium.woff2) format('woff2'),
+                  url(/fonts/UntitledSansWeb-Medium.woff) format('woff');
               }
 
               @font-face {
@@ -66,8 +66,8 @@ export function TitleAndMetaTags({
                 font-style: normal;
                 font-display: block;
                 src
-                  url(https://develop.modulz.app/fonts/'soehne-mono-web-buch.woff2') format('woff2'),
-                  url(https://develop.modulz.app/fonts/'soehne-mono-web-buch.woff') format('woff');
+                  url(/fonts/'soehne-mono-web-buch.woff2') format('woff2'),
+                  url(/fonts/'soehne-mono-web-buch.woff') format('woff');
               }
 
               @font-face {
@@ -76,8 +76,8 @@ export function TitleAndMetaTags({
                 font-style: italic;
                 font-display: block;
                 src:
-                  url(https://develop.modulz.app/fonts/'soehne-mono-web-buch-kursiv.woff2') format('woff2'),
-                  url(https://develop.modulz.app/fonts/'soehne-mono-web-buch-kursiv.woff') format('woff');
+                  url(/fonts/'soehne-mono-web-buch-kursiv.woff2') format('woff2'),
+                  url(/fonts/'soehne-mono-web-buch-kursiv.woff') format('woff');
               }
 
               @font-face {
@@ -86,8 +86,8 @@ export function TitleAndMetaTags({
                 font-style: normal;
                 font-display: block;
                 src:
-                  url(https://develop.modulz.app/fonts/'soehne-mono-web-kraftig.woff2') format('woff2'),
-                  url(https://develop.modulz.app/fonts/'soehne-mono-web-kraftig.woff') format('woff');
+                  url(/fonts/'soehne-mono-web-kraftig.woff2') format('woff2'),
+                  url(/fonts/'soehne-mono-web-kraftig.woff') format('woff');
               }
 
               @font-face {
@@ -96,8 +96,8 @@ export function TitleAndMetaTags({
                 font-style: italic;
                 font-display: block;
                 src:
-                  url(https://develop.modulz.app/fonts/'soehne-mono-web-kraftig-kursiv.woff2') format('woff2'),
-                  url(https://develop.modulz.app/fonts/'soehne-mono-web-kraftig-kursiv.woff') format('woff');
+                  url(/fonts/'soehne-mono-web-kraftig-kursiv.woff2') format('woff2'),
+                  url(/fonts/'soehne-mono-web-kraftig-kursiv.woff') format('woff');
               }`,
         }}
       />
