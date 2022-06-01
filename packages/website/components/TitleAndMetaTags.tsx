@@ -66,8 +66,8 @@ export function TitleAndMetaTags({
                 font-style: normal;
                 font-display: block;
                 src
-                  url(/fonts/'soehne-mono-web-buch.woff2') format('woff2'),
-                  url(/fonts/'soehne-mono-web-buch.woff') format('woff');
+                  url(/fonts/soehne-mono-web-buch.woff2) format('woff2'),
+                  url(/fonts/soehne-mono-web-buch.woff) format('woff');
               }
 
               @font-face {
@@ -76,8 +76,8 @@ export function TitleAndMetaTags({
                 font-style: italic;
                 font-display: block;
                 src:
-                  url(/fonts/'soehne-mono-web-buch-kursiv.woff2') format('woff2'),
-                  url(/fonts/'soehne-mono-web-buch-kursiv.woff') format('woff');
+                  url(/fonts/soehne-mono-web-buch-kursiv.woff2) format('woff2'),
+                  url(/fonts/soehne-mono-web-buch-kursiv.woff) format('woff');
               }
 
               @font-face {
@@ -86,8 +86,8 @@ export function TitleAndMetaTags({
                 font-style: normal;
                 font-display: block;
                 src:
-                  url(/fonts/'soehne-mono-web-kraftig.woff2') format('woff2'),
-                  url(/fonts/'soehne-mono-web-kraftig.woff') format('woff');
+                  url(/fonts/soehne-mono-web-kraftig.woff2) format('woff2'),
+                  url(/fonts/soehne-mono-web-kraftig.woff) format('woff');
               }
 
               @font-face {
@@ -96,8 +96,8 @@ export function TitleAndMetaTags({
                 font-style: italic;
                 font-display: block;
                 src:
-                  url(/fonts/'soehne-mono-web-kraftig-kursiv.woff2') format('woff2'),
-                  url(/fonts/'soehne-mono-web-kraftig-kursiv.woff') format('woff');
+                  url(/fonts/soehne-mono-web-kraftig-kursiv.woff2) format('woff2'),
+                  url(/fonts/soehne-mono-web-kraftig-kursiv.woff) format('woff');
               }`,
         }}
       />
