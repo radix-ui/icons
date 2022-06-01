@@ -169,7 +169,7 @@ export const Hero = () => {
           },
         }}
       >
-        A crisp set of 15×15 icons designed by the Modulz team.
+        A crisp set of 15×15 icons designed by the WorkOS team.
       </Text>
     </Box>
   );

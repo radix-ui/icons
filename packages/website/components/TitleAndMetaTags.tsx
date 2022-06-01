@@ -3,13 +3,13 @@ import Head from 'next/head';
 import Script from 'next/script';
 
 export function TitleAndMetaTags({
-  url = 'https://icons.modulz.app',
+  url = 'https://icons.radix-ui.com',
   title = 'Radix Icons',
-  description = 'A crisp set of 15×15 icons designed by the Modulz team.',
+  description = 'A crisp set of 15×15 icons designed by the WorkOS team.',
 }) {
   // const image = `${url}/preview.png`;
-  const image = 'https://raw.githubusercontent.com/modulz/radix-icons/master/packages/website/public/preview.png';
-  const favicon = 'https://raw.githubusercontent.com/modulz/radix-icons/master/packages/website/public/favicon.ico';
+  const image = 'https://raw.githubusercontent.com/radix-ui/icons/master/packages/website/public/preview.png';
+  const favicon = 'https://raw.githubusercontent.com/radix-ui/icons/master/packages/website/public/favicon.ico';
 
   return (
     <Head>
@@ -23,7 +23,7 @@ export function TitleAndMetaTags({
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
 
-      <meta name="twitter:site" content="@modulz" />
+      <meta name="twitter:site" content="@WorkOS" />
       <meta name="twitter:card" content="summary_large_image" />
       <link
         as="font"

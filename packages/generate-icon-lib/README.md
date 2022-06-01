@@ -31,6 +31,6 @@ echo "FIGMA_ACCESS_TOKEN=<token>" >> packages/radix-icons/.env
 
 ## License
 
-Licensed under the MIT License, Copyright © 2020-present Modulz.
+Licensed under the MIT License, Copyright © 2022-present WorkOS.
 
 See [LICENSE](./LICENSE.md) for more information.

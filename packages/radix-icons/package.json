@@ -5,9 +5,9 @@
   "license": "MIT",
   "description": "Radix UI React Icon Set",
   "authors": [
-    "Vlad Moroz <vlad@modulz.app>",
-    "Pedro Duarte <pedro@modulz.app>",
-    "Colm Tuite <colm@modulz.app>"
+    "Vlad Moroz <vlad@workos.com>",
+    "Pedro Duarte",
+    "Colm Tuite <colm@workos.com>"
   ],
   "module": "dist/react-icons.esm.js",
   "main": "index.js",

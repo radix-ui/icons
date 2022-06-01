@@ -1,6 +1,6 @@
 ## Radix Icons Site
 
-This is the source code of the [Radix Icons site](https://icons.modulz.app).
+This is the source code of the [Radix Icons site](https://icons.radix-ui.com).
 
 ---
 
