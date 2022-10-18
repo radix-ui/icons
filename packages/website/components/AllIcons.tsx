@@ -972,6 +972,18 @@ const Objects = () => {
         <CopyButton label="Mixer Vertical">
           <Icons.MixerVerticalIcon />
         </CopyButton>
+        <CopyButton label="Directory">
+          <Icons.DirectoryIcon />
+        </CopyButton>
+        <CopyButton label="Directory Filled">
+          <Icons.DirectoryFilledIcon />
+        </CopyButton>
+        <CopyButton label="Directory Open">
+          <Icons.DirectoryOpenIcon />
+        </CopyButton>
+        <CopyButton label="Directory Open Filled">
+          <Icons.DirectoryOpenFilledIcon />
+        </CopyButton>
         <CopyButton label="File">
           <Icons.FileIcon />
         </CopyButton>
