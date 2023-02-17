@@ -1,2 +1,5 @@
 module.exports = require('./dist/index.js');
-module.exports.__esModule = true;
+
+Object.defineProperty(module.exports, '__esModule', {
+  value: true
+});
