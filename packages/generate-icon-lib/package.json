@@ -1,7 +1,7 @@
 {
   "name": "@modulz/generate-icon-lib",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Library src generator for Radix Icons",
   "bin": {
     "generate-icon-lib": "./index.js"
