@@ -107,7 +107,7 @@ export default function Home() {
                         onClick={() => {
                           // Copy Framer Component link to clipboard
                           // If pasted directly into Framer, it will be auto-imported
-                          navigator.clipboard.writeText("https://framer.com/projects/Radix--q3HRzQOA8fbasQf6a551-dmfdD?node=p5DztUrSx")
+                          navigator.clipboard.writeText("https://framer.com/m/RadixIcon-6KvN.js")
 
                           // Also would be nice to show a Toast indicating successful copying
                         }}
