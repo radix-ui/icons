@@ -104,6 +104,20 @@ export default function Home() {
                         Download for Sketch
                       </IconLink>
                       <IconLink
+                        onClick={() => {
+                          // Copy Framer Component link to clipboard
+                          // If pasted directly into Framer, it will be auto-imported
+                          navigator.clipboard.writeText("https://framer.com/m/RadixIcon-6KvN.js")
+
+                          // Also would be nice to show a Toast indicating successful copying
+                        }}
+                      >
+                        <Box as="span" css={{ mr: '$2' }}>
+                          <FramerLogoIcon />
+                        </Box>
+                        Copy for Framer
+                      </IconLink>
+                      <IconLink
                         href="https://raw.githubusercontent.com/radix-ui/icons/master/Radix-Icons.iconjar.zip"
                         target="_blank"
                       >
