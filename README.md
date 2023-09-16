@@ -8,7 +8,9 @@ A crisp set of 15×15 icons designed by the [WorkOS](https://workos.com) team.
 
 ## Documentation
 
-For full documentation, visit [radix-ui.com/icons](https://radix-ui.com/icons).
+For the full documentation, visit [radix-ui-react-native-icons]([https://radix-ui.com/icons](https://github.com/Eronred/radix-ui-react-native-icons)).
+
+If you want to use Radix icons in your React Native project, utilize the [radix-ui-react-native-icons](https://radix-ui.com/icons) library.
 
 ## Authors
 
