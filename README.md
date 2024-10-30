@@ -12,8 +12,8 @@ For full documentation, visit [radix-ui.com/icons](https://radix-ui.com/icons).
 
 ## Authors
 
-- Vlad Moroz ([@vladyslavmoroz](https://twitter.com/vladyslavmoroz)) - [WorkOS](https://workos.com)
-- Colm Tuite ([@colmtuite](https://twitter.com/colmtuite)) - [WorkOS](https://workos.com)
+- Vlad Moroz ([@vladyslavmoroz](https://twitter.com/vladyslavmoroz))
+- Colm Tuite ([@colmtuite](https://twitter.com/colmtuite))
 - Pedro Duarte ([@peduarte](https://twitter.com/peduarte))
 - Lochlan Bunn ([@loklaan](https://twitter.com/loklaan))
 
