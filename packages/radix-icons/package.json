@@ -33,8 +33,7 @@
     "react": "^16.x || ^17.x || ^18.x || ^19.0.0 || ^19.0.0-rc"
   },
   "devDependencies": {
-    "@modulz/generate-icon-lib": "^0.2.1",
+    "@repo/generate-icon-lib": "workspace:*",
     "tsdx": "0.14.0"
-  },
-  "gitHead": "efac090e58b8e44ad0ace704e9262d2f82c60050"
+  }
 }
