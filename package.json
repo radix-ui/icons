@@ -7,17 +7,16 @@
   },
 
   "scripts": {
-    "start": "yarn icons",
-    "build": "yarn icons:build && yarn website:build",
-    "icons": "lerna exec --scope @radix-ui/react-icons -- yarn watch",
-    "icons:build": "lerna exec --scope @radix-ui/react-icons -- yarn build",
-    "website:build": "lerna exec --scope website -- yarn build",
+    "start": "pnpm icons",
+    "build": "pnpm icons:build",
+    "icons": "pnpm --filter @radix-ui/react-icons watch",
+    "icons:build": "pnpm --filter @radix-ui/react-icons build",
     "prettier": "prettier './**/*.{js,jsx,ts,tsx,json,yml,yaml,css,md,mdx}' --write",
     "lint": "eslint './packages/**/*.{js,jsx,ts,tsx}'",
     "clean": "npm run clean-logs && npm run clean-modules",
     "clean-logs": "rimraf ./packages/*/npm-debug* && rimraf ./*-debug*",
     "clean-modules": "rimraf ./packages/*/node_modules/ && rimraf ./node_modules/",
-    "release": "lerna publish"
+    "release": "pnpm publish"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^1.13.0",
@@ -31,18 +30,13 @@
     "eslint-plugin-react": "7.14.2",
     "eslint-plugin-react-hooks": "1.6.1",
     "husky": "^2.7.0",
-    "lerna": "^3.15.0",
     "lint-staged": "^9.0.0",
     "prettier": "^2.0.5",
-    "rimraf": "^2.6.3",
-    "yarnhook": "^0.4.1"
+    "rimraf": "^2.6.3"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
-      "post-merge": "yarnhook",
-      "post-checkout": "yarnhook",
-      "post-rewrite": "yarnhook"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {

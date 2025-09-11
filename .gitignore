@@ -20,15 +20,11 @@ public/*
 .env.test.local
 .env.production.local
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+*.log*
 
 # build
 .rpt2_cache/
 dist/
-lerna-debug.log
 
 .vercel
 !radix-icons.zip
-!Radix-Icons.iconjar.zip
