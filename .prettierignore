@@ -1,7 +1,6 @@
 build
 node_modules
-package-lock.json
-package.json
+pnpm-lock.yaml
 storybook-static
 public
 .cache

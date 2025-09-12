@@ -1,53 +1,46 @@
 {
-  "private": true,
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ]
-  },
-
-  "scripts": {
-    "start": "pnpm icons",
-    "build": "pnpm icons:build",
-    "icons": "pnpm --filter @radix-ui/react-icons watch",
-    "icons:build": "pnpm --filter @radix-ui/react-icons build",
-    "prettier": "prettier './**/*.{js,jsx,ts,tsx,json,yml,yaml,css,md,mdx}' --write",
-    "lint": "eslint './packages/**/*.{js,jsx,ts,tsx}'",
-    "clean": "npm run clean-logs && npm run clean-modules",
-    "clean-logs": "rimraf ./packages/*/npm-debug* && rimraf ./*-debug*",
-    "clean-modules": "rimraf ./packages/*/node_modules/ && rimraf ./node_modules/",
-    "release": "pnpm publish"
-  },
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^1.13.0",
-    "@typescript-eslint/parser": "^1.13.0",
-    "babel-eslint": "10.0.2",
-    "eslint": "5.16.0",
-    "eslint-config-react-app": "^4.0.1",
-    "eslint-plugin-flowtype": "3.11.1",
-    "eslint-plugin-import": "2.18.0",
-    "eslint-plugin-jsx-a11y": "6.2.3",
-    "eslint-plugin-react": "7.14.2",
-    "eslint-plugin-react-hooks": "1.6.1",
-    "husky": "^2.7.0",
-    "lint-staged": "^9.0.0",
-    "prettier": "^2.0.5",
-    "rimraf": "^2.6.3"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "prettier --write",
-      "eslint --fix",
-      "git add"
-    ],
-    "*.{md,mdx,json}": [
-      "prettier --write",
-      "git add"
-    ]
-  }
+	"private": true,
+	"workspaces": {
+		"packages": [
+			"packages/*"
+		]
+	},
+	"scripts": {
+		"start": "pnpm icons",
+		"build": "pnpm icons:build",
+		"icons": "pnpm --filter @radix-ui/react-icons watch",
+		"icons:build": "pnpm --filter @radix-ui/react-icons build",
+		"icons:generate": "pnpm --filter @radix-ui/react-icons generate-src",
+		"prettier": "prettier './**/*.{js,jsx,ts,tsx,json,yml,yaml,css,md,mdx}' --write",
+		"lint": "eslint './packages/**/*.{js,jsx,ts,tsx}'",
+		"clean": "npm run clean-logs && npm run clean-modules",
+		"clean-logs": "rimraf ./packages/*/npm-debug* && rimraf ./*-debug*",
+		"clean-modules": "rimraf ./packages/*/node_modules/ && rimraf ./node_modules/",
+		"release": "pnpm publish"
+	},
+	"devDependencies": {
+		"@chance/eslint": "^1.1.0",
+		"eslint": "^9.35.0",
+		"husky": "^9.1.7",
+		"lint-staged": "^16.1.6",
+		"prettier": "^3.6.2",
+		"rimraf": "^6.0.1",
+		"typescript": "^5.9.2"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.{js,jsx,ts,tsx}": [
+			"prettier --write",
+			"eslint --fix",
+			"git add"
+		],
+		"*.{md,mdx,json}": [
+			"prettier --write",
+			"git add"
+		]
+	}
 }

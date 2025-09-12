@@ -1,21 +1,19 @@
 {
-  "compilerOptions": {
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "target": "esnext",
-    "noImplicitAny": false,
-    "moduleResolution": "node",
-    "sourceMap": true,
-    "baseUrl": ".",
-    "jsx": "react",
-    "paths": {
-      "*": [
-        "node_modules/*",
-        "src/types/*"
-      ]
-    }
-  },
-  "include": [
-    "src/**/*"
-  ]
+	"compilerOptions": {
+		"module": "nodenext",
+		"esModuleInterop": true,
+		"target": "esnext",
+		"moduleResolution": "nodenext",
+		"sourceMap": true,
+		"baseUrl": ".",
+		"jsx": "react-jsx",
+		"strict": true,
+		"noImplicitAny": true
+	},
+	"include": ["src/**/*"],
+	"ts-node": {
+		"compilerOptions": {
+			"module": "esnext"
+		}
+	}
 }

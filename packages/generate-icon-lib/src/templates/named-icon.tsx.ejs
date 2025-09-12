@@ -10,12 +10,12 @@ interface <%- iconToPropsName(icon) %> extends IconProps {
 }
 
 export const <%- iconToComponentName(icon) %> = React.forwardRef<SVGSVGElement, <%- iconToPropsName(icon) %>>(
-  ({
+  function <%- iconToComponentName(icon) %>({
     color = 'currentColor',
     size<%- icon.sizes[0] === getDefaultSize() ? ` = '${icon.sizes[0]}'` : '' %>,
     type<%- icon.types[0] === getDefaultType() ? ` = '${icon.types[0]}'` : '' %>,
     ...props,
-  }, forwardedRef) => {
+  }, forwardedRef) {
 <%   for (const t in icon.types) { %>
 <%     for (const s in icon.sizes) { %>
 <%       if (iconHasSizeAndType(icon, icon.sizes[s], icon.types[t])) { %>
@@ -39,11 +39,11 @@ interface <%- iconToPropsName(icon) %> extends IconProps {
 }
 
 export const <%- iconToComponentName(icon) %> = React.forwardRef<SVGSVGElement, <%- iconToPropsName(icon) %>>(
-  ({
+  function <%- iconToComponentName(icon) %>({
     color = 'currentColor',
     size<%- icon.sizes[0] === getDefaultSize() ? ` = '${icon.sizes[0]}'` : '' %>,
     ...props,
-  }, forwardedRef) => {
+  }, forwardedRef) {
 <%   for (const s in icon.sizes) { %>
 <%     if (iconHasSizeAndType(icon, icon.sizes[s], icon.types[0])) { %>
     if (size === '<%- icon.sizes[s] %>') {
@@ -65,11 +65,11 @@ interface <%- iconToPropsName(icon) %> extends IconProps {
 }
 
 export const <%- iconToComponentName(icon) %> = React.forwardRef<SVGSVGElement, <%- iconToPropsName(icon) %>>(
-  ({
+  function <%- iconToComponentName(icon) %>({
     color = 'currentColor',
     type<%- icon.types[0] === getDefaultType() ? ` = '${icon.types[0]}'` : '' %>,
     ...props,
-  }, forwardedRef) => {
+  }, forwardedRef) {
 <%   for (const t in icon.types) { %>
 <%     if (iconHasSizeAndType(icon, icon.sizes[0], icon.types[t])) { %>
     if (type === '<%- icon.types[t] %>') {
@@ -86,7 +86,7 @@ export const <%- iconToComponentName(icon) %> = React.forwardRef<SVGSVGElement, 
 <% /* D. There are no variants */ %>
 <% } else { %>
 export const <%- iconToComponentName(icon) %> = React.forwardRef<SVGSVGElement, IconProps>(
-  ({ color = 'currentColor', ...props }, forwardedRef) => {
+  function <%- iconToComponentName(icon) %>({ color = 'currentColor', ...props }, forwardedRef) {
     return <%- iconToSVGSourceAsJSX(icon, icon.sizes[0], icon.types[0]) %>
   }
 );

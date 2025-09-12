@@ -1,21 +1,22 @@
 #! /usr/bin/env node
+// @ts-check
 
 /*
 |-------------------------------------------------------------------------------
 | Setup CLI with env and typescript support.
 | We don't have to bother compiling the TS because this package isn't published.
 */
-const path = require('path');
-const fs = require('fs-extra');
-require('ts-node').register({
-  ...fs.readJSONSync(path.resolve(__dirname, 'tsconfig.json')),
-});
-require('dotenv').config({
-  path: path.resolve(process.cwd(), '.env'),
+import path from "path";
+import { tsImport } from "tsx/esm/api";
+import dotenv from "dotenv";
+
+dotenv.config({
+	path: path.resolve(process.cwd(), ".env"),
 });
 
 /*
 |-------------------------------------------------------------------------------
 | Start the CLI! Vroom vroom
 */
-require('./src/cli.ts');
+
+await tsImport("./src/cli.ts", import.meta.url);
