@@ -11,8 +11,3 @@ PR checklist:
 - [ ] SVG: no icons are exported with `stroke`
 - [ ] SVG: no icons are exported with `clip-path`
 - [ ] SVG: no icons exceed 5 KB
-- [ ] Website is up to date
-- [ ] Sketch file is up to date
-- [ ] IconJar file is up to date
-  - [ ] Icon names in the IconJar library are correct
-  - [ ] Version in the IconJar library description is correct
