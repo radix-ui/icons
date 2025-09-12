@@ -1,5 +1,5 @@
 import * as React from "react";
-import type { IconProps } from "./types";
+import type { IconProps } from "./types.js";
 
 export const ZoomOutIcon = React.forwardRef<SVGSVGElement, IconProps>(
 	function ZoomOutIcon({ color = "currentColor", ...props }, forwardedRef) {

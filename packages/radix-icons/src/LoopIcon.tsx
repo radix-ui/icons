@@ -1,5 +1,5 @@
 import * as React from "react";
-import type { IconProps } from "./types";
+import type { IconProps } from "./types.js";
 
 export const LoopIcon = React.forwardRef<SVGSVGElement, IconProps>(
 	function LoopIcon({ color = "currentColor", ...props }, forwardedRef) {

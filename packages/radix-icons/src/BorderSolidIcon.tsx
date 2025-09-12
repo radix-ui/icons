@@ -1,5 +1,5 @@
 import * as React from "react";
-import type { IconProps } from "./types";
+import type { IconProps } from "./types.js";
 
 export const BorderSolidIcon = React.forwardRef<SVGSVGElement, IconProps>(
 	function BorderSolidIcon({ color = "currentColor", ...props }, forwardedRef) {

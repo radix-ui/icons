@@ -1,5 +1,5 @@
 import * as React from "react";
-import type { IconProps } from "./types";
+import type { IconProps } from "./types.js";
 
 export const LockOpen1Icon = React.forwardRef<SVGSVGElement, IconProps>(
 	function LockOpen1Icon({ color = "currentColor", ...props }, forwardedRef) {

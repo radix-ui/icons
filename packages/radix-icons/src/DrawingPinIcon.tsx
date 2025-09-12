@@ -1,5 +1,5 @@
 import * as React from "react";
-import type { IconProps } from "./types";
+import type { IconProps } from "./types.js";
 
 export const DrawingPinIcon = React.forwardRef<SVGSVGElement, IconProps>(
 	function DrawingPinIcon({ color = "currentColor", ...props }, forwardedRef) {

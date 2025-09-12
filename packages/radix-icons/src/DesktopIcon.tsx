@@ -1,5 +1,5 @@
 import * as React from "react";
-import type { IconProps } from "./types";
+import type { IconProps } from "./types.js";
 
 export const DesktopIcon = React.forwardRef<SVGSVGElement, IconProps>(
 	function DesktopIcon({ color = "currentColor", ...props }, forwardedRef) {

@@ -1,5 +1,5 @@
 import * as React from "react";
-import type { IconProps } from "./types";
+import type { IconProps } from "./types.js";
 
 export const Cross1Icon = React.forwardRef<SVGSVGElement, IconProps>(
 	function Cross1Icon({ color = "currentColor", ...props }, forwardedRef) {
