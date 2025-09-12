@@ -15,6 +15,7 @@
 		"clean": "pnpm run clean-logs && pnpm run clean-modules",
 		"clean-logs": "rimraf ./packages/*/npm-debug* && rimraf ./*-debug*",
 		"clean-modules": "rimraf ./packages/*/node_modules/ && rimraf ./node_modules/",
+		"changeset": "changeset",
 		"bump:stable": "changeset version",
 		"bump:next": "changeset version --snapshot",
 		"bump:check": "changeset status --since=main",
