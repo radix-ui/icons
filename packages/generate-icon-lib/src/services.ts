@@ -387,7 +387,6 @@ export async function downloadSvgsToFs(
 				.text()
 				.then((svgRaw) => transformers.passSVGO(svgRaw))
 				.then((svgRaw) => transformers.injectCurrentColor(svgRaw));
-			// .then((svgRaw) => transformers.prettify(svgRaw));
 
 			const filePath = path.resolve(
 				currentTempDir,
