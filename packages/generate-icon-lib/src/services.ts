@@ -43,7 +43,7 @@ const transformers = {
 				"removeXMLProcInst",
 				"removeComments",
 				"removeMetadata",
-				"removeXMLNS",
+				// "removeXMLNS",
 				"removeEditorsNSData",
 				"cleanupAttrs",
 				"minifyStyles",
@@ -52,12 +52,19 @@ const transformers = {
 				"removeRasterImages",
 				"removeUselessDefs",
 				"cleanupNumericValues",
-				"cleanupListOfValues",
+				// "cleanupListOfValues",
 				"convertColors",
 				"removeUnknownsAndDefaults",
 				"removeNonInheritableGroupAttrs",
-				"removeUselessStrokeAndFill",
-				"removeViewBox",
+				{
+					name: "removeUselessStrokeAndFill",
+					params: {
+						stroke: false,
+						fill: false,
+						removeNone: false,
+					},
+				},
+				// "removeViewBox",
 				"cleanupEnableBackground",
 				"removeHiddenElems",
 				"removeEmptyText",
@@ -65,18 +72,18 @@ const transformers = {
 				"moveElemsAttrsToGroup",
 				"moveGroupAttrsToElems",
 				"collapseGroups",
-				"convertPathData",
+				// "convertPathData",
 				"convertTransform",
 				"removeEmptyAttrs",
 				"removeEmptyContainers",
 				"mergePaths",
 				"removeUnusedNS",
-				"sortAttrs",
+				// "sortAttrs",
 				"removeTitle",
 				"removeDesc",
-				"removeDimensions",
-				"removeStyleElement",
-				"removeScripts",
+				// "removeDimensions",
+				// "removeStyleElement",
+				// "removeScripts",
 			],
 		});
 		return data;
@@ -331,30 +338,35 @@ export function getIcons(iconsCanvas: IFigmaCanvas): IIcons {
 	return iconsCanvas.children.reduce((icons: IIcons, iconSetNode) => {
 		// We technically don't want icon sets to be in Groups, but we should still allow it
 		if (iconSetNode.type === "FRAME" || iconSetNode.type === "GROUP") {
-			iconSetNode.children.forEach((iconNode) => {
-				// Our individual icons frames may be Figma "Components" 🤙
-				if (iconNode.type === "FRAME" || iconNode.type === "COMPONENT") {
-					// 'Break Link' => 'break-link'
-					// 'GitHub Logo' => 'github-logo'
-					const svgName = _.kebabCase(iconNode.name.toLowerCase());
+			iconSetNode.children.forEach((iconGroupNode) => {
+				// Icons are grouped in frames
+				if (iconGroupNode.type === "FRAME") {
+					iconGroupNode.children.forEach((iconNode) => {
+						// Our individual icons are Figma "Components"
+						if (iconNode.type === "COMPONENT") {
+							// 'Break Link' => 'break-link'
+							// 'GitHub Logo' => 'github-logo'
+							const svgName = _.kebabCase(iconNode.name.toLowerCase());
 
-					// We insert whitespace between lower and uppercase letters
-					// to make sure that lodash preserves existing camel-casing.
-					// 'Break Link' => 'BreakLink'
-					// 'GitHub Logo' => 'GitHubLogo'
-					const jsxName = _.upperFirst(
-						_.camelCase(
-							iconNode.name.replace(/([0-9a-z])([0-9A-Z])/g, "$1 $2"),
-						),
-					);
+							// We insert whitespace between lower and uppercase letters
+							// to make sure that lodash preserves existing camel-casing.
+							// 'Break Link' => 'BreakLink'
+							// 'GitHub Logo' => 'GitHubLogo'
+							const jsxName = _.upperFirst(
+								_.camelCase(
+									iconNode.name.replace(/([0-9a-z])([0-9A-Z])/g, "$1 $2"),
+								),
+							);
 
-					icons[iconNode.id] = {
-						jsxName,
-						svgName,
-						id: iconNode.id,
-						size: labelling.sizeFromFrameNodeName(iconSetNode.name),
-						type: labelling.typeFromFrameNodeName(iconSetNode.name),
-					};
+							icons[iconNode.id] = {
+								jsxName,
+								svgName,
+								id: iconNode.id,
+								size: labelling.sizeFromFrameNodeName(iconSetNode.name),
+								type: labelling.typeFromFrameNodeName(iconSetNode.name),
+							};
+						}
+					});
 				}
 			});
 		}
@@ -374,8 +386,8 @@ export async function downloadSvgsToFs(
 			)
 				.text()
 				.then((svgRaw) => transformers.passSVGO(svgRaw))
-				.then((svgRaw) => transformers.injectCurrentColor(svgRaw))
-				.then((svgRaw) => transformers.prettify(svgRaw));
+				.then((svgRaw) => transformers.injectCurrentColor(svgRaw));
+			// .then((svgRaw) => transformers.prettify(svgRaw));
 
 			const filePath = path.resolve(
 				currentTempDir,
