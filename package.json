@@ -13,7 +13,7 @@
 		"icons:generate": "pnpm --filter @radix-ui/react-icons generate-src",
 		"prettier": "prettier './**/*.{js,jsx,ts,tsx,json,yml,yaml,css,md,mdx}' --write",
 		"lint": "eslint './packages/**/*.{js,jsx,ts,tsx}'",
-		"clean": "npm run clean-logs && npm run clean-modules",
+		"clean": "pnpm run clean-logs && pnpm run clean-modules",
 		"clean-logs": "rimraf ./packages/*/npm-debug* && rimraf ./*-debug*",
 		"clean-modules": "rimraf ./packages/*/node_modules/ && rimraf ./node_modules/",
 		"release": "pnpm publish"

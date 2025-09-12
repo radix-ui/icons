@@ -23,9 +23,10 @@
 	},
 	"scripts": {
 		"generate-src": "generate-icon-lib --file=uvCPWGs49VP4oslkOtVcCu && mv ./icons/15/* ./icons && rmdir ./icons/15 && cd ./icons && zip -r ../../../radix-icons.zip ./",
-		"build": "rimraf dist && tsc",
-		"watch": "rimraf dist && tsdx watch --format es,cjs --entry src/index.tsx",
-		"prepublishOnly": "npm run build"
+		"build": "rimraf dist && pnpm build:esm && pnpm build:cjs",
+		"build:esm": "tsc",
+		"build:cjs": "tsc --project tsconfig.cjs.json",
+		"prepublishOnly": "pnpm build"
 	},
 	"peerDependencies": {
 		"react": "^16.x || ^17.x || ^18.x || ^19.0.0 || ^19.0.0-rc"
