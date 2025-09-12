@@ -37,7 +37,7 @@ async function main() {
 			flags: {
 				file: {
 					type: "string",
-					alias: "f",
+					shortFlag: "f",
 				},
 			},
 		},

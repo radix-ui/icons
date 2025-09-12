@@ -1,7 +1,8 @@
 import * as prettier from "prettier";
 import isOnline from "is-online";
 import { temporaryDirectory } from "tempy";
-import * as fs from "fs-extra";
+import * as fse from "fs-extra/esm";
+import * as fs from "fs";
 import * as cheerio from "cheerio";
 import * as path from "path";
 import * as _ from "lodash-es";
@@ -380,7 +381,7 @@ export async function downloadSvgsToFs(
 				currentTempDir,
 				labelling.filePathFromIcon(icons[iconId]),
 			);
-			await fs.outputFile(filePath, processedSvg, { encoding: "utf8" });
+			await fse.outputFile(filePath, processedSvg, { encoding: "utf8" });
 			currentListOfAddedFiles.push(filePath);
 			onProgress();
 		}),
@@ -420,9 +421,10 @@ export function filePathToSVGinJSXSync(filePath: string) {
 
 export async function generateReactComponents(icons: IIcons) {
 	const getTemplateSource = (templateFile: string) =>
-		fs.readFile(path.resolve(__dirname, "./templates/", templateFile), {
-			encoding: "utf8",
-		});
+		fs.promises.readFile(
+			path.resolve(import.meta.dirname, "./templates/", templateFile),
+			{ encoding: "utf8" },
+		);
 	const templates = {
 		entry: await getTemplateSource("entry.tsx.ejs"),
 		icon: await getTemplateSource("named-icon.tsx.ejs"),
@@ -509,7 +511,7 @@ export async function generateReactComponents(icons: IIcons) {
 			"src/",
 			templateHelpers.iconToReactFileName(icon),
 		);
-		await fs.outputFile(iconComponentFilePath, iconSource);
+		await fse.outputFile(iconComponentFilePath, iconSource);
 		currentListOfAddedFiles.push(iconComponentFilePath);
 	}
 
@@ -523,12 +525,12 @@ export async function generateReactComponents(icons: IIcons) {
 		parser: "typescript",
 	});
 	const entryFilePath = path.resolve(currentTempDir, FILE_PATH_ENTRY);
-	await fs.outputFile(entryFilePath, entrySource);
+	await fse.outputFile(entryFilePath, entrySource);
 	currentListOfAddedFiles.push(entryFilePath);
 
 	/* Generate Type Modules */
 	const typeDepsFilePath = path.resolve(currentTempDir, FILE_PATH_TYPES);
-	await fs.outputFile(typeDepsFilePath, templates.types);
+	await fse.outputFile(typeDepsFilePath, templates.types);
 	currentListOfAddedFiles.push(typeDepsFilePath);
 }
 
@@ -558,7 +560,7 @@ export async function generateIconManifest(icons: IIcons) {
 		parser: "json",
 	});
 	const previousIconManifest = await getCurrentIconManifest();
-	await fs.writeFile(iconManifestFilePath, iconManifestRaw, {
+	await fs.promises.writeFile(iconManifestFilePath, iconManifestRaw, {
 		encoding: "utf8",
 	});
 	currentListOfAddedFiles.push(iconManifestFilePath);
@@ -585,13 +587,13 @@ export async function swapGeneratedFiles(
 	);
 	for (const i in topLevelDirs) {
 		const topLevelDir = topLevelDirs[i];
-		await fs.remove(path.resolve(process.cwd(), topLevelDir));
+		await fse.remove(path.resolve(process.cwd(), topLevelDir));
 	}
 	//  4. The manifest file
-	await fs.remove(path.resolve(process.cwd(), FILE_PATH_MANIFEST));
+	await fse.remove(path.resolve(process.cwd(), FILE_PATH_MANIFEST));
 
 	/* Then we take all the contents of our temp dir and copy them to cwd: */
-	await fs.copy(currentTempDir, process.cwd());
+	await fse.copy(currentTempDir, process.cwd());
 
 	return [...topLevelDirs, FILE_PATH_MANIFEST];
 }

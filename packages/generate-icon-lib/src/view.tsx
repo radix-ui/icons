@@ -23,7 +23,8 @@ const Spinner = ({ text }: ISpinnerProps) => (
 	<Box>
 		<Text color="cyan">
 			<InkSpinner />
-		</Text>{" "}
+		</Text>
+		<Text> </Text>
 		<Text>{text}</Text>
 	</Box>
 );
@@ -73,7 +74,9 @@ const CliView = ({ state }: ICliViewProps) => {
 					<Static items={state.spinners.filter((entry) => entry.success)}>
 						{(entry) => (
 							<Box marginLeft={1} key={entry.text}>
-								<Text color="green">✓</Text> <Text>{entry.text}</Text>
+								<Text color="green">✓</Text>
+								<Text> </Text>
+								<Text>{entry.text}</Text>
 							</Box>
 						)}
 					</Static>
@@ -183,8 +186,10 @@ const DiffView = ({ state }: ICliViewProps) => {
 					id: "numstat-summary",
 					tree: (
 						<Text underline>
-							{statsWithChanges.length} file updates, {totals.additions}{" "}
-							additions <Text color="green">(+)</Text>, {totals.deletions}{" "}
+							{statsWithChanges.length} file updates, {totals.additions}
+							<Text> </Text>
+							additions <Text color="green">(+)</Text>, {totals.deletions}
+							<Text> </Text>
 							deletions <Text color="red">(-)</Text>
 						</Text>
 					),
