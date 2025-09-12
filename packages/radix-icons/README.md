@@ -19,16 +19,16 @@ npm install @radix-ui/react-icons
 Import the icons into your React project:
 
 ```js
-import { FaceIcon, ImageIcon, SunIcon } from '@radix-ui/react-icons';
+import { FaceIcon, ImageIcon, SunIcon } from "@radix-ui/react-icons";
 
 function MyComponent() {
-  return (
-    <div>
-      <FaceIcon />
-      <SunIcon />
-      <ImageIcon />
-    </div>
-  );
+	return (
+		<div>
+			<FaceIcon />
+			<SunIcon />
+			<ImageIcon />
+		</div>
+	);
 }
 ```
 
