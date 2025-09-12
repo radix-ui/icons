@@ -11,15 +11,21 @@
 		"icons": "pnpm --filter @radix-ui/react-icons watch",
 		"icons:build": "pnpm --filter @radix-ui/react-icons build",
 		"icons:generate": "pnpm --filter @radix-ui/react-icons generate-src",
-		"format": "prettier './**/*.{js,jsx,ts,tsx,json,yml,yaml,css,md,mdx}' --write",
 		"lint": "eslint './packages/**/*.{js,jsx,ts,tsx}'",
 		"clean": "pnpm run clean-logs && pnpm run clean-modules",
 		"clean-logs": "rimraf ./packages/*/npm-debug* && rimraf ./*-debug*",
 		"clean-modules": "rimraf ./packages/*/node_modules/ && rimraf ./node_modules/",
-		"release": "pnpm publish"
+		"bump:stable": "changeset version",
+		"bump:next": "changeset version --snapshot",
+		"bump:check": "changeset status --since=main",
+		"release:stable": "pnpm publish -r --access public",
+		"release:stable:ci": "pnpm publish -r --access public --publish-branch stable",
+		"release:next": "pnpm publish -r --access public --tag next",
+		"format": "prettier './**/*.{js,jsx,ts,tsx,json,yml,yaml,css,md,mdx}' --write"
 	},
 	"dependencies": {
 		"@chance/eslint": "^1.1.0",
+		"@changesets/cli": "^2.29.7",
 		"eslint": "^9.35.0",
 		"prettier": "^3.6.2",
 		"rimraf": "^6.0.1",
