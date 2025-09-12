@@ -1,0 +1,21 @@
+---
+"@radix-ui/react-icons": major
+---
+
+- Added new icons:
+  - `Database`
+  - `ExclamationCircled`
+  - `ExclamationMark`
+  - `Filter`
+  - `Globe2`
+  - `Minimize`
+  - `PanelBottom`
+  - `PanelBottomMinimized`
+  - `PanelLeft`
+  - `PanelLeftMinimized`
+  - `PanelRight`
+  - `PanelRightMinimized`
+  - `People`
+  - `Server`
+- Build output is no longer bundled into a single entrypoint. Icons are still exported from a main entrypoint, but separate chunks are maintained for better tree-shaking.
+- Updated SVGO to further reduces the size of the icons. The resulting SVGs no longer include `fill-rule="evenodd"` or `clip-rule="evenodd"` where they are not needed.
