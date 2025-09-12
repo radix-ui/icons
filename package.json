@@ -11,7 +11,7 @@
 		"icons": "pnpm --filter @radix-ui/react-icons watch",
 		"icons:build": "pnpm --filter @radix-ui/react-icons build",
 		"icons:generate": "pnpm --filter @radix-ui/react-icons generate-src",
-		"prettier": "prettier './**/*.{js,jsx,ts,tsx,json,yml,yaml,css,md,mdx}' --write",
+		"format": "prettier './**/*.{js,jsx,ts,tsx,json,yml,yaml,css,md,mdx}' --write",
 		"lint": "eslint './packages/**/*.{js,jsx,ts,tsx}'",
 		"clean": "pnpm run clean-logs && pnpm run clean-modules",
 		"clean-logs": "rimraf ./packages/*/npm-debug* && rimraf ./*-debug*",
