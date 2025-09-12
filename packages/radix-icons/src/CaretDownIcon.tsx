@@ -1,27 +1,25 @@
-import * as React from 'react';
-import { IconProps } from './types';
+import * as React from "react";
+import type { IconProps } from "./types";
 
 export const CaretDownIcon = React.forwardRef<SVGSVGElement, IconProps>(
-  ({ color = 'currentColor', ...props }, forwardedRef) => {
-    return (
-      <svg
-        width="15"
-        height="15"
-        viewBox="0 0 15 15"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        {...props}
-        ref={forwardedRef}
-      >
-        <path
-          d="M4.18179 6.18181C4.35753 6.00608 4.64245 6.00608 4.81819 6.18181L7.49999 8.86362L10.1818 6.18181C10.3575 6.00608 10.6424 6.00608 10.8182 6.18181C10.9939 6.35755 10.9939 6.64247 10.8182 6.81821L7.81819 9.81821C7.73379 9.9026 7.61934 9.95001 7.49999 9.95001C7.38064 9.95001 7.26618 9.9026 7.18179 9.81821L4.18179 6.81821C4.00605 6.64247 4.00605 6.35755 4.18179 6.18181Z"
-          fill={color}
-          fillRule="evenodd"
-          clipRule="evenodd"
-        />
-      </svg>
-    );
-  }
+	function CaretDownIcon({ color = "currentColor", ...props }, forwardedRef) {
+		return (
+			<svg
+				width="15"
+				height="15"
+				viewBox="0 0 15 15"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+				{...props}
+				ref={forwardedRef}
+			>
+				<path
+					d="M7.50022 9.95001C7.6195 9.94996 7.73423 9.90252 7.81858 9.81818L10.8186 6.81818C10.9941 6.64242 10.9942 6.35713 10.8186 6.18146C10.6429 6.00579 10.3576 6.00592 10.1819 6.18146L7.50022 8.8631L4.81858 6.18146L4.74827 6.12384C4.57365 6.00838 4.33571 6.02779 4.18186 6.18146C4.02803 6.33529 4.00876 6.57318 4.12424 6.74786L4.18186 6.81818L7.18186 9.81818C7.26625 9.90257 7.38087 9.95001 7.50022 9.95001Z"
+					fill={color}
+				/>
+			</svg>
+		);
+	},
 );
 
 export default CaretDownIcon;

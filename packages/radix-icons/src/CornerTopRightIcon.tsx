@@ -1,27 +1,28 @@
-import * as React from 'react';
-import { IconProps } from './types';
+import * as React from "react";
+import type { IconProps } from "./types";
 
 export const CornerTopRightIcon = React.forwardRef<SVGSVGElement, IconProps>(
-  ({ color = 'currentColor', ...props }, forwardedRef) => {
-    return (
-      <svg
-        width="15"
-        height="15"
-        viewBox="0 0 15 15"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        {...props}
-        ref={forwardedRef}
-      >
-        <path
-          d="M5.12263 3H5.1H3.5C3.22386 3 3 3.22386 3 3.5C3 3.77614 3.22386 4 3.5 4H5.1C6.22836 4 7.04455 4.00039 7.68648 4.05284C8.32256 4.10481 8.74338 4.20539 9.08897 4.38148C9.74753 4.71703 10.283 5.25247 10.6185 5.91103C10.7946 6.25662 10.8952 6.67744 10.9472 7.31352C10.9996 7.95545 11 8.77164 11 9.9V11.5C11 11.7761 11.2239 12 11.5 12C11.7761 12 12 11.7761 12 11.5V9.9V9.87737C12 8.77641 12 7.91948 11.9438 7.23209C11.8868 6.53416 11.7694 5.9671 11.5095 5.45704C11.0781 4.61031 10.3897 3.9219 9.54296 3.49047C9.0329 3.23058 8.46584 3.11318 7.76791 3.05616C7.08052 3 6.22359 3 5.12263 3Z"
-          fill={color}
-          fillRule="evenodd"
-          clipRule="evenodd"
-        />
-      </svg>
-    );
-  }
+	function CornerTopRightIcon(
+		{ color = "currentColor", ...props },
+		forwardedRef,
+	) {
+		return (
+			<svg
+				width="15"
+				height="15"
+				viewBox="0 0 15 15"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+				{...props}
+				ref={forwardedRef}
+			>
+				<path
+					d="M3.5 3C3.22386 3 3 3.22386 3 3.5C3 3.77614 3.22386 4 3.5 4H5.09961C6.22796 4 7.0446 4.00029 7.68652 4.05273C8.32259 4.10471 8.74328 4.20575 9.08887 4.38184C9.74738 4.71738 10.2826 5.25262 10.6182 5.91113C10.7942 6.25672 10.8953 6.67741 10.9473 7.31348C10.9997 7.9554 11 8.77204 11 9.90039V11.5C11 11.7761 11.2239 12 11.5 12C11.7761 12 12 11.7761 12 11.5V9.90039C12 8.78869 11.9999 7.92447 11.9434 7.23242C11.8863 6.53453 11.7696 5.96707 11.5098 5.45703C11.0783 4.6103 10.3897 3.92166 9.54297 3.49023C9.03293 3.23038 8.46547 3.11366 7.76758 3.05664C7.07553 3.00012 6.21131 3 5.09961 3H3.5Z"
+					fill={color}
+				/>
+			</svg>
+		);
+	},
 );
 
 export default CornerTopRightIcon;

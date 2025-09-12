@@ -1,27 +1,25 @@
-import * as React from 'react';
-import { IconProps } from './types';
+import * as React from "react";
+import type { IconProps } from "./types";
 
 export const LockClosedIcon = React.forwardRef<SVGSVGElement, IconProps>(
-  ({ color = 'currentColor', ...props }, forwardedRef) => {
-    return (
-      <svg
-        width="15"
-        height="15"
-        viewBox="0 0 15 15"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        {...props}
-        ref={forwardedRef}
-      >
-        <path
-          d="M5 4.63601C5 3.76031 5.24219 3.1054 5.64323 2.67357C6.03934 2.24705 6.64582 1.9783 7.5014 1.9783C8.35745 1.9783 8.96306 2.24652 9.35823 2.67208C9.75838 3.10299 10 3.75708 10 4.63325V5.99999H5V4.63601ZM4 5.99999V4.63601C4 3.58148 4.29339 2.65754 4.91049 1.99307C5.53252 1.32329 6.42675 0.978302 7.5014 0.978302C8.57583 0.978302 9.46952 1.32233 10.091 1.99162C10.7076 2.65557 11 3.57896 11 4.63325V5.99999H12C12.5523 5.99999 13 6.44771 13 6.99999V13C13 13.5523 12.5523 14 12 14H3C2.44772 14 2 13.5523 2 13V6.99999C2 6.44771 2.44772 5.99999 3 5.99999H4ZM3 6.99999H12V13H3V6.99999Z"
-          fill={color}
-          fillRule="evenodd"
-          clipRule="evenodd"
-        />
-      </svg>
-    );
-  }
+	function LockClosedIcon({ color = "currentColor", ...props }, forwardedRef) {
+		return (
+			<svg
+				width="15"
+				height="15"
+				viewBox="0 0 15 15"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+				{...props}
+				ref={forwardedRef}
+			>
+				<path
+					d="M7.50098 0.97831C8.5754 0.97831 9.46932 1.32269 10.0908 1.99198C10.7073 2.65592 11 3.57934 11 4.63358V5.99979H12C12.5522 5.99979 12.9999 6.4476 13 6.99979V12.9998C13 13.5521 12.5523 13.9998 12 13.9998H3C2.44772 13.9998 2 13.5521 2 12.9998V6.99979C2.00011 6.4476 2.44778 5.99979 3 5.99979H4V4.63554C4.00009 3.58126 4.29322 2.65732 4.91016 1.99296C5.53211 1.32327 6.42651 0.978401 7.50098 0.97831ZM3 12.9998H12V6.99979H3V12.9998ZM7.50098 1.97831C6.64571 1.9784 6.0396 2.24726 5.64355 2.67362C5.24259 3.10537 5.00009 3.76007 5 4.63554V5.99979H10V4.63358C10 3.75741 9.75854 3.10258 9.3584 2.67167C8.96322 2.24619 8.35692 1.97831 7.50098 1.97831Z"
+					fill={color}
+				/>
+			</svg>
+		);
+	},
 );
 
 export default LockClosedIcon;

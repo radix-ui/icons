@@ -1,27 +1,25 @@
-import * as React from 'react';
-import { IconProps } from './types';
+import * as React from "react";
+import type { IconProps } from "./types";
 
 export const CaretLeftIcon = React.forwardRef<SVGSVGElement, IconProps>(
-  ({ color = 'currentColor', ...props }, forwardedRef) => {
-    return (
-      <svg
-        width="15"
-        height="15"
-        viewBox="0 0 15 15"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        {...props}
-        ref={forwardedRef}
-      >
-        <path
-          d="M8.81809 4.18179C8.99383 4.35753 8.99383 4.64245 8.81809 4.81819L6.13629 7.49999L8.81809 10.1818C8.99383 10.3575 8.99383 10.6424 8.81809 10.8182C8.64236 10.9939 8.35743 10.9939 8.1817 10.8182L5.1817 7.81819C5.09731 7.73379 5.0499 7.61933 5.0499 7.49999C5.0499 7.38064 5.09731 7.26618 5.1817 7.18179L8.1817 4.18179C8.35743 4.00605 8.64236 4.00605 8.81809 4.18179Z"
-          fill={color}
-          fillRule="evenodd"
-          clipRule="evenodd"
-        />
-      </svg>
-    );
-  }
+	function CaretLeftIcon({ color = "currentColor", ...props }, forwardedRef) {
+		return (
+			<svg
+				width="15"
+				height="15"
+				viewBox="0 0 15 15"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+				{...props}
+				ref={forwardedRef}
+			>
+				<path
+					d="M5.04988 7.50012C5.04994 7.6194 5.09737 7.73413 5.18172 7.81848L8.18172 10.8185L8.25203 10.8761C8.4267 10.9914 8.66466 10.9723 8.81844 10.8185C8.97222 10.6647 8.99141 10.4267 8.87606 10.2521L8.81844 10.1818L6.1368 7.50012L8.81844 4.81848C8.99411 4.64281 8.99398 4.35751 8.81844 4.18176C8.6427 4.00602 8.35746 4.00602 8.18172 4.18176L5.18172 7.18176C5.09733 7.26615 5.04988 7.38077 5.04988 7.50012Z"
+					fill={color}
+				/>
+			</svg>
+		);
+	},
 );
 
 export default CaretLeftIcon;

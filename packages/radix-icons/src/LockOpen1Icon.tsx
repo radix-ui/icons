@@ -1,27 +1,25 @@
-import * as React from 'react';
-import { IconProps } from './types';
+import * as React from "react";
+import type { IconProps } from "./types";
 
 export const LockOpen1Icon = React.forwardRef<SVGSVGElement, IconProps>(
-  ({ color = 'currentColor', ...props }, forwardedRef) => {
-    return (
-      <svg
-        width="15"
-        height="15"
-        viewBox="0 0 15 15"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        {...props}
-        ref={forwardedRef}
-      >
-        <path
-          d="M7.4986 0C6.3257 0 5.36107 0.38943 4.73753 1.19361C4.23745 1.83856 4 2.68242 4 3.63325H5C5 2.84313 5.19691 2.23312 5.5278 1.80636C5.91615 1.30552 6.55152 1 7.4986 1C8.35683 1 8.96336 1.26502 9.35846 1.68623C9.75793 2.11211 10 2.76044 10 3.63601V6H3C2.44772 6 2 6.44772 2 7V13C2 13.5523 2.44772 14 3 14H12C12.5523 14 13 13.5523 13 13V7C13 6.44771 12.5523 6 12 6H11V3.63601C11 2.58135 10.7065 1.66167 10.0878 1.0021C9.46477 0.337871 8.57061 0 7.4986 0ZM3 7H12V13H3V7Z"
-          fill={color}
-          fillRule="evenodd"
-          clipRule="evenodd"
-        />
-      </svg>
-    );
-  }
+	function LockOpen1Icon({ color = "currentColor", ...props }, forwardedRef) {
+		return (
+			<svg
+				width="15"
+				height="15"
+				viewBox="0 0 15 15"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+				{...props}
+				ref={forwardedRef}
+			>
+				<path
+					d="M7.49902 0C8.57082 8.94091e-05 9.46493 0.337839 10.0879 1.00195C10.7065 1.66147 10.9999 2.58119 11 3.63574V6H12C12.5523 6 13 6.44772 13 7V13C13 13.5523 12.5523 14 12 14H3C2.44772 14 2 13.5523 2 13V7C2 6.44772 2.44772 6 3 6H10V3.63574C9.99995 2.76039 9.75776 2.11236 9.3584 1.68652C8.96337 1.26538 8.35703 1.00009 7.49902 1C6.61111 1 5.99677 1.26857 5.60352 1.71484L5.52734 1.80664C5.1967 2.23329 5.00007 2.84315 5 3.63281H4C4.00007 2.68216 4.2373 1.83821 4.7373 1.19336L4.8584 1.04785C5.48245 0.342377 6.39938 0 7.49902 0ZM3 13H12V7H3V13Z"
+					fill={color}
+				/>
+			</svg>
+		);
+	},
 );
 
 export default LockOpen1Icon;

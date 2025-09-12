@@ -1,27 +1,28 @@
-import * as React from 'react';
-import { IconProps } from './types';
+import * as React from "react";
+import type { IconProps } from "./types";
 
 export const ComponentBooleanIcon = React.forwardRef<SVGSVGElement, IconProps>(
-  ({ color = 'currentColor', ...props }, forwardedRef) => {
-    return (
-      <svg
-        width="15"
-        height="15"
-        viewBox="0 0 15 15"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        {...props}
-        ref={forwardedRef}
-      >
-        <path
-          d="M7.85367 1.48956C7.65841 1.29429 7.34182 1.29429 7.14656 1.48956L1.48971 7.14641C1.29445 7.34167 1.29445 7.65825 1.48971 7.85352L7.14656 13.5104C7.34182 13.7056 7.65841 13.7056 7.85367 13.5104L13.5105 7.85352C13.7058 7.65825 13.7058 7.34167 13.5105 7.14641L7.85367 1.48956ZM7.5 2.55033L2.55037 7.49996L7.5 12.4496V2.55033Z"
-          fill={color}
-          fillRule="evenodd"
-          clipRule="evenodd"
-        />
-      </svg>
-    );
-  }
+	function ComponentBooleanIcon(
+		{ color = "currentColor", ...props },
+		forwardedRef,
+	) {
+		return (
+			<svg
+				width="15"
+				height="15"
+				viewBox="0 0 15 15"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+				{...props}
+				ref={forwardedRef}
+			>
+				<path
+					d="M7.22415 1.42515C7.41824 1.29685 7.68311 1.31868 7.85403 1.4896L13.5103 7.14683L13.5747 7.22397C13.703 7.41807 13.6812 7.68294 13.5103 7.85386L7.85403 13.5101C7.65879 13.7053 7.34227 13.7053 7.147 13.5101L1.48977 7.85386C1.29457 7.65865 1.29469 7.3421 1.48977 7.14683L7.147 1.4896L7.22415 1.42515ZM2.55032 7.50034L7.50051 12.4496V2.55015L2.55032 7.50034Z"
+					fill={color}
+				/>
+			</svg>
+		);
+	},
 );
 
 export default ComponentBooleanIcon;

@@ -1,27 +1,28 @@
-import * as React from 'react';
-import { IconProps } from './types';
+import * as React from "react";
+import type { IconProps } from "./types";
 
 export const EnvelopeOpenIcon = React.forwardRef<SVGSVGElement, IconProps>(
-  ({ color = 'currentColor', ...props }, forwardedRef) => {
-    return (
-      <svg
-        width="15"
-        height="15"
-        viewBox="0 0 15 15"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        {...props}
-        ref={forwardedRef}
-      >
-        <path
-          d="M7.94721 0.164594C7.66569 0.0238299 7.33431 0.0238302 7.05279 0.164594L0.552786 3.41459C0.214002 3.58399 0 3.93025 0 4.30902V12C0 12.5523 0.447715 13 1 13H14C14.5523 13 15 12.5523 15 12V4.30902C15 3.93025 14.786 3.58399 14.4472 3.41459L7.94721 0.164594ZM13.5689 4.09349L7.5 1.05902L1.43105 4.09349L7.5 7.29136L13.5689 4.09349ZM1 4.88366V12H14V4.88366L7.70977 8.19813C7.57848 8.26731 7.42152 8.26731 7.29023 8.19813L1 4.88366Z"
-          fill={color}
-          fillRule="evenodd"
-          clipRule="evenodd"
-        />
-      </svg>
-    );
-  }
+	function EnvelopeOpenIcon(
+		{ color = "currentColor", ...props },
+		forwardedRef,
+	) {
+		return (
+			<svg
+				width="15"
+				height="15"
+				viewBox="0 0 15 15"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+				{...props}
+				ref={forwardedRef}
+			>
+				<path
+					d="M7.16016 0.118583C7.41609 0.026115 7.70086 0.0422529 7.94727 0.165458L14.4473 3.41546L14.5684 3.48675C14.8359 3.67163 14.9999 3.97791 15 4.30901V12.0004C14.9998 12.5525 14.5521 13.0004 14 13.0004H1C0.447856 13.0004 0.00022869 12.5525 0 12.0004V4.30901C0.00015935 3.93055 0.214303 3.58486 0.552734 3.41546L7.05273 0.165458L7.16016 0.118583ZM7.70996 8.19866C7.57876 8.26772 7.42124 8.26772 7.29004 8.19866L1 4.88421V12.0004H14V4.88421L7.70996 8.19866ZM1.43066 4.09319L7.5 7.29143L13.5684 4.09319L7.5 1.05901L1.43066 4.09319Z"
+					fill={color}
+				/>
+			</svg>
+		);
+	},
 );
 
 export default EnvelopeOpenIcon;

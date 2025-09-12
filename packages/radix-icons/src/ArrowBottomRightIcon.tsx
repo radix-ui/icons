@@ -1,27 +1,28 @@
-import * as React from 'react';
-import { IconProps } from './types';
+import * as React from "react";
+import type { IconProps } from "./types";
 
 export const ArrowBottomRightIcon = React.forwardRef<SVGSVGElement, IconProps>(
-  ({ color = 'currentColor', ...props }, forwardedRef) => {
-    return (
-      <svg
-        width="15"
-        height="15"
-        viewBox="0 0 15 15"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        {...props}
-        ref={forwardedRef}
-      >
-        <path
-          d="M3.64645 3.64644C3.45118 3.8417 3.45118 4.15828 3.64645 4.35354L10.2929 11L6 11C5.72386 11 5.5 11.2239 5.5 11.5C5.5 11.7761 5.72386 12 6 12L11.5 12C11.6326 12 11.7598 11.9473 11.8536 11.8536C11.9473 11.7598 12 11.6326 12 11.5L12 5.99999C12 5.72385 11.7761 5.49999 11.5 5.49999C11.2239 5.49999 11 5.72385 11 5.99999V10.2929L4.35355 3.64643C4.15829 3.45117 3.84171 3.45117 3.64645 3.64644Z"
-          fill={color}
-          fillRule="evenodd"
-          clipRule="evenodd"
-        />
-      </svg>
-    );
-  }
+	function ArrowBottomRightIcon(
+		{ color = "currentColor", ...props },
+		forwardedRef,
+	) {
+		return (
+			<svg
+				width="15"
+				height="15"
+				viewBox="0 0 15 15"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+				{...props}
+				ref={forwardedRef}
+			>
+				<path
+					d="M11.4998 12C11.6322 12 11.7596 11.9471 11.8533 11.8535C11.9468 11.7599 11.9997 11.6323 11.9998 11.5V6L11.99 5.89844C11.9432 5.67099 11.7411 5.50009 11.4998 5.5C11.2582 5.50009 11.0561 5.67154 11.0096 5.89941L10.9998 6V10.293L4.35333 3.64648C4.15816 3.45132 3.84158 3.45152 3.6463 3.64648C3.45133 3.84177 3.45114 4.15835 3.6463 4.35352L10.2928 11H5.99981C5.7238 11 5.49996 11.224 5.49981 11.5C5.49996 11.776 5.7238 12 5.99981 12H11.4998Z"
+					fill={color}
+				/>
+			</svg>
+		);
+	},
 );
 
 export default ArrowBottomRightIcon;

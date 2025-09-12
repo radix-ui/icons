@@ -1,27 +1,25 @@
-import * as React from 'react';
-import { IconProps } from './types';
+import * as React from "react";
+import type { IconProps } from "./types";
 
 export const ChevronUpIcon = React.forwardRef<SVGSVGElement, IconProps>(
-  ({ color = 'currentColor', ...props }, forwardedRef) => {
-    return (
-      <svg
-        width="15"
-        height="15"
-        viewBox="0 0 15 15"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        {...props}
-        ref={forwardedRef}
-      >
-        <path
-          d="M3.13523 8.84197C3.3241 9.04343 3.64052 9.05363 3.84197 8.86477L7.5 5.43536L11.158 8.86477C11.3595 9.05363 11.6759 9.04343 11.8648 8.84197C12.0536 8.64051 12.0434 8.32409 11.842 8.13523L7.84197 4.38523C7.64964 4.20492 7.35036 4.20492 7.15803 4.38523L3.15803 8.13523C2.95657 8.32409 2.94637 8.64051 3.13523 8.84197Z"
-          fill={color}
-          fillRule="evenodd"
-          clipRule="evenodd"
-        />
-      </svg>
-    );
-  }
+	function ChevronUpIcon({ color = "currentColor", ...props }, forwardedRef) {
+		return (
+			<svg
+				width="15"
+				height="15"
+				viewBox="0 0 15 15"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+				{...props}
+				ref={forwardedRef}
+			>
+				<path
+					d="M11.1581 8.86501C11.3595 9.05356 11.6763 9.04292 11.8651 8.84157C12.0536 8.6401 12.043 8.32331 11.8416 8.13454L7.84165 4.38454C7.64941 4.20464 7.35029 4.20464 7.15805 4.38454L3.15805 8.13454L3.09165 8.21169C2.95746 8.40141 2.96967 8.66532 3.13461 8.84157C3.29985 9.01783 3.56347 9.04831 3.76157 8.92653L3.84165 8.86501L7.49985 5.4363L11.1581 8.86501Z"
+					fill={color}
+				/>
+			</svg>
+		);
+	},
 );
 
 export default ChevronUpIcon;

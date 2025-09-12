@@ -1,27 +1,29 @@
-import * as React from 'react';
-import { IconProps } from './types';
+import * as React from "react";
+import type { IconProps } from "./types";
 
-export const SpaceEvenlyVerticallyIcon = React.forwardRef<SVGSVGElement, IconProps>(
-  ({ color = 'currentColor', ...props }, forwardedRef) => {
-    return (
-      <svg
-        width="15"
-        height="15"
-        viewBox="0 0 15 15"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        {...props}
-        ref={forwardedRef}
-      >
-        <path
-          d="M0.999878 0.5C0.999878 0.223858 1.22374 0 1.49988 0H13.4999C13.776 0 13.9999 0.223858 13.9999 0.5C13.9999 0.776142 13.776 1 13.4999 1H1.49988C1.22374 1 0.999878 0.776142 0.999878 0.5ZM7 2C6.44772 2 6 2.44772 6 3V6C6 6.55228 6.44772 7 7 7H8C8.55228 7 9 6.55228 9 6V3C9 2.44772 8.55228 2 8 2H7ZM7 8C6.44772 8 6 8.44771 6 9V12C6 12.5523 6.44772 13 7 13H8C8.55228 13 9 12.5523 9 12V9C9 8.44772 8.55228 8 8 8H7ZM1.49988 14C1.22374 14 0.999878 14.2239 0.999878 14.5C0.999878 14.7761 1.22374 15 1.49988 15H13.4999C13.776 15 13.9999 14.7761 13.9999 14.5C13.9999 14.2239 13.776 14 13.4999 14H1.49988Z"
-          fill={color}
-          fillRule="evenodd"
-          clipRule="evenodd"
-        />
-      </svg>
-    );
-  }
-);
+export const SpaceEvenlyVerticallyIcon = React.forwardRef<
+	SVGSVGElement,
+	IconProps
+>(function SpaceEvenlyVerticallyIcon(
+	{ color = "currentColor", ...props },
+	forwardedRef,
+) {
+	return (
+		<svg
+			width="15"
+			height="15"
+			viewBox="0 0 15 15"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			{...props}
+			ref={forwardedRef}
+		>
+			<path
+				d="M13.4999 14C13.776 14 13.9999 14.2239 13.9999 14.5C13.9999 14.7761 13.776 15 13.4999 15H1.49988C1.22373 15 0.999877 14.7761 0.999877 14.5C0.999877 14.2239 1.22373 14 1.49988 14H13.4999ZM7.99987 8.00001C8.55215 8.00001 8.99987 8.44772 8.99987 9.00001V12C8.99987 12.5523 8.55215 13 7.99987 13H6.99987C6.44764 12.9999 5.99987 12.5522 5.99987 12V9.00001C5.99987 8.44776 6.44764 8.00007 6.99987 8.00001H7.99987ZM7.99987 2.00001C8.55215 2.00001 8.99987 2.44773 8.99987 3.00001V6.00001C8.99987 6.55229 8.55215 7.00001 7.99987 7.00001H6.99987C6.44764 6.99994 5.99987 6.55225 5.99987 6.00001V3.00001C5.99987 2.44777 6.44764 2.00008 6.99987 2.00001H7.99987ZM13.4999 1.52588e-05C13.776 1.5452e-05 13.9999 0.223873 13.9999 0.500015C13.9999 0.776157 13.776 1.00001 13.4999 1.00001H1.49988C1.22373 1.00001 0.999877 0.776157 0.999877 0.500015C0.999877 0.223873 1.22373 1.52688e-05 1.49988 1.52588e-05H13.4999Z"
+				fill={color}
+			/>
+		</svg>
+	);
+});
 
 export default SpaceEvenlyVerticallyIcon;
