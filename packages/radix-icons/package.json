@@ -5,21 +5,48 @@
 	"description": "Radix UI React Icon Set",
 	"source": "./src/index.tsx",
 	"type": "module",
-	"main": "./src/index.ts",
-	"module": "./src/index.ts",
+	"main": "./src/index.tsx",
+	"module": "./src/index.tsx",
+	"exports": {
+		".": "./src/index.tsx",
+		"./icons/*.svg": "./icons/*.svg",
+		"./*": "./src/*.tsx"
+	},
 	"files": [
-		"outline/",
-		"solid/",
-		"dist/",
-		"index.js",
+		"dist",
+		"src",
+		"icons",
 		"manifest.json"
 	],
 	"sideEffects": false,
 	"publishConfig": {
 		"access": "public",
-		"module": "dist/react-icons.esm.js",
-		"main": "index.js",
-		"types": "dist/index.d.ts"
+		"module": "dist/index.js",
+		"main": "dist/index.js",
+		"types": "dist/index.d.ts",
+		"exports": {
+			".": {
+				"import": {
+					"types": "./dist/index.d.ts",
+					"default": "./dist/index.js"
+				},
+				"require": {
+					"types": "./dist/csj/index.d.ts",
+					"default": "./dist/cjs/index.js"
+				}
+			},
+			"./icons/*.svg": "./icons/*.svg",
+			"./*": {
+				"import": {
+					"types": "./dist/*.d.ts",
+					"default": "./dist/*.js"
+				},
+				"require": {
+					"types": "./dist/csj/*.d.ts",
+					"default": "./dist/cjs/*.js"
+				}
+			}
+		}
 	},
 	"scripts": {
 		"generate-src": "generate-icon-lib --file=uvCPWGs49VP4oslkOtVcCu && mv ./icons/15/* ./icons && rmdir ./icons/15 && cd ./icons && zip -r ../../../radix-icons.zip ./",
