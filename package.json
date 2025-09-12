@@ -18,7 +18,7 @@
 		"clean-modules": "rimraf ./packages/*/node_modules/ && rimraf ./node_modules/",
 		"release": "pnpm publish"
 	},
-	"devDependencies": {
+	"dependencies": {
 		"@chance/eslint": "^1.1.0",
 		"eslint": "^9.35.0",
 		"husky": "^9.1.7",
