@@ -6,7 +6,7 @@ on:
       - main
     paths-ignore:
       # - '.github/**'
-      - "**/package.json"
+      # - "**/package.json"
 
 env:
   NPM_TOKEN: ${{ secrets.NPM_AUTOMATION_FROM_CHANCE }}
