@@ -56,14 +56,7 @@ const transformers = {
 				"convertColors",
 				"removeUnknownsAndDefaults",
 				"removeNonInheritableGroupAttrs",
-				{
-					name: "removeUselessStrokeAndFill",
-					params: {
-						stroke: false,
-						fill: false,
-						removeNone: false,
-					},
-				},
+				"removeUselessStrokeAndFill",
 				// "removeViewBox",
 				"cleanupEnableBackground",
 				"removeHiddenElems",
