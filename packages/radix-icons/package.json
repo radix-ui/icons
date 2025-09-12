@@ -23,7 +23,7 @@
 	},
 	"scripts": {
 		"generate-src": "generate-icon-lib --file=uvCPWGs49VP4oslkOtVcCu && mv ./icons/15/* ./icons && rmdir ./icons/15 && cd ./icons && zip -r ../../../radix-icons.zip ./",
-		"build": "rimraf dist && tsdx build --format es,cjs --entry src/index.tsx",
+		"build": "rimraf dist && tsc",
 		"watch": "rimraf dist && tsdx watch --format es,cjs --entry src/index.tsx",
 		"prepublishOnly": "npm run build"
 	},
@@ -33,7 +33,9 @@
 	"devDependencies": {
 		"@repo/generate-icon-lib": "workspace:*",
 		"@types/react": "^19.1.12",
+		"@types/react-dom": "^19.1.9",
 		"react": "^19.1.1",
-		"tsdx": "^0.14.1"
+		"tsdx": "^0.14.1",
+		"typescript": "^5.9.2"
 	}
 }

@@ -1,20 +1,22 @@
 {
-  "include": ["src/**/*"],
-  "compilerOptions": {
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "noImplicitAny": false,
-    "skipLibCheck": true,
-    "module": "esnext",
-    "sourceMap": true,
-    "outDir": "dist",
-    "target": "es5",
-    "baseUrl": ".",
-    "jsx": "react",
-    "paths": {
-      "*": ["node_modules/*", "src/types/*"]
-    }
-  }
+	"include": ["src"],
+	"exclude": ["node_modules", "dist"],
+	"compilerOptions": {
+		"forceConsistentCasingInFileNames": true,
+		"declaration": true,
+		"declarationMap": true,
+		"esModuleInterop": true,
+		"incremental": false,
+		"isolatedModules": true,
+		"lib": ["ESNext", "DOM", "DOM.Iterable"],
+		"moduleDetection": "force",
+		"moduleResolution": "NodeNext",
+		"noUncheckedIndexedAccess": true,
+		"outDir": "dist",
+		"skipLibCheck": true,
+		"strict": true,
+		"target": "ES2022",
+		"jsx": "react-jsx",
+		"module": "NodeNext"
+	}
 }
