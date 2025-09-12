@@ -1,6 +1,14 @@
----
+<!--
 
-PR checklist:
+Thank you for contributing! Please follow the steps below to help us process your PR quickly.
+
+-->
+
+### Description
+
+<!-- Describe the change you are introducing -->
+
+### Checklist
 
 - [ ] Figma: icon shapes use “Scale” constraint
 - [ ] Figma: icon components are sorted Z-A in the file
