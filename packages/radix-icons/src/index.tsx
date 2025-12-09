@@ -11,6 +11,7 @@ export { default as CodeSandboxLogoIcon } from "./CodeSandboxLogoIcon.js";
 export { default as NotionLogoIcon } from "./NotionLogoIcon.js";
 export { default as DiscordLogoIcon } from "./DiscordLogoIcon.js";
 export { default as InstagramLogoIcon } from "./InstagramLogoIcon.js";
+export { default as FacebookLogoIcon } from "./FacebookLogoIcon.js";
 export { default as LinkedInLogoIcon } from "./LinkedInLogoIcon.js";
 export { default as Cross1Icon } from "./Cross1Icon.js";
 export { default as HamburgerMenuIcon } from "./HamburgerMenuIcon.js";

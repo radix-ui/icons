@@ -1,0 +1,28 @@
+import * as React from "react";
+import type { IconProps } from "./types.js";
+
+export const FacebookLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
+	function FacebookLogoIcon(
+		{ color = "currentColor", ...props },
+		forwardedRef,
+	) {
+		return (
+			<svg
+				width="15"
+				height="15"
+				viewBox="0 0 15 15"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+				{...props}
+				ref={forwardedRef}
+			>
+				<path
+					d="M7.5 1C3.91015 1 1 3.91015 1 7.5C1 10.7227 3.27734 13.4453 6.375 13.9375V9.6875H4.625V7.5H6.375V5.9375C6.375 4.25 7.3125 3.4375 8.8125 3.4375C9.4375 3.4375 10.0625 3.5625 10.0625 3.5625V5.3125H9.375C8.6875 5.3125 8.375 5.6875 8.375 6.0625V7.5H9.9375L9.625 9.6875H8.375V13.9375C11.4727 13.4453 13.75 10.7227 13.75 7.5C13.75 3.91015 10.8398 1 7.5 1Z"
+					fill={color}
+				/>
+			</svg>
+		);
+	},
+);
+
+export default FacebookLogoIcon;
